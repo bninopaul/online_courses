@@ -1,0 +1,626 @@
+1
+00:00:00,680 --> 00:00:04,440
+So some of the key base plotting functions
+that you'll use a lot of
+
+2
+00:00:04,440 --> 00:00:07,480
+course is the, one, the first is the plot
+function which makes a scatterplot.
+
+3
+00:00:08,500 --> 00:00:09,870
+And it can make other types of
+
+4
+00:00:09,870 --> 00:00:12,190
+plots depending on whether you're, you're
+plotting a
+
+5
+00:00:12,190 --> 00:00:14,210
+special type of object, but for the
+
+6
+00:00:14,210 --> 00:00:15,829
+most part you usually want to make
+scatterplots.
+
+7
+00:00:17,115 --> 00:00:21,300
+Uh,lines is a, is a function that doesn't
+create a plot but it adds to a plot
+
+8
+00:00:21,300 --> 00:00:25,855
+and so sometimes you want to connect a lot
+of dots together so you want to make like
+
+9
+00:00:25,855 --> 00:00:27,610
+uh,a time series type of font.
+
+10
+00:00:27,610 --> 00:00:28,940
+You want to make, you want to draw
+
+11
+00:00:28,940 --> 00:00:32,559
+lines instead of scatterplot lines is
+useful for that.
+
+12
+00:00:33,690 --> 00:00:35,870
+points, adds points to a plot, so
+sometimes
+
+13
+00:00:35,870 --> 00:00:37,440
+you want to create a plot, and then you
+want to
+
+14
+00:00:37,440 --> 00:00:38,940
+add some other points that might represent
+a
+
+15
+00:00:38,940 --> 00:00:42,050
+different group or a different subset of
+the population.
+
+16
+00:00:42,050 --> 00:00:46,640
+Text as labels, so you want to annotate
+the plot with text labels.
+
+17
+00:00:46,640 --> 00:00:51,400
+Title adds so text can be used, I should
+say, to add labels within the plot.
+
+18
+00:00:51,400 --> 00:00:54,280
+And the title function is typically used
+to add annotations outside the
+
+19
+00:00:54,280 --> 00:00:59,140
+plot, like x and y axis labels, titles,
+subtitles, and things like that.
+
+20
+00:00:59,140 --> 00:01:01,890
+Mtext is, the m stands for margins, so
+it's
+
+21
+00:01:01,890 --> 00:01:04,480
+used to place text in the margins of the
+plot,
+
+22
+00:01:04,480 --> 00:01:06,375
+both the inner and the outer margin, and
+the
+
+23
+00:01:06,375 --> 00:01:09,400
+axis function is for use for specifying
+the axis ticks.
+
+24
+00:01:11,360 --> 00:01:13,600
+So here is a couple, a couple examples of
+how to
+
+25
+00:01:13,600 --> 00:01:16,480
+make plots, and then adding, annotating
+them, here I am plotting
+
+26
+00:01:16,480 --> 00:01:19,150
+the wind and ozone that I had before.
+
+27
+00:01:19,150 --> 00:01:22,640
+Or scatterplot, but now I'm adding a title
+to the top of the plot.
+
+28
+00:01:22,640 --> 00:01:25,310
+So here is the ozone and wind from, in New
+York City.
+
+29
+00:01:27,510 --> 00:01:29,065
+In this plot, I'm again doing a
+
+30
+00:01:29,065 --> 00:01:31,530
+scatterplot, but I, instead of using the
+title
+
+31
+00:01:31,530 --> 00:01:34,950
+function to add the title, I just, I put
+the title directly into the call
+
+32
+00:01:34,950 --> 00:01:38,940
+to plot, but then, what I want to do is, I
+want to sub-set, I want to kind of
+
+33
+00:01:38,940 --> 00:01:43,370
+plot all of the data points that are in
+the month of May a different color.
+
+34
+00:01:43,370 --> 00:01:44,860
+And so what I do is I subset
+
+35
+00:01:44,860 --> 00:01:47,018
+the data frame just to include the
+observations from
+
+36
+00:01:47,018 --> 00:01:53,210
+month equals 5, and then I use the points
+function to add, to kind of re add points,
+
+37
+00:01:53,210 --> 00:01:54,350
+but this time color them blue.
+
+38
+00:01:54,350 --> 00:01:58,480
+So you can see in the plot below that the
+the, they're a subset of
+
+39
+00:01:58,480 --> 00:02:02,680
+blue points, and those correspond to the,
+to the data points in the month of May.
+
+40
+00:02:05,250 --> 00:02:11,915
+Now I could do um,um, more subsets so I
+can plot them different colors.
+
+41
+00:02:11,915 --> 00:02:17,260
+Cause here I'm, I'm plotting but the
+um,the initializing a plot but
+
+42
+00:02:17,260 --> 00:02:19,910
+then one thing you can see is I added the
+argument type equals
+
+43
+00:02:19,910 --> 00:02:23,370
+n and so what type equals n means it
+basically sets up
+
+44
+00:02:23,370 --> 00:02:24,820
+the plot and initializes the graphics
+
+45
+00:02:24,820 --> 00:02:27,580
+device but it doesn't actually plot
+anything.
+
+46
+00:02:27,580 --> 00:02:30,120
+So it doesn't put anything into the
+plotting region.
+
+47
+00:02:30,120 --> 00:02:30,430
+It just
+
+48
+00:02:30,430 --> 00:02:34,600
+makes a, it sets up all the other stuff in
+the plot without the actual data.
+
+49
+00:02:34,600 --> 00:02:36,980
+And then as I, in order to put the data
+into
+
+50
+00:02:36,980 --> 00:02:40,600
+the plot, I kind of go through subsets of
+the data frame.
+
+51
+00:02:40,600 --> 00:02:44,210
+To add the data from the month of May, and
+add data for the month of not May.
+
+52
+00:02:44,210 --> 00:02:47,110
+So, for the month of May, I make that
+color blue, and then, for
+
+53
+00:02:47,110 --> 00:02:50,810
+the other months that are not equal to
+May, I just make that color red.
+
+54
+00:02:50,810 --> 00:02:52,360
+So, you can see all of the other points
+are red.
+
+55
+00:02:52,360 --> 00:02:55,430
+So now, I can kind of accurately see which
+ones are blue, which ones are
+
+56
+00:02:55,430 --> 00:02:59,090
+May, without kind of ov, over plotting
+existing points.
+
+57
+00:02:59,090 --> 00:03:02,660
+And then as a last touch, I add a legend
+to the top right part of the plot, so I
+
+58
+00:03:02,660 --> 00:03:09,260
+can distinguish, which ones are May, which
+ones are not May.
+
+59
+00:03:09,260 --> 00:03:13,590
+Finally, one common thing you will
+typically want
+
+60
+00:03:13,590 --> 00:03:15,280
+to do is add a regression line or
+
+61
+00:03:15,280 --> 00:03:16,430
+a smoother to a plot, so here I've
+
+62
+00:03:16,430 --> 00:03:19,680
+just added a regression line to this same
+scatterplot.
+
+63
+00:03:19,680 --> 00:03:20,540
+So I first make
+
+64
+00:03:20,540 --> 00:03:23,370
+the scatterplot and you notice, I changed
+the default.
+
+65
+00:03:23,370 --> 00:03:25,630
+Plotting character pch to be 20.
+
+66
+00:03:25,630 --> 00:03:29,500
+So, 20 is a kind of small filled in
+circle.
+
+67
+00:03:29,500 --> 00:03:34,160
+And then I fit a linear model to the data,
+which is using the LM function.
+
+68
+00:03:34,160 --> 00:03:36,070
+And then I just call the abline function,
+which
+
+69
+00:03:36,070 --> 00:03:39,440
+is another annotation function, ah,and I
+just pass it,
+
+70
+00:03:39,440 --> 00:03:42,850
+the linear model object and I specify lwd
+equals
+
+71
+00:03:42,850 --> 00:03:45,570
+to 2, which is a thicker line than the
+
+72
+00:03:45,570 --> 00:03:47,220
+typical default line.
+
+73
+00:03:47,220 --> 00:03:50,190
+So abline can interpret the regression
+model output and
+
+74
+00:03:50,190 --> 00:03:52,750
+plot a line, plot with a given intercept
+and slope.
+
+75
+00:03:52,750 --> 00:03:56,610
+And so here you can see, I've added the
+regression line to the plot.
+
+76
+00:03:56,610 --> 00:03:59,560
+Um,and so you can see,and you can see the
+downward trend.
+
+77
+00:04:02,630 --> 00:04:05,270
+So, all the previous plots into the single
+plot
+
+78
+00:04:05,270 --> 00:04:07,950
+that you might, that would appear on the
+graphics device.
+
+79
+00:04:07,950 --> 00:04:11,820
+But sometimes you want to have multiple
+plots on a single device.
+
+80
+00:04:11,820 --> 00:04:15,050
+So here I made two plots.
+One plot is ozone versus wind.
+
+81
+00:04:15,050 --> 00:04:18,910
+And the other one plot is ozone versus
+solar radiation using the same data set.
+
+82
+00:04:18,910 --> 00:04:20,150
+And so in order to do that I can just
+
+83
+00:04:20,150 --> 00:04:23,760
+set the par mfrow equals to one row and
+two columns.
+
+84
+00:04:23,760 --> 00:04:26,420
+So I They, I can make the two plots side
+by side.
+
+85
+00:04:26,420 --> 00:04:28,190
+And then I just call plot twice.
+
+86
+00:04:28,190 --> 00:04:31,860
+So every time I call plot, it creates a
+new plot.
+
+87
+00:04:31,860 --> 00:04:35,090
+And so the first one will be, the in the
+kind of left hand side and
+
+88
+00:04:35,090 --> 00:04:36,390
+the second column plot will be in the
+
+89
+00:04:36,390 --> 00:04:39,780
+right hand side and that's how I use
+mfrow.
+
+90
+00:04:41,620 --> 00:04:47,840
+Now, you can see that, when I use multiple
+plots, some I have a title
+
+91
+00:04:47,840 --> 00:04:50,570
+on each plot so that it tells me kind of
+what the two variables are.
+
+92
+00:04:50,570 --> 00:04:53,400
+And the first one's ozone and wind, second
+one's ozone and solar
+
+93
+00:04:53,400 --> 00:04:56,490
+radiation, and the third one here is ozone
+and temperature.
+
+94
+00:04:56,490 --> 00:04:58,660
+But sometimes you want to have a label
+that's.
+
+95
+00:04:58,660 --> 00:05:02,550
+Kind of covering the entire panel of
+plots.
+
+96
+00:05:02,550 --> 00:05:04,210
+So that's what the outer margin is for.
+
+97
+00:05:04,210 --> 00:05:08,920
+So here in this call of the par I set
+mfrow equal to one row, three columns.
+
+98
+00:05:08,920 --> 00:05:10,600
+I set the margins to be a little bit
+
+99
+00:05:10,600 --> 00:05:13,910
+smaller than defaults and then I set the
+outer
+
+100
+00:05:13,910 --> 00:05:16,320
+margin to be actually bigger than default,
+the b,
+
+101
+00:05:16,320 --> 00:05:18,690
+the default for the outer margin is zero
+all around.
+
+102
+00:05:18,690 --> 00:05:23,200
+So on the top I want a little extra space
+so I can add the title.
+
+103
+00:05:23,200 --> 00:05:24,880
+Ozone and weather in New York City, which
+is
+
+104
+00:05:24,880 --> 00:05:27,330
+kind of a title for the entire panel of
+plots.
+
+105
+00:05:27,330 --> 00:05:30,900
+And then I call plot three times to make
+the three plots and then
+
+106
+00:05:30,900 --> 00:05:36,140
+I use mtext to add the kind of outer title
+to this panel of plots.
+
+107
+00:05:37,770 --> 00:05:40,480
+So that was a quick, kind of introduction
+to the base
+
+108
+00:05:40,480 --> 00:05:44,080
+plotting system, covers some of the basic
+functions that you would use,
+
+109
+00:05:44,080 --> 00:05:46,080
+that you would use including plot and
+
+110
+00:05:46,080 --> 00:05:50,640
+a couple of annotation functions like, A
+line.
+
+111
+00:05:50,640 --> 00:05:52,150
+And points and things like that.
+
+112
+00:05:52,150 --> 00:05:54,630
+So, it's, you can see that by creating.
+
+113
+00:05:54,630 --> 00:05:56,590
+And when you create base plots, you are
+kind
+
+114
+00:05:56,590 --> 00:05:58,920
+of building up a plot by function by
+function.
+
+115
+00:05:59,970 --> 00:06:03,170
+And you kind of end up with a, with many
+live code to create one plot.
+
+116
+00:06:03,170 --> 00:06:06,550
+And that's kind of that's how, that's
+typical of lots of base plots.
+
+117
+00:06:06,550 --> 00:06:09,410
+Every plots starts with a function that
+initiates
+
+118
+00:06:09,410 --> 00:06:12,730
+the plot, so like, plot or hist or box
+plot, and then a series
+
+119
+00:06:12,730 --> 00:06:15,000
+of functions which will typically annotate
+the
+
+120
+00:06:15,000 --> 00:06:18,370
+plot by adding points, lines, text and
+legends.
+
+121
+00:06:18,370 --> 00:06:20,860
+So the, the base plotting system is very
+flexible.
+
+122
+00:06:20,860 --> 00:06:25,040
+It, it gives you a lot of control over all
+of the various details of the plot.
+
+123
+00:06:26,100 --> 00:06:29,070
+Of course this can be a little bit tedious
+if you need
+
+124
+00:06:29,070 --> 00:06:33,230
+to control everything all the time but
+often the defaults are okay.
+
+125
+00:06:34,270 --> 00:06:36,510
+And but, the flexibility is quite useful
+if
+
+126
+00:06:36,510 --> 00:06:39,960
+you want to make, kind of, publication
+quality plots.
+
+127
+00:06:39,960 --> 00:06:44,140
+and, and, and so, it's nice to have that
+de-, that degree
+
+128
+00:06:44,140 --> 00:06:49,220
+of control, with all, for things like
+legends, spacing's and all that.
+
+129
+00:06:49,220 --> 00:06:52,160
+And so, so that's the, kind of the base
+plotting system.
+
+130
+00:06:52,160 --> 00:06:54,700
+We'll talk more about the other plotting
+systems in other lectures.
+

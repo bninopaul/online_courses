@@ -1,0 +1,659 @@
+1
+00:00:00,016 --> 00:00:02,150
+So the qu-, you might be wondering, well
+where
+
+2
+00:00:02,150 --> 00:00:03,950
+do I come up with interesting palettes of
+colors?
+
+3
+00:00:03,950 --> 00:00:06,180
+Well, you can always create your own
+palette
+
+4
+00:00:06,180 --> 00:00:07,670
+of col-, colors, just that I did in
+
+5
+00:00:07,670 --> 00:00:10,390
+the previous slides, by say, by indicating
+colors
+
+6
+00:00:10,390 --> 00:00:13,610
+like red, yellow, or anything in the
+colors vector.
+
+7
+00:00:13,610 --> 00:00:16,300
+That you get when you've, when you call
+the colors function.
+
+8
+00:00:16,300 --> 00:00:19,670
+But you might want to come up with some
+more interesting colors, color palettes,
+
+9
+00:00:19,670 --> 00:00:23,320
+and that can be done using the color brew,
+the RColorBrewer package in R.
+
+10
+00:00:23,320 --> 00:00:25,030
+So the RColorBewer package
+
+11
+00:00:25,030 --> 00:00:28,420
+is available on CRAN and all it does is it
+provides a
+
+12
+00:00:28,420 --> 00:00:32,320
+set of interesting palettes that you can
+use for different types of data.
+
+13
+00:00:32,320 --> 00:00:34,380
+And these are this, this package was
+created from
+
+14
+00:00:34,380 --> 00:00:36,330
+work that was done by Cynthia Brewer,
+who's at Penn
+
+15
+00:00:36,330 --> 00:00:40,470
+State and she's done a lot of work
+researching
+
+16
+00:00:40,470 --> 00:00:45,090
+appropriate colors for, for creating maps
+and for mapping data.
+
+17
+00:00:45,090 --> 00:00:47,280
+So, but these palettes can be quite useful
+for
+
+18
+00:00:47,280 --> 00:00:50,030
+other types of data that don't really
+occur on maps.
+
+19
+00:00:50,030 --> 00:00:54,140
+So the three types of palettes that you
+can cre-, that you can get from
+
+20
+00:00:54,140 --> 00:00:57,906
+the color, RColorBrewer package are the
+sequential
+
+21
+00:00:57,906 --> 00:01:02,280
+palettes, the diverging palettes and the
+qualitative palettes.
+
+22
+00:01:02,280 --> 00:01:05,240
+So the sequential palettes are used for
+data that are ordered.
+
+23
+00:01:05,240 --> 00:01:08,434
+You can think of this as being used for
+numerical data or continuous data.
+
+24
+00:01:08,434 --> 00:01:10,330
+It doesn't have to be continuous but the
+dat-, the
+
+25
+00:01:10,330 --> 00:01:12,500
+idea is that the data are ordered from low
+to high.
+
+26
+00:01:13,700 --> 00:01:15,080
+But diverging palettes can be used
+
+27
+00:01:15,080 --> 00:01:20,210
+for data that kind of diverge, or they
+deviate from something.
+
+28
+00:01:20,210 --> 00:01:22,170
+For example, if you have a bunch of data
+and
+
+29
+00:01:22,170 --> 00:01:25,480
+you want to show the deviations from their
+mean then you
+
+30
+00:01:25,480 --> 00:01:27,250
+might, so this way, in this sense that
+there's data
+
+31
+00:01:27,250 --> 00:01:30,550
+that can be positive and there's data that
+can be negative.
+
+32
+00:01:30,550 --> 00:01:32,810
+And they can, as they go away from
+
+33
+00:01:32,810 --> 00:01:34,430
+whatever that center point is, maybe that
+center
+
+34
+00:01:34,430 --> 00:01:36,300
+point is zero, they can get bigger in
+
+35
+00:01:36,300 --> 00:01:39,260
+two different directions, maybe going
+negative and going positive.
+
+36
+00:01:39,260 --> 00:01:40,330
+So that's a diverging
+
+37
+00:01:40,330 --> 00:01:43,890
+set of data, if you want to use a
+diverging color palette to represent that.
+
+38
+00:01:45,040 --> 00:01:47,130
+The last color palette is the qualitative
+palette which is
+
+39
+00:01:47,130 --> 00:01:50,630
+just used to, to represent data that are
+not ordered.
+
+40
+00:01:50,630 --> 00:01:54,200
+So these can be factors or categorical
+data that
+
+41
+00:01:54,200 --> 00:01:57,030
+don't have any specific ordering, they
+just have different values.
+
+42
+00:01:57,030 --> 00:02:01,385
+So so the palette information that you get
+from the, RColorBrewer package
+
+43
+00:02:01,385 --> 00:02:05,415
+can be passed to functions like colorRamp
+and colorRampPalette to be used
+
+44
+00:02:05,415 --> 00:02:07,210
+in the plotting functions in R.
+
+45
+00:02:09,360 --> 00:02:13,520
+So these are the various palettes that are
+found in the RColorBrewer package.
+
+46
+00:02:13,520 --> 00:02:17,090
+The top set here these are the sequential
+palettes and you can see that
+
+47
+00:02:17,090 --> 00:02:21,160
+they basically go from light to dark for
+as you go from left to right.
+
+48
+00:02:21,160 --> 00:02:24,392
+But they go, they travel through a
+different set of colors on each
+
+49
+00:02:24,392 --> 00:02:28,150
+palette so the top one here kind of goes
+from yellow, orange to red.
+
+50
+00:02:28,150 --> 00:02:30,220
+And then the bottom one here is called the
+Blues palette.
+
+51
+00:02:30,220 --> 00:02:32,540
+It just goes, goes by light blue to a dark
+blue.
+
+52
+00:02:32,540 --> 00:02:34,300
+So these are used for ordered data,
+
+53
+00:02:34,300 --> 00:02:36,430
+for numerical data that have a low and a
+high.
+
+54
+00:02:37,868 --> 00:02:39,948
+The second set of palettes here, is the,
+is the
+
+55
+00:02:39,948 --> 00:02:43,900
+qualitative palettes and these are used to
+represent categorical datas.
+
+56
+00:02:43,900 --> 00:02:45,280
+And you can use, see that the colors
+
+57
+00:02:45,280 --> 00:02:47,610
+in the palettes don't really have any
+specific ordering.
+
+58
+00:02:47,610 --> 00:02:49,390
+They don't go from light to dark.
+
+59
+00:02:49,390 --> 00:02:52,620
+They don't go, they don't go from any
+specific order.
+
+60
+00:02:52,620 --> 00:02:54,590
+But they do, so they just have a certain
+set of colors
+
+61
+00:02:54,590 --> 00:02:58,730
+associated with them, and they, and each
+palette has basically a theme.
+
+62
+00:02:58,730 --> 00:02:59,390
+some,
+
+63
+00:02:59,390 --> 00:03:01,340
+some palettes are kind of bolder than
+others,
+
+64
+00:03:01,340 --> 00:03:03,910
+and some are more on the pastel side.
+
+65
+00:03:03,910 --> 00:03:07,210
+The last set of colors, you can see, are
+the diverging palettes.
+
+66
+00:03:07,210 --> 00:03:10,160
+And the colors in this palette, you can
+see
+
+67
+00:03:10,160 --> 00:03:11,828
+that they are kind of light in the middle.
+
+68
+00:03:11,828 --> 00:03:17,460
+And as you go from left to right they get
+darker in different color ranges.
+
+69
+00:03:17,460 --> 00:03:18,510
+And so, you can think of that, the
+
+70
+00:03:18,510 --> 00:03:20,690
+left being negative and the right being
+positive.
+
+71
+00:03:21,690 --> 00:03:24,100
+And so these are the, and that's how they
+diverge.
+
+72
+00:03:24,100 --> 00:03:24,925
+And they try, and
+
+73
+00:03:24,925 --> 00:03:26,720
+they, again they travel through different
+sets of
+
+74
+00:03:26,720 --> 00:03:28,810
+colors here, so the top one here goes from
+
+75
+00:03:28,810 --> 00:03:33,290
+a red as you, from the left all the way to
+a kind of purple-blue on the right.
+
+76
+00:03:33,290 --> 00:03:36,090
+And then the bottom one here goes from
+brown on
+
+77
+00:03:36,090 --> 00:03:39,670
+the left to kind of blue or green on the
+right.
+
+78
+00:03:39,670 --> 00:03:41,870
+So you can choose your palette here,
+depending
+
+79
+00:03:41,870 --> 00:03:43,754
+on what kind of color scheme you prefer.
+
+80
+00:03:43,754 --> 00:03:47,737
+[BLANK_AUDIO]
+
+81
+00:03:47,737 --> 00:03:51,100
+So the ColorBrewer package can be loaded
+into lib-, after you
+
+82
+00:03:51,100 --> 00:03:53,106
+install it using the install.packages
+
+83
+00:03:53,106 --> 00:03:55,865
+function, you can view library
+RColorBrewer.
+
+84
+00:03:55,865 --> 00:03:58,637
+And then the brewer.pal function is really
+the only
+
+85
+00:03:58,637 --> 00:04:02,128
+useful function in the package and it
+takes two arguments.
+
+86
+00:04:02,128 --> 00:04:05,420
+The first argument is the number of colors
+that you want for your palette.
+
+87
+00:04:05,420 --> 00:04:08,200
+And this is usually small, it'll be, you
+know, two, three or four.
+
+88
+00:04:08,200 --> 00:04:12,078
+You don't need that many blotches on your
+palette for the primary colors.
+
+89
+00:04:12,078 --> 00:04:12,750
+And then the second
+
+90
+00:04:12,750 --> 00:04:14,470
+argument is the name of the palette.
+
+91
+00:04:14,470 --> 00:04:17,780
+And the name of the palette really is not
+easy to remember, you just have to look in
+
+92
+00:04:17,780 --> 00:04:20,530
+the help page for brewer.pal and it will
+list
+
+93
+00:04:20,530 --> 00:04:23,240
+all of the names of the palettes that are
+available.
+
+94
+00:04:23,240 --> 00:04:25,840
+So, here I'm using a blue-green type of
+palette
+
+95
+00:04:27,280 --> 00:04:29,242
+and I want three different colors from
+that palette.
+
+96
+00:04:29,242 --> 00:04:30,550
+So now, you can see that the character
+
+97
+00:04:30,550 --> 00:04:33,850
+vector that it returns has three colors
+and
+
+98
+00:04:33,850 --> 00:04:37,750
+they each have a mix of red, green, and
+blue, and if you're fluent in hexidecimal,
+
+99
+00:04:37,750 --> 00:04:39,340
+you'll know what these values are.
+
+100
+00:04:39,340 --> 00:04:43,020
+But it's not really important to know
+exactly what the, the
+
+101
+00:04:43,020 --> 00:04:44,930
+colors are, you'll be able to see them on
+the screen.
+
+102
+00:04:44,930 --> 00:04:46,480
+So what I'm going to do is, I'm going to
+
+103
+00:04:46,480 --> 00:04:50,774
+pass this palette of colors into the
+colorRampPalette function.
+
+104
+00:04:50,774 --> 00:04:53,910
+and, and it's going to return a function
+that I'm going to call pal.
+
+105
+00:04:53,910 --> 00:04:58,800
+So now, I'm going to create the image of
+this volcano using the image function.
+
+106
+00:04:58,800 --> 00:05:02,330
+But I'm going to, instead of using the
+heat colors or the topo colors palette,
+
+107
+00:05:02,330 --> 00:05:06,730
+I'm going to use this palette that I got,
+from the Brewer, ColorBrewer package.
+
+108
+00:05:06,730 --> 00:05:09,970
+And so, I'm going to specify that I want
+20 different
+
+109
+00:05:09,970 --> 00:05:13,360
+colors to be in, to be represented in this
+image.
+
+110
+00:05:13,360 --> 00:05:14,944
+So that the 20 colors are going to come,
+
+111
+00:05:14,944 --> 00:05:18,000
+they're going to be interpolated from this
+blue-green palette.
+
+112
+00:05:18,000 --> 00:05:20,210
+So the resulting image looks something
+like this.
+
+113
+00:05:20,210 --> 00:05:23,540
+And you can see that as it gets, as it
+gets higher, the
+
+114
+00:05:23,540 --> 00:05:28,128
+ima-, the colors get darker and more green
+and at the lower elevations,
+
+115
+00:05:28,128 --> 00:05:30,605
+the colors are lighter and more blue.
+
+116
+00:05:30,605 --> 00:05:34,007
+[BLANK_AUDIO]
+
+117
+00:05:34,007 --> 00:05:36,437
+Another function that uses the ColorBrewer
+palettes
+
+118
+00:05:36,437 --> 00:05:38,830
+is the smoothScatter function which comes
+with R.
+
+119
+00:05:38,830 --> 00:05:41,998
+And, this function is particularly useful
+if you have to
+
+120
+00:05:41,998 --> 00:05:44,242
+plot a lot of, make a scatter plot of a
+lot
+
+121
+00:05:44,242 --> 00:05:47,344
+of different points and you don't want to
+just have a
+
+122
+00:05:47,344 --> 00:05:51,380
+bunch of dots on the screen that are
+overlapping each other.
+
+123
+00:05:51,380 --> 00:05:53,510
+So here, I'm plotting 10,000 points.
+
+124
+00:05:53,510 --> 00:05:55,490
+And if I were to just plot this on the
+screen using the
+
+125
+00:05:55,490 --> 00:05:59,050
+plot function I would get a mess of points
+that are kind of overlapping
+
+126
+00:05:59,050 --> 00:06:00,918
+each other, it's kind of hard to see the
+details.
+
+127
+00:06:00,918 --> 00:06:03,120
+So the smoothScatter function, what it
+does is
+
+128
+00:06:03,120 --> 00:06:06,280
+it creates a histogram, a 2D histogram, of
+
+129
+00:06:06,280 --> 00:06:07,760
+the points in your plot, and it just
+
+130
+00:06:07,760 --> 00:06:10,640
+plots the histogram using a certain set of
+colors.
+
+131
+00:06:10,640 --> 00:06:14,580
+The default set of colors that it uses is
+the blues colors.
+
+132
+00:06:14,580 --> 00:06:17,450
+Oh sorry, the blues palette in the
+RColorBrewer
+
+133
+00:06:17,450 --> 00:06:20,120
+package which is a sequential palette and
+it
+
+134
+00:06:20,120 --> 00:06:23,580
+gets kind of darker blue as you get higher
+and lighter blue as you get lower.
+
+135
+00:06:23,580 --> 00:06:24,210
+So, the darker
+
+136
+00:06:24,210 --> 00:06:27,240
+blue areas of this plot are the high
+density.
+
+137
+00:06:27,240 --> 00:06:31,560
+So that's where all, most the points are
+in the high density region and
+
+138
+00:06:31,560 --> 00:06:36,220
+the lighter blue parts of the plot are the
+lower density regions of the plot.
+

@@ -1,0 +1,534 @@
+1
+00:00:00,820 --> 00:00:04,180
+So just to illustrate how hierarchical
+clustering works I'm
+
+2
+00:00:04,180 --> 00:00:05,960
+just going to simulate a very simple data
+set here.
+
+3
+00:00:05,960 --> 00:00:09,700
+So I always set the seed so that the data
+are reproduced here.
+
+4
+00:00:09,700 --> 00:00:11,345
+You can just run this code and simulate
+the
+
+5
+00:00:11,345 --> 00:00:12,950
+data for yourself and take a look at it.
+
+6
+00:00:12,950 --> 00:00:18,050
+And so I plotted a total of 12 points here
+and there are three clusters we can
+
+7
+00:00:18,050 --> 00:00:20,675
+see very clearly from the plot, and I've
+
+8
+00:00:20,675 --> 00:00:24,419
+labelled each of the points using the text
+function.
+
+9
+00:00:24,419 --> 00:00:25,783
+So you can see, you know,
+
+10
+00:00:25,783 --> 00:00:26,973
+which point is which.
+
+11
+00:00:26,973 --> 00:00:29,409
+And so I'm going to run the hierarchical
+clustering
+
+12
+00:00:29,409 --> 00:00:32,320
+algorithm to see how the points get merged
+together.
+
+13
+00:00:34,220 --> 00:00:37,560
+So the first thing you need to do to run
+an hierarchical
+
+14
+00:00:37,560 --> 00:00:39,240
+clustering algorithm is to calculate the
+
+15
+00:00:39,240 --> 00:00:40,980
+distance between all of the different
+points.
+
+16
+00:00:40,980 --> 00:00:44,670
+So, you need to calculate all the pairwise
+distances.
+
+17
+00:00:44,670 --> 00:00:46,240
+Between all the points so you can figure
+
+18
+00:00:46,240 --> 00:00:48,180
+out, you know, which two points are
+closest together.
+
+19
+00:00:48,180 --> 00:00:51,270
+And so the easiest way to do this is with
+the dist function
+
+20
+00:00:51,270 --> 00:00:51,780
+in R.
+
+21
+00:00:51,780 --> 00:00:54,850
+The dist function takes a matrix or
+dataframe.
+
+22
+00:00:54,850 --> 00:00:57,110
+here, this dataframe has two columns, the
+first column
+
+23
+00:00:57,110 --> 00:00:59,439
+is the x-coordinate, the second column is
+the y-coordinate.
+
+24
+00:01:00,490 --> 00:01:04,350
+And then and so it's basically a matrix or
+a data frame of points.
+
+25
+00:01:04,350 --> 00:01:08,140
+And what the dist function does is it
+calculates the distance between all the
+
+26
+00:01:08,140 --> 00:01:10,880
+different rows in the data frame, and
+
+27
+00:01:10,880 --> 00:01:13,600
+it gives you what's called the distance
+matrix.
+
+28
+00:01:13,600 --> 00:01:15,460
+Which gives you all the pairwise
+distances.
+
+29
+00:01:15,460 --> 00:01:16,310
+And so if you call
+
+30
+00:01:16,310 --> 00:01:17,690
+dist without any other arguments it
+
+31
+00:01:17,690 --> 00:01:20,690
+defaults to the Euclidean distance metric
+but
+
+32
+00:01:20,690 --> 00:01:25,520
+you can give it some other distance
+metrics if you want as options.
+
+33
+00:01:25,520 --> 00:01:26,190
+And so here you.
+
+34
+00:01:26,190 --> 00:01:28,860
+Down below here you can see the most
+
+35
+00:01:28,860 --> 00:01:31,260
+of the distance matrix that is returned by
+dist.
+
+36
+00:01:31,260 --> 00:01:34,480
+So you can see that it's a lower
+triangular matrix.
+
+37
+00:01:35,480 --> 00:01:37,270
+And it gives you all the pair wise
+distances.
+
+38
+00:01:37,270 --> 00:01:40,590
+So for example, the distances between
+point one, and point two is 0.34.
+
+39
+00:01:40,590 --> 00:01:41,840
+Of course,
+
+40
+00:01:41,840 --> 00:01:43,960
+the actual distance here is meaningless, I
+just.
+
+41
+00:01:43,960 --> 00:01:47,080
+because I just simulated the data, so the
+numbers aren't particularly meaningful.
+
+42
+00:01:47,080 --> 00:01:48,920
+But you can see that some distances are
+
+43
+00:01:48,920 --> 00:01:52,020
+farther apart, some points are farther
+apart than others.
+
+44
+00:01:52,020 --> 00:01:56,135
+So, for example, the distance between
+point 3 and point 1 is
+
+45
+00:01:56,135 --> 00:01:59,750
+0.574 and the distance between point 3 and
+point 2 is 0.24.
+
+46
+00:01:59,750 --> 00:02:04,150
+So, so the, so point 3 is closer to point
+2 than it is to point 1.
+
+47
+00:02:04,150 --> 00:02:06,878
+And so you can kind of go down the line
+like this and see
+
+48
+00:02:06,878 --> 00:02:10,065
+how far apart each of the various points
+are from each other.
+
+49
+00:02:10,065 --> 00:02:15,150
+[BLANK_AUDIO]
+
+50
+00:02:15,150 --> 00:02:18,768
+And so if you look, so the idea of the
+hierarchical clustering algorithm here is
+
+51
+00:02:18,768 --> 00:02:20,658
+that we're going to take the two points
+that
+
+52
+00:02:20,658 --> 00:02:22,593
+are closest to each other from the start.
+
+53
+00:02:22,593 --> 00:02:24,569
+And so that happens to be points five and
+six,
+
+54
+00:02:24,569 --> 00:02:26,285
+and so I colored in here in the orange and
+
+55
+00:02:26,285 --> 00:02:28,417
+that idea is that the five points, five
+ans six,
+
+56
+00:02:28,417 --> 00:02:31,770
+because of the closest together we're
+going to group them together.
+
+57
+00:02:31,770 --> 00:02:34,650
+And merge them into a single cluster.
+
+58
+00:02:34,650 --> 00:02:38,220
+And so the idea is that here I'm going to
+create a single point.
+
+59
+00:02:38,220 --> 00:02:40,250
+And then the little plus sign in the
+middle
+
+60
+00:02:40,250 --> 00:02:43,890
+is kind of like the new location of this
+merged set of points.
+
+61
+00:02:44,990 --> 00:02:48,870
+And so now instead I've kind of taken
+these two points, taken these
+
+62
+00:02:48,870 --> 00:02:51,270
+two points, five and six, and merged them
+into a single point.
+
+63
+00:02:52,830 --> 00:02:55,070
+So now one of that, the next two points
+that are closes
+
+64
+00:02:55,070 --> 00:02:58,230
+together are 10 and 11 down, down the
+lower right in the red.
+
+65
+00:02:58,230 --> 00:03:00,530
+And so I'm going to take those two points
+and merge
+
+66
+00:03:00,530 --> 00:03:02,640
+them together and create a new kind of
+super point.
+
+67
+00:03:03,652 --> 00:03:05,330
+That that
+
+68
+00:03:05,330 --> 00:03:08,160
+is kind, that will kind of filter out
+through the algorithm.
+
+69
+00:03:08,160 --> 00:03:09,830
+And so we can keep go along like this.
+
+70
+00:03:10,880 --> 00:03:13,570
+And eventually we will get a little
+picture here called the
+
+71
+00:03:13,570 --> 00:03:16,990
+Dendrogram, and it shows us how the
+various points got clustered together.
+
+72
+00:03:16,990 --> 00:03:20,530
+So you can see on the very right side we,
+there's, there's points five and six
+
+73
+00:03:20,530 --> 00:03:25,920
+that are grouped together, and then in the
+middle there you got points ten and 11.
+
+74
+00:03:25,920 --> 00:03:28,920
+And so the farther down the tree.
+
+75
+00:03:28,920 --> 00:03:30,430
+In terms of the, the points
+
+76
+00:03:30,430 --> 00:03:33,240
+that are kind of further down the tree are
+the ones that got clustered first.
+
+77
+00:03:33,240 --> 00:03:36,810
+And the points that are farther up kind of
+got clustered later.
+
+78
+00:03:36,810 --> 00:03:42,976
+And and so you can see that there are the
+the kind of points five
+
+79
+00:03:42,976 --> 00:03:44,870
+and six when they got merged together,
+then
+
+80
+00:03:44,870 --> 00:03:46,680
+they got kind of clustered with point
+seven.
+
+81
+00:03:46,680 --> 00:03:48,270
+And then when points five, six and seven,
+
+82
+00:03:48,270 --> 00:03:51,100
+they all merged together into a single
+super point.
+
+83
+00:03:51,100 --> 00:03:53,770
+And they got merged with point 8 and
+etcetera.
+
+84
+00:03:53,770 --> 00:03:55,640
+And so one of the things
+
+85
+00:03:55,640 --> 00:03:59,720
+about the dendrogram that's produced by
+the clustering algorithm is that
+
+86
+00:03:59,720 --> 00:04:02,270
+it doesn't actually tell you how many
+clusters there are, right?
+
+87
+00:04:02,270 --> 00:04:05,090
+You'll notice that there's no specific
+label on the plot that
+
+88
+00:04:05,090 --> 00:04:08,510
+tells you there are two clusters or three
+clusters or whatever.
+
+89
+00:04:08,510 --> 00:04:10,450
+And so, what you have to do is you have to
+cut
+
+90
+00:04:10,450 --> 00:04:15,100
+this tree at a certain point to determine
+how many clusters there are.
+
+91
+00:04:15,100 --> 00:04:16,560
+And so, for example, if I were to cut
+
+92
+00:04:16,560 --> 00:04:21,110
+it at the point that's labeled on the
+y-axis, 2.0.
+
+93
+00:04:21,110 --> 00:04:23,010
+For example, if I were to draw a
+horizontal line.
+
+94
+00:04:24,150 --> 00:04:25,470
+At, at the level of 2.0.
+
+95
+00:04:25,470 --> 00:04:27,270
+The question is, you know, how many, how
+
+96
+00:04:27,270 --> 00:04:29,190
+many branches would I come, would I run
+into?
+
+97
+00:04:29,190 --> 00:04:33,240
+So if I were to draw a horizontal line at
+2.0, I would run into about two branches.
+
+98
+00:04:33,240 --> 00:04:35,990
+And that would indicate to me that there
+are roughly two clusters.
+
+99
+00:04:35,990 --> 00:04:38,820
+However, if I were to draw a horizontal
+line at the, at
+
+100
+00:04:38,820 --> 00:04:43,800
+hte level of 1.0 there, I'm sorry, 1.0, at
+the height of 1.0.
+
+101
+00:04:43,800 --> 00:04:46,190
+Then you draw a horizontal line and you'll
+
+102
+00:04:46,190 --> 00:04:47,710
+see you run into three branches there so
+that
+
+103
+00:04:47,710 --> 00:04:49,950
+would tell you that there were roughly
+three pluses.
+
+104
+00:04:49,950 --> 00:04:53,320
+So depending on where you want to draw
+this, you want to draw this horizontal
+
+105
+00:04:53,320 --> 00:04:59,690
+line at the tree you'll get more or fewer
+clusters in your clustering.
+
+106
+00:04:59,690 --> 00:05:03,370
+Of course, in the extreme case if you were
+to top the, the, the tree all
+
+107
+00:05:03,370 --> 00:05:05,230
+the way at the bottom you just get
+
+108
+00:05:05,230 --> 00:05:08,400
+12 clusters, which equals the number of
+data points.
+
+109
+00:05:08,400 --> 00:05:11,310
+And so you have to cut the tree at a place
+that's, that's convenient for
+
+110
+00:05:11,310 --> 00:05:12,410
+you, convenient for you.
+
+111
+00:05:12,410 --> 00:05:15,540
+At this point we don't really have a rule
+of where to cut it
+
+112
+00:05:15,540 --> 00:05:18,650
+but then once you do cut it then you can
+get the cluster assignment.
+
+113
+00:05:20,130 --> 00:05:21,330
+From hierarchical clustering.
+

@@ -1,0 +1,857 @@
+1
+00:00:00,510 --> 00:00:01,690
+So if you look at, if we break down the
+
+2
+00:00:01,690 --> 00:00:05,340
+components of the singular value
+decomposition we can take, look at
+
+3
+00:00:05,340 --> 00:00:07,960
+the u, the kind of the u and the v
+
+4
+00:00:07,960 --> 00:00:11,000
+matrix of the left singular values and the
+right singular values.
+
+5
+00:00:11,000 --> 00:00:13,760
+So you, if you look at the original data
+matrix here on
+
+6
+00:00:13,760 --> 00:00:17,790
+the left, so that's the image plot here
+that, that we saw before.
+
+7
+00:00:19,560 --> 00:00:25,760
+And then on the, in the middle plot here,
+I plot the, the left, the left,
+
+8
+00:00:25,760 --> 00:00:29,170
+the first, sorry, the first left singular
+vector.
+
+9
+00:00:29,170 --> 00:00:36,370
+And it kind of roughly shows basically the
+mean of all the, of that kind of data set.
+
+10
+00:00:36,370 --> 00:00:40,510
+So if you look, if you plot, if you plot
+it across the rows, you can see that the
+
+11
+00:00:40,510 --> 00:00:45,430
+first singular vector is kind of, has a
+negative value.
+
+12
+00:00:45,430 --> 00:00:51,538
+For rows 40 through about 18 or so or 17.
+
+13
+00:00:51,538 --> 00:00:53,770
+And then it has a positive value for the
+remaining rows.
+
+14
+00:00:53,770 --> 00:01:01,220
+So that shows the clear separation in the
+means of the two sets of of rows, right.
+
+15
+00:01:01,220 --> 00:01:04,410
+And if you look at the the, the, the
+
+16
+00:01:04,410 --> 00:01:08,140
+right sing, the first right singular
+vector you can see
+
+17
+00:01:08,140 --> 00:01:11,760
+that this also shows the change in the
+mean between
+
+18
+00:01:11,760 --> 00:01:16,000
+the the first five columns and the second
+five columns.
+
+19
+00:01:16,000 --> 00:01:16,700
+And so the nice thing
+
+20
+00:01:16,700 --> 00:01:19,360
+about the singular value decomposition
+here is that
+
+21
+00:01:19,360 --> 00:01:22,405
+it immediately, it immediately picked up
+on the shift
+
+22
+00:01:22,405 --> 00:01:24,040
+in the means, both kind of in the
+
+23
+00:01:24,040 --> 00:01:26,510
+row, from the row dimension and the column
+dimension.
+
+24
+00:01:27,550 --> 00:01:29,100
+Without you having to tell it anything.
+
+25
+00:01:29,100 --> 00:01:32,490
+It was totally unsupervised, and it just
+kind of picked it up automatically.
+
+26
+00:01:32,490 --> 00:01:36,740
+So remember, we made a plot that was very,
+very similar to this before, but that
+
+27
+00:01:36,740 --> 00:01:39,950
+was be, when we knew that there was this
+kind of pattern in the data set.
+
+28
+00:01:39,950 --> 00:01:42,040
+So here the, the singular value
+decomposition
+
+29
+00:01:42,040 --> 00:01:43,900
+picked up the pattern right away.
+
+30
+00:01:43,900 --> 00:01:46,090
+And, and, and in the first kind
+
+31
+00:01:46,090 --> 00:01:48,620
+of singular vet, left and right singular
+vectors.
+
+32
+00:01:51,400 --> 00:01:53,600
+Another kind of component of the singular
+value
+
+33
+00:01:53,600 --> 00:01:56,290
+decomposition is, is known as the variance
+explained.
+
+34
+00:01:56,290 --> 00:01:59,300
+And this comes from the singular values
+that are in the d matrix.
+
+35
+00:01:59,300 --> 00:02:02,160
+Remember the d matrix, is really a
+diagonal matrix.
+
+36
+00:02:02,160 --> 00:02:05,680
+It only has elements that are on the
+diagonal of that matrix.
+
+37
+00:02:05,680 --> 00:02:09,800
+And you can think of each singular value
+as representing the percent of
+
+38
+00:02:09,800 --> 00:02:11,390
+the total variation in your data
+
+39
+00:02:11,390 --> 00:02:16,340
+set that's explained by that particular
+component.
+
+40
+00:02:16,340 --> 00:02:19,730
+And so, and the components are typically
+ordered so that the first one explains
+
+41
+00:02:19,730 --> 00:02:22,180
+the most variation as possible, and the
+
+42
+00:02:22,180 --> 00:02:24,600
+second one explains the second most, et
+cetera.
+
+43
+00:02:24,600 --> 00:02:27,180
+And so you can plot the kind of proportion
+of
+
+44
+00:02:27,180 --> 00:02:32,650
+variance explained as we have in the in
+this plot below.
+
+45
+00:02:32,650 --> 00:02:36,410
+And so here on the left hand side I've
+just plotted the raw singular values
+
+46
+00:02:36,410 --> 00:02:40,510
+and you can see that they kind of decrease
+in value as you go across the columns.
+
+47
+00:02:40,510 --> 00:02:41,650
+But of course the raw singular
+
+48
+00:02:41,650 --> 00:02:46,100
+value doesn't really have much meaning
+cause it's not on an interpretable scale.
+
+49
+00:02:46,100 --> 00:02:48,330
+So if I divide by the total sum of
+
+50
+00:02:48,330 --> 00:02:50,890
+all the singular values, then on the right
+hand side
+
+51
+00:02:50,890 --> 00:02:52,720
+I've got the, I can interpret it as the
+
+52
+00:02:52,720 --> 00:02:55,180
+proportion of the variance explained, and
+you can see that's
+
+53
+00:02:55,180 --> 00:02:57,350
+exactly the same plot but the y axis has
+
+54
+00:02:57,350 --> 00:02:59,600
+changed, and so you can see that the first
+singular
+
+55
+00:02:59,600 --> 00:03:02,330
+value if you recall it captures kind of
+the shift
+
+56
+00:03:02,330 --> 00:03:06,220
+and the mean in between the rows and the
+columns.
+
+57
+00:03:06,220 --> 00:03:06,600
+That,
+
+58
+00:03:06,600 --> 00:03:10,580
+that captures about 40% of the variation
+in your data.
+
+59
+00:03:10,580 --> 00:03:13,850
+Alright, so almost almost half of the
+variation in the
+
+60
+00:03:13,850 --> 00:03:16,970
+data is explained by a single kind of
+singular value.
+
+61
+00:03:16,970 --> 00:03:19,210
+Or you can think of it as a single
+dimension.
+
+62
+00:03:19,210 --> 00:03:22,760
+And then, the remaining variation in the
+data is explained by the other components.
+
+63
+00:03:25,790 --> 00:03:27,700
+So, just to show that the relationship
+between the
+
+64
+00:03:27,700 --> 00:03:31,230
+singular value decomposition and the
+principle components is close, see,
+
+65
+00:03:31,230 --> 00:03:33,900
+I, I, here, I plotted, I've calculated the
+SVD
+
+66
+00:03:33,900 --> 00:03:37,850
+and the, and the PCA of the same data
+matrix.
+
+67
+00:03:37,850 --> 00:03:41,460
+And I've plotted the principle components
+on the, X axis, and the
+
+68
+00:03:41,460 --> 00:03:45,060
+for, sorry, the principle component, first
+principle component on the X axis.
+
+69
+00:03:45,060 --> 00:03:48,020
+And the first right singular val, vector
+on the y-axis.
+
+70
+00:03:48,020 --> 00:03:51,120
+And you can see that they fall exactly in
+a line that
+
+71
+00:03:51,120 --> 00:03:52,800
+they're exactly the same things.
+
+72
+00:03:52,800 --> 00:03:54,810
+So the svd and the principle components,
+and
+
+73
+00:03:54,810 --> 00:03:57,430
+principle components analysis is
+essentially the same thing.
+
+74
+00:03:57,430 --> 00:04:00,850
+And so if you hear, you know, you're in a
+cocktail party and you hear two people
+
+75
+00:04:00,850 --> 00:04:03,870
+talking about the svd and pca you can
+
+76
+00:04:03,870 --> 00:04:05,990
+rest assured that they're basically doing
+the same thing.
+
+77
+00:04:10,460 --> 00:04:14,580
+So if we look at, if we look, take a
+closer look at the variance explained.
+
+78
+00:04:14,580 --> 00:04:17,390
+Here we've got a very simple example which
+is just basically
+
+79
+00:04:18,780 --> 00:04:23,830
+a, kind of a matrix that has either zeros
+or ones.
+
+80
+00:04:23,830 --> 00:04:25,440
+And so the idea is that there's basically
+
+81
+00:04:25,440 --> 00:04:28,040
+there's only one pattern in this matrix,
+right?
+
+82
+00:04:28,040 --> 00:04:30,510
+And so the first five columns are zeros.
+
+83
+00:04:30,510 --> 00:04:35,970
+And the second five columns are wants
+that's it, nothing special and so if I
+
+84
+00:04:35,970 --> 00:04:38,810
+plot the data you can see on the left hand
+side that the, left part,
+
+85
+00:04:38,810 --> 00:04:43,109
+the first five are red with the further
+kind of second five are yellowish white.
+
+86
+00:04:44,200 --> 00:04:46,030
+So now if I take the SVD of this, kind of,
+
+87
+00:04:46,030 --> 00:04:49,870
+relatively boring matrix, you can see that
+I can plot the
+
+88
+00:04:49,870 --> 00:04:52,260
+singular values and you can see that
+there's one singular value
+
+89
+00:04:52,260 --> 00:04:55,190
+that's very high and the rest are kind of
+zero, basically.
+
+90
+00:04:55,190 --> 00:04:57,020
+And what you'll see is that the first
+singular
+
+91
+00:04:57,020 --> 00:05:01,760
+value explains 100% of the variation in
+the data set.
+
+92
+00:05:01,760 --> 00:05:02,440
+So how can that be?
+
+93
+00:05:02,440 --> 00:05:05,390
+Well, if you think about this data set,
+even though there is, kind of,
+
+94
+00:05:05,390 --> 00:05:10,240
+40 rows andten columns, there's really
+only one dimension to this data set, which
+
+95
+00:05:10,240 --> 00:05:13,240
+is that, if you're in the first five
+columns, your mean is, you're equal
+
+96
+00:05:13,240 --> 00:05:16,520
+to 0, and if you're in the second five
+columns, you're equal to 1.
+
+97
+00:05:16,520 --> 00:05:20,210
+So even though you have lots of so-called
+observations, there's really only
+
+98
+00:05:20,210 --> 00:05:25,440
+kind of a small fraction of information
+that's actually useful in this matrix.
+
+99
+00:05:25,440 --> 00:05:27,740
+And so that's captured by the SVD.
+
+100
+00:05:27,740 --> 00:05:29,070
+By the fact that you can explain 100%
+
+101
+00:05:29,070 --> 00:05:33,160
+of the variation with a singular, a single
+component.
+
+102
+00:05:34,770 --> 00:05:37,380
+So let's add a second pattern to the data
+set.
+
+103
+00:05:37,380 --> 00:05:40,780
+So we can add a pattern that's kind of
+that's
+
+104
+00:05:40,780 --> 00:05:44,050
+kind of goes across the rows and also goes
+across the columns.
+
+105
+00:05:44,050 --> 00:05:46,020
+And so one pat, the first pattern to be,
+
+106
+00:05:46,020 --> 00:05:47,990
+going to become a block pattern that we
+saw before.
+
+107
+00:05:47,990 --> 00:05:50,220
+So the first half of this is going to have
+one
+
+108
+00:05:50,220 --> 00:05:51,960
+mean and one half of this is going to have
+another mean.
+
+109
+00:05:51,960 --> 00:05:52,840
+And the second
+
+110
+00:05:52,840 --> 00:05:56,050
+column, the second pattern, basically, is
+going to alternate between the columns.
+
+111
+00:05:56,050 --> 00:05:58,130
+So you can see what that looks like over
+here.
+
+112
+00:05:58,130 --> 00:06:02,270
+So on the left hand side that's the data
+and you can see that there's one pattern.
+
+113
+00:06:02,270 --> 00:06:05,000
+That's kind of like, that's kind of a
+block pattern so the
+
+114
+00:06:05,000 --> 00:06:09,180
+left five columns are low and the right
+five columns are higher.
+
+115
+00:06:09,180 --> 00:06:11,420
+And then you can see that, within that,
+kind of nested within
+
+116
+00:06:11,420 --> 00:06:14,800
+that, is a kind of pattern that's kind of
+every other column.
+
+117
+00:06:14,800 --> 00:06:18,530
+And so, so the, every other column is, one
+is higher than the other.
+
+118
+00:06:18,530 --> 00:06:21,030
+And so if you plot, if we, if you plot the
+kind
+
+119
+00:06:21,030 --> 00:06:23,480
+of, what the truth is, right, we can see
+that on the,
+
+120
+00:06:23,480 --> 00:06:27,560
+in the middle plot here, the first five
+columns have a have
+
+121
+00:06:27,560 --> 00:06:30,730
+a lower mean, and the second five columns
+have a higher mean.
+
+122
+00:06:31,890 --> 00:06:37,200
+And that's the first pattern, and then the
+second pattern shows that the first column
+
+123
+00:06:37,200 --> 00:06:42,790
+has a mean of 0, the second column has a
+mean of 1.
+
+124
+00:06:42,790 --> 00:06:43,622
+The third column as
+
+125
+00:06:43,622 --> 00:06:45,580
+a mean of 0 and the fourth column et
+cetera.
+
+126
+00:06:45,580 --> 00:06:47,820
+So there's, there's two patterns here.
+
+127
+00:06:47,820 --> 00:06:49,960
+One is a shift pattern and the second is
+
+128
+00:06:49,960 --> 00:06:53,170
+this kind of alternating pattern, so
+that's the truth.
+
+129
+00:06:53,170 --> 00:06:55,640
+But of course, we rarely know the truth,
+so
+
+130
+00:06:55,640 --> 00:06:57,430
+we need to learn the truth from the data.
+
+131
+00:06:57,430 --> 00:06:59,380
+So if you, the idea is if you were
+presented
+
+132
+00:06:59,380 --> 00:07:01,380
+with the data set that we've shown here on
+the left.
+
+133
+00:07:02,770 --> 00:07:05,370
+Can you come up with an algorithm that can
+pick up
+
+134
+00:07:05,370 --> 00:07:08,330
+on the two separate patterns that are
+buried within the data?
+
+135
+00:07:08,330 --> 00:07:08,700
+And so that's
+
+136
+00:07:08,700 --> 00:07:09,900
+kind of what the SVD is for.
+
+137
+00:07:11,000 --> 00:07:15,390
+So if we run the SVD on this new matrix
+with the two patterns.
+
+138
+00:07:15,390 --> 00:07:17,610
+I got the data here on the left and the
+middle pan,
+
+139
+00:07:17,610 --> 00:07:22,730
+the middle panel here, I've got the first,
+the first right singular vector.
+
+140
+00:07:22,730 --> 00:07:25,250
+And you can see it roughly picks up the
+block pattern.
+
+141
+00:07:25,250 --> 00:07:25,510
+Right?
+
+142
+00:07:25,510 --> 00:07:27,970
+So the first, kind of, five are, are
+
+143
+00:07:27,970 --> 00:07:31,180
+somewhat lower, and the second five are
+somewhat higher.
+
+144
+00:07:31,180 --> 00:07:33,880
+Right?
+So it's not as pretty as the truth was.
+
+145
+00:07:33,880 --> 00:07:38,870
+But it's somewhat discernible, that there
+are two different kind of means here.
+
+146
+00:07:38,870 --> 00:07:42,020
+The second sorry, the second right
+singular
+
+147
+00:07:42,020 --> 00:07:44,950
+vector is on the right-hand panel here.
+
+148
+00:07:44,950 --> 00:07:47,270
+And you can see that, it's a little bit
+harder to see,
+
+149
+00:07:47,270 --> 00:07:50,540
+but it does try to pick up the alternating
+mean pattern, right?
+
+150
+00:07:50,540 --> 00:07:54,400
+It's not as obvious as it was when we were
+plotting the truth, of course.
+
+151
+00:07:54,400 --> 00:07:58,600
+But you can see that every other point is
+either higher or lower.
+
+152
+00:07:58,600 --> 00:08:02,110
+Now of course since we know what the truth
+is
+
+153
+00:08:02,110 --> 00:08:03,960
+it's a little bit easier to, kind of, talk
+about this.
+
+154
+00:08:05,060 --> 00:08:09,530
+But but in general you can see that the
+two patterns are roughly confounded
+
+155
+00:08:09,530 --> 00:08:12,950
+with each other because it's a little bit
+hard to set the two patterns apart.
+
+156
+00:08:12,950 --> 00:08:15,190
+So even though they're clearly in the, we
+
+157
+00:08:15,190 --> 00:08:17,490
+know that the truth is, is, is two
+separate
+
+158
+00:08:17,490 --> 00:08:20,240
+patterns, the, the first and the second
+right
+
+159
+00:08:20,240 --> 00:08:22,420
+singular vectors are also known as the
+principle components.
+
+160
+00:08:23,610 --> 00:08:25,450
+They kind of mix the two patterns
+together,
+
+161
+00:08:25,450 --> 00:08:27,690
+so each of them has a block pattern.
+
+162
+00:08:27,690 --> 00:08:30,560
+And each of them has a kind of alternating
+pattern.
+
+163
+00:08:30,560 --> 00:08:35,330
+And so unfortunately, just, just like with
+most real data, the truth is a
+
+164
+00:08:35,330 --> 00:08:38,130
+little, is a little bit hard to discern
+than if you'd known it in advance.
+
+165
+00:08:40,240 --> 00:08:42,400
+Now if you look at the variance explained
+in this problem
+
+166
+00:08:42,400 --> 00:08:45,740
+you can see that on the right-hand panel
+which is the
+
+167
+00:08:45,740 --> 00:08:50,815
+percent of the variance explained, that
+the first component explains over
+
+168
+00:08:50,815 --> 00:08:54,870
+50% of the variation, the total variation
+in the data set.
+
+169
+00:08:54,870 --> 00:08:57,580
+And that's basically because the shift
+pattern you know, with
+
+170
+00:08:57,580 --> 00:09:00,600
+the first five columns, the second five
+columns is so strong.
+
+171
+00:09:00,600 --> 00:09:03,830
+It represents a large amount of variation
+in the data set.
+
+172
+00:09:03,830 --> 00:09:05,340
+So you capture that shift
+
+173
+00:09:05,340 --> 00:09:08,070
+pattern, you kind of capture a lot of that
+variation.
+
+174
+00:09:08,070 --> 00:09:10,790
+You see the second component only captures
+about 18 or so
+
+175
+00:09:10,790 --> 00:09:14,380
+percent of the variation and it kind of
+trails off from there.
+
+176
+00:09:14,380 --> 00:09:17,240
+And so that's going to tell, that kind of
+tells you roughly,
+
+177
+00:09:17,240 --> 00:09:19,990
+you know, how many components are in this
+data set.
+
+178
+00:09:19,990 --> 00:09:22,780
+But that alternating pattern which kind
+of, which is kind of every other
+
+179
+00:09:22,780 --> 00:09:25,030
+column is a little bit harder to pick up,
+as you can see.
+

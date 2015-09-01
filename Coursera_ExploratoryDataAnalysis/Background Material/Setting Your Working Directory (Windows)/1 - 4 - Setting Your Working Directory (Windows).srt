@@ -1,0 +1,631 @@
+1
+00:00:01,520 --> 00:00:04,292
+In this video I want to talk about 2
+things, how to set
+
+2
+00:00:04,292 --> 00:00:08,746
+your working directory and how to edit our
+code files in Windows.
+
+3
+00:00:08,746 --> 00:00:11,000
+So you can see I've got R started up here,
+and the first
+
+4
+00:00:11,000 --> 00:00:14,340
+thing you're going to want to do is figure
+out what your working directory is.
+
+5
+00:00:14,340 --> 00:00:17,510
+Because the working directory is where R
+finds all
+
+6
+00:00:17,510 --> 00:00:21,630
+of its files for reading and writing on
+your computer.
+
+7
+00:00:21,630 --> 00:00:23,830
+So you can find out what yur working
+directory is
+
+8
+00:00:23,830 --> 00:00:26,130
+currently set to be by using the Get WD
+function.
+
+9
+00:00:27,480 --> 00:00:33,050
+And you can see it's set to be,
+c:/users/rdbanks/documents.
+
+10
+00:00:33,050 --> 00:00:34,360
+This may differ on your computer.
+
+11
+00:00:34,360 --> 00:00:37,380
+Depending on what version of Windows
+you're using.
+
+12
+00:00:37,380 --> 00:00:39,600
+and, and what hardware you're using.
+
+13
+00:00:39,600 --> 00:00:43,850
+But there'll be some directory.
+Probably on your C drive.
+
+14
+00:00:43,850 --> 00:00:48,735
+Now, It, the reason why it's important to
+know and to set your working directory is
+
+15
+00:00:48,735 --> 00:00:50,320
+because when you read data or when you
+
+16
+00:00:50,320 --> 00:00:52,610
+write things out using functions like read
+or
+
+17
+00:00:52,610 --> 00:00:58,904
+write CSV, they will be read or written to
+your home, your working directory.
+
+18
+00:00:58,904 --> 00:01:01,010
+So for example if I do something
+
+19
+00:01:01,010 --> 00:01:05,440
+like read.csv I want to read the say
+mydata.csv.
+
+20
+00:01:05,440 --> 00:01:08,700
+If the file is not in my working
+directory, you'll get an error.
+
+21
+00:01:08,700 --> 00:01:10,850
+One that looks much like this because it
+
+22
+00:01:10,850 --> 00:01:13,710
+can't find the file in the working
+directory.
+
+23
+00:01:13,710 --> 00:01:16,070
+So one possibility is that you can, if you
+know
+
+24
+00:01:16,070 --> 00:01:17,680
+where this file is, you can move it to
+your
+
+25
+00:01:17,680 --> 00:01:19,030
+working directory.
+
+26
+00:01:19,030 --> 00:01:20,650
+Or, or you can change your working
+directory
+
+27
+00:01:20,650 --> 00:01:22,130
+to be wherever this file happens to be.
+
+28
+00:01:22,130 --> 00:01:26,020
+So I can go the File menu here, and choose
+Change deer.
+
+29
+00:01:27,640 --> 00:01:30,070
+And I'm going to go into my local disk
+here,
+
+30
+00:01:31,080 --> 00:01:35,960
+users, already paying I go to my desktop
+here.
+
+31
+00:01:37,398 --> 00:01:42,540
+So now, if I type DIR, I'll get a list of
+the files that are on my desktop here.
+
+32
+00:01:42,540 --> 00:01:46,510
+In seeing that, lo and behold here is
+mydata.csv file.
+
+33
+00:01:46,510 --> 00:01:52,238
+So now I can say read.csv and then
+mydata.csv.
+
+34
+00:01:52,238 --> 00:01:54,180
+And you can see that the data will be
+printed to the
+
+35
+00:01:54,180 --> 00:01:58,620
+console because now we can find the file
+in my working directory.
+
+36
+00:01:59,810 --> 00:02:03,550
+So one nice thing, one thing that I
+suggest that you
+
+37
+00:02:03,550 --> 00:02:07,770
+do for this course, is that perhaps create
+a single directory or
+
+38
+00:02:07,770 --> 00:02:11,580
+single folder where you can put all of
+your materials for the course.
+
+39
+00:02:11,580 --> 00:02:13,900
+And not have to worry about them being
+scattered all over the place.
+
+40
+00:02:13,900 --> 00:02:17,790
+Any time you download something from the
+website
+
+41
+00:02:17,790 --> 00:02:19,980
+or create a new file, it's probably best
+to
+
+42
+00:02:19,980 --> 00:02:22,720
+store it all in one folder so that you
+
+43
+00:02:22,720 --> 00:02:24,070
+don't have to be searching all over for
+it.
+
+44
+00:02:24,070 --> 00:02:26,610
+That way, you can always set your working
+directory to be that,
+
+45
+00:02:26,610 --> 00:02:29,990
+to be that directory and not have to worry
+about changing it.
+
+46
+00:02:29,990 --> 00:02:31,740
+So I'm going to minimize R here for a
+second.
+
+47
+00:02:31,740 --> 00:02:33,310
+I'm going to create a folder
+
+48
+00:02:33,310 --> 00:02:37,820
+on the desktop.
+Calls I'll just call it Coursera, and
+
+49
+00:02:39,380 --> 00:02:44,030
+then I'm going to use this folder for
+everything that I do in this course.
+
+50
+00:02:44,030 --> 00:02:47,080
+So if I go back to R here, I can say
+change
+
+51
+00:02:47,080 --> 00:02:51,230
+working directory again, changed here, and
+I can go to local disc.
+
+52
+00:02:52,240 --> 00:02:55,810
+Users, RDping.
+
+53
+00:02:55,810 --> 00:02:58,920
+Now this folder is on my desktop, so
+desktop
+
+54
+00:02:58,920 --> 00:03:02,035
+then it's Coursera here.
+So now I'm going to say get WD.
+
+55
+00:03:02,035 --> 00:03:07,530
+Let's see the working directory has
+changed to this Coursera folder.
+
+56
+00:03:07,530 --> 00:03:08,660
+So one of the things you're going to have
+to do
+
+57
+00:03:08,660 --> 00:03:11,680
+a lot of in this class is to write R code.
+
+58
+00:03:11,680 --> 00:03:15,290
+In order to write R code, you need to be
+able to use a text editor.
+
+59
+00:03:15,290 --> 00:03:18,370
+luckily, R comes with a rudimentary text
+editor
+
+60
+00:03:18,370 --> 00:03:21,320
+which will be definitely sufficient for
+this course.
+
+61
+00:03:21,320 --> 00:03:23,910
+So you can load at the text editor by
+going to File,
+
+62
+00:03:23,910 --> 00:03:25,810
+and say New Script.
+
+63
+00:03:25,810 --> 00:03:29,770
+And this will give you a blank window,
+that you can use to write our code.
+
+64
+00:03:30,970 --> 00:03:32,840
+So I'm going to write a simple function
+here, it's going to
+
+65
+00:03:32,840 --> 00:03:38,840
+be my function [NOISE] it's not going to
+take any arguments, and
+
+66
+00:03:38,840 --> 00:03:41,040
+all it's going to do it's going to
+simulate some normal random
+
+67
+00:03:41,040 --> 00:03:46,790
+variables, and then it's going to take the
+mean of those guys.
+
+68
+00:03:46,790 --> 00:03:48,720
+Alright.
+
+69
+00:03:48,720 --> 00:03:50,410
+So this is a simple function.
+
+70
+00:03:51,580 --> 00:03:55,700
+Now the question is how do I get this R
+code into my R consoles that
+
+71
+00:03:55,700 --> 00:03:57,380
+I can actually use the function, because
+you'll
+
+72
+00:03:57,380 --> 00:03:59,470
+notice if I go into my R console here.
+
+73
+00:03:59,470 --> 00:04:00,620
+I type my function.
+
+74
+00:04:02,420 --> 00:04:06,160
+it's, I can't find the function because I
+haven't loaded into R yet.
+
+75
+00:04:06,160 --> 00:04:08,540
+If I type LS, you'll see that there's
+nothing in my
+
+76
+00:04:08,540 --> 00:04:12,190
+workspace right now because I haven't
+loaded any R code into there.
+
+77
+00:04:12,190 --> 00:04:13,780
+So how do I get the R code into the
+
+78
+00:04:13,780 --> 00:04:16,118
+R console?
+Well there's two ways.
+
+79
+00:04:16,118 --> 00:04:18,329
+If you just have a little bit of code like
+
+80
+00:04:18,329 --> 00:04:21,441
+this function over here, I can click into
+my R editor.
+
+81
+00:04:21,441 --> 00:04:25,261
+And if just hit hit Ctrl + A to select
+all, and then Ctrl + C to copy.
+
+82
+00:04:25,261 --> 00:04:29,000
+Then I click back into the console, and I
+can hit Ctrl + V to paste.
+
+83
+00:04:29,000 --> 00:04:32,330
+Now I've just pasted the code into R and
+you'll see
+
+84
+00:04:32,330 --> 00:04:35,200
+that if I type LS, I've got my, my
+function there.
+
+85
+00:04:35,200 --> 00:04:38,930
+I can execute it by just calling it, and
+you'll see it'll give you the mean
+
+86
+00:04:38,930 --> 00:04:40,180
+of 100 random.
+
+87
+00:04:40,180 --> 00:04:42,630
+Normal random variables, if I do it again,
+it will give me
+
+88
+00:04:42,630 --> 00:04:47,126
+a slightly different number because it
+will simulate a different set of numbers.
+
+89
+00:04:47,126 --> 00:04:50,654
+The other thing you can do is go into my
+R-editor,
+
+90
+00:04:50,654 --> 00:04:54,740
+and you can go to the File menu and click
+Save As.
+
+91
+00:04:54,740 --> 00:04:57,560
+So now you can, if you save, you can hit
+Save As, you can
+
+92
+00:04:57,560 --> 00:05:01,730
+save the file into your Coursera folder
+here, which I'm going to do right now.
+
+93
+00:05:03,660 --> 00:05:04,090
+And you can
+
+94
+00:05:04,090 --> 00:05:10,615
+save it as whatever name you want.
+So I'm going to call it my code .R.
+
+95
+00:05:10,615 --> 00:05:13,090
+.R is conventional for the extension.
+
+96
+00:05:15,970 --> 00:05:19,330
+So now if I type dir, excuse me.
+
+97
+00:05:19,330 --> 00:05:25,060
+In my console window here, you'll see that
+there's a file called mycode.r.
+
+98
+00:05:25,060 --> 00:05:28,270
+And you can load this into R, using the
+source function.
+
+99
+00:05:28,270 --> 00:05:30,372
+So I can say mycode .r.
+
+100
+00:05:32,490 --> 00:05:34,730
+And that loads the all the code that is
+
+101
+00:05:34,730 --> 00:05:37,440
+in this file, of course that's just the my
+function.
+
+102
+00:05:37,440 --> 00:05:38,712
+So, I haven't done anything new here.
+
+103
+00:05:38,712 --> 00:05:40,540
+But let's say, I want to add another
+function here.
+
+104
+00:05:40,540 --> 00:05:44,879
+We'll say, second for my second function,
+and it will take an argument X
+
+105
+00:05:44,879 --> 00:05:49,260
+and it will take X, it will add a little
+bit of noise to it.
+
+106
+00:05:49,260 --> 00:05:55,080
+So, With the R in arm function.
+Okay so now I've got two functions here.
+
+107
+00:05:55,080 --> 00:05:57,690
+I can save my file with this little disk
+
+108
+00:05:57,690 --> 00:06:02,050
+icon, or I can go to file, the File menu,
+hit Save.
+
+109
+00:06:02,050 --> 00:06:03,559
+And I'm going to source this file again.
+
+110
+00:06:05,690 --> 00:06:09,284
+Now, when I type LS, you'll see that I've
+got this 2nd function there.
+
+111
+00:06:09,284 --> 00:06:12,830
+And I type 2nd, let's say 4.
+
+112
+00:06:12,830 --> 00:06:15,720
+I get a number that's 4, plus a little bit
+of random noise.
+
+113
+00:06:15,720 --> 00:06:20,080
+So let me get 4 again, lastly the same
+thing will happen.
+
+114
+00:06:20,080 --> 00:06:21,960
+I could say 4 through 10.
+
+115
+00:06:21,960 --> 00:06:23,400
+And it'll give me each one of those
+numbers
+
+116
+00:06:23,400 --> 00:06:25,850
+with a little bit of random noise added
+on.
+
+117
+00:06:25,850 --> 00:06:29,540
+So that's how I edit code, and that's how
+I load the code into R.
+
+118
+00:06:29,540 --> 00:06:30,800
+Every time you edit your
+
+119
+00:06:30,800 --> 00:06:34,810
+file in the editor, you have to save it
+and then if you want that code to
+
+120
+00:06:34,810 --> 00:06:36,810
+be available in R, you have to use the
+
+121
+00:06:36,810 --> 00:06:40,260
+source function to source that file back
+into R.
+
+122
+00:06:40,260 --> 00:06:41,950
+You don't have to use a single file, you
+can
+
+123
+00:06:41,950 --> 00:06:44,580
+add a new file, so you can say new script.
+
+124
+00:06:44,580 --> 00:06:47,870
+It'll open in another window, you can save
+this to be a different file if you want.
+
+125
+00:06:47,870 --> 00:06:48,920
+So that way you can separate
+
+126
+00:06:48,920 --> 00:06:51,340
+code for different projects or different
+assignments.
+
+127
+00:06:52,690 --> 00:06:55,850
+If you close the file here You can always
+open it back
+
+128
+00:06:55,850 --> 00:07:00,560
+again by hitting, the open button and you
+can see my code is right there.
+
+129
+00:07:00,560 --> 00:07:03,270
+And if I open it up, you'll see you'll
+have all your code right back there again.
+
+130
+00:07:04,330 --> 00:07:06,790
+So that's how you edit code in R.
+
+131
+00:07:08,134 --> 00:07:11,296
+There's now there's many other text
+editors that you might see on the web
+
+132
+00:07:11,296 --> 00:07:15,480
+that you can download, and those are fine
+to use, but they're not really necessary.
+
+133
+00:07:15,480 --> 00:07:18,380
+The text editor that comes with R should
+be sufficient for this course.
+

@@ -1,0 +1,603 @@
+1
+00:00:00,900 --> 00:00:03,230
+So lattice has what are called panel
+functions.
+
+2
+00:00:03,230 --> 00:00:06,460
+So, you know, when you have a multi-panel
+plot, there's a function that gets
+
+3
+00:00:06,460 --> 00:00:10,724
+called to, to kind of plot the data in
+each one of those panels.
+
+4
+00:00:10,724 --> 00:00:13,640
+And that controls what happens to each one
+of these panels.
+
+5
+00:00:13,640 --> 00:00:17,230
+Lattice package comes with a number of
+default panel functions, but you
+
+6
+00:00:17,230 --> 00:00:20,800
+can supply your own if you want to
+customize what happens in each panel.
+
+7
+00:00:20,800 --> 00:00:23,000
+And so basically, each panel function
+receives the x
+
+8
+00:00:23,000 --> 00:00:26,050
+and the y coordinates of the data points
+in that
+
+9
+00:00:26,050 --> 00:00:26,750
+particular panel.
+
+10
+00:00:26,750 --> 00:00:30,230
+So remember, each panel's going to
+represent a subset of the data,
+
+11
+00:00:30,230 --> 00:00:34,870
+which is defined by the conditioning
+variable that you give it.
+
+12
+00:00:34,870 --> 00:00:37,990
+And so you, you, each panel function will,
+for each panel, the panel
+
+13
+00:00:37,990 --> 00:00:41,920
+function will get the x/y coordinates of
+the points that are in that plot.
+
+14
+00:00:41,920 --> 00:00:43,710
+And so you can see here, I'm generating
+some random
+
+15
+00:00:43,710 --> 00:00:47,730
+data that are, that are kind of, follow a
+linear model.
+
+16
+00:00:47,730 --> 00:00:49,410
+And I create a factor variable which is
+
+17
+00:00:49,410 --> 00:00:52,430
+basically just separating out Group 1 and
+Group 2.
+
+18
+00:00:52,430 --> 00:00:56,360
+And now I'm going to plot x and y by
+group.
+
+19
+00:00:56,360 --> 00:00:58,600
+And so here I got two panels in Group 1,
+it looks like
+
+20
+00:00:58,600 --> 00:01:01,810
+a strong linear relationship, and in Group
+2, it looks like there's no relationship.
+
+21
+00:01:03,180 --> 00:01:06,320
+So you can, here, you can see, I'm, I'm
+calling a custom panel
+
+22
+00:01:06,320 --> 00:01:09,190
+function, my, via the panel argument, and
+I give it, I give it
+
+23
+00:01:09,190 --> 00:01:12,080
+a function, so the first two arguments are
+x and y, and then
+
+24
+00:01:12,080 --> 00:01:15,220
+followed by dot, dot, dot, which means any
+other arguments that may get passed.
+
+25
+00:01:16,530 --> 00:01:17,690
+And so, in my custom
+
+26
+00:01:17,690 --> 00:01:19,310
+panel function, the first thing I do is I
+call
+
+27
+00:01:19,310 --> 00:01:23,150
+the default xyplot panel function just to
+make the points appear.
+
+28
+00:01:23,150 --> 00:01:26,450
+And then my customization is I add a
+little, a horizontal line at
+
+29
+00:01:26,450 --> 00:01:30,290
+each panel, which is the median of the y
+values in that panel.
+
+30
+00:01:30,290 --> 00:01:32,870
+So now I can see there is a dash line in
+each panel
+
+31
+00:01:32,870 --> 00:01:36,020
+right at where the median of, of the y,
+the y coordinates is.
+
+32
+00:01:38,900 --> 00:01:40,861
+Another fancier thing I can do is rather
+than
+
+33
+00:01:40,861 --> 00:01:42,928
+add the median, it might be useful to add
+a
+
+34
+00:01:42,928 --> 00:01:45,260
+regression line, so you can look at the,
+the linear
+
+35
+00:01:45,260 --> 00:01:47,890
+relationship between x and y within each
+of the panels.
+
+36
+00:01:47,890 --> 00:01:50,487
+So here again, I, I pass a custom
+function, and
+
+37
+00:01:50,487 --> 00:01:52,077
+I call, first thing I do is I call the
+
+38
+00:01:52,077 --> 00:01:54,250
+panel the xyplot function to just kind of
+make the
+
+39
+00:01:54,250 --> 00:01:57,550
+points appear, and make all the axis
+labels, and everything appear.
+
+40
+00:01:57,550 --> 00:02:03,110
+And then I call panel.lmline to add the
+regression line to the panel.
+
+41
+00:02:03,110 --> 00:02:03,980
+One thing that's worth noting
+
+42
+00:02:03,980 --> 00:02:05,660
+is that you can't use any of the
+
+43
+00:02:05,660 --> 00:02:08,350
+annotation functions from the base
+plotting system in the
+
+44
+00:02:08,350 --> 00:02:11,010
+lattice system, so any of the functions
+that are
+
+45
+00:02:11,010 --> 00:02:13,670
+in the base plotting system can't be used
+here.
+
+46
+00:02:13,670 --> 00:02:18,310
+As a general rule, you can't mix functions
+between different plotting systems.
+
+47
+00:02:18,310 --> 00:02:19,780
+And so you have to use all the
+
+48
+00:02:19,780 --> 00:02:22,080
+functions that are relevant to the given
+plotting system.
+
+49
+00:02:23,620 --> 00:02:29,480
+So as one quick, one more quick example of
+showing on a large, larger data set.
+
+50
+00:02:29,480 --> 00:02:31,670
+This comes from the Mouse Allergen and
+Asthma
+
+51
+00:02:31,670 --> 00:02:34,660
+Cohort Study which was conducted here in
+Baltimore City.
+
+52
+00:02:34,660 --> 00:02:39,270
+To look at the indoor environment of
+children with asthma living in Baltimore.
+
+53
+00:02:39,270 --> 00:02:42,080
+Many of these children are allergic to
+mouse allergen.
+
+54
+00:02:42,080 --> 00:02:46,080
+So this is an observational study where,
+in which there was a baseline home visit.
+
+55
+00:02:46,080 --> 00:02:47,740
+And then there was a visit every three
+months
+
+56
+00:02:47,740 --> 00:02:49,570
+for a year, so for a total of five visits.
+
+57
+00:02:51,340 --> 00:02:54,880
+And so, one thing, one question you might
+want to ask is how does the indoor
+
+58
+00:02:54,880 --> 00:02:57,860
+airborne mass allergen vary over time and
+across subjects.
+
+59
+00:02:57,860 --> 00:03:00,770
+So, what I want to do is I basically
+want to make a plot
+
+60
+00:03:00,770 --> 00:03:04,880
+of the airborne, indoor mass allergen for
+every subject for every visit.
+
+61
+00:03:05,890 --> 00:03:13,240
+So there are 150 subjects in this data
+set, and they each have five visits,
+
+62
+00:03:13,240 --> 00:03:18,597
+so you can, so there are going to be 750
+data points here that we want to look at.
+
+63
+00:03:18,597 --> 00:03:20,050
+And so, what's a compact way
+
+64
+00:03:20,050 --> 00:03:20,410
+to do that?
+
+65
+00:03:20,410 --> 00:03:22,620
+Well, actually, a very easy way to do that
+is
+
+66
+00:03:22,620 --> 00:03:26,050
+use x/y plot, and use a multi panel
+lattice plot.
+
+67
+00:03:26,050 --> 00:03:28,720
+And so that's what we've done here, you
+can take a look at
+
+68
+00:03:28,720 --> 00:03:32,730
+the data, one, and, and these are all the
+subjects in the study.
+
+69
+00:03:32,730 --> 00:03:35,180
+And this is all their airborne mouse
+allergen levels.
+
+70
+00:03:35,180 --> 00:03:38,880
+Well, it's the log of their airborne mouse
+allergen levels.
+
+71
+00:03:38,880 --> 00:03:41,840
+And so you can see the variation within a
+person, so within each panel, you
+
+72
+00:03:41,840 --> 00:03:45,180
+can see that their allergen levels can go
+up or down, or can vary from
+
+73
+00:03:45,180 --> 00:03:46,550
+visit to visit.
+
+74
+00:03:46,550 --> 00:03:50,930
+You can see the variation across subjects
+so you can see that some
+
+75
+00:03:50,930 --> 00:03:52,870
+people have just very high levels, and
+
+76
+00:03:52,870 --> 00:03:55,258
+some people just have generally lower
+levels.
+
+77
+00:03:55,258 --> 00:03:56,870
+So it's kind of that cross sectional
+
+78
+00:03:56,870 --> 00:03:59,548
+variation in addition to the within person
+variation.
+
+79
+00:03:59,548 --> 00:04:02,252
+You can see that a number of people have
+missing values, so not
+
+80
+00:04:02,252 --> 00:04:05,551
+everyone has five values, some people only
+have two values or one value.
+
+81
+00:04:05,551 --> 00:04:07,695
+And so it may be useful to kind of follow
+
+82
+00:04:07,695 --> 00:04:10,375
+up on those subjects to see why this
+subject only
+
+83
+00:04:10,375 --> 00:04:12,681
+have four values or three values.
+
+84
+00:04:12,681 --> 00:04:15,633
+You can see that some subjects, have a lot
+of
+
+85
+00:04:15,633 --> 00:04:19,138
+variations, so they go up and down a lot
+between visits.
+
+86
+00:04:19,138 --> 00:04:21,152
+And some have almost no variation at all,
+and
+
+87
+00:04:21,152 --> 00:04:23,820
+every visit is the same level of mouse
+allergen.
+
+88
+00:04:23,820 --> 00:04:25,910
+And so you may or may not want to follow
+up on some of
+
+89
+00:04:25,910 --> 00:04:28,300
+this some of these patterns, depending on
+
+90
+00:04:28,300 --> 00:04:30,510
+what exactly you want, you're interested
+in.
+
+91
+00:04:30,510 --> 00:04:32,780
+And so you can see that with essentially
+one or two
+
+92
+00:04:32,780 --> 00:04:35,410
+function call, you can make a massive plot
+like this, look at
+
+93
+00:04:35,410 --> 00:04:38,550
+a lot of data without having to go through
+a lot of code.
+
+94
+00:04:38,550 --> 00:04:40,300
+And so that's what, that's a, that's part
+of
+
+95
+00:04:40,300 --> 00:04:43,230
+the power of the lattice system, which
+lets you
+
+96
+00:04:43,230 --> 00:04:48,610
+look at a lot of data, as long as they're
+kind of kind of formatted in certain ways.
+
+97
+00:04:48,610 --> 00:04:52,110
+So again, this is the, the relationship
+between the visit
+
+98
+00:04:52,110 --> 00:04:56,620
+number and the log airborne mouse allergen
+levels by subject.
+
+99
+00:04:56,620 --> 00:04:58,760
+Right, and so this is a very quick way
+
+100
+00:04:58,760 --> 00:05:00,650
+to kind of summarize all the data in this
+study.
+
+101
+00:05:01,890 --> 00:05:05,230
+So just to summarize, lattice plots are
+constructed with a single
+
+102
+00:05:05,230 --> 00:05:09,522
+function call to one of the core lattice
+functions, like xyplot.
+
+103
+00:05:09,522 --> 00:05:12,018
+Things like, the, one of the nice things
+about lattice plots
+
+104
+00:05:12,018 --> 00:05:15,396
+is that things like margins and spacings
+and labels are automatically handled.
+
+105
+00:05:15,396 --> 00:05:17,277
+And so you don't have to set them all the
+
+106
+00:05:17,277 --> 00:05:19,899
+time using, like you did in the base
+plotting system,
+
+107
+00:05:19,899 --> 00:05:22,293
+where you had the margin option and the
+and the
+
+108
+00:05:22,293 --> 00:05:24,972
+kind of spacings and the m texts and the
+outer margin.
+
+109
+00:05:24,972 --> 00:05:27,080
+And so you don't have to worry about
+
+110
+00:05:27,080 --> 00:05:29,076
+that very much in lattice plots.
+
+111
+00:05:29,076 --> 00:05:31,473
+And the lattice system is really ideal
+when you have data
+
+112
+00:05:31,473 --> 00:05:34,227
+sets that you can look at by conditioning
+on certain variables,
+
+113
+00:05:34,227 --> 00:05:37,287
+so basically, you typically look, you
+want to look at a relationship,
+
+114
+00:05:37,287 --> 00:05:40,040
+but you want to look at it within levels
+of another variable.
+
+115
+00:05:41,290 --> 00:05:42,910
+So you want, want to look at kind of the
+
+116
+00:05:42,910 --> 00:05:45,000
+same kind of plot but under many different
+conditions.
+
+117
+00:05:46,540 --> 00:05:49,480
+And you can use the customized panel
+functions to modify
+
+118
+00:05:49,480 --> 00:05:52,350
+exactly what goes on in each of the plot
+panels.
+
+119
+00:05:52,350 --> 00:05:53,970
+And so that gives you a lot of power
+
+120
+00:05:53,970 --> 00:05:55,908
+to kind of customize the look of these
+panel plots.
+
+121
+00:05:55,908 --> 00:05:59,590
+And so I, I find the lattice system very
+useful for looking
+
+122
+00:05:59,590 --> 00:06:02,430
+at kind of a lot of data in a very quick
+way.
+
+123
+00:06:02,430 --> 00:06:06,330
+And so, I encourage you to try to look at
+it and look at some of the
+
+124
+00:06:06,330 --> 00:06:08,750
+other functions, like bwplot, box plots
+and scatter
+
+125
+00:06:08,750 --> 00:06:10,770
+plot matrices to see how they work for
+you.
+

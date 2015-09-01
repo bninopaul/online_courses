@@ -1,0 +1,726 @@
+1
+00:00:00,700 --> 00:00:02,830
+Principal Components Analysis and the
+Singular Value
+
+2
+00:00:02,830 --> 00:00:05,450
+Decomposition are a really important
+techniques, both in
+
+3
+00:00:05,450 --> 00:00:07,790
+the exploratory data analysis phase, and
+also,
+
+4
+00:00:07,790 --> 00:00:10,180
+in the more kind of formal modeling phase.
+
+5
+00:00:10,180 --> 00:00:14,850
+The techniques I've been, can be used in,
+very easily in both eight, stages.
+
+6
+00:00:14,850 --> 00:00:16,830
+But I'm going to talk a little bit about
+kind of,
+
+7
+00:00:16,830 --> 00:00:19,110
+how it's used in the exploratory phase,
+and I want to
+
+8
+00:00:19,110 --> 00:00:21,010
+talk a little bit about, kind of, what,
+what, what
+
+9
+00:00:21,010 --> 00:00:23,740
+goes on underneath, and kind of what their
+underlying basis is.
+
+10
+00:00:24,770 --> 00:00:25,890
+So,
+
+11
+00:00:25,890 --> 00:00:28,130
+if you look, suppose we have some matrix
+data
+
+12
+00:00:28,130 --> 00:00:30,400
+here and I just generated some random
+normal data
+
+13
+00:00:30,400 --> 00:00:32,390
+here using this code right here, and you
+see
+
+14
+00:00:32,390 --> 00:00:34,230
+that the matrix that I plotted here using
+the
+
+15
+00:00:34,230 --> 00:00:37,080
+image function, it's not particularly
+interesting, it looks pretty
+
+16
+00:00:37,080 --> 00:00:39,710
+noisy and there's no real pattern as we
+would
+
+17
+00:00:39,710 --> 00:00:43,560
+expect there, to not be, Now, I could just
+
+18
+00:00:43,560 --> 00:00:47,140
+run a hierarchical cluster analysis on
+this data set.
+
+19
+00:00:47,140 --> 00:00:48,820
+I just, I can do an hierarchical, a
+cluster
+
+20
+00:00:48,820 --> 00:00:51,070
+analysis on the rows of the data frame or
+
+21
+00:00:51,070 --> 00:00:52,960
+the rows of the matrix and the columns of
+a matrix.
+
+22
+00:00:52,960 --> 00:00:56,050
+And I can do this using the heatmap
+function very easily in R.
+
+23
+00:00:56,050 --> 00:00:59,140
+So when I run the heatmap function, you
+can see that the cluster analysis
+
+24
+00:00:59,140 --> 00:01:03,150
+is done, I get the dendrograms printed on
+both the columns and the rows.
+
+25
+00:01:03,150 --> 00:01:05,350
+But again, there's no real interesting
+pattern that emerges, and
+
+26
+00:01:05,350 --> 00:01:08,120
+that's because there's no real interesting
+pattern underlying in the data.
+
+27
+00:01:10,100 --> 00:01:11,990
+So so that's fine.
+
+28
+00:01:11,990 --> 00:01:14,060
+But now, what if we add a pattern to the
+data set.
+
+29
+00:01:14,060 --> 00:01:17,020
+So let's try to add something and
+
+30
+00:01:17,020 --> 00:01:19,470
+I, I do it with this code here, with this
+four loop here.
+
+31
+00:01:19,470 --> 00:01:23,980
+So I loop through all the rows, and on a
+random row I
+
+32
+00:01:23,980 --> 00:01:28,090
+flip a coin, and if it turns out to be a
+one I just
+
+33
+00:01:28,090 --> 00:01:32,810
+add a pattern, I just, so, so that five of
+the columns have a
+
+34
+00:01:32,810 --> 00:01:35,840
+mean of zero, and another, and the other
+five have a mean of three.
+
+35
+00:01:35,840 --> 00:01:39,630
+So, I just kind of add a little shift here
+across the columns.
+
+36
+00:01:39,630 --> 00:01:42,030
+So now if I plot the data you see that
+their at the
+
+37
+00:01:42,030 --> 00:01:44,530
+right, on the right hand five columns are
+a little
+
+38
+00:01:44,530 --> 00:01:47,420
+bit more yellow which means that they have
+a higher value
+
+39
+00:01:47,420 --> 00:01:49,220
+and in the left hand side five columns
+which are, which
+
+40
+00:01:49,220 --> 00:01:51,270
+are little bit more red which means
+they've a lower value.
+
+41
+00:01:51,270 --> 00:01:56,300
+That's because some of the rows have a
+mean of three in the right hand side
+
+42
+00:01:57,310 --> 00:02:00,270
+and some of the rows only have a mean of
+zero on the right hand side.
+
+43
+00:02:00,270 --> 00:02:02,730
+So, you can see there's an obvious kind of
+step pattern there.
+
+44
+00:02:04,790 --> 00:02:08,130
+So now, if I do, if I run a higher, higher
+group of cluster analysis on
+
+45
+00:02:08,130 --> 00:02:10,970
+the data, you can see that, that the
+
+46
+00:02:12,080 --> 00:02:14,460
+the two sets of columns are easily
+separated out.
+
+47
+00:02:14,460 --> 00:02:16,060
+So you can see that the dendrogram on the
+top
+
+48
+00:02:16,060 --> 00:02:19,170
+of the matrix which, which is right on the
+columns.
+
+49
+00:02:19,170 --> 00:02:21,510
+I see it, it has, it clearly splits into
+two clusters,
+
+50
+00:02:21,510 --> 00:02:23,770
+there's five on the left, and there's five
+on the right.
+
+51
+00:02:23,770 --> 00:02:25,170
+On the rows, it's not so obvious, because
+
+52
+00:02:25,170 --> 00:02:28,160
+there's no real pattern that goes along
+the rows.
+
+53
+00:02:28,160 --> 00:02:29,890
+And so that kind of get reorganized into
+
+54
+00:02:29,890 --> 00:02:35,559
+a random pattern and, and that's the
+picture that emerges from the heat map.
+
+55
+00:02:39,100 --> 00:02:42,390
+Now, we can take a look at a closer look
+at the patterns in the rows
+
+56
+00:02:42,390 --> 00:02:43,780
+and columns by looking at kind of the
+
+57
+00:02:43,780 --> 00:02:47,320
+marginal means of the, of the rows and
+columns.
+
+58
+00:02:47,320 --> 00:02:50,660
+So for example I can look at ether the ten
+different column
+
+59
+00:02:50,660 --> 00:02:55,280
+means or I can plot the 40 row means in
+this matrix.
+
+60
+00:02:55,280 --> 00:02:56,960
+So here with this code, that's exactly
+what I've done
+
+61
+00:02:56,960 --> 00:02:59,760
+on the left hand plot I've got the
+original matrix data.
+
+62
+00:03:01,430 --> 00:03:04,130
+That's been kind of reor, that's been
+reordered to
+
+63
+00:03:04,130 --> 00:03:08,960
+look according to the kind of hierarchical
+cluster analysis of the, of the rose.
+
+64
+00:03:10,050 --> 00:03:16,870
+And and and I've plotted in the middle
+plot here the mean for each of the rows.
+
+65
+00:03:16,870 --> 00:03:19,705
+If you look, on, on the y-axis I've got
+the row number which goes from
+
+66
+00:03:19,705 --> 00:03:24,590
+one to 40, so that kind of is roughly
+parallel with the image on the left.
+
+67
+00:03:24,590 --> 00:03:27,280
+And and on the x-axis I've got the mean of
+that row.
+
+68
+00:03:27,280 --> 00:03:29,210
+So for example, you can see that for row
+ten
+
+69
+00:03:29,210 --> 00:03:33,580
+the mean is roughly, you know, minus 0.25
+or something like that.
+
+70
+00:03:33,580 --> 00:03:36,433
+And then for row 30 the mean is roughly
+1.5.
+
+71
+00:03:37,490 --> 00:03:43,670
+And so we see that there's a clear shift
+in the mean as you go across the rows.
+
+72
+00:03:43,670 --> 00:03:46,450
+Similarly, if you go across the columns,
+you can see, across the
+
+73
+00:03:46,450 --> 00:03:51,490
+ten columns, there's a clear shift in the
+mean of each column.
+
+74
+00:03:51,490 --> 00:03:54,340
+So the first ten columns have roughly a
+mean of zero or close
+
+75
+00:03:54,340 --> 00:03:56,510
+to it and then the next ten columns have
+
+76
+00:03:56,510 --> 00:04:00,890
+roughly a mean of two because, there's a
+shift there.
+
+77
+00:04:00,890 --> 00:04:03,140
+So using the plots on the, on the, in the
+middle on the
+
+78
+00:04:03,140 --> 00:04:07,130
+right you can see a clear pattern, in the
+rows and the columns there.
+
+79
+00:04:10,770 --> 00:04:14,860
+So, some related problems that, that so,
+closer analysis are, is
+
+80
+00:04:14,860 --> 00:04:17,980
+useful for kind of identifying these types
+of patterns, but we
+
+81
+00:04:17,980 --> 00:04:21,290
+can maybe take a little more, a slightly
+more formal approach,
+
+82
+00:04:21,290 --> 00:04:24,810
+that kind of takes advantage of the matrix
+structure of the data.
+
+83
+00:04:24,810 --> 00:04:26,310
+And so the base, there are two kinds of
+
+84
+00:04:26,310 --> 00:04:27,710
+problems you might want to look at and so
+if
+
+85
+00:04:27,710 --> 00:04:31,940
+you have a lot of variables and we want,
+
+86
+00:04:31,940 --> 00:04:35,830
+we want to create a new set of variables
+that
+
+87
+00:04:35,830 --> 00:04:38,260
+are uncorrelated and explain as much
+variance as possible.
+
+88
+00:04:38,260 --> 00:04:40,510
+So the idea is that we have a lot of
+different variables.
+
+89
+00:04:40,510 --> 00:04:42,630
+Suppose we have hundreds or maybe
+thousands
+
+90
+00:04:42,630 --> 00:04:44,190
+or tens of thousands of variables in
+
+91
+00:04:44,190 --> 00:04:46,920
+our data set and the idea is
+
+92
+00:04:46,920 --> 00:04:51,215
+that they're not all independent
+measurements of something.
+
+93
+00:04:51,215 --> 00:04:51,270
+Right?
+
+94
+00:04:51,270 --> 00:04:52,770
+So a lot of them will be related to each
+other.
+
+95
+00:04:52,770 --> 00:04:54,000
+They will be correlated with each other.
+
+96
+00:04:54,000 --> 00:04:55,420
+So for example, you'll have two
+measurements
+
+97
+00:04:55,420 --> 00:04:57,000
+that are like height and weight and so
+
+98
+00:04:57,000 --> 00:04:58,720
+those will obviously be related to each
+
+99
+00:04:58,720 --> 00:05:00,900
+other and so they're not all independent
+kind
+
+100
+00:05:00,900 --> 00:05:02,030
+of like factors.
+
+101
+00:05:02,030 --> 00:05:05,950
+And you see the idea is that we want to
+create a set of variables that is smaller
+
+102
+00:05:05,950 --> 00:05:07,840
+than the original set of variables that we
+
+103
+00:05:07,840 --> 00:05:10,680
+have and that are all uncorrelated with
+each other.
+
+104
+00:05:10,680 --> 00:05:16,310
+So that they kind of represent different
+types of variation in your data set.
+
+105
+00:05:16,310 --> 00:05:20,540
+And similarly, we want this reduced set of
+variables to explain
+
+106
+00:05:20,540 --> 00:05:23,520
+as much of the variability in your data
+set, as possible.
+
+107
+00:05:25,630 --> 00:05:28,990
+So another related problem is that if you
+put all the variables together
+
+108
+00:05:28,990 --> 00:05:32,550
+in one matrix so like the matrix that we
+showed in the image.
+
+109
+00:05:32,550 --> 00:05:35,430
+You want to find the best matrix that's
+created with
+
+110
+00:05:35,430 --> 00:05:39,360
+fewer variables, the and, but still
+explains the original data.
+
+111
+00:05:39,360 --> 00:05:41,800
+The idea is if you, the more technical
+term is that you want to find
+
+112
+00:05:41,800 --> 00:05:44,010
+a lower rank matrix and that somehow
+
+113
+00:05:44,010 --> 00:05:46,860
+explains the, the original data reasonably
+well.
+
+114
+00:05:46,860 --> 00:05:50,650
+So the first goal here is a statistical
+one and it's,
+
+115
+00:05:50,650 --> 00:05:52,280
+it's a common problem that's solved by
+
+116
+00:05:52,280 --> 00:05:56,070
+the method of, of principle components
+analysis.
+
+117
+00:05:56,070 --> 00:05:59,210
+And the second goal here is more of a kind
+of data compression problem,
+
+118
+00:05:59,210 --> 00:06:01,310
+where you want to find a, a kind
+
+119
+00:06:01,310 --> 00:06:04,600
+of smaller representation of the original
+data.
+
+120
+00:06:04,600 --> 00:06:07,670
+And one way to think about that problem is
+with the singular value decomposition.
+
+121
+00:06:10,020 --> 00:06:14,610
+So the singular value decomposition can be
+written in mathematical terms, in matrix
+
+122
+00:06:14,610 --> 00:06:20,130
+terms as if you have a matrix x where
+each, the, all, we can think of each
+
+123
+00:06:20,130 --> 00:06:24,720
+column in this matrix as a variable or a,
+a measurement And each row of
+
+124
+00:06:24,720 --> 00:06:26,620
+the matrix as an observation, so you might
+
+125
+00:06:26,620 --> 00:06:29,730
+have many, many observations for a given
+metric.
+
+126
+00:06:29,730 --> 00:06:31,570
+So for example, the rows of your matrix
+
+127
+00:06:31,570 --> 00:06:35,040
+might represent individual people, and
+each column would represent
+
+128
+00:06:35,040 --> 00:06:36,130
+a measurement on those people.
+
+129
+00:06:36,130 --> 00:06:37,920
+So for example, the first column might be
+the
+
+130
+00:06:37,920 --> 00:06:39,690
+height, and the second column might be the
+weight.
+
+131
+00:06:41,460 --> 00:06:43,750
+So then the idea is that if you have a
+
+132
+00:06:43,750 --> 00:06:47,490
+matrix x, that's formatted in this way
+then the singular value
+
+133
+00:06:47,490 --> 00:06:51,120
+decomposition or the SVD is a matrix
+decomposition that can,
+
+134
+00:06:51,120 --> 00:06:55,730
+where it, which decomposses the original
+matrix into three separate matrixes.
+
+135
+00:06:55,730 --> 00:06:58,900
+One is U, one is called D and the other's
+called V.
+
+136
+00:06:59,960 --> 00:07:03,130
+And so they, the column of U are
+orthogonal
+
+137
+00:07:03,130 --> 00:07:05,430
+so they're, ind, they're kind of
+independent of each other.
+
+138
+00:07:05,430 --> 00:07:07,580
+They're called the left singular vectors
+and the columns of
+
+139
+00:07:07,580 --> 00:07:10,960
+V are also orthogonal and they're called
+right singular vectors.
+
+140
+00:07:10,960 --> 00:07:15,080
+And then D is a diagonal matrix which
+contains the singular values.
+
+141
+00:07:15,080 --> 00:07:17,480
+So that's the basic idea of the singular
+valued composition.
+
+142
+00:07:17,480 --> 00:07:21,020
+We'll talk about these components a little
+bit later on.
+
+143
+00:07:21,020 --> 00:07:25,200
+Principle components analysis, also
+usually known as PCA,
+
+144
+00:07:25,200 --> 00:07:31,040
+is related, uses the single valued
+composition as a related technique
+
+145
+00:07:31,040 --> 00:07:32,770
+And the basic idea is that if you were to
+take
+
+146
+00:07:32,770 --> 00:07:36,490
+the original data matrix, and subtract the
+mean of each column
+
+147
+00:07:36,490 --> 00:07:40,480
+from each, so subtract each, the column
+mean from each column.
+
+148
+00:07:40,480 --> 00:07:44,080
+And divide by the column standard
+deviation, and then, and
+
+149
+00:07:44,080 --> 00:07:47,990
+then run a SVD on that kind of
+re-normalized matrix.
+
+150
+00:07:47,990 --> 00:07:50,590
+The principle components would be equal to
+the right singular values
+
+151
+00:07:51,930 --> 00:07:54,340
+of the matrix, so the V matrix.
+

@@ -1,0 +1,592 @@
+1
+00:00:01,330 --> 00:00:04,080
+The lattice plotting system in R is a
+plotting system that's
+
+2
+00:00:04,080 --> 00:00:07,390
+different from the base plotting system
+and it works very differently.
+
+3
+00:00:07,390 --> 00:00:09,940
+And it's useful for plotting, often for
+plotting kind of high
+
+4
+00:00:09,940 --> 00:00:14,065
+dimensional data and for making lot, many
+many plots at once.
+
+5
+00:00:14,065 --> 00:00:18,600
+And if you recall in the base plotting
+system it was possible to put multiple
+
+6
+00:00:18,600 --> 00:00:24,350
+plots on the same graphics device using
+the mfrow or mfcall arguments.
+
+7
+00:00:24,350 --> 00:00:26,430
+And you can make panels and plots to
+
+8
+00:00:26,430 --> 00:00:27,620
+look at many different feature.
+
+9
+00:00:27,620 --> 00:00:29,920
+And the lattice plotting system is kind of
+
+10
+00:00:29,920 --> 00:00:33,240
+designed to really make, to optimize that
+type of
+
+11
+00:00:33,240 --> 00:00:36,090
+plot and to make very high density plots
+and
+
+12
+00:00:36,090 --> 00:00:38,190
+so it can be useful in many different
+situations.
+
+13
+00:00:38,190 --> 00:00:42,010
+And so I'll talk about some of the, the
+functions in the lattice system here.
+
+14
+00:00:42,010 --> 00:00:45,060
+So, the lattice plotting system is, is
+implemented in the lattice package.
+
+15
+00:00:45,060 --> 00:00:47,770
+So you have to load the package in order
+to use it.
+
+16
+00:00:47,770 --> 00:00:51,880
+Underlying the lattice package is what's
+called the grid package which implements
+
+17
+00:00:51,880 --> 00:00:55,986
+a lot of the kind of low level plumbing of
+the, of the lattice graphic system.
+
+18
+00:00:55,986 --> 00:00:58,420
+And you, you typically won't have to call
+functions
+
+19
+00:00:58,420 --> 00:01:00,980
+from the grid package directly but it's
+useful to know
+
+20
+00:01:00,980 --> 00:01:02,390
+that underneath there are a lot of,
+there's a
+
+21
+00:01:02,390 --> 00:01:05,100
+lot of code that is implemented in the
+grid package.
+
+22
+00:01:06,210 --> 00:01:09,680
+And so the lat, lattice package builds on
+top of grid and
+
+23
+00:01:09,680 --> 00:01:13,850
+gives you a number of kind of user
+functions to, to employ.
+
+24
+00:01:13,850 --> 00:01:16,930
+the, the one thing about the lattice
+plotting system is, is that it does
+
+25
+00:01:16,930 --> 00:01:21,080
+not have a kind of two phase aspect like
+the base plotting system did.
+
+26
+00:01:21,080 --> 00:01:23,260
+In where you kind of in the base plotting
+system, if you recall,
+
+27
+00:01:23,260 --> 00:01:27,290
+you kind of create the plot and then you
+annotate it with separate functions.
+
+28
+00:01:27,290 --> 00:01:29,510
+Here in the lattice plotting system, you
+have to create
+
+29
+00:01:29,510 --> 00:01:32,160
+the entire plot all at once in a single
+function call.
+
+30
+00:01:32,160 --> 00:01:35,540
+And so you have to specify all the details
+within that function
+
+31
+00:01:35,540 --> 00:01:39,110
+call and, because you won't have a chance
+really to annotate it afterwards.
+
+32
+00:01:41,580 --> 00:01:44,040
+So some of the main functions in lattice
+are xyplot.
+
+33
+00:01:44,040 --> 00:01:46,580
+This is probably the most important
+function.
+
+34
+00:01:46,580 --> 00:01:49,290
+It's basically used for making scatter
+plots.
+
+35
+00:01:49,290 --> 00:01:53,305
+There's bwplot for bock, for boxplots,
+histogram for histograms.
+
+36
+00:01:53,305 --> 00:01:57,558
+Stripplot is kind of like a boxplot, but
+there's but it uses points.
+
+37
+00:01:57,558 --> 00:02:02,462
+The dotplot plots points on where, where
+it will look like a violin strings.
+
+38
+00:02:02,462 --> 00:02:04,480
+Splom is for scatter plot matrix.
+
+39
+00:02:04,480 --> 00:02:07,630
+It's kind of like the pairs function in
+the base plotting system.
+
+40
+00:02:07,630 --> 00:02:11,680
+And levelplot and contourplot are for
+plotting image data.
+
+41
+00:02:11,680 --> 00:02:15,150
+And so, I'll just talk a little bit about
+the xyplot right function right now.
+
+42
+00:02:15,150 --> 00:02:17,070
+Because I think it's the most important.
+
+43
+00:02:17,070 --> 00:02:20,720
+The basic function call for xyplot is that
+you have a formula kind of notations.
+
+44
+00:02:20,720 --> 00:02:21,924
+So you have y ~ x.
+
+45
+00:02:21,924 --> 00:02:23,785
+So the y is going to be whatever's on your
+
+46
+00:02:23,785 --> 00:02:25,770
+y-axis and x is going to be whatever's on
+your x-axis.
+
+47
+00:02:25,770 --> 00:02:27,820
+And then you have this vertical bar
+
+48
+00:02:27,820 --> 00:02:31,180
+which separates what are called,
+conditioning variables.
+
+49
+00:02:31,180 --> 00:02:32,740
+And so f and g are going to
+
+50
+00:02:32,740 --> 00:02:36,490
+be categorical variables that you
+condition on.
+
+51
+00:02:36,490 --> 00:02:39,580
+So for example, and the idea is that you
+want to
+
+52
+00:02:39,580 --> 00:02:42,490
+you can kind of, to interpret this
+function call in words, the
+
+53
+00:02:42,490 --> 00:02:44,860
+idea is that I want to look at the scatter
+plot
+
+54
+00:02:44,860 --> 00:02:48,580
+of y and x for every level of f and g,
+right?
+
+55
+00:02:48,580 --> 00:02:51,590
+So, and you don't have to use two
+different categorical variables.
+
+56
+00:02:51,590 --> 00:02:57,770
+I just wanted to show that you could.
+And so, and then the second argument is
+
+57
+00:02:57,770 --> 00:02:58,790
+the data argument.
+
+58
+00:02:58,790 --> 00:03:04,820
+And this is the data frame where the
+variables x, y, f, and g can be found.
+
+59
+00:03:04,820 --> 00:03:06,590
+If there's no data frame there, then it
+will
+
+60
+00:03:06,590 --> 00:03:09,579
+look in your workspace for the variables
+to plot.
+
+61
+00:03:11,640 --> 00:03:13,600
+So here's just a very simple scatter plot.
+
+62
+00:03:13,600 --> 00:03:16,190
+I load the lattice package and the data
+sets package, and I'm
+
+63
+00:03:16,190 --> 00:03:19,230
+plotting the ozone and wind variables from
+the air quality data frame.
+
+64
+00:03:19,230 --> 00:03:23,245
+So you can see I just did ozone ~ wind, so
+I got ozone on the y-axis and wind on the
+
+65
+00:03:23,245 --> 00:03:26,290
+x-axis, and this is your basic scatter
+plot which looks
+
+66
+00:03:26,290 --> 00:03:29,960
+very much like a scatter plot in the base
+plotting system.
+
+67
+00:03:29,960 --> 00:03:32,230
+Notice that the defaults are a little bit
+different.
+
+68
+00:03:32,230 --> 00:03:34,920
+It does use open circles, but they're
+colored blue by default.
+
+69
+00:03:37,120 --> 00:03:39,876
+Now, here's a slightly more complicated
+lattice plot.
+
+70
+00:03:39,876 --> 00:03:41,730
+So here I've, I've gotten the same data
+frame,
+
+71
+00:03:41,730 --> 00:03:44,760
+but I've converted the month variable into
+a factor.
+
+72
+00:03:44,760 --> 00:03:48,610
+And now I'm plotting ozone versus wind by
+month.
+
+73
+00:03:48,610 --> 00:03:50,150
+So you can interpret the formula as, I
+
+74
+00:03:50,150 --> 00:03:51,940
+want to look at the relationship between
+ozone and
+
+75
+00:03:51,940 --> 00:03:54,430
+wind for each level of month and so
+
+76
+00:03:54,430 --> 00:03:56,320
+month goes from five, six, seven, eight,
+and nine.
+
+77
+00:03:56,320 --> 00:03:58,640
+So from the month of May to the month of
+September.
+
+78
+00:03:58,640 --> 00:04:02,160
+And you can see the relationship between
+ozone and wind.
+
+79
+00:04:02,160 --> 00:04:05,700
+It appears to change across the month.
+
+80
+00:04:05,700 --> 00:04:10,200
+So there doesn't appear to be you know
+much relationship in May or June.
+
+81
+00:04:10,200 --> 00:04:13,820
+But you can see in, in July and August,
+there's a relatively strong relationship.
+
+82
+00:04:13,820 --> 00:04:16,610
+There is a negative one there, so more
+wind means less ozone.
+
+83
+00:04:16,610 --> 00:04:18,790
+And you can see by September that
+relationship
+
+84
+00:04:18,790 --> 00:04:20,910
+is starting to die down a little bit.
+
+85
+00:04:20,910 --> 00:04:24,290
+So I, it's very easy, so that's one of the
+pow, the power
+
+86
+00:04:24,290 --> 00:04:27,580
+of the xyplot function in lattice is that
+I can make these multidimensional
+
+87
+00:04:27,580 --> 00:04:30,900
+panels very simply with just a single
+function call.
+
+88
+00:04:30,900 --> 00:04:32,830
+And you recall in the base plotting
+system, I would,
+
+89
+00:04:32,830 --> 00:04:35,660
+there would've been many, many function
+calls create this plot.
+
+90
+00:04:35,660 --> 00:04:37,540
+And here I just used a single line.
+
+91
+00:04:37,540 --> 00:04:39,240
+So now I'm, so now I'm looking at three
+
+92
+00:04:39,240 --> 00:04:42,910
+different variables here, the month, the
+ozone, and wind.
+
+93
+00:04:42,910 --> 00:04:46,840
+And, and they're all kind of arranged in
+one panel, which is very convenient.
+
+94
+00:04:48,940 --> 00:04:52,075
+So the lattice functions behave a little
+bit differently, and
+
+95
+00:04:52,075 --> 00:04:56,070
+it's worth noting the difference between
+lattice and the base graphics.
+
+96
+00:04:56,070 --> 00:04:59,500
+Base graphics functions plot data directly
+to a graphics device.
+
+97
+00:04:59,500 --> 00:05:01,843
+So if you recall there's the screen
+device, there's
+
+98
+00:05:01,843 --> 00:05:03,880
+PDF files, there are all kinds of graphics
+devices.
+
+99
+00:05:03,880 --> 00:05:06,090
+What lattice functions do is they, they
+
+100
+00:05:06,090 --> 00:05:08,445
+don't actually, they don't specifically
+plot anything.
+
+101
+00:05:08,445 --> 00:05:11,950
+Uh,hat they do is they return an object of
+class trellis.
+
+102
+00:05:11,950 --> 00:05:14,506
+And then the object has to be printed
+
+103
+00:05:14,506 --> 00:05:18,720
+in order for the data in the plot to kind
+of go to the graphics device.
+
+104
+00:05:18,720 --> 00:05:21,350
+So there is a two-stage aspect there, but
+most
+
+105
+00:05:21,350 --> 00:05:24,980
+of the time this aspect is invisible to
+the user.
+
+106
+00:05:24,980 --> 00:05:28,470
+Because what happens is that the u-, when
+you call a function like xyplot,
+
+107
+00:05:28,470 --> 00:05:34,040
+it returns an object of class trellis, but
+then it auto prints that object.
+
+108
+00:05:34,040 --> 00:05:37,330
+And so, the auto-printing feature of R
+will make it
+
+109
+00:05:37,330 --> 00:05:39,860
+so that it automatically sends the plot to
+the graphics device.
+
+110
+00:05:39,860 --> 00:05:44,600
+So most of the time you don't have to
+worry about this two step process.
+
+111
+00:05:44,600 --> 00:05:48,120
+But it's worth noting that you can, in
+theory, save the plot object
+
+112
+00:05:48,120 --> 00:05:51,210
+to an R object, and then it'll be sitting
+in your work space.
+
+113
+00:05:51,210 --> 00:05:54,130
+Now, you can theoretically store that
+object
+
+114
+00:05:54,130 --> 00:05:56,500
+but it's probably not wise to do this.
+
+115
+00:05:56,500 --> 00:05:59,920
+It's better to save the code that
+generates the plot and the data.
+
+116
+00:06:01,820 --> 00:06:05,120
+So you can see this lattice behavior in
+just in this simple bit of code here.
+
+117
+00:06:05,120 --> 00:06:07,330
+So here I'm calling the xyplot function.
+
+118
+00:06:07,330 --> 00:06:10,440
+I'm saving to an object called p, and then
+I'm printing p.
+
+119
+00:06:10,440 --> 00:06:11,700
+And that's when the plot appears.
+
+120
+00:06:11,700 --> 00:06:14,170
+So when you run this code, after the first
+line of code,
+
+121
+00:06:14,170 --> 00:06:16,980
+nothing will happen, but after the second
+line, the plot will appear.
+
+122
+00:06:16,980 --> 00:06:19,840
+So if you just call xyplot, then it, then
+
+123
+00:06:19,840 --> 00:06:21,830
+we use what's called the auto-printing
+feature of R.
+

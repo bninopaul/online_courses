@@ -1,0 +1,1362 @@
+1
+00:00:03,190 --> 00:00:04,580
+In this case study, I'm going to talk more
+
+2
+00:00:04,580 --> 00:00:07,870
+about exploratory data analysis
+techniques, and how to
+
+3
+00:00:07,870 --> 00:00:10,060
+use them, on a data set that involves
+
+4
+00:00:10,060 --> 00:00:14,060
+using smart phones, to, kind of, predict
+human activities.
+
+5
+00:00:14,060 --> 00:00:17,120
+So remember, just any exploratory data
+analysis, you have to
+
+6
+00:00:17,120 --> 00:00:19,350
+have a sense of kind of like, what you're
+looking for,
+
+7
+00:00:19,350 --> 00:00:20,970
+what might, and what might be the kind of
+the
+
+8
+00:00:20,970 --> 00:00:23,930
+key priorities that you want to get outta
+your data set.
+
+9
+00:00:23,930 --> 00:00:28,220
+And so that will help you guide kind of
+what you looking at and how you
+
+10
+00:00:28,220 --> 00:00:31,310
+approach it um,remember that,the basic
+idea
+
+11
+00:00:31,310 --> 00:00:33,550
+of exploratory data analysis is you want
+
+12
+00:00:33,550 --> 00:00:36,840
+to kind of produce a rough cut of the kind
+of analysis that you
+
+13
+00:00:36,840 --> 00:00:40,080
+ultimately maybe want to do so maybe this
+isn't going to be perfect
+
+14
+00:00:40,080 --> 00:00:43,000
+its not going to have all the right bells
+and whistles to it.
+
+15
+00:00:43,000 --> 00:00:45,210
+But it's going to give you a rough idea of
+kind of what
+
+16
+00:00:45,210 --> 00:00:47,610
+in, kind of information you're going to be
+able to extract out of
+
+17
+00:00:47,610 --> 00:00:49,960
+your data set and what kinds of questions
+you're going to be
+
+18
+00:00:49,960 --> 00:00:53,590
+able to feasibly answer and, and what
+questions might not really be possible
+
+19
+00:00:53,590 --> 00:00:56,140
+to answer with the given data set.
+
+20
+00:00:56,140 --> 00:00:59,130
+So, so exploratory data analysis is really
+important because it rules
+
+21
+00:00:59,130 --> 00:01:03,330
+out certain questions, and it kind of
+pushes you along other directions.
+
+22
+00:01:03,330 --> 00:01:04,790
+It really allows you to give you that
+rough
+
+23
+00:01:04,790 --> 00:01:07,870
+cut analysis that can,can take you to the
+next step.
+
+24
+00:01:07,870 --> 00:01:09,710
+So let's take a look at the Samsung data
+
+25
+00:01:09,710 --> 00:01:11,640
+set in this example and see what we can
+find.
+
+26
+00:01:19,700 --> 00:01:21,790
+So um,the data set here comes from the
+
+27
+00:01:21,790 --> 00:01:26,150
+University of California Irvine or U.C.I.
+machine learning archive.
+
+28
+00:01:26,150 --> 00:01:29,225
+And it's based on predicting people's
+movements.
+
+29
+00:01:29,225 --> 00:01:33,730
+be, from the Gal, from the Galaxy pho,
+Samsung Galaxy phones.
+
+30
+00:01:33,730 --> 00:01:36,448
+So, here's a picture of the Samsung Galaxy
+S3.
+
+31
+00:01:36,448 --> 00:01:39,424
+The actual data set was was produced using
+the Galaxy
+
+32
+00:01:39,424 --> 00:01:42,720
+S2, and but the,the idea is kind of
+basically the same.
+
+33
+00:01:42,720 --> 00:01:44,900
+So, in each of these's, phones.
+
+34
+00:01:44,900 --> 00:01:47,940
+There's an accelerometer and a gyroscope.
+
+35
+00:01:47,940 --> 00:01:50,360
+And so it helps you kind of, to understand
+the
+
+36
+00:01:50,360 --> 00:01:54,290
+kind of three dimensional position and
+acceleration of a person.
+
+37
+00:01:54,290 --> 00:01:55,960
+Assuming that they are holding their
+phone.
+
+38
+00:01:57,160 --> 00:01:59,220
+So this is where the data set comes from.
+
+39
+00:01:59,220 --> 00:02:01,080
+This is the UCI machine learning
+repository.
+
+40
+00:02:01,080 --> 00:02:04,400
+you can go to the link to learn a little
+bit more about the data set.
+
+41
+00:02:04,400 --> 00:02:08,520
+How it was collected, and kind of what is
+available on the website.
+
+42
+00:02:08,520 --> 00:02:10,300
+And so, we, I've downloaded
+
+43
+00:02:10,300 --> 00:02:12,600
+a subset of the data, which is just the
+
+44
+00:02:12,600 --> 00:02:16,451
+training data set for the purposes of this
+lecture.
+
+45
+00:02:18,310 --> 00:02:21,830
+So the data been processed a little bit to
+make it a little bit easier to use.
+
+46
+00:02:21,830 --> 00:02:25,870
+Basically you get a matrix, The, that has
+kind of, has
+
+47
+00:02:25,870 --> 00:02:30,480
+the observations on the rows and the
+various features on columns.
+
+48
+00:02:30,480 --> 00:02:32,770
+And you see that at the bottom here, I've
+
+49
+00:02:32,770 --> 00:02:35,280
+got the activity label which is the kind
+of the,
+
+50
+00:02:35,280 --> 00:02:40,460
+for each row that tells you what the
+person was doing at that time.
+
+51
+00:02:40,460 --> 00:02:42,760
+And so for example there is six possible
+activities
+
+52
+00:02:42,760 --> 00:02:45,500
+that you can be doing; there's laying,
+sitting, standing.
+
+53
+00:02:45,500 --> 00:02:48,000
+Walking, walking down and walking up.
+
+54
+00:02:49,048 --> 00:02:51,170
+And, the ideas that you, you want to
+
+55
+00:02:51,170 --> 00:02:53,590
+be able to kind of deter,separate out
+these six
+
+56
+00:02:53,590 --> 00:02:56,410
+activities based on the many features that
+
+57
+00:02:56,410 --> 00:03:00,040
+are collected by the accelerometer and the
+gyroscope.
+
+58
+00:03:00,040 --> 00:03:00,530
+And so
+
+59
+00:03:00,530 --> 00:03:03,980
+the, the I listed the first 12 features
+here.
+
+60
+00:03:03,980 --> 00:03:06,760
+I can see that that they have body
+acceleration as the mean
+
+61
+00:03:06,760 --> 00:03:09,870
+standard deviation, the mean absolute
+deviation,
+
+62
+00:03:09,870 --> 00:03:11,940
+the maximum of each of these features.
+
+63
+00:03:15,140 --> 00:03:17,070
+So one thing we can do really quickly is
+just
+
+64
+00:03:17,070 --> 00:03:19,590
+to look at the average acceleration for
+the first subject.
+
+65
+00:03:19,590 --> 00:03:20,960
+So the first thing I'm going to do is
+
+66
+00:03:20,960 --> 00:03:25,380
+just, convert the activity variable into a
+factor variable.
+
+67
+00:03:25,380 --> 00:03:27,920
+And then using the transform function.
+
+68
+00:03:27,920 --> 00:03:30,930
+And them I'm going to just subset out the
+the first subject.
+
+69
+00:03:30,930 --> 00:03:35,160
+So subject equals one and I'm, for the
+rest of this presentation
+
+70
+00:03:35,160 --> 00:03:37,960
+I'm just going to ignore the rest of the
+subjects for a moment.
+
+71
+00:03:37,960 --> 00:03:39,430
+Um,and so.
+
+72
+00:03:39,430 --> 00:03:40,360
+If I plot the first
+
+73
+00:03:40,360 --> 00:03:42,850
+subject, I can look at the first column,
+and that's
+
+74
+00:03:42,850 --> 00:03:45,790
+the, first column is the body, the kind of
+the body
+
+75
+00:03:45,790 --> 00:03:48,300
+excel over the mean body acceleration in
+the x direction,
+
+76
+00:03:48,300 --> 00:03:51,500
+so acceleration's going to divide into
+three dimensions, x, y, and z.
+
+77
+00:03:52,550 --> 00:03:54,100
+And then the second plot here is going to
+
+78
+00:03:54,100 --> 00:03:56,860
+be the, body excel, the mean body
+acceleration
+
+79
+00:03:56,860 --> 00:04:00,260
+in the y direction and, and I've color
+
+80
+00:04:00,260 --> 00:04:06,190
+coded each of the, activities, by I'm
+sorry.
+
+81
+00:04:06,190 --> 00:04:08,570
+I've color coded each of the activities.
+
+82
+00:04:08,570 --> 00:04:10,840
+So you can see for example, on the left
+hand plot, that there's
+
+83
+00:04:10,840 --> 00:04:14,260
+green, there's red, black, blue and some
+
+84
+00:04:14,260 --> 00:04:15,830
+alternate activities so part of the
+problem
+
+85
+00:04:15,830 --> 00:04:18,540
+with the left hand plot is that you can't
+tell which activity is which,
+
+86
+00:04:18,540 --> 00:04:22,150
+so on the right hand plot, I added a
+legend, using the legend function.
+
+87
+00:04:22,150 --> 00:04:25,340
+Just so you can figure out kind of which
+Activities correspond to which color.
+
+88
+00:04:25,340 --> 00:04:27,220
+And so you can see that the green is
+
+89
+00:04:27,220 --> 00:04:30,950
+standing, the red is sitting, the black is
+laying, etc.
+
+90
+00:04:30,950 --> 00:04:36,950
+And so you can see that, for example, the
+mean body acceleration is ah,relatively
+
+91
+00:04:36,950 --> 00:04:42,270
+kind of uninteresting for things like
+sit,standing and sitting and laying.
+
+92
+00:04:42,270 --> 00:04:43,820
+But for things like walking and working
+
+93
+00:04:43,820 --> 00:04:46,630
+down and walking up, there's much more
+variability.
+
+94
+00:04:46,630 --> 00:04:49,300
+In the, in the mean body acceleration for
+the x direction.
+
+95
+00:04:50,910 --> 00:04:53,490
+We can try to cluster the data, just on
+the average acceleration.
+
+96
+00:04:53,490 --> 00:04:55,870
+So, I've taken just the first three
+columns of this matrix,
+
+97
+00:04:55,870 --> 00:05:00,320
+and I calculated a distance matrix using
+the DIST function.
+
+98
+00:05:00,320 --> 00:05:03,020
+And I'm using a Euclidean distance just as
+the default.
+
+99
+00:05:03,020 --> 00:05:04,900
+And I can call the hclust function to
+
+100
+00:05:04,900 --> 00:05:08,590
+do, to do a hierarchical clustering of
+these data.
+
+101
+00:05:08,590 --> 00:05:11,390
+And I've called this my plclust function
+just to visualize it.
+
+102
+00:05:11,390 --> 00:05:15,140
+And you can see that the clustering is a
+little bit messy.
+
+103
+00:05:15,140 --> 00:05:17,880
+And there isn't any kind of clear pattern
+going on.
+
+104
+00:05:17,880 --> 00:05:20,310
+All the colors are kind of jumbled
+together at the bottom.
+
+105
+00:05:20,310 --> 00:05:20,890
+And so we might need
+
+106
+00:05:20,890 --> 00:05:22,130
+to look a little bit further to try
+
+107
+00:05:22,130 --> 00:05:25,080
+and kind of extract more information out
+of here.
+
+108
+00:05:26,980 --> 00:05:28,050
+Another thing we can look at is the
+
+109
+00:05:28,050 --> 00:05:31,670
+maximum acceleration for this, for the
+first subject here.
+
+110
+00:05:31,670 --> 00:05:34,980
+And so I look at, I'm plotting here
+columns ten and 11.
+
+111
+00:05:34,980 --> 00:05:39,740
+And and so you see that column ten is the
+body, the maximum body acceleration in
+
+112
+00:05:39,740 --> 00:05:42,260
+the x direction, and, and column 11 is
+
+113
+00:05:42,260 --> 00:05:44,630
+the maximum body acceleration in the y
+direction.
+
+114
+00:05:44,630 --> 00:05:46,060
+And so you can
+
+115
+00:05:46,060 --> 00:05:48,670
+see that again for things like laying and
+standing
+
+116
+00:05:48,670 --> 00:05:50,900
+and sitting, there's not a lot of
+interesting things going
+
+117
+00:05:50,900 --> 00:05:53,760
+on, but for walking in, and walking up,
+and
+
+118
+00:05:53,760 --> 00:05:58,680
+walking down, the maximum acceleration
+shows a lot of variability.
+
+119
+00:05:58,680 --> 00:06:03,208
+So that may,may be a predictor of those
+kinds of activities.
+
+120
+00:06:03,208 --> 00:06:07,220
+But maybe early separating, kind of not
+moving from
+
+121
+00:06:07,220 --> 00:06:10,105
+moving, which might be kind of obvious in
+retrospect.
+
+122
+00:06:10,105 --> 00:06:11,350
+Um,so if you cluster
+
+123
+00:06:11,350 --> 00:06:16,180
+the data based on maximum acceleration,
+you can see that there's two very clear
+
+124
+00:06:16,180 --> 00:06:18,150
+clusters on the left hand side, you've
+
+125
+00:06:18,150 --> 00:06:20,530
+got the, kind of the various walking
+activities.
+
+126
+00:06:20,530 --> 00:06:21,650
+And on the right hand side you've got the
+
+127
+00:06:21,650 --> 00:06:25,150
+various, you know, non moving activities,
+laying, standing, and sitting.
+
+128
+00:06:25,150 --> 00:06:28,224
+And so, beyond that, things are a little
+bit jumbled together, you
+
+129
+00:06:28,224 --> 00:06:31,050
+can there's a lot of turquoise on the left
+and so that's.
+
+130
+00:06:31,050 --> 00:06:33,000
+That's clearly one activity, but in the
+
+131
+00:06:33,000 --> 00:06:34,910
+blue and the kind of magenta kind of mixed
+together.
+
+132
+00:06:35,920 --> 00:06:36,333
+And so,
+
+133
+00:06:36,333 --> 00:06:39,755
+a cluster based on maximum acceleration
+seems to separate out moving
+
+134
+00:06:39,755 --> 00:06:43,770
+from non moving, but then once you get
+within those clusters.
+
+135
+00:06:43,770 --> 00:06:45,440
+For example, within the moving cluster or
+
+136
+00:06:45,440 --> 00:06:48,340
+within the non moving cluster, um,then
+it's
+
+137
+00:06:48,340 --> 00:06:51,890
+a little bit hard to tell what is what,
+based just on maximum acceleration.
+
+138
+00:06:54,630 --> 00:06:57,290
+Um,we can try a little singular,singular
+value decomposition
+
+139
+00:06:57,290 --> 00:06:59,270
+on this data, just to explore what's going
+on.
+
+140
+00:06:59,270 --> 00:07:02,020
+Now before I do the SVD, I'm going to do
+
+141
+00:07:02,020 --> 00:07:05,480
+it on the entire matrix, which is 560
+something um,columns.
+
+142
+00:07:05,480 --> 00:07:07,940
+I'm going to remove the last two, the last
+two columns are just
+
+143
+00:07:07,940 --> 00:07:10,540
+the activity identifier and the subject
+
+144
+00:07:10,540 --> 00:07:12,690
+identifier which are not real interesting
+data.
+
+145
+00:07:12,690 --> 00:07:14,990
+So I, I get rid of the five, the columns
+562
+
+146
+00:07:14,990 --> 00:07:17,950
+and 63 and then I run the SVD on the data.
+
+147
+00:07:19,160 --> 00:07:19,970
+And you can see,
+
+148
+00:07:19,970 --> 00:07:21,330
+I'll take a look at the first and the
+
+149
+00:07:21,330 --> 00:07:25,290
+second left singular vectors and color
+code them by activity.
+
+150
+00:07:25,290 --> 00:07:27,910
+And again, you can kind of see there's a
+similar type of pattern.
+
+151
+00:07:27,910 --> 00:07:29,750
+The first singular vector really seems to
+
+152
+00:07:29,750 --> 00:07:32,440
+separate out the moving from the non
+moving.
+
+153
+00:07:32,440 --> 00:07:37,490
+So you can see that there's a, a kind of a
+green, red, black on the bottom.
+
+154
+00:07:37,490 --> 00:07:40,000
+And the blue, turquoise, magenta on the
+top.
+
+155
+00:07:41,230 --> 00:07:45,410
+And then the sec, the second singular
+vector's a little bit somewhat a
+
+156
+00:07:45,410 --> 00:07:46,960
+little bit more vague, what it's looking
+at.
+
+157
+00:07:46,960 --> 00:07:52,920
+It seems to be separating out The magenta
+color from all the other clusters
+
+158
+00:07:52,920 --> 00:07:57,890
+and so I think this is the walking down,
+or walking up one of those two.
+
+159
+00:07:57,890 --> 00:08:00,860
+And so it's not clear what is different
+about that, that it
+
+160
+00:08:00,860 --> 00:08:04,180
+kind of highlights, that gets highlighted
+on the second singular vector here.
+
+161
+00:08:07,070 --> 00:08:08,200
+So one of the things we can try to do
+
+162
+00:08:08,200 --> 00:08:11,120
+is try to find the maximum contribuators,
+the, the contributor.
+
+163
+00:08:11,120 --> 00:08:15,310
+So in the second singular vector we, I'm
+sorry, in the second right
+
+164
+00:08:15,310 --> 00:08:18,530
+singular vector, we can try to figure out
+well which of these features
+
+165
+00:08:19,650 --> 00:08:23,800
+is kind of, is, is kind of producing the
+most variation, or is
+
+166
+00:08:23,800 --> 00:08:25,340
+contributing to the most So the
+
+167
+00:08:25,340 --> 00:08:30,250
+variation between the various, the
+different observations.
+
+168
+00:08:30,250 --> 00:08:32,480
+And so we
+
+169
+00:08:32,480 --> 00:08:35,130
+can, we can, we can use the which.max
+function to figure
+
+170
+00:08:35,130 --> 00:08:38,900
+out okay, which of the 500 or so features
+corresponds to
+
+171
+00:08:38,900 --> 00:08:42,860
+the, the, the kind of largest, or
+contributes most of the
+
+172
+00:08:42,860 --> 00:08:48,240
+variations across observations, and I say
+that to an object called maxContrib.
+
+173
+00:08:48,240 --> 00:08:49,950
+And then I'll cluster based on the maximum
+
+174
+00:08:49,950 --> 00:08:53,340
+acceleration plus this extra feature and
+I'll, and I'll
+
+175
+00:08:53,340 --> 00:08:57,580
+calculate the distance matrix to run the h
+plus function and you can see now the kind
+
+176
+00:08:57,580 --> 00:08:59,770
+of various activities seem to be
+separating out a little bit
+
+177
+00:08:59,770 --> 00:09:03,840
+more, at least the three movement
+activities have clearly been separated.
+
+178
+00:09:03,840 --> 00:09:07,670
+We've got the magenta, the dark blue and
+the turquoise all
+
+179
+00:09:07,670 --> 00:09:11,790
+separated out the various non moving
+activities seem to be all kind
+
+180
+00:09:11,790 --> 00:09:16,432
+of mixed together too so the, whatever
+this maximum contributor happened to
+
+181
+00:09:16,432 --> 00:09:19,990
+be it didn't really help to separate out
+the non moving activities.
+
+182
+00:09:19,990 --> 00:09:23,020
+But it seemed to help a lot in terms of
+separating out the movement activities.
+
+183
+00:09:25,830 --> 00:09:30,930
+So, this max contributor was the body
+acceleration, the mean
+
+184
+00:09:30,930 --> 00:09:34,810
+body acceleration in the frequency domain
+for the z direction.
+
+185
+00:09:34,810 --> 00:09:37,930
+And so this was a, kind of the, the body
+acceleration.
+
+186
+00:09:37,930 --> 00:09:40,900
+For the z direction where they applied and
+you transform
+
+187
+00:09:40,900 --> 00:09:43,510
+and they give you the kind of frequency
+components from that.
+
+188
+00:09:43,510 --> 00:09:44,680
+So that's kind of interesting.
+
+189
+00:09:44,680 --> 00:09:50,315
+We can try another clustering technique
+here which is K-means clustering.
+
+190
+00:09:50,315 --> 00:09:51,290
+Ah,and one
+
+191
+00:09:51,290 --> 00:09:53,350
+of the things about k-means clustering
+that you have
+
+192
+00:09:53,350 --> 00:09:55,000
+to be a little bit careful about is that
+you
+
+193
+00:09:55,000 --> 00:09:57,780
+can get kind of different answers
+depending on, you
+
+194
+00:09:57,780 --> 00:10:01,060
+know how many times,starting values you've
+tried and how and
+
+195
+00:10:01,060 --> 00:10:02,990
+how often you run it so whenever you, when
+
+196
+00:10:02,990 --> 00:10:04,960
+you start k-means it has to chose a
+starting point
+
+197
+00:10:04,960 --> 00:10:07,500
+for where the cluster centers are often it
+will
+
+198
+00:10:07,500 --> 00:10:10,230
+just chose, most algorithms will chose a
+random starting point.
+
+199
+00:10:10,230 --> 00:10:12,150
+So if you chose a random starting point
+
+200
+00:10:12,150 --> 00:10:14,330
+you may get to a solution that is
+suboptimal.
+
+201
+00:10:14,330 --> 00:10:16,330
+So if you chose a different starting point
+you may get
+
+202
+00:10:16,330 --> 00:10:18,100
+to an even better solution.
+
+203
+00:10:18,100 --> 00:10:23,420
+And so it's usually good to set the nstart
+argument to be more than one so you can
+
+204
+00:10:23,420 --> 00:10:24,880
+start at many different starting points,
+just so you
+
+205
+00:10:24,880 --> 00:10:27,900
+can get the optimal, or, a more optimal
+solution.
+
+206
+00:10:27,900 --> 00:10:32,290
+So here is one clustering that we've done
+with k-means.
+
+207
+00:10:32,290 --> 00:10:35,830
+And you can see that the, I've specified
+six
+
+208
+00:10:35,830 --> 00:10:37,450
+centers, so I know that there are six
+clusters.
+
+209
+00:10:37,450 --> 00:10:39,710
+So I'll just specify them right away.
+
+210
+00:10:39,710 --> 00:10:41,120
+And you can see that the,
+
+211
+00:10:41,120 --> 00:10:43,340
+some of the clusters kind of jumble
+together.
+
+212
+00:10:43,340 --> 00:10:45,080
+So you can see cluster three is
+
+213
+00:10:45,080 --> 00:10:47,970
+a combination of laying, sitting, and
+standing.
+
+214
+00:10:47,970 --> 00:10:51,430
+Whereas cluster one is walking, cluster,
+clearly walking.
+
+215
+00:10:51,430 --> 00:10:52,680
+Cluster two is walking down.
+
+216
+00:10:52,680 --> 00:10:57,940
+Cluster four is walking up.
+Cluster five is just walking.
+
+217
+00:10:57,940 --> 00:11:02,340
+And again, and cluster six is a mixture of
+laying, sitting and standing.
+
+218
+00:11:02,340 --> 00:11:06,460
+And so you can see there, k-means here had
+a little bit, had trouble separating
+
+219
+00:11:06,460 --> 00:11:09,580
+out also the laying, sitting and standing
+from
+
+220
+00:11:09,580 --> 00:11:12,390
+the, the three, the in, in, in the
+clusters.
+
+221
+00:11:13,750 --> 00:11:16,540
+If you try it again, you can see the
+arrangement's a little bit different.
+
+222
+00:11:16,540 --> 00:11:19,460
+But again, cluster two for example It's a
+mixture of
+
+223
+00:11:19,460 --> 00:11:23,190
+laying, sitting and standing, cluster five
+similarly a mixture of sitting
+
+224
+00:11:23,190 --> 00:11:26,350
+and standing, but some of the, but the
+other clusters
+
+225
+00:11:26,350 --> 00:11:29,510
+seem to, the other activities seem to
+cluster out very, easily.
+
+226
+00:11:30,810 --> 00:11:31,480
+So now if
+
+227
+00:11:31,480 --> 00:11:34,320
+we try 100 different starting values, and
+take you know,
+
+228
+00:11:34,320 --> 00:11:37,281
+take the, the most, the optimal solution
+from this 100.
+
+229
+00:11:38,820 --> 00:11:40,650
+You see that things seem to separate out a
+
+230
+00:11:40,650 --> 00:11:42,900
+little bit better, not much better than
+last time.
+
+231
+00:11:42,900 --> 00:11:46,720
+You can see cluster one is a mixture again
+of laying, sitting, and standing.
+
+232
+00:11:46,720 --> 00:11:48,080
+Cluster two is clearly laying.
+
+233
+00:11:48,080 --> 00:11:53,112
+Cluster three is clearly walking and
+cluster four is walking down and
+
+234
+00:11:53,112 --> 00:11:57,390
+so you can see how these things kind of
+cluster together and
+
+235
+00:11:57,390 --> 00:12:00,270
+I'll do a second try with 100 starting
+values.
+
+236
+00:12:00,270 --> 00:12:02,560
+And you see, this is going to, probably
+going to be our best effort.
+
+237
+00:12:02,560 --> 00:12:04,580
+And cluster six still is a mixture of
+three
+
+238
+00:12:04,580 --> 00:12:08,450
+activities, and cluster five is a mixture
+of two.
+
+239
+00:12:08,450 --> 00:12:11,970
+So you can see kind of, can see where the
+kind of cluster centers are.
+
+240
+00:12:11,970 --> 00:12:14,880
+And the idea is that each of the clusters
+Has a
+
+241
+00:12:14,880 --> 00:12:18,830
+mean value or a center in a, in this 500
+dimensional space.
+
+242
+00:12:18,830 --> 00:12:22,482
+And so we can see kind of which features
+of these 500
+
+243
+00:12:22,482 --> 00:12:27,940
+features seem to drive the location of the
+center for that given cluster.
+
+244
+00:12:27,940 --> 00:12:33,190
+And then, that will help us, help give us
+some idea of you know what features.
+
+245
+00:12:33,190 --> 00:12:35,140
+Seem to be important for classifying
+people in
+
+246
+00:12:35,140 --> 00:12:38,610
+that cluster, or classifying observations
+in that cluster.
+
+247
+00:12:38,610 --> 00:12:42,170
+So for in the first cluster here, which
+seems to correspond to laying, you can see
+
+248
+00:12:42,170 --> 00:12:47,660
+that the center has a, a relatively high
+value for a high, or positive values for
+
+249
+00:12:49,450 --> 00:12:52,550
+the first three features, which is kind of
+the mean body acceleration.
+
+250
+00:12:52,550 --> 00:12:54,639
+And low values for some of the other
+features.
+
+251
+00:12:56,290 --> 00:12:58,780
+I, It features,features four through ten.
+
+252
+00:12:58,780 --> 00:13:02,260
+I'm only plotting the first ten here of
+the 500 or so.
+
+253
+00:13:02,260 --> 00:13:04,010
+And then you see the second cluster here.
+
+254
+00:13:05,200 --> 00:13:08,680
+is, corresponds a little bit more, has,
+has some more interesting values for
+
+255
+00:13:08,680 --> 00:13:11,340
+other Features so there's mean by
+
+256
+00:13:11,340 --> 00:13:14,700
+this mean acceleration there's also max
+acceleration
+
+257
+00:13:14,700 --> 00:13:18,330
+that seems to have a kind of
+subinteresting values.
+
+258
+00:13:18,330 --> 00:13:20,620
+So one of the things that you can do by
+looking at the
+
+259
+00:13:20,620 --> 00:13:23,000
+cluster centers is to see well what
+
+260
+00:13:23,000 --> 00:13:25,520
+features seem to have interesting values
+that
+
+261
+00:13:25,520 --> 00:13:28,750
+kind of drive the location to that center
+And, which could give you a
+
+262
+00:13:28,750 --> 00:13:32,800
+hint, in terms of what features will be
+most useful for predicting that activity.
+
+263
+00:13:32,800 --> 00:13:36,217
+So this is a just a short demonstration to
+show how you can
+
+264
+00:13:36,217 --> 00:13:40,570
+take a large data set with lots of
+features and lots of observations.
+
+265
+00:13:40,570 --> 00:13:43,160
+And start to explore it a little bit with
+various clustering techniques.
+
+266
+00:13:43,160 --> 00:13:45,410
+We use Hierarchical clustering, use
+k-means
+
+267
+00:13:45,410 --> 00:13:47,490
+clustering, and we use the singular
+
+268
+00:13:47,490 --> 00:13:51,150
+value composition to look at various
+features of, of this data set.
+
+269
+00:13:51,150 --> 00:13:53,420
+So given what we've learned here, we may
+want to be interested in
+
+270
+00:13:53,420 --> 00:13:57,960
+following up on kind of what's separates
+out the various non movement activity.
+
+271
+00:13:57,960 --> 00:14:01,020
+So in terms of laying, sitting, and
+standing, you know, we seem to
+
+272
+00:14:01,020 --> 00:14:03,120
+have some difficulty At least on the
+
+273
+00:14:03,120 --> 00:14:05,920
+first glance, separating those three
+activities out.
+
+274
+00:14:05,920 --> 00:14:07,800
+The movement activities in terms of
+walking.
+
+275
+00:14:07,800 --> 00:14:09,600
+Walking up and walking down.
+
+276
+00:14:09,600 --> 00:14:12,550
+We seem to be able to kind of separate
+those out into separate clusters.
+
+277
+00:14:12,550 --> 00:14:16,680
+Usually just a few variables most of them
+max accelerations variables.
+
+278
+00:14:16,680 --> 00:14:20,490
+But the non movement kind of activities
+seem to harder to separate out.
+
+279
+00:14:20,490 --> 00:14:23,200
+So, the nice thing about the exploratory
+data analysis is that it gives
+
+280
+00:14:23,200 --> 00:14:26,160
+you this rough cut, that tells you kind of
+where to spend your energy.
+
+281
+00:14:26,160 --> 00:14:28,200
+So, you probably don't, may not have to
+spend too much
+
+282
+00:14:28,200 --> 00:14:30,860
+energy on the movement activities, but
+maybe you need to spend, look,
+
+283
+00:14:30,860 --> 00:14:34,670
+dig a little bit deeper looking at the
+kind of non movement activities.
+
+284
+00:14:34,670 --> 00:14:38,580
+So I hope you find this useful in terms of
+how to get started using clustering
+
+285
+00:14:38,580 --> 00:14:44,010
+techniques and how to get a look at the
+data and and,and kind of further your
+
+286
+00:14:44,010 --> 00:14:49,700
+analysis and,and to kind of get you going
+for ah,more formal analysis.
+

@@ -1,0 +1,101 @@
+1
+00:00:00,250 --> 00:00:02,700
+This video is going to show how to install
+R for Windows.
+
+2
+00:00:02,700 --> 00:00:06,840
+If you go to cran here, click on download
+R for Windows, you want to
+
+3
+00:00:06,840 --> 00:00:12,511
+hit the base sub directory, and then click
+on the link download R 2.15.1 for windows.
+
+4
+00:00:12,511 --> 00:00:19,675
+So this is going to download and you want
+to save it to somewhere on you hard drive.
+
+5
+00:00:19,675 --> 00:00:22,645
+Okay, once that's done downloading you
+want to find
+
+6
+00:00:22,645 --> 00:00:25,285
+it on your computer and then open up the
+
+7
+00:00:25,285 --> 00:00:27,925
+setup package, which is an executable that
+you
+
+8
+00:00:27,925 --> 00:00:31,480
+can double click and it'll start the setup
+program.
+
+9
+00:00:31,480 --> 00:00:35,060
+So you want to choose English for now and
+
+10
+00:00:35,060 --> 00:00:37,060
+we're going to start running through the
+setup wizard.
+
+11
+00:00:37,060 --> 00:00:38,170
+This'll be pretty straightforward.
+
+12
+00:00:38,170 --> 00:00:40,530
+You have to accept the license.
+
+13
+00:00:40,530 --> 00:00:43,460
+Choose the default install directory and
+choose the default e
+
+14
+00:00:43,460 --> 00:00:45,900
+32 bit user installation which should be
+fine for most people.
+
+15
+00:00:48,780 --> 00:00:52,350
+You don't need eh, to modify the start up
+options if you don't want to.
+
+16
+00:00:53,800 --> 00:00:59,030
+and, creating a start up menu item is
+usually a good idea.
+
+17
+00:00:59,030 --> 00:01:01,590
+So, the, you hear the defaults are all
+okay, once you
+
+18
+00:01:01,590 --> 00:01:04,250
+click through that you'll see the program
+file start to install.
+
+19
+00:01:09,305 --> 00:01:14,690
+Okay, so now it's done installing, you hit
+finish, and you'll notice that there is a
+
+20
+00:01:14,690 --> 00:01:19,720
+R icon on your desktop now, so you can
+double-click on that icon to launch R,
+
+21
+00:01:23,010 --> 00:01:25,300
+and here we are, so that's installing R on
+Windows.
+

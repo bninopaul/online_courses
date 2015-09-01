@@ -1,0 +1,1023 @@
+1
+00:00:00,520 --> 00:00:04,190
+Now, another layer that you can add to
+your plot is a smoother,
+
+2
+00:00:04,190 --> 00:00:06,930
+and many times you want to do this just so
+you can get a sense
+
+3
+00:00:06,930 --> 00:00:09,740
+of the overall trend in the data, so I
+want to, you might want to get
+
+4
+00:00:09,740 --> 00:00:16,150
+a general sense of, as PM 2.5 increases do
+we get more nocturnal symptoms?
+
+5
+00:00:16,150 --> 00:00:19,530
+So on the left hand side here, these, this
+is this is the code down here.
+
+6
+00:00:19,530 --> 00:00:22,180
+The bottom that I use, I have my original
+GG plot
+
+7
+00:00:22,180 --> 00:00:25,260
+object, G which just had the X and Y kind
+of Aesthetics.
+
+8
+00:00:26,370 --> 00:00:28,630
+I added my points to make the scatter plot
+
+9
+00:00:28,630 --> 00:00:32,870
+and I added a smooth a geom underscore
+smooth function.
+
+10
+00:00:32,870 --> 00:00:37,230
+It adds a little smoother which is the
+blue line and the grey confidence bands
+
+11
+00:00:37,230 --> 00:00:42,120
+and so I used the default for the geom
+smooth which is a low s smoother.
+
+12
+00:00:43,250 --> 00:00:44,650
+And which is generally fine.
+
+13
+00:00:44,650 --> 00:00:47,720
+But you can see there's a lot of noise on
+the boundaries, so on
+
+14
+00:00:47,720 --> 00:00:51,420
+the left and right side of the smoother
+the confidence intervals get very wide
+
+15
+00:00:51,420 --> 00:00:53,440
+because it's flexible smoother, and the
+noise, there's a lot
+
+16
+00:00:53,440 --> 00:00:55,950
+of noise on the boundaries because there's
+not much data there.
+
+17
+00:00:55,950 --> 00:00:58,430
+And so I'd rather something a little bit
+simpler
+
+18
+00:00:58,430 --> 00:01:00,580
+than [INAUDIBLE] I just want a linear
+regression line.
+
+19
+00:01:00,580 --> 00:01:05,680
+And, and so, that's less flexible, but it
+still gives me a sense of the trend.
+
+20
+00:01:05,680 --> 00:01:07,330
+So, here on the, on the right hand side,
+you see
+
+21
+00:01:07,330 --> 00:01:10,490
+I've re-, I've re-made the plot, and I've
+added the geome smooth,
+
+22
+00:01:10,490 --> 00:01:13,010
+but I give it, in option, I said method
+equals LM, and
+
+23
+00:01:13,010 --> 00:01:15,700
+this will do a linear model instead of a
+low S smoother.
+
+24
+00:01:15,700 --> 00:01:16,480
+And you can
+
+25
+00:01:16,480 --> 00:01:19,030
+see that on the edges of the linear model,
+the, the uncertainty
+
+26
+00:01:19,030 --> 00:01:22,320
+in the compass band's a lot smaller than
+it is for low S.
+
+27
+00:01:22,320 --> 00:01:24,180
+And you see that generally speaking there
+seems to
+
+28
+00:01:24,180 --> 00:01:28,340
+be an increasing trend with pm 2.5 and
+nocturnal symptoms.
+
+29
+00:01:32,390 --> 00:01:34,980
+So, another layer we want to add is the
+facet.
+
+30
+00:01:34,980 --> 00:01:38,860
+So, this is the final layer to kind of
+reproduce that original simple plot.
+
+31
+00:01:38,860 --> 00:01:40,370
+That I made with Q Plot.
+
+32
+00:01:40,370 --> 00:01:42,040
+So here the facets are going to be,
+
+33
+00:01:42,040 --> 00:01:44,560
+are going to be determined by the BMI
+category.
+
+34
+00:01:44,560 --> 00:01:45,900
+So I want to compare children who are
+
+35
+00:01:45,900 --> 00:01:48,410
+normal weight and children who are
+overweight.
+
+36
+00:01:48,410 --> 00:01:50,790
+And so that's going to be two separate
+plots, but then I
+
+37
+00:01:50,790 --> 00:01:53,430
+want to plot the same relationship in each
+one of those windows.
+
+38
+00:01:53,430 --> 00:01:57,900
+So that's what creates the facet.
+And so, I can add my facet
+
+39
+00:01:57,900 --> 00:02:01,560
+with the the facet underscore grid
+variable.
+
+40
+00:02:01,560 --> 00:02:05,220
+And this variable uses special notation
+which is separate.
+
+41
+00:02:05,220 --> 00:02:07,295
+Which has kind of a variable on the
+
+42
+00:02:07,295 --> 00:02:09,490
+left-hand side and a variable on the
+right-hand side.
+
+43
+00:02:09,490 --> 00:02:11,610
+And, and they're separated by this tilde.
+
+44
+00:02:11,610 --> 00:02:13,720
+And so, the variables that you specified
+in the
+
+45
+00:02:13,720 --> 00:02:19,250
+facet function determine how the grid, how
+the separate plots.
+
+46
+00:02:19,250 --> 00:02:20,820
+Are laid out on the screen.
+
+47
+00:02:20,820 --> 00:02:22,920
+And so, the number of plots will be,
+
+48
+00:02:22,920 --> 00:02:25,770
+will be equal to the number of levels of
+your factor.
+
+49
+00:02:25,770 --> 00:02:27,910
+And so, I have two levels in my factor.
+
+50
+00:02:27,910 --> 00:02:29,580
+I've got normal weight and overweight.
+
+51
+00:02:29,580 --> 00:02:31,910
+Then that will create two plots for me.
+
+52
+00:02:31,910 --> 00:02:36,350
+If I, notice I only have a single Set
+
+53
+00:02:36,350 --> 00:02:38,700
+a factor variable that I want to separate
+on.
+
+54
+00:02:38,700 --> 00:02:40,690
+So, I don't want, I'm not going to have a
+matrix of plots.
+
+55
+00:02:40,690 --> 00:02:43,200
+I'm just going to have a single row of
+plots.
+
+56
+00:02:43,200 --> 00:02:45,070
+And so, I'll, if I, so I'm only going to
+
+57
+00:02:45,070 --> 00:02:48,020
+have two plots because there's two
+categories in this BMI variable.
+
+58
+00:02:48,020 --> 00:02:48,090
+If
+
+59
+00:02:48,090 --> 00:02:50,780
+I had two variables, which I, and I'll
+give you an example of that later.
+
+60
+00:02:51,860 --> 00:02:53,300
+So a variable on the left-hand side and
+the
+
+61
+00:02:53,300 --> 00:02:55,900
+variable on the right-hand side, the in
+the product
+
+62
+00:02:55,900 --> 00:02:58,600
+of the number of factor levels is going to
+be
+
+63
+00:02:58,600 --> 00:03:01,560
+the number of plots that you generate with
+the facets.
+
+64
+00:03:01,560 --> 00:03:06,340
+So here I've added the facet grid function
+and I also added the smoother with my lm.
+
+65
+00:03:06,340 --> 00:03:09,270
+Notice that it doesn't, it doesn't really
+matter
+
+66
+00:03:09,270 --> 00:03:11,190
+what kind of order you put these things
+in.
+
+67
+00:03:11,190 --> 00:03:13,230
+You can add them in Any order
+
+68
+00:03:13,230 --> 00:03:13,610
+you want.
+
+69
+00:03:13,610 --> 00:03:17,090
+And notice I stuck the facet grid function
+in between the smooth
+
+70
+00:03:17,090 --> 00:03:20,080
+and the point and that was fine it still
+generated the plot.
+
+71
+00:03:20,080 --> 00:03:23,910
+So facets are useful for, for kind of
+conditioning on a categorical variable.
+
+72
+00:03:23,910 --> 00:03:26,900
+And you can see it here that the normal
+weight children have
+
+73
+00:03:26,900 --> 00:03:30,960
+don't seem to have any relationship in pm
+2.5 and nocturnal symptoms.
+
+74
+00:03:30,960 --> 00:03:32,300
+Whereas the overweight children might
+appear
+
+75
+00:03:32,300 --> 00:03:34,580
+to have a stringer more positive
+relationship.
+
+76
+00:03:37,110 --> 00:03:39,490
+The last thing that I'll mention is you
+notice
+
+77
+00:03:39,490 --> 00:03:42,820
+the labels in each of the panels I didn't,
+
+78
+00:03:42,820 --> 00:03:44,910
+I didn't actually label them by hand, the
+labels
+
+79
+00:03:44,910 --> 00:03:47,480
+come from the levels the factor variable
+that you condition
+
+80
+00:03:47,480 --> 00:03:50,330
+So it's important that you use the factor
+variables
+
+81
+00:03:50,330 --> 00:03:53,090
+in an intelligent way and have intelligent
+labels on
+
+82
+00:03:53,090 --> 00:03:55,690
+them because the GEGE plot will take that
+information
+
+83
+00:03:55,690 --> 00:03:59,920
+and automatically apply it to the labeling
+of your plots.
+
+84
+00:03:59,920 --> 00:04:02,170
+And so in GEGE plot the substance is
+easier to
+
+85
+00:04:02,170 --> 00:04:03,540
+modify your data and make sure
+
+86
+00:04:03,540 --> 00:04:06,680
+the metadata is then specified
+appropriately rather
+
+87
+00:04:06,680 --> 00:04:09,770
+than to kind of Plot things and then kind
+of modify the plot later.
+
+88
+00:04:09,770 --> 00:04:12,020
+It's better to make sure all your data is
+kind of organized and labeled
+
+89
+00:04:12,020 --> 00:04:14,650
+appropriately before you make the plot,
+because
+
+90
+00:04:14,650 --> 00:04:16,970
+then that makes the plotting code much
+simpler.
+
+91
+00:04:19,350 --> 00:04:23,120
+Okay, so once you've kind of made your
+plot often you want to modify things
+
+92
+00:04:23,120 --> 00:04:27,880
+like the axis labels and the titles and,
+and other kinds of kind of plot metadata.
+
+93
+00:04:27,880 --> 00:04:30,380
+And so there are a number of, of functions
+for doing that.
+
+94
+00:04:30,380 --> 00:04:31,750
+For, for the labels there's the xlab
+
+95
+00:04:31,750 --> 00:04:35,690
+function, the ylab function and the
+ggtitle function.
+
+96
+00:04:35,690 --> 00:04:40,090
+Those are all st-, I use to specify the x
+label, the y label and the title.
+
+97
+00:04:40,090 --> 00:04:42,280
+You could also use the labs function,
+which is a
+
+98
+00:04:42,280 --> 00:04:44,540
+more general function that can be used to
+specify x,
+
+99
+00:04:44,540 --> 00:04:47,440
+y labels or titles.
+It doesn't really matter what you use.
+
+100
+00:04:48,560 --> 00:04:51,520
+Each of the geom functions, like the geom
+points and the geom,
+
+101
+00:04:54,270 --> 00:04:58,060
+smooth function have options that you can
+use to change things, so you
+
+102
+00:04:58,060 --> 00:05:00,790
+can explore some of those options too if
+you don't like the default.
+
+103
+00:05:01,920 --> 00:05:03,040
+There are some things that only make
+
+104
+00:05:03,040 --> 00:05:06,390
+sense kind of at a global thing, globally
+meaning
+
+105
+00:05:06,390 --> 00:05:11,110
+for the whole plot, and so that the theme
+function is vail, is available for that.
+
+106
+00:05:11,110 --> 00:05:14,790
+So this might specify kind of the big
+basic colors, the background
+
+107
+00:05:14,790 --> 00:05:18,030
+colors are here for example the le, the
+position of the legend.
+
+108
+00:05:18,030 --> 00:05:19,300
+And you can use the theme
+
+109
+00:05:19,300 --> 00:05:22,290
+function to specify these options.
+
+110
+00:05:22,290 --> 00:05:25,600
+Then finally there are, there are some
+general themes that are built
+
+111
+00:05:25,600 --> 00:05:28,180
+in that kind of control a lot of different
+elements of the plot.
+
+112
+00:05:28,180 --> 00:05:31,590
+So you can specify to kind of set many
+options at
+
+113
+00:05:31,590 --> 00:05:35,790
+once and, and basically The theme_gray is
+kind of the default theme.
+
+114
+00:05:35,790 --> 00:05:39,280
+It gives you the gray background with the
+white line, the white grid lines.
+
+115
+00:05:39,280 --> 00:05:41,490
+The theme_bw for black and white is a kind
+
+116
+00:05:41,490 --> 00:05:44,300
+of more stark, a plainer theme if you
+don't
+
+117
+00:05:44,300 --> 00:05:44,940
+like the gray background.
+
+118
+00:05:46,650 --> 00:05:48,730
+So, I'll talk a little bit about kind
+
+119
+00:05:48,730 --> 00:05:51,010
+of modifying some of the features of the
+aesthetics.
+
+120
+00:05:51,010 --> 00:05:55,160
+So for example, sometimes there, you might
+want to change the colors of the points
+
+121
+00:05:55,160 --> 00:05:57,720
+if you don't like black points or if you
+don't like them to be solid.
+
+122
+00:05:57,720 --> 00:05:59,330
+You like them to be transparent.
+
+123
+00:05:59,330 --> 00:06:02,500
+You can, on the left-hand side, I've
+modified, modified my, my
+
+124
+00:06:02,500 --> 00:06:06,700
+basic scatter plot of pm2.5 and nocturnal
+symptoms by doing two things.
+
+125
+00:06:06,700 --> 00:06:09,850
+One is I've made the color steel blue.
+
+126
+00:06:09,850 --> 00:06:14,070
+I've increased the size of the points to
+be 4 the default is 1.
+
+127
+00:06:14,070 --> 00:06:15,600
+And I've, and I've changed the alpha
+
+128
+00:06:15,600 --> 00:06:18,590
+transparency to be a half rather than
+solid.
+
+129
+00:06:18,590 --> 00:06:20,970
+So now you can see that the blue, there's
+blue points that are a
+
+130
+00:06:20,970 --> 00:06:24,330
+steel blue, they're somewhat transparent
+and they're
+
+131
+00:06:24,330 --> 00:06:26,140
+a lot bigger than they were before.
+
+132
+00:06:26,140 --> 00:06:27,760
+The important thing to realize that I,
+
+133
+00:06:27,760 --> 00:06:30,420
+I've placed these options in the geo-point
+function
+
+134
+00:06:30,420 --> 00:06:35,030
+and each one of these options the color,
+the size, the alpha, have all been
+
+135
+00:06:35,030 --> 00:06:36,940
+set to be a constant.
+
+136
+00:06:36,940 --> 00:06:42,980
+And so the constants Basically are, are
+for the are not actually
+
+137
+00:06:42,980 --> 00:06:47,290
+aesthetics they're just options for the,
+for putting the points on the page.
+
+138
+00:06:47,290 --> 00:06:48,690
+On the right hand side here you can see
+
+139
+00:06:48,690 --> 00:06:52,210
+that the plot looks similar but I I've,
+I've got,
+
+140
+00:06:52,210 --> 00:06:55,280
+there's two colors now and each of the
+colors corresponds
+
+141
+00:06:55,280 --> 00:06:57,640
+to if the child is over weight or normal
+weight.
+
+142
+00:06:57,640 --> 00:07:01,530
+And so now you can see what I call, what
+is called geom_point.
+
+143
+00:07:01,530 --> 00:07:05,770
+Rather than say just color equals bmicat,
+which would assign
+
+144
+00:07:05,770 --> 00:07:09,070
+the, the category of bmi to be a different
+color.
+
+145
+00:07:09,070 --> 00:07:12,610
+I had to wrap it in this aes function
+which stands for aesthetics.
+
+146
+00:07:12,610 --> 00:07:15,850
+So now, rather than specify color as a
+constant like
+
+147
+00:07:15,850 --> 00:07:19,100
+steel blue The color has been assigned to
+a data variable.
+
+148
+00:07:19,100 --> 00:07:23,020
+And so, it's very important that you know
+the distinction between, giving
+
+149
+00:07:23,020 --> 00:07:26,610
+a, assigning a color to be a constant,
+like black or white or
+
+150
+00:07:26,610 --> 00:07:30,490
+blue, and assigning color to be the value
+of a variable.
+
+151
+00:07:30,490 --> 00:07:33,670
+So, when you assign color to be the value
+of a variable - What happens
+
+152
+00:07:33,670 --> 00:07:38,490
+is that all the points and each set of
+points is assigned a different color.
+
+153
+00:07:38,490 --> 00:07:42,390
+Then they are put back on the page along
+with this legend on the right hand side.
+
+154
+00:07:42,390 --> 00:07:46,010
+Then outside of the A.E.S. function I
+still have
+
+155
+00:07:46,010 --> 00:07:48,580
+my size equals 4 and my alpha equals 1/2.
+
+156
+00:07:48,580 --> 00:07:51,540
+So those are unchanged from the left hand
+plot.
+
+157
+00:07:51,540 --> 00:07:54,930
+So that the points are still bigger, and
+the transparency is still half.
+
+158
+00:07:54,930 --> 00:07:57,750
+And so, so the import-, so, so the key to
+
+159
+00:07:57,750 --> 00:08:01,010
+remember here is that there's a difference
+between assigning a
+
+160
+00:08:01,010 --> 00:08:04,010
+aesthetic value to be a constant, and
+assigning aesthetic to
+
+161
+00:08:04,010 --> 00:08:08,830
+be, to be the, the correspondent, or
+variable, data variable.
+
+162
+00:08:08,830 --> 00:08:10,000
+If you want it to be a constant, you
+
+163
+00:08:10,000 --> 00:08:13,010
+can just specify in the geom point
+function directly.
+
+164
+00:08:13,010 --> 00:08:14,520
+If you want it to be assigned to a data
+
+165
+00:08:14,520 --> 00:08:17,140
+variable, then you have to wrap it in this
+aes function.
+
+166
+00:08:20,146 --> 00:08:22,230
+You can modify the labels with the labs
+function.
+
+167
+00:08:22,230 --> 00:08:25,200
+So the labs function here I've called a
+few different times.
+
+168
+00:08:25,200 --> 00:08:26,910
+I've added on to my basic plot.
+
+169
+00:08:26,910 --> 00:08:30,990
+So the g object, remember, it's just the
+data frame plus the x and y coordinates.
+
+170
+00:08:30,990 --> 00:08:33,000
+Here I've added geome point function, and
+
+171
+00:08:33,000 --> 00:08:35,060
+I've, I've signed the color variable, the
+BMI
+
+172
+00:08:35,060 --> 00:08:37,140
+category, so now the different, the two
+
+173
+00:08:37,140 --> 00:08:40,240
+different BMI categories in, in two
+different colors.
+
+174
+00:08:41,260 --> 00:08:43,540
+The labels I set the title to be
+
+175
+00:08:43,540 --> 00:08:45,370
+max cohort, because that's where the data
+come from.
+
+176
+00:08:45,370 --> 00:08:47,080
+This is a max study.
+
+177
+00:08:47,080 --> 00:08:49,410
+I've set the x label to be this
+expression,
+
+178
+00:08:49,410 --> 00:08:51,890
+which is log of pm 2.5, and I used the
+
+179
+00:08:51,890 --> 00:08:55,050
+mathematical annotation that I talked,
+that we talked about previously
+
+180
+00:08:55,050 --> 00:08:58,190
+to get that pm 2.5 that 2.5 subscript on
+there.
+
+181
+00:08:58,190 --> 00:09:00,900
+And then I took the y label to just be
+nocturnal signal.
+
+182
+00:09:00,900 --> 00:09:02,780
+So now it's a little bit cleaner.
+
+183
+00:09:02,780 --> 00:09:04,860
+The plot has kind of more appropriate
+labels on it.
+
+184
+00:09:09,070 --> 00:09:11,100
+I can also customize the smoother if I
+want to.
+
+185
+00:09:11,100 --> 00:09:15,530
+So now, I'm going to modify the options to
+the geom's smooth function.
+
+186
+00:09:15,530 --> 00:09:19,670
+So here all I've done to, is I add an
+option to say it's size equals four.
+
+187
+00:09:19,670 --> 00:09:21,480
+So I made this line a little bit thicker.
+
+188
+00:09:23,400 --> 00:09:25,940
+And I mad the, the line type to be equal
+three.
+
+189
+00:09:25,940 --> 00:09:29,470
+So the three that, that just means a
+dotted line instead of a solid line.
+
+190
+00:09:29,470 --> 00:09:32,010
+I still use method equals LM, so I want to
+regression line.
+
+191
+00:09:32,010 --> 00:09:34,000
+And I turned off the confidence intervals,
+
+192
+00:09:34,000 --> 00:09:36,130
+so I, so that it's a little bit more clear
+to see.
+
+193
+00:09:36,130 --> 00:09:37,770
+So I see SC equals false.
+
+194
+00:09:37,770 --> 00:09:39,420
+So these are all functions that you can
+add to
+
+195
+00:09:39,420 --> 00:09:42,769
+the GM Smooth function if you don't like
+the defaults.
+
+196
+00:09:46,800 --> 00:09:49,970
+So another thing you can do is just change
+the overall theme.
+
+197
+00:09:49,970 --> 00:09:52,720
+So the default theme, you look in the
+previous slide here.
+
+198
+00:09:52,720 --> 00:09:53,600
+You can see that there's a gray
+
+199
+00:09:53,600 --> 00:09:55,330
+background, with those kind of white grid
+lines.
+
+200
+00:09:55,330 --> 00:09:57,280
+There's this solid kind of thicker white
+
+201
+00:09:57,280 --> 00:09:59,780
+lines for kind of larger kind of
+intervals.
+
+202
+00:09:59,780 --> 00:10:02,780
+And then there's kind of thinner white
+lines for smaller intervals.
+
+203
+00:10:02,780 --> 00:10:04,600
+If you don't like that background, you can
+change it
+
+204
+00:10:04,600 --> 00:10:07,310
+to the kind of a more basic black and
+white background.
+
+205
+00:10:07,310 --> 00:10:08,390
+So this is the theme_bw theme.
+
+206
+00:10:08,390 --> 00:10:12,080
+And another thing, as you can see, I've
+changed here is, I've changed
+
+207
+00:10:12,080 --> 00:10:12,940
+the font.
+
+208
+00:10:12,940 --> 00:10:15,060
+So the default font is going to be
+something like
+
+209
+00:10:15,060 --> 00:10:18,820
+Helvetica, but I've changed it to be a
+Times font.
+
+210
+00:10:18,820 --> 00:10:22,090
+So now you can see that it's a serif font
+as opposed to sans serif.
+
+211
+00:10:22,090 --> 00:10:25,560
+And it looks like, and it uses the Times
+font to
+
+212
+00:10:25,560 --> 00:10:29,670
+do the labels, to do the legend, and also
+the axis ticks.
+
+213
+00:10:29,670 --> 00:10:32,680
+So you can see, the numbers on the axis
+are all in the Times font.
+
+214
+00:10:32,680 --> 00:10:34,600
+So the theme function, the various theme
+functions can
+
+215
+00:10:34,600 --> 00:10:36,750
+be used to modify these elements of the
+plot.
+

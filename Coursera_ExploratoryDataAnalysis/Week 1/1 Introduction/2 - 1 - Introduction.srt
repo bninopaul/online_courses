@@ -1,0 +1,136 @@
+1
+00:00:01,070 --> 00:00:03,370
+Hi, everyone, welcome to Exploratory Data
+Analysis.
+
+2
+00:00:03,370 --> 00:00:07,170
+This is the fourth class in the Data
+Science Specialization.
+
+3
+00:00:07,170 --> 00:00:08,890
+So at this point you should have, you
+should be familiar
+
+4
+00:00:08,890 --> 00:00:12,330
+with all the kind of basic tools in the
+data scientist's toolbox.
+
+5
+00:00:12,330 --> 00:00:15,160
+You should you know, be familiar at least
+with the kind of the basics of R
+
+6
+00:00:15,160 --> 00:00:17,680
+programming in terms of writing functions
+and writing
+
+7
+00:00:17,680 --> 00:00:21,200
+writing kind of basic, kind of basic
+operations on data.
+
+8
+00:00:21,200 --> 00:00:23,890
+And we should have covered the kind of the
+aspects getting data
+
+9
+00:00:23,890 --> 00:00:27,018
+from the internet and through various APIs
+and kind of processing data.
+
+10
+00:00:27,018 --> 00:00:29,640
+So now you've got, you can imagine, you
+have got your data set.
+
+11
+00:00:29,640 --> 00:00:32,550
+It's been through a variety of processing
+steps and it's time
+
+12
+00:00:32,550 --> 00:00:34,500
+to just kind of look at and see what's
+going on, right?
+
+13
+00:00:34,500 --> 00:00:37,950
+So you want, so the purpose of this class
+is to look at your data, get
+
+14
+00:00:37,950 --> 00:00:41,510
+a sense of what's happening and what are
+the kinds of plots that you want to make.
+
+15
+00:00:41,510 --> 00:00:44,670
+One of the types ways that you can explore
+the data without kind of having
+
+16
+00:00:44,670 --> 00:00:47,800
+a precise or specific model about, you
+know,
+
+17
+00:00:47,800 --> 00:00:49,460
+what's supposed to be going on in there.
+
+18
+00:00:49,460 --> 00:00:51,510
+So this is before we do modelling, before
+we
+
+19
+00:00:51,510 --> 00:00:54,730
+do prediction, before we do any sort of
+inference.
+
+20
+00:00:54,730 --> 00:00:57,520
+And so we're going to talk about the
+plotting systems in R.
+
+21
+00:00:57,520 --> 00:01:01,550
+We're kind, talked about kind of basic
+principals about making analytic graphics
+
+22
+00:01:01,550 --> 00:01:05,000
+and I'll show some case studies of
+exploratory data analysis just so
+
+23
+00:01:05,000 --> 00:01:07,030
+you can get of sense of kind of how this
+type, how
+
+24
+00:01:07,030 --> 00:01:09,570
+this kind of thing would work in a, in the
+real world.
+
+25
+00:01:09,570 --> 00:01:10,710
+So I hope you enjoy it.
+
+26
+00:01:10,710 --> 00:01:12,470
+I look forward to seeing you in the class.
+
+27
+00:01:12,470 --> 00:01:13,760
+And I think this will set you up really
+
+28
+00:01:13,760 --> 00:01:17,660
+well, for the later classes in the data
+science specialization.
+

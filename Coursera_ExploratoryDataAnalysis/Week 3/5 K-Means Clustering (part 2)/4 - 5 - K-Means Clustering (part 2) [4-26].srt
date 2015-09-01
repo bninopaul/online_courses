@@ -1,0 +1,430 @@
+1
+00:00:00,323 --> 00:00:04,013
+So in R, the kmeans function is the
+function that
+
+2
+00:00:04,013 --> 00:00:08,860
+we use to it, to implement the kmeans
+algorithm, here.
+
+3
+00:00:08,860 --> 00:00:10,660
+And you can a, I, you can dem, I can
+
+4
+00:00:10,660 --> 00:00:13,907
+demonstrate it here with use, using a
+simple data frame.
+
+5
+00:00:13,907 --> 00:00:15,749
+I got two, with just two dimensions.
+
+6
+00:00:15,749 --> 00:00:19,140
+And I called kmeans on the data frame and
+I tell it there are three centers.
+
+7
+00:00:19,140 --> 00:00:23,322
+Alright, so three centroids and what
+kmeans returns is
+
+8
+00:00:23,322 --> 00:00:26,274
+a, is a list with a number of different
+
+9
+00:00:26,274 --> 00:00:27,460
+elements in it.
+
+10
+00:00:27,460 --> 00:00:30,540
+And so, for example, the, probably the
+most important element
+
+11
+00:00:30,540 --> 00:00:32,724
+is the cluster element and you can see
+here when
+
+12
+00:00:32,724 --> 00:00:35,020
+I print out the cluster element, you can
+see that
+
+13
+00:00:35,020 --> 00:00:37,570
+it's a vector of numbers from one to three
+so.
+
+14
+00:00:37,570 --> 00:00:41,940
+And what this shows is that for each data
+point in the in
+
+15
+00:00:41,940 --> 00:00:45,170
+the data frame that I passed it, it tells
+me which cluster it's in.
+
+16
+00:00:45,170 --> 00:00:47,080
+So you can see that the first four points
+are in cluster
+
+17
+00:00:47,080 --> 00:00:51,470
+three, the next four are in cluster one,
+and the next four
+
+18
+00:00:51,470 --> 00:00:53,040
+are in cluster two.
+
+19
+00:00:53,040 --> 00:00:55,370
+You can see another element if you look in
+the printout of the
+
+20
+00:00:55,370 --> 00:00:57,377
+names another element of the, of the
+
+21
+00:00:57,377 --> 00:00:59,640
+object returned from kmeans is called
+centers.
+
+22
+00:00:59,640 --> 00:01:03,570
+And this tells you the location of the
+centroids in the space.
+
+23
+00:01:08,032 --> 00:01:11,280
+So, if you want to plot the kind of, the,
+the results for kmeans, the
+
+24
+00:01:11,280 --> 00:01:14,070
+first thing you can do is you can run the
+kmeans algorithm on your data.
+
+25
+00:01:14,070 --> 00:01:16,000
+And here, I'm just going to plot the data.
+
+26
+00:01:16,000 --> 00:01:19,020
+So the first thing I do is I plot the
+data, so I plot X Y
+
+27
+00:01:19,020 --> 00:01:24,240
+and then I color the data points according
+to the cluster that they happen to be in.
+
+28
+00:01:24,240 --> 00:01:25,430
+So you can see I, I pass the
+
+29
+00:01:25,430 --> 00:01:28,090
+color argument to be equal to the cluster
+number.
+
+30
+00:01:28,090 --> 00:01:30,110
+And then I, I use the points function to
+
+31
+00:01:30,110 --> 00:01:34,250
+kind of add the centers, the clusters
+centroids to
+
+32
+00:01:34,250 --> 00:01:37,070
+the plot and I, and I plot them using the
+plus symbol.
+
+33
+00:01:37,070 --> 00:01:40,190
+So, here I plotted the, the data and the
+kmeans clustering results.
+
+34
+00:01:41,620 --> 00:01:44,060
+Finally, another way that you can
+visualize clustering
+
+35
+00:01:44,060 --> 00:01:46,605
+information for an outcome in an algorithm
+like
+
+36
+00:01:46,605 --> 00:01:49,080
+kmeans is by using the Heatmap function
+or,
+
+37
+00:01:49,080 --> 00:01:50,980
+or use, looking at heatmaps I should say.
+
+38
+00:01:50,980 --> 00:01:52,980
+So here I've just, I've, I've using the
+same data
+
+39
+00:01:52,980 --> 00:01:56,040
+I've taken out a different random sample
+of the data set.
+
+40
+00:01:56,040 --> 00:01:59,350
+I sampled its replacement and I just run
+kmeans again, again with
+
+41
+00:01:59,350 --> 00:02:00,696
+three centers.
+
+42
+00:02:00,696 --> 00:02:03,628
+And I stored it in an object called kmeans
+object two.
+
+43
+00:02:03,628 --> 00:02:06,030
+And now I'm going to make a, an image plot
+of the data, so
+
+44
+00:02:06,030 --> 00:02:09,280
+the first plot on the left here is just an
+image of the original data.
+
+45
+00:02:10,550 --> 00:02:12,630
+And then on the right hand side I've
+reordered
+
+46
+00:02:12,630 --> 00:02:16,410
+the the columns of the data, I'm sorry, I
+
+47
+00:02:16,410 --> 00:02:18,260
+should say the rows of the data frame so,
+
+48
+00:02:18,260 --> 00:02:21,040
+so that the clusters are kind of put
+together.
+
+49
+00:02:21,040 --> 00:02:24,980
+So here, you can see that if you go up and
+down the, up and down this matrix.
+
+50
+00:02:24,980 --> 00:02:26,900
+You'll see the cluster, the, the data
+points are
+
+51
+00:02:26,900 --> 00:02:30,200
+clustered together so that they are next
+to each other.
+
+52
+00:02:30,200 --> 00:02:33,111
+And so you can use this to look at high
+dimensional
+
+53
+00:02:33,111 --> 00:02:37,300
+data, and high dimensional image type
+data, or matrix type data
+
+54
+00:02:37,300 --> 00:02:41,276
+where you can reorganize the rows and the
+columns and kind
+
+55
+00:02:41,276 --> 00:02:45,275
+of look at clusters that are closer
+together or farther apart.
+
+56
+00:02:45,275 --> 00:02:47,595
+and, and, and, or, kind of, and in it, and
+so
+
+57
+00:02:47,595 --> 00:02:50,031
+look at your kind of matrix data in an
+organized way
+
+58
+00:02:50,031 --> 00:02:52,759
+so you can look for, so you can look for
+patterns.
+
+59
+00:02:52,759 --> 00:02:54,442
+We'll talk a little bit about this more
+
+60
+00:02:54,442 --> 00:02:57,298
+when we talk about hierarchical
+clustering, but again, you
+
+61
+00:02:57,298 --> 00:02:59,389
+can, you can use heatmap type of
+visualizations
+
+62
+00:02:59,389 --> 00:03:02,120
+with other types of clustering algorithms
+like kmeans too.
+
+63
+00:03:02,120 --> 00:03:05,939
+So it's, just to summarize, you know,
+kmeans is a handy
+
+64
+00:03:05,939 --> 00:03:10,860
+algorithm for organizing and looking for
+patterns that hide eventual data.
+
+65
+00:03:10,860 --> 00:03:14,550
+A couple of things that I for, it requires
+that you know the number of clusters.
+
+66
+00:03:14,550 --> 00:03:15,670
+So you have to specify
+
+67
+00:03:15,670 --> 00:03:18,770
+at least roughly speaking, how many
+clusters there are.
+
+68
+00:03:18,770 --> 00:03:21,540
+You can, you can kind of play with that a
+little bit to determine, to figure
+
+69
+00:03:21,540 --> 00:03:23,670
+out kind of what, what pattern probably
+looks
+
+70
+00:03:23,670 --> 00:03:26,898
+the best, but there's no easy rule there.
+
+71
+00:03:26,898 --> 00:03:28,893
+And then so you have to pick those
+clusters
+
+72
+00:03:28,893 --> 00:03:31,593
+out by eye or sort of through some other
+mechanism.
+
+73
+00:03:31,593 --> 00:03:34,500
+There are a few algorithms for kind of
+determining the number
+
+74
+00:03:34,500 --> 00:03:37,179
+of clusters using, either using
+cross-validation,
+
+75
+00:03:37,179 --> 00:03:39,783
+information theory, other types of
+metrics.
+
+76
+00:03:39,783 --> 00:03:40,563
+And so there's,
+
+77
+00:03:40,563 --> 00:03:43,219
+here's a link to determining the number of
+clusters.
+
+78
+00:03:43,219 --> 00:03:47,323
+And it's, and the kmeans algorithm is not
+deterministic, so there are, depending
+
+79
+00:03:47,323 --> 00:03:49,318
+on how it's implemented, there can be,
+
+80
+00:03:49,318 --> 00:03:51,541
+sometimes those starting points are chosen
+at
+
+81
+00:03:51,541 --> 00:03:55,018
+random, and so, so it's often useful to
+run the kmeans algorithm a
+
+82
+00:03:55,018 --> 00:04:01,160
+couple times just to make sure you're not
+getting a very unstable finishing point.
+
+83
+00:04:01,160 --> 00:04:03,120
+So, for example, if you run it three
+different times,
+
+84
+00:04:03,120 --> 00:04:05,680
+and every time you get a totally different
+pattern, then that
+
+85
+00:04:05,680 --> 00:04:08,060
+means that the, the algorithm may not be,
+have
+
+86
+00:04:08,060 --> 00:04:12,350
+a very stable kind of view of the data.
+
+87
+00:04:12,350 --> 00:04:14,651
+And so, so, kmeans is, can, can be
+
+88
+00:04:14,651 --> 00:04:18,238
+problematic in that way for certain types
+of datasets.
+
+89
+00:04:18,238 --> 00:04:21,648
+And here, I've got a couple links to kind
+of, to videos
+
+90
+00:04:21,648 --> 00:04:26,127
+and, and references on, that, that provide
+a lot more information about kmeans.
+

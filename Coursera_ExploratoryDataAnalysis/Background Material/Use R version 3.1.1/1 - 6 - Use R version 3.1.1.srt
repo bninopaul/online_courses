@@ -1,0 +1,72 @@
+1
+00:00:02,400 --> 00:00:04,220
+I just want to make one quick note about
+the
+
+2
+00:00:04,220 --> 00:00:07,790
+version of R that you'll be using in this
+class.
+
+3
+00:00:07,790 --> 00:00:11,865
+You might notice from some of the videos
+that the videos are made using R
+
+4
+00:00:11,865 --> 00:00:17,250
+version 3.0.3, which was the most current
+version at the time the video was made.
+
+5
+00:00:17,250 --> 00:00:22,204
+However as of now, the most current
+version of R is 3.1.1.
+
+6
+00:00:22,204 --> 00:00:25,270
+And so I encourage you to install that
+version of R.
+
+7
+00:00:25,270 --> 00:00:28,760
+Which should be the default version that
+you find when you go to the R website.
+
+8
+00:00:28,760 --> 00:00:31,806
+So don't try digging around for older
+versions of R.
+
+9
+00:00:31,806 --> 00:00:32,780
+You won't need them.
+
+10
+00:00:32,780 --> 00:00:35,190
+So I, in general, I always encourage
+people to use the
+
+11
+00:00:35,190 --> 00:00:39,980
+latest version of software, because those
+will have the latest features.
+
+12
+00:00:39,980 --> 00:00:42,050
+And they will have hopefully fixed a bug
+
+13
+00:00:42,050 --> 00:00:45,100
+that may have been present in earlier
+versions.
+
+14
+00:00:45,100 --> 00:00:48,570
+So, for this version of the course use R
+version 3.1.1.
+
+15
+00:00:48,570 --> 00:00:49,490
+Thanks a lot.
+

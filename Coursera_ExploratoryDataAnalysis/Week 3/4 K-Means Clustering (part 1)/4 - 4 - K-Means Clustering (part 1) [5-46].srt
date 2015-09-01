@@ -1,0 +1,585 @@
+1
+00:00:00,460 --> 00:00:03,118
+This lecture is going to be about K-means
+clustering.
+
+2
+00:00:03,118 --> 00:00:06,260
+And K-means is actually a relatively old
+technique that was developed
+
+3
+00:00:06,260 --> 00:00:09,820
+quite a while ago but it's, it remains
+very useful we're
+
+4
+00:00:09,820 --> 00:00:11,910
+going to, were kind of summarizing high
+dimensional data and we're getting
+
+5
+00:00:11,910 --> 00:00:15,220
+a sense of, you know, what, what patterns
+your data shows.
+
+6
+00:00:15,220 --> 00:00:17,000
+wha, What kinds of observations are
+similar to each
+
+7
+00:00:17,000 --> 00:00:19,440
+other, and what observations are very
+different from each other.
+
+8
+00:00:19,440 --> 00:00:21,120
+So we're going to talk a little about
+K-means
+
+9
+00:00:21,120 --> 00:00:23,120
+works, and show what it can do for you.
+
+10
+00:00:24,360 --> 00:00:25,655
+So the basic principle behind
+
+11
+00:00:25,655 --> 00:00:31,050
+K-means clustering is that to first define
+how, what does it mean for things to be
+
+12
+00:00:31,050 --> 00:00:32,300
+similar to each other and what does it
+
+13
+00:00:32,300 --> 00:00:33,830
+mean for things to be different from each
+other.
+
+14
+00:00:33,830 --> 00:00:35,880
+So in some sense you want to define you
+know?
+
+15
+00:00:35,880 --> 00:00:37,470
+What does it mean to be close?
+
+16
+00:00:37,470 --> 00:00:41,340
+How do we group things together, and how
+do we visualize this grouping?
+
+17
+00:00:41,340 --> 00:00:45,410
+And then once we visualize the grouping
+how do we interpret what we see?
+
+18
+00:00:45,410 --> 00:00:46,740
+So I think The basic.
+
+19
+00:00:46,740 --> 00:00:49,310
+The most important thing is defining: what
+do we mean by close?
+
+20
+00:00:49,310 --> 00:00:50,700
+And we need a distance metric
+
+21
+00:00:50,700 --> 00:00:54,820
+to define you know, what it means for two
+things to be close together.
+
+22
+00:00:54,820 --> 00:00:57,030
+Because depending on the context, two
+things could
+
+23
+00:00:57,030 --> 00:00:59,010
+seem close, but not, but not be very
+close.
+
+24
+00:01:00,400 --> 00:01:01,840
+And then in a different context, you have,
+you
+
+25
+00:01:01,840 --> 00:01:04,590
+could have a totally different meaning of,
+of distance.
+
+26
+00:01:04,590 --> 00:01:06,080
+And so this is a very important step.
+
+27
+00:01:06,080 --> 00:01:09,040
+And if you don't do it well.
+You end up with nonsense at the end.
+
+28
+00:01:09,040 --> 00:01:11,030
+So, get kind of the classic garbage in,
+garbage out.
+
+29
+00:01:12,080 --> 00:01:16,040
+So the couple of t, traditional distance
+metrics and
+
+30
+00:01:16,040 --> 00:01:19,070
+this in, statistics are, you having a
+notion of continuous distance.
+
+31
+00:01:19,070 --> 00:01:20,560
+Which is like euclidean distance, so this
+
+32
+00:01:20,560 --> 00:01:22,280
+is like the straight line between two
+points.
+
+33
+00:01:23,440 --> 00:01:27,230
+Another continuous measure is basically
+like a correlation similarity between.
+
+34
+00:01:27,230 --> 00:01:29,410
+Let's say two variables and so you can see
+
+35
+00:01:29,410 --> 00:01:31,160
+how correlated they are, or how similar
+they are.
+
+36
+00:01:31,160 --> 00:01:33,600
+So highly correlated points would be
+similar.
+
+37
+00:01:34,950 --> 00:01:38,440
+And then another distance is called the
+Manhattan distance.
+
+38
+00:01:38,440 --> 00:01:39,470
+And this is kind of, we'll, we'll talk a
+
+39
+00:01:39,470 --> 00:01:42,200
+little bit more about this a little bit
+later on.
+
+40
+00:01:42,200 --> 00:01:44,030
+So, you need to pick a distance or
+
+41
+00:01:44,030 --> 00:01:46,570
+a similarity metric that makes sense for
+your problem.
+
+42
+00:01:49,052 --> 00:01:53,010
+So k-means clustering is a way of
+partitioning a
+
+43
+00:01:53,010 --> 00:01:56,690
+group of observations into a fixed number
+of clusters.
+
+44
+00:01:56,690 --> 00:01:58,570
+And so the idea is that you have, you have
+to
+
+45
+00:01:58,570 --> 00:02:01,880
+set, say beforehand how many clusters of
+data, of points are there.
+
+46
+00:02:01,880 --> 00:02:05,620
+So for example, if you have 100
+observations in your data set you
+
+47
+00:02:05,620 --> 00:02:09,520
+might think that they could be neatly
+divided into say four different groups.
+
+48
+00:02:09,520 --> 00:02:09,830
+Okay?
+
+49
+00:02:09,830 --> 00:02:13,340
+So you have to have a sense of how many
+clusters there are first.
+
+50
+00:02:13,340 --> 00:02:14,180
+And then each of these groups
+
+51
+00:02:14,180 --> 00:02:15,770
+is going to have a centroid.
+Right?
+
+52
+00:02:15,770 --> 00:02:16,920
+So it's going to be like a center of
+
+53
+00:02:16,920 --> 00:02:20,780
+gravity around which each group kind of
+gathers.
+
+54
+00:02:22,020 --> 00:02:25,540
+And then once you have these centroids, we
+kind of defined we
+
+55
+00:02:25,540 --> 00:02:28,410
+kind of assign each of the observations to
+each of these centroids.
+
+56
+00:02:28,410 --> 00:02:31,300
+And that's how we do the group kind of
+assignment.
+
+57
+00:02:31,300 --> 00:02:33,790
+And so the basic approach is to kind of
+pick some, or the
+
+58
+00:02:33,790 --> 00:02:37,540
+algorithm for writing K-means is to
+kind of pick some, pick a centroid.
+
+59
+00:02:37,540 --> 00:02:40,020
+You know, assign all the points to the
+centroids.
+
+60
+00:02:40,020 --> 00:02:42,320
+Then maybe recalculate the centroids and
+reassign all the points.
+
+61
+00:02:42,320 --> 00:02:45,422
+So you kind of iterate back and forth
+until you reach a solution.
+
+62
+00:02:45,422 --> 00:02:49,230
+And so the things that you need, you need
+a distance metric.
+
+63
+00:02:49,230 --> 00:02:50,610
+You need a number of clusters, so a
+
+64
+00:02:50,610 --> 00:02:53,830
+fixed number of clusters that hit the
+specify beforehand.
+
+65
+00:02:53,830 --> 00:02:57,210
+And you need an initial guess as to where
+the centroids are.
+
+66
+00:02:57,210 --> 00:02:59,920
+And often you might just pick some random
+points, just
+
+67
+00:02:59,920 --> 00:03:02,576
+to start the algorithm in terms of where
+the centroids are.
+
+68
+00:03:02,576 --> 00:03:05,230
+But K-means clustering algorithm will
+produce
+
+69
+00:03:05,230 --> 00:03:10,156
+a, a final kind of estimate of.
+Where the cluster centroids are.
+
+70
+00:03:10,156 --> 00:03:15,400
+And it will tell you which centroid each
+observation is assigned to.
+
+71
+00:03:15,400 --> 00:03:19,590
+Here's a quick example of how you might
+use the K-means clustering algorithm.
+
+72
+00:03:19,590 --> 00:03:22,480
+I've generated just some random data here
+that
+
+73
+00:03:22,480 --> 00:03:24,950
+are in two dimensions so it's easy to
+visualize.
+
+74
+00:03:24,950 --> 00:03:26,500
+And so the x coordinates and the y
+coordinates
+
+75
+00:03:26,500 --> 00:03:29,880
+all come from a normal distribution with
+different means.
+
+76
+00:03:29,880 --> 00:03:31,020
+So I specifically
+
+77
+00:03:31,020 --> 00:03:36,250
+created three different kind of clusters
+for these twelve observations.
+
+78
+00:03:36,250 --> 00:03:38,930
+So each cluster has four observations in
+it.
+
+79
+00:03:38,930 --> 00:03:43,918
+So when I plot the data, it's very obvious
+that there are three clusters.
+
+80
+00:03:43,918 --> 00:03:46,170
+And I put labels on each of the points.
+
+81
+00:03:47,390 --> 00:03:49,350
+So here we see that the algorithm started.
+
+82
+00:03:49,350 --> 00:03:52,000
+And I've just chosen some three random
+points.
+
+83
+00:03:52,000 --> 00:03:52,810
+To be the centroid.
+
+84
+00:03:52,810 --> 00:03:55,990
+So you can see there's kind of red plus,
+and a purple plus,
+
+85
+00:03:55,990 --> 00:03:57,520
+and an orange plus down at the bottom.
+
+86
+00:03:57,520 --> 00:04:01,270
+So those are the random starting points
+for the centroids.
+
+87
+00:04:01,270 --> 00:04:03,871
+You're going to see the first thing we're
+going to do.
+
+88
+00:04:03,871 --> 00:04:05,791
+Is we're going to take each of our data
+
+89
+00:04:05,791 --> 00:04:08,760
+points and assign to it the closes
+centroid, right?
+
+90
+00:04:08,760 --> 00:04:11,610
+So you can see for example point number
+eight at the very top.
+
+91
+00:04:11,610 --> 00:04:14,870
+The closest centroid is the red plus over
+in the upper left.
+
+92
+00:04:14,870 --> 00:04:17,070
+So that gets assigned to that cluster.
+
+93
+00:04:17,070 --> 00:04:18,620
+And then point number four down in the
+lower
+
+94
+00:04:18,620 --> 00:04:21,890
+left here, that gets assigned to the red
+cluster also.
+
+95
+00:04:21,890 --> 00:04:24,330
+And then the three points one, two, and
+three they
+
+96
+00:04:24,330 --> 00:04:27,570
+get assigned to the orange plus in the
+orange cluster.
+
+97
+00:04:27,570 --> 00:04:30,820
+And then, the rest of the points are
+closest to the purple little plus there.
+
+98
+00:04:30,820 --> 00:04:32,770
+So, they get assigned to the purple
+cluster.
+
+99
+00:04:32,770 --> 00:04:35,660
+And so, that's the first kind of initial
+grouping
+
+100
+00:04:35,660 --> 00:04:39,380
+of the of the points to the three
+different clusters.
+
+101
+00:04:40,520 --> 00:04:41,380
+And then the next thing we're going to
+
+102
+00:04:41,380 --> 00:04:42,930
+do is we're going to recalculate the
+centroid.
+
+103
+00:04:42,930 --> 00:04:44,660
+So now we have the cluster definition.
+
+104
+00:04:44,660 --> 00:04:47,640
+Every point is assigned to a cluster.
+We can recalculate
+
+105
+00:04:47,640 --> 00:04:51,090
+the centroids, so for example, by taking
+the mean of that cluster.
+
+106
+00:04:51,090 --> 00:04:53,500
+So now you can see that the purple pluses
+has
+
+107
+00:04:53,500 --> 00:04:56,700
+moved slightly to be in the middle of that
+cluster.
+
+108
+00:04:56,700 --> 00:04:59,200
+The red plus has moved a little bit to be
+in the middle of that cluster.
+
+109
+00:04:59,200 --> 00:05:02,170
+And the orange one is now in the middle of
+the three orange dots.
+
+110
+00:05:02,170 --> 00:05:06,410
+And so the, the the cluster centroids
+gets, get recalculated.
+
+111
+00:05:06,410 --> 00:05:08,040
+And then you kind of repeat the process
+again.
+
+112
+00:05:08,040 --> 00:05:13,010
+So you take each data point and you say
+well what cluster centroid
+
+113
+00:05:13,010 --> 00:05:14,940
+is it closest to now?
+
+114
+00:05:14,940 --> 00:05:17,530
+And I can see that point number four for
+example used to be in the
+
+115
+00:05:17,530 --> 00:05:21,110
+red cluster but now it's closer to the
+orange cluster so now it gets reassigned.
+
+116
+00:05:21,110 --> 00:05:24,310
+And then you see for example point number
+seven is now
+
+117
+00:05:24,310 --> 00:05:27,100
+closer to the red plus so its in the red
+cluster.
+
+118
+00:05:27,100 --> 00:05:30,330
+and, and then we recalculate the centroid
+from this, you see,
+
+119
+00:05:30,330 --> 00:05:33,310
+now the centroids are kind of moving
+toward you to the point.
+
+120
+00:05:33,310 --> 00:05:38,390
+So, you can see how the clusters are kind
+of forming as you go step by step but
+
+121
+00:05:38,390 --> 00:05:42,270
+the two processes are to assign the points
+to each
+
+122
+00:05:42,270 --> 00:05:45,880
+cluster, and then to update the cluster of
+the centroid locations.
+

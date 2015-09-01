@@ -1,0 +1,923 @@
+1
+00:00:00,890 --> 00:00:03,546
+This lecture's going to be about the
+different counting systems in R.
+
+2
+00:00:03,546 --> 00:00:08,928
+And over time R has developed three core
+plotting systems that vary from each other
+
+3
+00:00:08,928 --> 00:00:14,393
+in slightly different ways, and are useful
+for achieving a few different goals.
+
+4
+00:00:14,393 --> 00:00:17,370
+I thought about, I thought I'd talk about
+you know the three different systems.
+
+5
+00:00:17,370 --> 00:00:22,790
+What makes them different, and how they're
+useful for various types of plots.
+
+6
+00:00:22,790 --> 00:00:26,020
+So the first system that I'll talk about
+is, is, is usually referred to as the
+
+7
+00:00:26,020 --> 00:00:27,440
+base plotting system.
+
+8
+00:00:27,440 --> 00:00:29,390
+The base plotting system is the oldest
+system in R.
+
+9
+00:00:29,390 --> 00:00:31,130
+It came with the original version of R.
+
+10
+00:00:32,130 --> 00:00:35,440
+and, the kind of conceptual model that it
+uses
+
+11
+00:00:35,440 --> 00:00:37,940
+for building plots is a kind of artist's
+palette model.
+
+12
+00:00:37,940 --> 00:00:41,340
+The idea is that you're kind of, you're,
+you're kind of, you have a blank canvas.
+
+13
+00:00:43,050 --> 00:00:45,190
+And then you kind of add things to it one
+by one.
+
+14
+00:00:45,190 --> 00:00:48,090
+So first you create the, a box with some,
+maybe some points in it.
+
+15
+00:00:48,090 --> 00:00:51,100
+And then you add labels.
+And then maybe you add a regression line
+
+16
+00:00:51,100 --> 00:00:51,720
+through it.
+
+17
+00:00:51,720 --> 00:00:55,610
+And then maybe you add titles, and, and,
+axis ticks, and things like that.
+
+18
+00:00:55,610 --> 00:00:58,090
+And so you kind of piece together this
+plot, one by one.
+
+19
+00:00:58,090 --> 00:00:59,890
+Every little piece of the plot takes
+another
+
+20
+00:00:59,890 --> 00:01:02,450
+line of code, or another couple lines of
+code.
+
+21
+00:01:02,450 --> 00:01:04,316
+And so you kind of add to it one by one.
+
+22
+00:01:04,316 --> 00:01:05,492
+So this is a kind of intuitive
+
+23
+00:01:05,492 --> 00:01:07,795
+model, because of, especially when you are
+exploring
+
+24
+00:01:07,795 --> 00:01:11,123
+data because you may not know right away
+what's the plot that you want to make.
+
+25
+00:01:11,123 --> 00:01:13,561
+And so maybe you'll just throw some points
+on the canvas,
+
+26
+00:01:13,561 --> 00:01:16,091
+and then you'll add some colors, then
+you'll add some labels,
+
+27
+00:01:16,091 --> 00:01:18,826
+and then eventually you'll piece it all
+together.
+
+28
+00:01:18,826 --> 00:01:21,202
+And so this is all well and good as long
+as you're kind
+
+29
+00:01:21,202 --> 00:01:24,905
+of keeping track of all the code that you
+used to make the plot.
+
+30
+00:01:24,905 --> 00:01:26,700
+Then you can always reconstruct the plot
+later.
+
+31
+00:01:28,230 --> 00:01:32,920
+And so the typical mode is for this type
+of model is to
+
+32
+00:01:32,920 --> 00:01:37,402
+use the plot function so, there's always a
+function that generates a plot.
+
+33
+00:01:37,402 --> 00:01:40,760
+And then and there are other functions
+that so called, annotate the plot.
+
+34
+00:01:40,760 --> 00:01:41,144
+And these
+
+35
+00:01:41,144 --> 00:01:42,824
+are functions that add things like text,
+
+36
+00:01:42,824 --> 00:01:44,890
+lines, labels, things like that, to the
+plot.
+
+37
+00:01:44,890 --> 00:01:47,230
+So the generation, and then there's the
+annotation.
+
+38
+00:01:48,900 --> 00:01:53,700
+so, the nice thing about the system that's
+very convenient, it's kind of intuitive.
+
+39
+00:01:53,700 --> 00:01:57,130
+I think many people think of building
+plots in this manner.
+
+40
+00:01:57,130 --> 00:02:00,250
+But one of the, one of the drawbacks is
+that you can't go back, so if
+
+41
+00:02:00,250 --> 00:02:03,230
+you, if you make a plot and you add
+something to it, you can't take it away.
+
+42
+00:02:04,400 --> 00:02:06,840
+So it's kind of a it an increasing
+
+43
+00:02:06,840 --> 00:02:08,920
+process or a kind of cumulative process.
+
+44
+00:02:10,250 --> 00:02:14,720
+It's difficult to translate the a new plot
+to another person.
+
+45
+00:02:14,720 --> 00:02:16,550
+So for example, if you develop a new kind
+
+46
+00:02:16,550 --> 00:02:19,630
+of plot it's, there's really no way to
+translate
+
+47
+00:02:19,630 --> 00:02:21,450
+that, those ideas to another person,
+because there's no
+
+48
+00:02:21,450 --> 00:02:24,470
+language, there's no kind of conceptual
+language to use.
+
+49
+00:02:24,470 --> 00:02:27,990
+Every plot is just a, is just a bunch of R
+code basically.
+
+50
+00:02:27,990 --> 00:02:30,780
+And so and so that's a little bit of a
+drawback sometimes.
+
+51
+00:02:30,780 --> 00:02:32,510
+Another drawback
+
+52
+00:02:32,510 --> 00:02:35,390
+with the base plotting system is that
+every, is because you have
+
+53
+00:02:35,390 --> 00:02:40,530
+so much control over the system, you
+therefore have to control everything.
+
+54
+00:02:40,530 --> 00:02:43,230
+And therefore set everything very
+carefully
+
+55
+00:02:43,230 --> 00:02:44,649
+if you don't like the default values.
+
+56
+00:02:46,140 --> 00:02:49,190
+So here's an example of a very simple base
+plot.
+
+57
+00:02:49,190 --> 00:02:50,520
+You can see what a base plot looks like.
+
+58
+00:02:50,520 --> 00:02:54,150
+In this I've used a dataset called the
+cars dataset which shows
+
+59
+00:02:55,180 --> 00:02:57,570
+the speed at which a car is moving and the
+distance at
+
+60
+00:02:57,570 --> 00:03:01,190
+which it takes to bring, to bring the car
+to a full stop.
+
+61
+00:03:01,190 --> 00:03:04,310
+And so you can see it's just a simple
+scatter plot
+
+62
+00:03:04,310 --> 00:03:07,380
+with speed on the x axis and distance on
+the y axis.
+
+63
+00:03:07,380 --> 00:03:08,470
+And so base plots look like this.
+
+64
+00:03:08,470 --> 00:03:11,210
+You could add a lot of other things.
+You could add a title.
+
+65
+00:03:11,210 --> 00:03:13,090
+You could add labels in the plot.
+
+66
+00:03:13,090 --> 00:03:14,680
+You could make the points a different
+color.
+
+67
+00:03:14,680 --> 00:03:15,810
+You can make them in different shapes.
+
+68
+00:03:15,810 --> 00:03:17,390
+There's all kinds of options that you can
+choose
+
+69
+00:03:17,390 --> 00:03:19,250
+from and we'll talk about that in detail
+later.
+
+70
+00:03:20,920 --> 00:03:22,860
+The second major plotting system
+
+71
+00:03:22,860 --> 00:03:24,270
+in R is called the Lattice System.
+
+72
+00:03:24,270 --> 00:03:27,470
+And this is implemented in the Lattice
+package.
+
+73
+00:03:27,470 --> 00:03:30,740
+So this, the idea here is actually quite
+different from the base plotting system.
+
+74
+00:03:30,740 --> 00:03:33,490
+Rather than piecing a plot together one by
+one through a
+
+75
+00:03:33,490 --> 00:03:37,960
+series of commands, every plot is
+constructed with a single function call.
+
+76
+00:03:37,960 --> 00:03:42,530
+And so the most commonly used function is
+going to be the function xyplot.
+
+77
+00:03:42,530 --> 00:03:44,450
+But there are other functions like bwplot,
+etc.
+
+78
+00:03:44,450 --> 00:03:48,090
+And so these functions basically construct
+an entire plot
+
+79
+00:03:48,090 --> 00:03:49,330
+all at once.
+
+80
+00:03:49,330 --> 00:03:53,950
+And so therefore, you have to specify a
+lot of information in the call to the
+
+81
+00:03:53,950 --> 00:03:59,360
+function, so that it has enough data to
+build a plot and in an appropriate way.
+
+82
+00:03:59,360 --> 00:04:01,430
+The last system is most useful for
+
+83
+00:04:01,430 --> 00:04:03,550
+what are called, Co-plots or Conditioning
+Plots.
+
+84
+00:04:03,550 --> 00:04:06,420
+Where you have, you want to look at the
+relationship between,
+
+85
+00:04:06,420 --> 00:04:10,460
+let's say x and y as it changes across
+levels of z.
+
+86
+00:04:10,460 --> 00:04:13,190
+And so, there, the, so you.
+
+87
+00:04:13,190 --> 00:04:15,400
+You're conditioning on different levels of
+z and then you're
+
+88
+00:04:15,400 --> 00:04:18,030
+looking at x and y at each one of those
+plots.
+
+89
+00:04:18,030 --> 00:04:20,402
+These are some times called panel plots.
+
+90
+00:04:20,402 --> 00:04:22,226
+because you're looking at the same thing
+in every
+
+91
+00:04:22,226 --> 00:04:25,250
+panel but just for different levels of a
+third variable.
+
+92
+00:04:25,250 --> 00:04:28,080
+And you can even combine variables so you
+can look at multiple factors.
+
+93
+00:04:29,550 --> 00:04:33,000
+So the system is very useful, because you
+can put a lot of plots on a
+
+94
+00:04:33,000 --> 00:04:36,080
+page very easily and very quickly as long
+
+95
+00:04:36,080 --> 00:04:39,310
+as you kind of follow this conditioning
+model.
+
+96
+00:04:39,310 --> 00:04:42,270
+And then, furthermore, a lot of the
+details that you would have
+
+97
+00:04:42,270 --> 00:04:43,860
+to specify directly in the base
+
+98
+00:04:43,860 --> 00:04:46,310
+plotting system are kind of calculated
+automatically.
+
+99
+00:04:46,310 --> 00:04:47,860
+So things like the margins and a
+
+100
+00:04:47,860 --> 00:04:50,590
+lot of the spacings, are calculated
+automatically as
+
+101
+00:04:50,590 --> 00:04:55,120
+long as you can accept the, those defaults
+then most things will look quite nice.
+
+102
+00:04:57,400 --> 00:05:00,220
+So the downside of the Lattice system is
+that sometimes it's, it's going to
+
+103
+00:05:00,220 --> 00:05:04,510
+be very awkward to specify an entire plot
+using a single function call.
+
+104
+00:05:04,510 --> 00:05:07,020
+And sometimes you, it, it seems more
+natural to kind of
+
+105
+00:05:07,020 --> 00:05:09,410
+piece things together one by one, like in
+the Base system.
+
+106
+00:05:10,470 --> 00:05:13,550
+the, it's difficult to annotate a plot,
+especially after the
+
+107
+00:05:13,550 --> 00:05:16,820
+plot's been generated, you can't add
+anything to the plot.
+
+108
+00:05:16,820 --> 00:05:18,310
+It's done, and if you want to add
+something,
+
+109
+00:05:18,310 --> 00:05:20,730
+you kind of have to reconstruct the
+function call altogether.
+
+110
+00:05:22,050 --> 00:05:22,450
+There is a
+
+111
+00:05:22,450 --> 00:05:24,910
+way to annotate each of the individual
+panels in
+
+112
+00:05:24,910 --> 00:05:26,640
+a Lattice plot, but it's a very tricky and
+
+113
+00:05:26,640 --> 00:05:30,370
+a not very intuitive use of functions like
+panel
+
+114
+00:05:30,370 --> 00:05:34,550
+functions or things like subscripts, which
+is not very intuitive.
+
+115
+00:05:34,550 --> 00:05:37,590
+And finally like I said you can't add to a
+plot once it is done.
+
+116
+00:05:38,750 --> 00:05:40,980
+So here's a basic Lattice plot.
+
+117
+00:05:40,980 --> 00:05:45,970
+I use some data from the Lattice package.
+And I basically plot life expectancy.
+
+118
+00:05:45,970 --> 00:05:47,720
+So the average life expectancy
+
+119
+00:05:47,720 --> 00:05:51,970
+in a state, versus the average per capita
+income in that state.
+
+120
+00:05:51,970 --> 00:05:55,540
+This is data from the late 60s, early 70s
+and, and then
+
+121
+00:05:55,540 --> 00:05:57,930
+I condition on the region of the country
+that the state is in.
+
+122
+00:05:57,930 --> 00:06:00,560
+So the, the country is divided into four
+regions.
+
+123
+00:06:00,560 --> 00:06:02,610
+And you can see it, look at the
+relationship between income and
+
+124
+00:06:02,610 --> 00:06:08,740
+life expectancy by state within each, or
+sorry, across states with, by region.
+
+125
+00:06:08,740 --> 00:06:10,230
+And so you can see that this type of panel
+
+126
+00:06:10,230 --> 00:06:12,780
+plot is very, is just a single function
+call, in
+
+127
+00:06:12,780 --> 00:06:13,120
+Lattice.
+
+128
+00:06:13,120 --> 00:06:14,686
+I use the xy plot function and its
+
+129
+00:06:14,686 --> 00:06:17,558
+very simple to construct where something
+like this.
+
+130
+00:06:17,558 --> 00:06:20,650
+And the base plotting system would involve
+many different lines of code.
+
+131
+00:06:20,650 --> 00:06:22,460
+It would be much more involved.
+So
+
+132
+00:06:24,980 --> 00:06:29,610
+the last system, plotting system that I
+want to talk about is the ggplot2 system.
+
+133
+00:06:29,610 --> 00:06:33,695
+So this comes from the the grammar of
+graphics which is
+
+134
+00:06:33,695 --> 00:06:38,150
+which lays out a set of principles for a
+kind of plotting.
+
+135
+00:06:38,150 --> 00:06:39,950
+and, and it creates a kind of language
+
+136
+00:06:39,950 --> 00:06:43,130
+or grammar for describing different
+aspects of a plot.
+
+137
+00:06:43,130 --> 00:06:47,924
+So it's based on a kind of well grounded
+kind of rigorous theoretical system.
+
+138
+00:06:47,924 --> 00:06:50,267
+And it's implemented in R in the gg2,
+
+139
+00:06:50,267 --> 00:06:51,880
+ggplot2 package.
+
+140
+00:06:51,880 --> 00:06:54,608
+It kind of splits the difference between
+the Lattice
+
+141
+00:06:54,608 --> 00:06:57,690
+and the base package, so it mixes ideas
+from both.
+
+142
+00:06:57,690 --> 00:07:00,760
+So on the one hand you can kind of build
+the plot incrementally
+
+143
+00:07:00,760 --> 00:07:04,810
+by adding things one by one, so that's
+kind of like the base system.
+
+144
+00:07:04,810 --> 00:07:07,110
+On the other hand a lot of the kind
+
+145
+00:07:07,110 --> 00:07:11,210
+of aesthetic calculations are done
+automatically without you having
+
+146
+00:07:11,210 --> 00:07:14,070
+to directly control, so things like
+spacings and labels
+
+147
+00:07:14,070 --> 00:07:15,920
+are all kind of put in the right place.
+
+148
+00:07:15,920 --> 00:07:18,040
+So that's kind of like the Lattice system.
+
+149
+00:07:18,040 --> 00:07:23,150
+The ggplot2 system is very useful for
+conditioning plots just like in Lattice.
+
+150
+00:07:23,150 --> 00:07:25,620
+And so you can make those kinds of panel
+plots.
+
+151
+00:07:27,370 --> 00:07:32,508
+And the default of, the default so the
+ggplot2 system has a lot of defaults.
+
+152
+00:07:32,508 --> 00:07:34,390
+And if you can accept them, it's quite
+handy.
+
+153
+00:07:34,390 --> 00:07:39,240
+But you can always customize them if you
+don't like what the defaults are.
+
+154
+00:07:39,240 --> 00:07:40,920
+And so if you know how to
+
+155
+00:07:40,920 --> 00:07:43,520
+use the Lattice system, you, the
+transition
+
+156
+00:07:43,520 --> 00:07:46,280
+to ggplot2 is not too difficult, although
+there
+
+157
+00:07:46,280 --> 00:07:48,190
+are some differences that are worth, that
+I'll
+
+158
+00:07:48,190 --> 00:07:50,830
+talk about in in the lecture on ggplot.
+
+159
+00:07:51,990 --> 00:07:56,140
+So this a typical ggwhat default ggplot2
+plot.
+
+160
+00:07:56,140 --> 00:07:58,130
+Here I, here I used the miles per gallon
+
+161
+00:07:58,130 --> 00:08:00,890
+data set from the ggplot2 package and I'm
+plotting on
+
+162
+00:08:00,890 --> 00:08:03,050
+the x axis the kind of, the displacement
+or
+
+163
+00:08:03,050 --> 00:08:05,430
+it's actually the size of the engine of a
+car.
+
+164
+00:08:05,430 --> 00:08:06,290
+And the y axis
+
+165
+00:08:06,290 --> 00:08:08,540
+is the mileage on the highway for that
+car.
+
+166
+00:08:08,540 --> 00:08:11,350
+And you can see that roughly as the size
+
+167
+00:08:11,350 --> 00:08:14,250
+of the engine is increasing, the mileage
+is decreasing.
+
+168
+00:08:14,250 --> 00:08:15,700
+And so you can see that the ggplot2
+
+169
+00:08:15,700 --> 00:08:18,750
+package creates plots in a slightly
+different aesthetic.
+
+170
+00:08:18,750 --> 00:08:21,520
+There's a kind of a gray background with
+white grid lines.
+
+171
+00:08:21,520 --> 00:08:24,680
+The default is to use solid circles rather
+than open circles.
+
+172
+00:08:24,680 --> 00:08:28,370
+And so you know, these things, you can
+always customize if you want.
+
+173
+00:08:28,370 --> 00:08:31,340
+But the defaults are a little bit
+different than the other two systems.
+
+174
+00:08:32,950 --> 00:08:37,970
+So, just to summarize there are three
+basic plotting systems in r.
+
+175
+00:08:37,970 --> 00:08:41,610
+There's the base plotting system and there
+is, which is kind of has this.
+
+176
+00:08:42,880 --> 00:08:45,610
+Artist palette model, where you kind of
+add things one by one.
+
+177
+00:08:45,610 --> 00:08:48,660
+There's the Lattice system which you kind
+of
+
+178
+00:08:48,660 --> 00:08:51,870
+specify an entire plot using a single
+function call.
+
+179
+00:08:51,870 --> 00:08:54,610
+And then there's the ggplot2 system which
+looks, which
+
+180
+00:08:54,610 --> 00:08:57,780
+kind of mixes the custom ideas from both
+systems.
+
+181
+00:08:57,780 --> 00:08:57,980
+One of
+
+182
+00:08:57,980 --> 00:08:59,650
+the important things to know when you're
+using
+
+183
+00:08:59,650 --> 00:09:01,790
+these three systems is that they can't be
+interchanged.
+
+184
+00:09:01,790 --> 00:09:03,090
+You can't use them interchangeably.
+
+185
+00:09:03,090 --> 00:09:05,160
+So if you're going to use the base
+plotting system, you
+
+186
+00:09:05,160 --> 00:09:08,450
+have to use all the functions associated
+with that system.
+
+187
+00:09:08,450 --> 00:09:10,770
+Similarly if you're going to use the
+ggplot2 system, you
+
+188
+00:09:10,770 --> 00:09:13,190
+have to use all the functions associated
+with that system.
+
+189
+00:09:13,190 --> 00:09:15,990
+So you can't mix the functions between
+systems.
+
+190
+00:09:15,990 --> 00:09:19,600
+Because otherwise you'll get, the plotting
+will be confused.
+
+191
+00:09:19,600 --> 00:09:23,000
+And so so you typically have to choose a
+system and kind of go with it
+
+192
+00:09:24,010 --> 00:09:25,080
+when you make your plots.
+
+193
+00:09:25,080 --> 00:09:28,980
+So those are the three main plotting
+systems in R and then in,
+
+194
+00:09:28,980 --> 00:09:32,100
+in separate lectures, I'll cover in detail
+how to use each one of them.
+

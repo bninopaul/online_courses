@@ -1,0 +1,1193 @@
+1
+00:00:02,460 --> 00:00:03,590
+This lecture's going to be about some
+
+2
+00:00:03,590 --> 00:00:06,758
+basic principles for building analytic
+graphics.
+
+3
+00:00:06,758 --> 00:00:08,696
+The basic goal is to provide some general
+
+4
+00:00:08,696 --> 00:00:11,147
+rules that one can follow when we're
+building
+
+5
+00:00:11,147 --> 00:00:13,598
+analytic graphics from data, and we're
+trying to
+
+6
+00:00:13,598 --> 00:00:16,740
+tell a story about what's happening in the
+data.
+
+7
+00:00:16,740 --> 00:00:18,730
+I find these rules to be quite useful when
+thinking
+
+8
+00:00:18,730 --> 00:00:22,159
+through building data graphics and they
+apply to many different situations.
+
+9
+00:00:23,320 --> 00:00:27,230
+so, I've kind of cribbed these rules from,
+a book by Edward Tuffey.
+
+10
+00:00:27,230 --> 00:00:27,830
+I'll give
+
+11
+00:00:27,830 --> 00:00:29,810
+the reference at the end of the lecture.
+
+12
+00:00:29,810 --> 00:00:31,740
+This is from his book, Beautiful Evidence,
+where he,
+
+13
+00:00:31,740 --> 00:00:34,560
+where he kind of goes through a number of
+principles,
+
+14
+00:00:34,560 --> 00:00:36,260
+and so, I'm going to talk through some of
+these ideas
+
+15
+00:00:36,260 --> 00:00:39,700
+and kind, and kind of show them, in, in
+context.
+
+16
+00:00:39,700 --> 00:00:44,950
+So, the first principle, that Tufty talks
+about, is to show comparisons.
+
+17
+00:00:44,950 --> 00:00:48,540
+And this is a very basic idea in all of
+science.
+
+18
+00:00:48,540 --> 00:00:53,020
+And the basic idea is that evidence for a
+hyp, for a hypothesis or an idea about
+
+19
+00:00:53,020 --> 00:00:56,440
+the world, is always going to be relative
+to another hypothesis, right?
+
+20
+00:00:56,440 --> 00:00:57,990
+So evidence is always relative.
+
+21
+00:00:59,330 --> 00:01:01,670
+And so, if you're comparing Hypothesis A,
+there has to
+
+22
+00:01:01,670 --> 00:01:05,660
+be some alternative hypothesis that you're
+going to compare it to.
+
+23
+00:01:05,660 --> 00:01:10,850
+And so, so whenever you hear a statement
+or hear a a summary of
+
+24
+00:01:10,850 --> 00:01:14,600
+evidence, based on data you should always
+be asking a question compared to what?
+
+25
+00:01:14,600 --> 00:01:17,140
+Alright, so here's a quick example.
+
+26
+00:01:17,140 --> 00:01:18,140
+The basic idea is that
+
+27
+00:01:18,140 --> 00:01:24,170
+we have a, a boxplot which looks at the
+effect of an air cleaner
+
+28
+00:01:24,170 --> 00:01:28,820
+on the asthma symptoms of children who in
+a certain, in a set of homes.
+
+29
+00:01:28,820 --> 00:01:30,620
+So the idea is that an air cleaner was
+introduced
+
+30
+00:01:30,620 --> 00:01:34,280
+into a child's home, to reduce indoor air
+pollution levels.
+
+31
+00:01:34,280 --> 00:01:36,630
+And we want to see if their asthma
+symptoms are improving.
+
+32
+00:01:36,630 --> 00:01:39,170
+So the outcome is, it's what's called
+symptom-free days.
+
+33
+00:01:39,170 --> 00:01:40,250
+So a higher number is better.
+
+34
+00:01:40,250 --> 00:01:43,270
+And here we can see that the group of
+children that got the
+
+35
+00:01:43,270 --> 00:01:46,540
+air cleaner in their home had an increase
+in their symptom-free days.
+
+36
+00:01:46,540 --> 00:01:51,590
+About, on the median increase was about
+one symptom-free day over 2 weeks.
+
+37
+00:01:51,590 --> 00:01:54,880
+So that's a positive outcome, and we might
+be inclined
+
+38
+00:01:54,880 --> 00:01:57,100
+to think that of course that the air
+cleaner works.
+
+39
+00:01:57,100 --> 00:01:59,450
+But of course, the real question is
+compared to what?
+
+40
+00:01:59,450 --> 00:02:01,366
+So what do we compare the air cleaner to?
+
+41
+00:02:01,366 --> 00:02:05,504
+And so the, the what we compare them to in
+this case, is nothing.
+
+42
+00:02:05,504 --> 00:02:08,490
+So our, our control setting where
+
+43
+00:02:08,490 --> 00:02:11,600
+the air, or the control set of houses are
+have
+
+44
+00:02:11,600 --> 00:02:13,370
+no air cleaner, and just kind of live
+their daily lives.
+
+45
+00:02:13,370 --> 00:02:17,340
+So this was a randomized control trial
+that looked
+
+46
+00:02:17,340 --> 00:02:19,270
+at installing an air cleaner in a child's
+home.
+
+47
+00:02:19,270 --> 00:02:21,620
+And, and, and installing nothing in the
+child's home.
+
+48
+00:02:21,620 --> 00:02:23,550
+And you can see now that in the control
+homes,
+
+49
+00:02:23,550 --> 00:02:26,030
+the average change in the symptom free
+case was about 0.
+
+50
+00:02:26,030 --> 00:02:27,260
+So there's really no change.
+
+51
+00:02:27,260 --> 00:02:29,350
+And then the average change in the air
+cleaner
+
+52
+00:02:29,350 --> 00:02:32,530
+homes was about 1 symptom free day for, 2
+weeks.
+
+53
+00:02:32,530 --> 00:02:33,530
+And so, just now you can
+
+54
+00:02:33,530 --> 00:02:36,390
+say okay, well relative to doing nothing,
+the air cleaner is actually
+
+55
+00:02:36,390 --> 00:02:40,000
+a little bit better at showing an
+improvement in the child's symptoms.
+
+56
+00:02:40,000 --> 00:02:42,610
+So it's always important to show a
+comparison in a plot.
+
+57
+00:02:43,690 --> 00:02:47,610
+So that you can, you can have a basis to,
+to compare what you're
+
+58
+00:02:47,610 --> 00:02:49,170
+showing and, c, so you can compare
+
+59
+00:02:49,170 --> 00:02:52,370
+the evidence to, between 2 different
+hypothesis.
+
+60
+00:02:54,140 --> 00:02:58,790
+The 2nd basic principle, is to show
+causality or mechanism or,
+
+61
+00:02:58,790 --> 00:03:01,440
+to, to make an explanation and to s, to
+
+62
+00:03:01,440 --> 00:03:04,460
+kind of show what's going on, show some
+systematic structure.
+
+63
+00:03:04,460 --> 00:03:05,900
+So I mean, the, the use of the
+
+64
+00:03:05,900 --> 00:03:08,400
+word causality here is not supposed to be
+formal.
+
+65
+00:03:08,400 --> 00:03:09,890
+But rather, is just to show kind of what
+
+66
+00:03:09,890 --> 00:03:12,330
+you believe, and how you believe the world
+works, right.
+
+67
+00:03:12,330 --> 00:03:14,240
+So you need to be able to show what, how
+
+68
+00:03:14,240 --> 00:03:17,170
+you believe the system is kind of
+operating, so to speak.
+
+69
+00:03:17,170 --> 00:03:19,849
+And so so what's the causal framework for
+thinking
+
+70
+00:03:19,849 --> 00:03:22,600
+about the question that you're kind of
+interested in?
+
+71
+00:03:22,600 --> 00:03:23,854
+And so if I might extend the
+
+72
+00:03:23,854 --> 00:03:26,818
+example from the previous slide,
+previously we saw that
+
+73
+00:03:26,818 --> 00:03:29,155
+if you install an air cleaner in a child's
+home,
+
+74
+00:03:29,155 --> 00:03:32,518
+that on average, they're going to
+experience a one symptom-free
+
+75
+00:03:32,518 --> 00:03:36,270
+day increase, so a better outcome in their
+asthma symptoms.
+
+76
+00:03:36,270 --> 00:03:38,460
+Now, we might ask, okay, well why does
+that occur?
+
+77
+00:03:38,460 --> 00:03:40,310
+Why is it that installing an air
+
+78
+00:03:40,310 --> 00:03:42,790
+cleaner in a child's home, improves their
+symptoms?
+
+79
+00:03:42,790 --> 00:03:46,746
+Well, of course, we hypothesize that the
+air cleaner is cleaning the air.
+
+80
+00:03:46,746 --> 00:03:49,176
+It's removing particulate matter from the
+air, and
+
+81
+00:03:49,176 --> 00:03:52,740
+so this particulate matter that's not,
+that's being removed, is no longer
+
+82
+00:03:52,740 --> 00:03:56,440
+going in the child's lungs, and no longer
+triggering their asthma symptoms.
+
+83
+00:03:56,440 --> 00:03:57,920
+So that's kind of how we believe things
+work.
+
+84
+00:03:57,920 --> 00:04:01,790
+And so we can show a plot, that might
+corroborate that evidence.
+
+85
+00:04:01,790 --> 00:04:04,970
+And so we can show another plot, which has
+the symptom free days on
+
+86
+00:04:04,970 --> 00:04:06,120
+the left hand side, and then the
+
+87
+00:04:06,120 --> 00:04:09,430
+particulate matter, on the right hand
+side.
+
+88
+00:04:09,430 --> 00:04:11,550
+So now we can see what was the effect of
+
+89
+00:04:11,550 --> 00:04:14,380
+the air cleaner on the, on the particulate
+matter levels
+
+90
+00:04:14,380 --> 00:04:15,510
+inside the child's home?
+
+91
+00:04:15,510 --> 00:04:17,960
+And you can see that for the control
+group,
+
+92
+00:04:17,960 --> 00:04:20,300
+there was basically no change in the
+particulate matter levels.
+
+93
+00:04:20,300 --> 00:04:22,520
+Maybe in the slight increase, in the, in
+the levels.
+
+94
+00:04:24,120 --> 00:04:29,050
+But there was a pretty, substantial
+decrease in particulate matter levels.
+
+95
+00:04:29,050 --> 00:04:31,120
+For the group of homes that got the air
+cleaner.
+
+96
+00:04:31,120 --> 00:04:34,020
+So now we can see that not only did a
+child's symptom free
+
+97
+00:04:34,020 --> 00:04:39,530
+days increase when they got the air
+cleaner, that they're that they're indoor
+
+98
+00:04:39,530 --> 00:04:42,590
+air particulate matter levels decreased,
+also when
+
+99
+00:04:42,590 --> 00:04:44,150
+they got the air cleaner on average.
+
+100
+00:04:44,150 --> 00:04:48,170
+So, we can think about, you know, what is
+the explanation for,
+
+101
+00:04:48,170 --> 00:04:52,590
+you know, why the the air cleaner seems to
+improve symptoms in children.
+
+102
+00:04:52,590 --> 00:04:55,010
+And we can, and we can show, using the
+data that
+
+103
+00:04:55,010 --> 00:04:58,210
+we observed, that it does seem to decrease
+their particulate matter levels.
+
+104
+00:04:58,210 --> 00:05:00,840
+Now, of course, to really confirm that
+this
+
+105
+00:05:00,840 --> 00:05:04,950
+hypothesis that the air cleaner operates
+through, by reducing
+
+106
+00:05:04,950 --> 00:05:06,030
+PM, we'd have to do a lot, a
+
+107
+00:05:06,030 --> 00:05:09,110
+little bit more investigation and perhaps
+more experimentation.
+
+108
+00:05:09,110 --> 00:05:12,009
+But this graphic kind of suggests a
+possible explanation.
+
+109
+00:05:14,230 --> 00:05:19,290
+The third principle that that [INAUDIBLE]
+talks about is to show multivariate data.
+
+110
+00:05:19,290 --> 00:05:21,020
+And the basic this rule can be boiled down
+to
+
+111
+00:05:21,020 --> 00:05:23,910
+show as much data on a single plot as you
+can.
+
+112
+00:05:23,910 --> 00:05:26,486
+And the reason is because, data are, the
+world is
+
+113
+00:05:26,486 --> 00:05:30,020
+inherently multivariate, there's lots of
+things going on all the time.
+
+114
+00:05:30,020 --> 00:05:34,478
+And if you just plot 2 variables, or maybe
+even 3 variables.
+
+115
+00:05:34,478 --> 00:05:37,130
+It's not going to show the real picture of
+what's happening in the world.
+
+116
+00:05:37,130 --> 00:05:39,313
+So if you can, you can integrate, if you
+put
+
+117
+00:05:39,313 --> 00:05:44,000
+a lot of data on a plot, then you'll be
+able to tell a much richer story.
+
+118
+00:05:44,000 --> 00:05:47,250
+So here is an example of a plot which is
+another air pollution
+
+119
+00:05:47,250 --> 00:05:51,890
+example, but now we're, this a, a, if data
+comes from outdoor air pollution.
+
+120
+00:05:51,890 --> 00:05:55,420
+So on the X axis we have, particulate
+matter less than 10
+
+121
+00:05:55,420 --> 00:06:00,030
+microns in aerodynamic diameter, the
+concentrations of those, from day to day.
+
+122
+00:06:00,030 --> 00:06:02,710
+So, every circle on this plot represents a
+daily concentration.
+
+123
+00:06:02,710 --> 00:06:04,400
+And on the y axis, we have
+
+124
+00:06:04,400 --> 00:06:09,670
+the daily mortality in New York City.
+This is for the time period 1987 to, 2000.
+
+125
+00:06:09,670 --> 00:06:13,130
+And you can see that overall, when, there
+seems to be
+
+126
+00:06:13,130 --> 00:06:18,225
+a night-, a slightly negative association
+between PM 10 levels and mortality.
+
+127
+00:06:18,225 --> 00:06:19,810
+Cause you can see that the regression line
+
+128
+00:06:19,810 --> 00:06:25,260
+that I put through there, is slightly
+downwards sloping.
+
+129
+00:06:25,260 --> 00:06:27,060
+So that seems interesting, cause you
+might,
+
+130
+00:06:27,060 --> 00:06:29,650
+one might hypothesis that higher air
+pollution
+
+131
+00:06:29,650 --> 00:06:32,570
+levels might be associated with higher
+mortality, not lower mortality.
+
+132
+00:06:33,580 --> 00:06:36,300
+So but you can look at other variables.
+
+133
+00:06:36,300 --> 00:06:38,850
+So there's not just air pollution and
+mortality that
+
+134
+00:06:38,850 --> 00:06:41,530
+is kind of, kind of, that is of interest
+here.
+
+135
+00:06:41,530 --> 00:06:43,780
+There are other variables that may be of
+interest.
+
+136
+00:06:43,780 --> 00:06:47,700
+And may kind of be part of the system, and
+may confound this relationship.
+
+137
+00:06:47,700 --> 00:06:49,070
+So, one of the things that we can look at
+
+138
+00:06:49,070 --> 00:06:53,550
+is see, well, how does this relationship
+change across different seasons.
+
+139
+00:06:53,550 --> 00:06:54,520
+So if you look at, you know,
+
+140
+00:06:54,520 --> 00:06:56,810
+particulate matter and mor-, and mortality
+in winter,
+
+141
+00:06:56,810 --> 00:06:59,370
+spring, summer, and fall, what does that
+look like?
+
+142
+00:06:59,370 --> 00:07:02,950
+So, we can make a, a different plot to
+show that relationship.
+
+143
+00:07:02,950 --> 00:07:04,470
+And this is the plot that we can make.
+
+144
+00:07:04,470 --> 00:07:08,910
+So this plot shows the relationship
+between pm10 and mortality.
+
+145
+00:07:08,910 --> 00:07:11,160
+So, it's the same plot as we saw as we
+showed
+
+146
+00:07:11,160 --> 00:07:14,120
+on the previous slide, but it's split
+across the different seasons.
+
+147
+00:07:14,120 --> 00:07:17,038
+So we see it separately for winter,
+spring, summer, and fall.
+
+148
+00:07:17,038 --> 00:07:19,810
+And we can see that in each plot, the
+relationship is actually
+
+149
+00:07:19,810 --> 00:07:21,029
+now slightly positive.
+
+150
+00:07:22,510 --> 00:07:25,650
+So within each season, the relationship
+between PM and mortality is
+
+151
+00:07:25,650 --> 00:07:31,080
+positive, but if you look overall, the
+relationship appears to be negative.
+
+152
+00:07:31,080 --> 00:07:33,370
+So this is an example of Simpson's
+Paradox.
+
+153
+00:07:33,370 --> 00:07:34,420
+If you may have heard it.
+
+154
+00:07:34,420 --> 00:07:38,390
+But the basic idea is that the season in
+which we look
+
+155
+00:07:38,390 --> 00:07:42,900
+at the relationship, is confounding the
+relationship between PM 10 and mortality.
+
+156
+00:07:42,900 --> 00:07:45,000
+And so when we look across with with the
+[INAUDIBLE]
+
+157
+00:07:45,000 --> 00:07:47,950
+we look at the relationship within each
+season it changes.
+
+158
+00:07:47,950 --> 00:07:51,550
+So it's important to show as many
+
+159
+00:07:51,550 --> 00:07:53,750
+variables as is reasonable at a given
+time,
+
+160
+00:07:53,750 --> 00:07:56,791
+so that you can sh, get a clear picture of
+the relationships in your data.
+
+161
+00:07:59,060 --> 00:08:02,700
+So the fourth principle is to integrate.
+The evidence that you have.
+
+162
+00:08:02,700 --> 00:08:05,990
+And, and the basic idea here is that you
+want to use as, as
+
+163
+00:08:05,990 --> 00:08:11,020
+many different modes of evidence, or as,
+or displaying evidence as you can.
+
+164
+00:08:11,020 --> 00:08:12,970
+And so there's no reason to say if you're
+just, if you
+
+165
+00:08:12,970 --> 00:08:16,100
+have a tool that makes a plot, to only
+show a plot.
+
+166
+00:08:16,100 --> 00:08:19,680
+Or if you only have the ability to make a
+table, to only show a table.
+
+167
+00:08:19,680 --> 00:08:21,290
+You should be able to combine different
+modes
+
+168
+00:08:21,290 --> 00:08:24,360
+of evidence into a single presentation,
+to, to make
+
+169
+00:08:24,360 --> 00:08:27,600
+edit, to make your graphic or whatever
+display
+
+170
+00:08:27,600 --> 00:08:30,210
+that you're making as information rich as
+possible.
+
+171
+00:08:30,210 --> 00:08:33,050
+And so, the idea is not, is not to let the
+tools
+
+172
+00:08:33,050 --> 00:08:34,850
+that you use to drive the kinds of plot
+that you make.
+
+173
+00:08:34,850 --> 00:08:37,280
+You should make a plot that you want to
+make,
+
+174
+00:08:37,280 --> 00:08:39,700
+and not just let the tools do the
+thinking.
+
+175
+00:08:39,700 --> 00:08:41,250
+And so what, that's one of the nice
+advantages
+
+176
+00:08:41,250 --> 00:08:44,560
+of a system like R, because the, the tools
+are
+
+177
+00:08:44,560 --> 00:08:46,350
+very flexible in R, and you can make all
+
+178
+00:08:46,350 --> 00:08:49,430
+kinds of customized plots to show the data
+and to
+
+179
+00:08:49,430 --> 00:08:51,930
+kind of integrate different modes of
+evidence.
+
+180
+00:08:51,930 --> 00:08:54,639
+So this is just one very quick example
+from a published paper.
+
+181
+00:08:56,320 --> 00:08:58,480
+In the Journal of the American Medical
+Association, looking at
+
+182
+00:08:58,480 --> 00:09:00,250
+the relationship between coarse
+particulate
+
+183
+00:09:00,250 --> 00:09:03,850
+matter and hospitalizations in the
+elderly.
+
+184
+00:09:03,850 --> 00:09:06,460
+And the basic idea is the details of this
+plot are
+
+185
+00:09:06,460 --> 00:09:08,950
+not particularly important, but I just
+wanted to show that they're,
+
+186
+00:09:08,950 --> 00:09:11,076
+there are kind of point estimates here,
+which are in the
+
+187
+00:09:11,076 --> 00:09:14,590
+solid circles, and then there's confidence
+intervals indicated by the lines
+
+188
+00:09:14,590 --> 00:09:17,660
+going through the confident, through the
+solid circles.
+
+189
+00:09:17,660 --> 00:09:19,350
+But then on the right hand side here you
+see this
+
+190
+00:09:19,350 --> 00:09:22,900
+label called posterior probability that
+the relative risk is created in 0.
+
+191
+00:09:22,900 --> 00:09:25,450
+And so this is a measure of the strength
+of the evidence
+
+192
+00:09:27,850 --> 00:09:31,040
+that the, the kind of the association
+between coarse particulate
+
+193
+00:09:31,040 --> 00:09:36,710
+matter, and, and hospitalizations is, is,
+in fact, different from 0.
+
+194
+00:09:36,710 --> 00:09:40,760
+And so, so here, we integrate, the, the,
+kind
+
+195
+00:09:40,760 --> 00:09:43,600
+of, the point estimates as, as dots and
+lines.
+
+196
+00:09:43,600 --> 00:09:46,430
+Then we also have texts on the right which
+also, it shows another piece of
+
+197
+00:09:46,430 --> 00:09:47,590
+evidence, which is kind of the strength of
+
+198
+00:09:47,590 --> 00:09:51,000
+that evidence, as encoded by the posterior
+probability.
+
+199
+00:09:51,000 --> 00:09:52,890
+So you can use these kinds of tools to put
+lots of
+
+200
+00:09:52,890 --> 00:09:54,940
+information on your plots.
+
+201
+00:09:54,940 --> 00:09:57,630
+And now, I have to resort to putting
+diff-, putting information
+
+202
+00:09:57,630 --> 00:10:00,180
+in different places where they may be
+difficult to track down.
+
+203
+00:10:02,610 --> 00:10:06,650
+The fifth principle is to det-, to
+describe and document the evidence
+
+204
+00:10:06,650 --> 00:10:10,000
+that you present, with using labels and
+sources and, and whatever, and, and,
+
+205
+00:10:10,000 --> 00:10:12,770
+and in particular, if you're going to be
+making a plot with, a system
+
+206
+00:10:12,770 --> 00:10:16,860
+like R, it's important to preserve the
+computer code that made the plot.
+
+207
+00:10:16,860 --> 00:10:18,070
+So the idea is that you want to lend
+
+208
+00:10:18,070 --> 00:10:20,290
+some credibility to the evidence that you
+present.
+
+209
+00:10:20,290 --> 00:10:23,250
+So, sources of where the data came from
+that's very
+
+210
+00:10:23,250 --> 00:10:25,880
+important and how you made the plot is
+also important.
+
+211
+00:10:25,880 --> 00:10:27,820
+So that's a very basic principle and it's
+important
+
+212
+00:10:27,820 --> 00:10:29,340
+for your credibility.
+
+213
+00:10:29,340 --> 00:10:32,520
+The very last principle of course is that,
+content is king, so if you don't have
+
+214
+00:10:32,520 --> 00:10:34,890
+an interesting story to tell, then there's
+no
+
+215
+00:10:34,890 --> 00:10:37,938
+amount of presentation that will make it
+interesting.
+
+216
+00:10:37,938 --> 00:10:41,416
+So when, when you're making plots, when
+you're making figures, and you're making
+
+217
+00:10:41,416 --> 00:10:44,850
+graphs, the first thing about what's the
+content that you're trying to present?
+
+218
+00:10:44,850 --> 00:10:46,550
+What's the story you're trying to tell?
+
+219
+00:10:46,550 --> 00:10:48,690
+What's the data that you have?
+
+220
+00:10:48,690 --> 00:10:50,880
+And then think about well what's the best
+way to present that?
+
+221
+00:10:50,880 --> 00:10:52,870
+How am I going to present it?
+And what is it
+
+222
+00:10:52,870 --> 00:10:53,640
+going to look like?
+
+223
+00:10:53,640 --> 00:10:56,122
+Because if you don't have very good
+content, then there's
+
+224
+00:10:56,122 --> 00:10:59,470
+really not much you're going to be able to
+do beyond that.
+
+225
+00:10:59,470 --> 00:11:01,435
+So just to quickly summarize the, the
+
+226
+00:11:01,435 --> 00:11:04,370
+6 basic principles are, first show
+comparisons.
+
+227
+00:11:04,370 --> 00:11:06,990
+Always show something relative to
+something else.
+
+228
+00:11:06,990 --> 00:11:09,830
+Show causality or mechanism, or explain at
+least
+
+229
+00:11:09,830 --> 00:11:12,060
+try to explain how the system is working.
+
+230
+00:11:12,060 --> 00:11:15,360
+How the world is working, at least
+according to your ideas.
+
+231
+00:11:15,360 --> 00:11:17,910
+The third is to show multivariate data.
+So always try to show
+
+232
+00:11:17,910 --> 00:11:21,600
+more than 2 variables, because the world
+is complex and involve many variables.
+
+233
+00:11:22,750 --> 00:11:25,130
+Principle number 4 is integrate multiple
+modes of evidence.
+
+234
+00:11:25,130 --> 00:11:28,160
+So that you can use things like tables and
+plots and texts all together.
+
+235
+00:11:28,160 --> 00:11:30,580
+You don't have to keep them separate, if
+you don't want to.
+
+236
+00:11:31,590 --> 00:11:36,230
+Describe and document your evidence.
+Always have sources and, and source code.
+
+237
+00:11:36,230 --> 00:11:39,250
+And, and, to lend credibility to your
+plots.
+
+238
+00:11:39,250 --> 00:11:41,290
+And finally, always remember that the
+story that you tell
+
+239
+00:11:41,290 --> 00:11:43,320
+and the data that you use are the most
+important
+
+240
+00:11:43,320 --> 00:11:44,480
+elements of any graphic.
+
+241
+00:11:46,350 --> 00:11:48,780
+So just the, the P reference that I would
+
+242
+00:11:48,780 --> 00:11:52,090
+use for this presentation is, Edward
+Tufte's book, Beautiful Evidence.
+
+243
+00:11:53,998 --> 00:11:56,702
+And you can, you can read about it at his
+website which I point to here.
+
+244
+00:11:56,702 --> 00:11:59,350
+It's an excellent book, I highly recommend
+it.
+
+245
+00:11:59,350 --> 00:12:01,510
+So, so that's some, these are some basic
+
+246
+00:12:01,510 --> 00:12:04,750
+principles about building analytic
+graphics, and then we're,
+
+247
+00:12:04,750 --> 00:12:08,476
+and, in, and in future lectures we'll talk
+about how to do that using the various
+
+248
+00:12:08,476 --> 00:12:09,730
+plotting systems in R.
+

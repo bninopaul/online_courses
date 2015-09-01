@@ -1,0 +1,380 @@
+1
+00:00:00,410 --> 00:00:03,370
+This lecture is going to be about plotting
+and color in R.
+
+2
+00:00:03,370 --> 00:00:07,355
+It's kind of an adjunct lecture to the
+lectures that we've already
+
+3
+00:00:07,355 --> 00:00:11,420
+had in plotting in both base graphics and
+the lattice graphics system.
+
+4
+00:00:11,420 --> 00:00:12,610
+I just want to talk a little bit about how
+
+5
+00:00:12,610 --> 00:00:17,130
+you specify different types of colors
+using different palates in R.
+
+6
+00:00:17,130 --> 00:00:21,140
+You might think that the specification of
+color in a plot is maybe kind of a
+
+7
+00:00:21,140 --> 00:00:23,590
+secondary decision and in some sense it is
+
+8
+00:00:23,590 --> 00:00:25,544
+it's definitely secondary to something
+like the data,
+
+9
+00:00:25,544 --> 00:00:30,080
+but of course, but the judicious and
+appropriate use of colors, I
+
+10
+00:00:30,080 --> 00:00:34,740
+think in plots can help to describe the
+relationships that you're trying
+
+11
+00:00:34,740 --> 00:00:39,110
+to demonstrate and can help various
+dimensions of the data come out
+
+12
+00:00:39,110 --> 00:00:41,540
+more effectively than if you just choose
+an arbitrary set of colors.
+
+13
+00:00:41,540 --> 00:00:47,254
+So, there are a couple of things,
+functions, and things
+
+14
+00:00:47,254 --> 00:00:50,685
+that I want to cover in this lu, lecture,
+but the
+
+15
+00:00:50,685 --> 00:00:54,430
+basic point that I'm, is that the default
+color schemes
+
+16
+00:00:54,430 --> 00:00:57,600
+for most of the plots in R, are pretty
+bad.
+
+17
+00:00:57,600 --> 00:00:59,230
+And you don't have to be an expert in
+
+18
+00:00:59,230 --> 00:01:02,120
+design or anything to really kind of see
+this.
+
+19
+00:01:02,120 --> 00:01:05,100
+But the kind, the natural color schemes
+that you kind of gravitate towards when
+
+20
+00:01:05,100 --> 00:01:08,350
+you use the plotting functions are not
+
+21
+00:01:08,350 --> 00:01:11,300
+particularly well suited for different
+kinds of data.
+
+22
+00:01:11,300 --> 00:01:12,950
+But there have been a number of
+developments
+
+23
+00:01:12,950 --> 00:01:15,960
+in R, via packages and also in the core
+
+24
+00:01:15,960 --> 00:01:18,080
+R system that can help with the handling
+of
+
+25
+00:01:18,080 --> 00:01:21,940
+specification of colors and, and various
+types of plots.
+
+26
+00:01:21,940 --> 00:01:23,460
+And so we're going to, I'm going to talk
+about one
+
+27
+00:01:23,460 --> 00:01:26,570
+of these packages and some of the
+functions in this lecture.
+
+28
+00:01:26,570 --> 00:01:30,410
+So, the basic problem that typically comes
+out in most plots.
+
+29
+00:01:30,410 --> 00:01:34,780
+This is a pretty standard plot in R that
+you might see in a presentation
+
+30
+00:01:34,780 --> 00:01:40,540
+or a paper there's some points on the plot
+and I'm just plotting random points here.
+
+31
+00:01:40,540 --> 00:01:41,040
+And you see that
+
+32
+00:01:41,040 --> 00:01:43,020
+there are, the points are in three
+different colors.
+
+33
+00:01:43,020 --> 00:01:44,220
+The first is black.
+
+34
+00:01:44,220 --> 00:01:46,090
+The open circles are in black.
+
+35
+00:01:46,090 --> 00:01:48,590
+Then there's a couple of points that are
+in
+
+36
+00:01:48,590 --> 00:01:51,060
+red and a couple of points that are in
+green.
+
+37
+00:01:51,060 --> 00:01:52,560
+So why does this happen?
+
+38
+00:01:52,560 --> 00:01:56,810
+Because in most plotting functions there
+will be a col argument, col.
+
+39
+00:01:56,810 --> 00:01:59,220
+When you say col equals one, you get
+black.
+
+40
+00:01:59,220 --> 00:02:01,280
+When you say col equals two, you get red
+
+41
+00:02:01,280 --> 00:02:04,210
+and when you say col equals three, you get
+green.
+
+42
+00:02:04,210 --> 00:02:06,230
+And so, if you have a plot and you want
+three different
+
+43
+00:02:06,230 --> 00:02:07,110
+colors in it.
+
+44
+00:02:07,110 --> 00:02:12,500
+It's very easy to say, okay, well, just
+give me col equals one, two, three.
+
+45
+00:02:12,500 --> 00:02:15,345
+and, and so, you get black, red, and
+green.
+
+46
+00:02:15,345 --> 00:02:17,550
+Col equals four, would have been something
+like
+
+47
+00:02:17,550 --> 00:02:19,920
+cyan, and then, col equals five is
+magenta.
+
+48
+00:02:19,920 --> 00:02:23,120
+So, those are the kind of standard colors
+that you just get stuck with,
+
+49
+00:02:23,120 --> 00:02:27,470
+when you, when you set col equal to be
+one, two, three, four or five.
+
+50
+00:02:27,470 --> 00:02:31,200
+And so if you go this route the red and
+the green don't,
+
+51
+00:02:31,200 --> 00:02:34,070
+are not particularly meaningful in this,
+in this case.
+
+52
+00:02:34,070 --> 00:02:35,778
+Of course, you don't know what the data
+are about.
+
+53
+00:02:35,778 --> 00:02:39,190
+So it's it's possible that they are, but
+in most cases, they're not the,
+
+54
+00:02:39,190 --> 00:02:42,870
+the most suitable colors for the type of
+data that you're going to show.
+
+55
+00:02:42,870 --> 00:02:47,560
+And, and also, just from a design point if
+you use this color scheme all the time,
+
+56
+00:02:47,560 --> 00:02:49,900
+then all of your plots will look like
+
+57
+00:02:49,900 --> 00:02:54,228
+they belong in some Christmas show or
+Christmas presentation.
+
+58
+00:02:54,228 --> 00:02:56,340
+So, if the question
+
+59
+00:02:56,340 --> 00:02:58,120
+is whether or not we can choose a better
+set of
+
+60
+00:02:58,120 --> 00:03:02,260
+colors that better communicates the idea
+that we're trying to get across.
+
+61
+00:03:02,260 --> 00:03:04,700
+Another standard set of colors is shown
+here.
+
+62
+00:03:04,700 --> 00:03:07,330
+This is the volcano data set that comes
+with R.
+
+63
+00:03:07,330 --> 00:03:12,060
+And it's basically a data set that shows
+different elevations of a volcano.
+
+64
+00:03:12,060 --> 00:03:14,280
+And, there two, the color, set of colors
+on the
+
+65
+00:03:14,280 --> 00:03:17,580
+left is called, is comes from the heat
+colors palette.
+
+66
+00:03:17,580 --> 00:03:21,380
+And so, this is a palette of colors that,
+goes from kind
+
+67
+00:03:21,380 --> 00:03:27,320
+of a reddish to, to indicate low, to a
+yellow or white, to indicate high.
+
+68
+00:03:27,320 --> 00:03:28,895
+And then, on the right side here, we've
+got a
+
+69
+00:03:28,895 --> 00:03:32,480
+palette of colors called the topo colors
+or topographical colors
+
+70
+00:03:33,540 --> 00:03:36,800
+and this goes from a kind of blue, which
+indicates
+
+71
+00:03:36,800 --> 00:03:40,250
+low to a a brown or a white which
+indicates high.
+
+72
+00:03:42,040 --> 00:03:46,260
+So for the heat colors it, if you know
+what fire is,
+
+73
+00:03:46,260 --> 00:03:48,810
+it may be reasonable to, to kind of see
+that picture
+
+74
+00:03:48,810 --> 00:03:53,220
+and know that kind of what is low and what
+is high.
+
+75
+00:03:53,220 --> 00:03:56,160
+For the topographical colors, it's not,
+maybe not immediately clear
+
+76
+00:03:56,160 --> 00:03:58,790
+to some people wha, what is low and what
+is high,
+
+77
+00:03:58,790 --> 00:04:01,890
+it's not so the fact that blue is low and
+
+78
+00:04:01,890 --> 00:04:05,750
+green is higher than blue it may not be
+particularly obvious.
+
+79
+00:04:05,750 --> 00:04:07,030
+It's not particularly obvious to me.
+

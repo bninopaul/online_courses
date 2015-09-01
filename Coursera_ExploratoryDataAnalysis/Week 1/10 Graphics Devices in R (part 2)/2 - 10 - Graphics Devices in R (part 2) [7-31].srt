@@ -1,0 +1,657 @@
+1
+00:00:01,120 --> 00:00:03,620
+So when it comes to graphics file devices
+
+2
+00:00:03,620 --> 00:00:05,960
+there are basically two broad categories
+of devices.
+
+3
+00:00:05,960 --> 00:00:08,870
+One is called vector devices or vector
+
+4
+00:00:08,870 --> 00:00:11,564
+formats and the other format is called
+bitmap.
+
+5
+00:00:11,564 --> 00:00:15,510
+So vector formats are used, are most
+useful for things like line graphics.
+
+6
+00:00:15,510 --> 00:00:16,950
+So, if you have a scatter plot and maybe
+you
+
+7
+00:00:16,950 --> 00:00:20,280
+draw a regression line through it these
+are line graphics.
+
+8
+00:00:20,280 --> 00:00:23,820
+They don't have, they're not like natural
+scenes
+
+9
+00:00:23,820 --> 00:00:26,480
+or images of photographs or things like
+that.
+
+10
+00:00:26,480 --> 00:00:29,050
+And so, these types of graphics are
+useful, are, are
+
+11
+00:00:29,050 --> 00:00:33,720
+usefully kind of generated using vector
+formats because they resize well.
+
+12
+00:00:33,720 --> 00:00:36,530
+So if you have to take the image and kind
+of make it bigger or smaller,
+
+13
+00:00:36,530 --> 00:00:38,660
+that it won't get distorted and the, and
+
+14
+00:00:38,660 --> 00:00:40,880
+the quality of the graphic won't be, won't
+suffer.
+
+15
+00:00:41,970 --> 00:00:44,190
+For example the PDF format is very
+portable, you can
+
+16
+00:00:44,190 --> 00:00:48,370
+use it on almost any platform that's out
+there right now.
+
+17
+00:00:48,370 --> 00:00:50,980
+And so it is a good format, a general
+purpose vector format.
+
+18
+00:00:52,240 --> 00:00:54,400
+Vector formats are typically not very good
+if you have a
+
+19
+00:00:54,400 --> 00:00:57,310
+plot that has like, that has a lot, a
+large number
+
+20
+00:00:57,310 --> 00:01:00,900
+of points because every single point has
+to be represented by
+
+21
+00:01:00,900 --> 00:01:04,800
+a piece of information in the, in the, in
+the file format.
+
+22
+00:01:04,800 --> 00:01:08,550
+And so, these files tend to be extremely
+large if you
+
+23
+00:01:08,550 --> 00:01:12,482
+plot a lot of different points to a vector
+format file type.
+
+24
+00:01:12,482 --> 00:01:15,050
+[INAUDIBLE] scalable vector graphics or
+SVGs, is
+
+25
+00:01:15,050 --> 00:01:17,680
+a popular format for web based plots.
+
+26
+00:01:17,680 --> 00:01:21,050
+It's useful because it supports things
+like animation and interactivity.
+
+27
+00:01:22,340 --> 00:01:27,500
+In the plot and, and almost all web
+browsers recognize the SVG format now.
+
+28
+00:01:27,500 --> 00:01:31,780
+Windows metafile is the, is, is the vector
+format that's available only on Windows.
+
+29
+00:01:33,510 --> 00:01:38,200
+And you may see older files lying around
+that are in the post script format.
+
+30
+00:01:38,200 --> 00:01:40,150
+This is kind of a predecessor to the PDF
+format,
+
+31
+00:01:40,150 --> 00:01:42,359
+it's not used very often, but you may see
+it around.
+
+32
+00:01:45,628 --> 00:01:49,610
+In the bitmap format file file formats
+there are few commonal ones.
+
+33
+00:01:49,610 --> 00:01:54,760
+Probably the most common is PNG which
+stands for portable network graphics.
+
+34
+00:01:54,760 --> 00:01:58,200
+The night, and so basically, bitmap
+formats are represent
+
+35
+00:01:58,200 --> 00:02:01,570
+plots or images as a series of pixels,
+essentially.
+
+36
+00:02:01,570 --> 00:02:06,990
+And so They are, they are very good for
+for [UNKNOWN] that
+
+37
+00:02:06,990 --> 00:02:10,690
+had a lot of different points were,
+because they will be very
+
+38
+00:02:10,690 --> 00:02:13,074
+efficiently represented in a bitmap
+format.
+
+39
+00:02:13,074 --> 00:02:16,170
+the, a PNG is particularly good for things
+like line drawings
+
+40
+00:02:16,170 --> 00:02:20,040
+or images with solid colors it uses a
+lossless compression algorithm.
+
+41
+00:02:20,040 --> 00:02:21,925
+So that the file sizes tend to be small
+and,
+
+42
+00:02:21,925 --> 00:02:25,158
+and pretty much every web browser can read
+PNGs now.
+
+43
+00:02:25,158 --> 00:02:28,196
+So if you, so they're good for web, web
+based plots.
+
+44
+00:02:28,196 --> 00:02:29,430
+JPEG you might be familiar with.
+
+45
+00:02:29,430 --> 00:02:32,546
+If you have a digital camera or something
+like that.
+
+46
+00:02:32,546 --> 00:02:34,776
+They're very good for things like natural
+scenes.
+
+47
+00:02:34,776 --> 00:02:35,832
+Which don't, which don't
+
+48
+00:02:35,832 --> 00:02:39,010
+have solid colors but have lot's of
+gradients of colors.
+
+49
+00:02:39,010 --> 00:02:41,360
+It uses a lossy compression algorithm.
+
+50
+00:02:41,360 --> 00:02:45,710
+So the file sizes are very efficient, very
+small and they're also good for just
+
+51
+00:02:45,710 --> 00:02:47,000
+because it's a bitmap format, it's good
+
+52
+00:02:47,000 --> 00:02:48,890
+for plotting, making plots with lots of
+points.
+
+53
+00:02:50,020 --> 00:02:53,580
+Bitmap formats in general do not resize
+well, so when you create a plot and
+
+54
+00:02:53,580 --> 00:02:58,580
+you try to make it bigger or smaller they
+can distort the quality of the image.
+
+55
+00:02:58,580 --> 00:03:01,840
+And so generally speaking, you should not
+resize bitmap
+
+56
+00:03:01,840 --> 00:03:04,330
+plots after they've been generated.
+
+57
+00:03:04,330 --> 00:03:07,360
+JPEGs of course, can be read by any
+computer or in any web
+
+58
+00:03:07,360 --> 00:03:11,380
+browser so they're very useful for that
+kind of, for web based plots.
+
+59
+00:03:11,380 --> 00:03:15,510
+they, they're not very good for line
+drawings because if you create a
+
+60
+00:03:15,510 --> 00:03:20,960
+line drawing in PD, in JPEG otherwise
+you'll see some aliasing in the lines.
+
+61
+00:03:20,960 --> 00:03:25,032
+TIFF is another older format for for
+bitmap files.
+
+62
+00:03:25,032 --> 00:03:27,368
+It supports lossless compression and
+
+63
+00:03:27,368 --> 00:03:30,916
+it's and it's a very commonly used still.
+
+64
+00:03:30,916 --> 00:03:34,030
+Bmp is a negative, a bitmap format for
+Windows.
+
+65
+00:03:34,030 --> 00:03:36,000
+And is commonly used for things like
+icons.
+
+66
+00:03:39,708 --> 00:03:42,872
+So it's possible to open multiple graphics
+devices.
+
+67
+00:03:42,872 --> 00:03:46,290
+And so for example, for example, you might
+want to
+
+68
+00:03:46,290 --> 00:03:48,910
+create three or four different plots to
+look at, at
+
+69
+00:03:48,910 --> 00:03:50,710
+the same time, and the way to do that is
+
+70
+00:03:50,710 --> 00:03:53,960
+to have say three or four different screen
+devices open.
+
+71
+00:03:55,070 --> 00:03:59,480
+And so the way you can do this is, is to,
+is you can launch graphic
+
+72
+00:03:59,480 --> 00:04:02,450
+devices explicitly you launch the screen
+device for
+
+73
+00:04:02,450 --> 00:04:04,860
+example on Mac by calling the quarts
+function multiple
+
+74
+00:04:04,860 --> 00:04:08,100
+times and then you'll open multiple
+graphic devices screen devices.
+
+75
+00:04:09,330 --> 00:04:12,460
+And so but you can only plot to one device
+at a time.
+
+76
+00:04:12,460 --> 00:04:15,150
+And so, the graphics device that you plot
+to
+
+77
+00:04:15,150 --> 00:04:18,030
+is the active graphics device and you can
+figure out
+
+78
+00:04:18,030 --> 00:04:20,570
+which graphics device is the cur, is the
+active one
+
+79
+00:04:20,570 --> 00:04:23,829
+by calling the dev.cur() function or
+dev.cur stands for current.
+
+80
+00:04:25,530 --> 00:04:29,900
+And that function will return an integer
+that will tells you which
+
+81
+00:04:29,900 --> 00:04:31,440
+graphics device is currently active.
+
+82
+00:04:31,440 --> 00:04:33,720
+So, every graphics device is as, is
+assigned an
+
+83
+00:04:33,720 --> 00:04:38,240
+integer that's between two and and two and
+up basically.
+
+84
+00:04:38,240 --> 00:04:40,550
+So there's no graphics device that has the
+number one.
+
+85
+00:04:40,550 --> 00:04:43,560
+So, every graphics device gets an integer
+and you can change which
+
+86
+00:04:43,560 --> 00:04:48,024
+graphics device is the active graphics
+device by calling the dev.set function.
+
+87
+00:04:48,024 --> 00:04:52,220
+And dev.set takes an integer value which
+will switch
+
+88
+00:04:52,220 --> 00:04:54,960
+you to the graphics device that is, that
+corresponds
+
+89
+00:04:54,960 --> 00:04:56,480
+with the integer that you're given.
+
+90
+00:04:56,480 --> 00:04:57,880
+So you can switch back and forth between
+the
+
+91
+00:04:57,880 --> 00:05:01,510
+graphics devices using the dev.set
+function if you need to.
+
+92
+00:05:04,970 --> 00:05:09,180
+Finally it's possible to copy plots from
+one device to another.
+
+93
+00:05:09,180 --> 00:05:11,940
+And this is probably most commonly used
+when
+
+94
+00:05:11,940 --> 00:05:14,410
+you've created a plot on the screen and
+you've
+
+95
+00:05:14,410 --> 00:05:16,400
+decided that you really like it and then
+you
+
+96
+00:05:16,400 --> 00:05:19,060
+want to, then you want to put it into a
+file.
+
+97
+00:05:19,060 --> 00:05:20,490
+And so there's two ways that you can do
+this.
+
+98
+00:05:20,490 --> 00:05:23,440
+One is that you can, after you, if you've
+saved the code.
+
+99
+00:05:23,440 --> 00:05:25,240
+That can make the plot on the screen.
+
+100
+00:05:25,240 --> 00:05:30,370
+You can just open up a file device and
+then cut and paste the code into R and
+
+101
+00:05:30,370 --> 00:05:34,560
+then close the file device and then you
+got your plot in a file.
+
+102
+00:05:34,560 --> 00:05:37,820
+But, a faster way and sometimes more
+convenient is to
+
+103
+00:05:37,820 --> 00:05:42,250
+copy the plot from the screen device to
+the file device.
+
+104
+00:05:42,250 --> 00:05:45,270
+And you can use this with the dev.copy
+function which
+
+105
+00:05:45,270 --> 00:05:48,110
+just copies plots from one device from any
+device to any
+
+106
+00:05:48,110 --> 00:05:51,340
+other device And then, if you specifically
+want a PDF
+
+107
+00:05:51,340 --> 00:05:55,780
+file there is a function called
+dev.copy2pdf which will take the
+
+108
+00:05:55,780 --> 00:05:58,600
+screen device and copy it directly to a
+PDF file.
+
+109
+00:06:00,380 --> 00:06:02,874
+And it's important to note that copying
+the plot is
+
+110
+00:06:02,874 --> 00:06:05,368
+not an exact operation so, the, the, the
+plot you
+
+111
+00:06:05,368 --> 00:06:07,514
+end up with in the file, may not look
+exactly
+
+112
+00:06:07,514 --> 00:06:09,870
+like the copy, the plot you saw on the
+screen.
+
+113
+00:06:09,870 --> 00:06:13,360
+So it's a, there may be some adjustment
+you have to do.
+
+114
+00:06:13,360 --> 00:06:15,950
+So here is some code that just creates a
+plot on the screen.
+
+115
+00:06:15,950 --> 00:06:18,850
+This is the Old Faithful Geyser data that
+comes with R
+
+116
+00:06:18,850 --> 00:06:20,870
+and then I want to copy it to a PNG file,
+
+117
+00:06:20,870 --> 00:06:24,600
+so I want to create a PNG file on my
+computer
+
+118
+00:06:24,600 --> 00:06:26,850
+that contains the plot that I'm looking at
+on my screen.
+
+119
+00:06:26,850 --> 00:06:31,320
+So, I can call dev.copy, the first
+argument to dev.copy is the, is the
+
+120
+00:06:31,320 --> 00:06:35,300
+function that opens the file device in
+this case, this is the PNG function.
+
+121
+00:06:36,350 --> 00:06:38,920
+And then, I just give it a file name,
+which is needed to create the file.
+
+122
+00:06:38,920 --> 00:06:40,730
+So, I just call it geiserplot.png.
+
+123
+00:06:40,730 --> 00:06:43,450
+And then, once I've copied the plot, I
+
+124
+00:06:43,450 --> 00:06:47,350
+still need to close the PNG device with
+dev.off.
+
+125
+00:06:47,350 --> 00:06:49,910
+So, once I've call dev.off, there'll,
+there should be a file
+
+126
+00:06:49,910 --> 00:06:53,110
+on my computer that, that's going to be in
+a PNG format.
+
+127
+00:06:53,110 --> 00:06:55,810
+And I can send it to someone or include it
+in a presentation.
+
+128
+00:06:59,090 --> 00:07:03,750
+So, that's a quick summary of the the
+graphics devices in R.
+
+129
+00:07:03,750 --> 00:07:07,450
+The basic bottom lines are that every plot
+must be created on a graphics device.
+
+130
+00:07:08,630 --> 00:07:13,280
+And usually this is the screen device, but
+and it's useful for exploratory analysis.
+
+131
+00:07:13,280 --> 00:07:15,560
+But if you want to preserve a plot or send
+it to
+
+132
+00:07:15,560 --> 00:07:17,780
+someone, you have to create a plot in a
+file device.
+
+133
+00:07:18,840 --> 00:07:20,830
+And there a variety of different file
+formats that you can use.
+
+134
+00:07:20,830 --> 00:07:24,975
+There are vector formats like PDF and SVG,
+and
+
+135
+00:07:24,975 --> 00:07:29,270
+therebBitmap formats like PNG and JPEG.
+That you can chose from.
+

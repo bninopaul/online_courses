@@ -1,0 +1,620 @@
+1
+00:00:00,432 --> 00:00:05,278
+Hi, everyone, this lesson is going to be
+about ggplot2 or the ggplot2 package.
+
+2
+00:00:05,278 --> 00:00:07,729
+And we're going to, I'm going to talk
+about how to
+
+3
+00:00:07,729 --> 00:00:11,920
+do some basic plots using the ggplot2
+package and what it's about.
+
+4
+00:00:11,920 --> 00:00:15,168
+And in this, in the next lecture I'll talk
+a little bit in more detail
+
+5
+00:00:15,168 --> 00:00:16,848
+about how it's designed and how you
+
+6
+00:00:16,848 --> 00:00:20,740
+can make extensions to various ggplot2
+plotting functions.
+
+7
+00:00:20,740 --> 00:00:24,760
+So the first question very basic.
+You know, what is ggplot2?
+
+8
+00:00:24,760 --> 00:00:25,850
+Basically it's a package
+
+9
+00:00:25,850 --> 00:00:28,250
+in R that you can download from CRAN.
+
+10
+00:00:28,250 --> 00:00:30,606
+And and it implements what's called the
+
+11
+00:00:30,606 --> 00:00:33,396
+grammar of graphics, which is originally
+written by
+
+12
+00:00:33,396 --> 00:00:39,030
+Leland Wilkinson and it is described in a,
+in a book called the Grammar of Graphics.
+
+13
+00:00:39,030 --> 00:00:41,100
+Now the Grammar of Graphics is a
+description of how
+
+14
+00:00:41,100 --> 00:00:44,090
+kind of graphics can be broken down into
+abstract concepts.
+
+15
+00:00:44,090 --> 00:00:47,160
+You can, so think of the grammar of a
+language like English.
+
+16
+00:00:47,160 --> 00:00:50,360
+You have things like verbs and nouns and
+adjectives.
+
+17
+00:00:50,360 --> 00:00:50,910
+And so
+
+18
+00:00:50,910 --> 00:00:52,300
+the question is, you know, what are the
+
+19
+00:00:52,300 --> 00:00:56,070
+verbs, nouns, and adjectives of a data
+graphic?
+
+20
+00:00:56,070 --> 00:01:00,350
+And the Grammar of Graphics kind of
+describes kind of those basic elements
+
+21
+00:01:00,350 --> 00:01:03,560
+so that you can put them together to make
+new types of graphics.
+
+22
+00:01:03,560 --> 00:01:05,790
+Just like you could take a verb and a noun
+and an
+
+23
+00:01:05,790 --> 00:01:09,170
+adjective and make a new sentence that
+maybe no one's ever heard before.
+
+24
+00:01:09,170 --> 00:01:12,810
+You could take the grammar of graphics and
+put together various aspects
+
+25
+00:01:12,810 --> 00:01:16,330
+of plots and make a graphic that no one's
+ever seen before and
+
+26
+00:01:16,330 --> 00:01:17,315
+so that's the basic idea.
+
+27
+00:01:17,315 --> 00:01:23,890
+It's a very powerful concept to kind of
+organize all kinds of data graphics.
+
+28
+00:01:23,890 --> 00:01:28,756
+And until recently there was no specific
+implementation for it
+
+29
+00:01:28,756 --> 00:01:31,020
+in R, but Hadley Wickham who when he was a
+graduate
+
+30
+00:01:31,020 --> 00:01:35,180
+student at Iowa State implement the
+Grammar of Graphics as an
+
+31
+00:01:35,180 --> 00:01:38,690
+R package called ggplot and its current
+implementation is called ggplot2.
+
+32
+00:01:40,020 --> 00:01:41,590
+So one could think of this as almost
+
+33
+00:01:41,590 --> 00:01:44,430
+a third graphic system in R.
+
+34
+00:01:44,430 --> 00:01:46,170
+Even though it's based, is built upon the
+
+35
+00:01:46,170 --> 00:01:49,080
+grid graphic system which is, which comes
+with R.
+
+36
+00:01:49,080 --> 00:01:54,270
+It's kind of a third mode of, of plotting
+that has become very popular.
+
+37
+00:01:54,270 --> 00:01:55,690
+So if you think of the first mode as like
+
+38
+00:01:55,690 --> 00:01:58,145
+the base plots using functions like plot,
+and hist, and
+
+39
+00:01:58,145 --> 00:02:01,080
+boxplot, and then the second mode as the
+lattice plots
+
+40
+00:02:01,080 --> 00:02:04,960
+so using XY plot and these kinds of
+trellis type functions.
+
+41
+00:02:04,960 --> 00:02:06,640
+And then the third mode is ggplot.
+
+42
+00:02:06,640 --> 00:02:10,467
+So you get the package from CRAN.
+You can, you can use install.packages.
+
+43
+00:02:10,467 --> 00:02:14,140
+It installs on all almost all sys...I
+imagine on all systems.
+
+44
+00:02:14,140 --> 00:02:17,054
+You can go to the ggplot website which is
+ggplot2.org.
+
+45
+00:02:18,100 --> 00:02:22,490
+And so the nice thing about ggplot is
+that, is that, is that it is based
+
+46
+00:02:22,490 --> 00:02:24,180
+on this grammar of graphics, and so, it,
+
+47
+00:02:24,180 --> 00:02:27,370
+in a sense, there's a theory of the
+graphics.
+
+48
+00:02:27,370 --> 00:02:28,730
+So you can take this theory and kind of
+
+49
+00:02:28,730 --> 00:02:32,090
+reassemble the different pieces to make
+new types of plots.
+
+50
+00:02:32,090 --> 00:02:35,150
+And as Hadley Whitcomb says in his book,
+you know, the basic idea
+
+51
+00:02:35,150 --> 00:02:37,860
+is that you want to shorten the distance
+from the mind to the page.
+
+52
+00:02:37,860 --> 00:02:41,090
+So if you have some data that you're
+looking at, And you want,
+
+53
+00:02:41,090 --> 00:02:44,680
+and you thin of a way that you want to
+visualize that data.
+
+54
+00:02:44,680 --> 00:02:46,750
+You want to be able to rapidly take those
+
+55
+00:02:46,750 --> 00:02:49,560
+ideas and turn them into a picture on your
+screen.
+
+56
+00:02:51,290 --> 00:02:55,360
+So, from the GG plot two book,
+
+57
+00:02:55,360 --> 00:02:57,430
+this sentence kind of summarizes the basic
+idea.
+
+58
+00:02:57,430 --> 00:03:00,120
+But the idea is that, the grammar tells us
+
+59
+00:03:00,120 --> 00:03:04,030
+the statistical graphic is mapping from
+data to aesthetic attributes.
+
+60
+00:03:04,030 --> 00:03:05,495
+So color, shape and size.
+
+61
+00:03:05,495 --> 00:03:11,050
+- of geometric objects, so, points, lines,
+and bars, and the plot may also
+
+62
+00:03:11,050 --> 00:03:13,350
+contain statistical transformations of the
+data and
+
+63
+00:03:13,350 --> 00:03:15,750
+is drawn on a specific coordinate system.
+
+64
+00:03:15,750 --> 00:03:17,010
+So, we have things are that, we have a
+
+65
+00:03:17,010 --> 00:03:21,720
+mapping from data to aesthetics, geometric
+objects, we have statistics.
+
+66
+00:03:21,720 --> 00:03:22,860
+Now we have a coordinate system.
+
+67
+00:03:24,170 --> 00:03:26,160
+So in this lecture I just want to talk
+about
+
+68
+00:03:26,160 --> 00:03:28,700
+the qplot function which is kind of the
+most basic
+
+69
+00:03:28,700 --> 00:03:31,320
+function and it's probably the best place
+to start for
+
+70
+00:03:31,320 --> 00:03:34,380
+someone who is transitioning from say the
+base plotting system.
+
+71
+00:03:34,380 --> 00:03:36,780
+So in the base plotting system you know
+the work horse function
+
+72
+00:03:36,780 --> 00:03:40,070
+is the plot function and so qplot which
+you can think of as
+
+73
+00:03:40,070 --> 00:03:44,770
+standing for quick plot Is kind the work
+horse function for for
+
+74
+00:03:44,770 --> 00:03:48,510
+GD plot and its analogous to the plot
+function and the base system.
+
+75
+00:03:48,510 --> 00:03:49,830
+So one
+
+76
+00:03:49,830 --> 00:03:52,880
+key difference that you have to get used
+to when you're using
+
+77
+00:03:52,880 --> 00:03:56,660
+GD plot is that typically when you make a
+plot and you pass
+
+78
+00:03:56,660 --> 00:03:59,290
+data to the q plot function you want to
+tell it where the
+
+79
+00:03:59,290 --> 00:04:03,190
+data comes from and the data will always
+come from a data frame.
+
+80
+00:04:03,190 --> 00:04:05,120
+So a data frame is going to be.
+
+81
+00:04:05,120 --> 00:04:07,990
+So, your data have to be organized in a
+data frame.
+
+82
+00:04:07,990 --> 00:04:10,710
+And then when you plot variables those
+
+83
+00:04:10,710 --> 00:04:12,710
+variables are going to come from the data
+frame.
+
+84
+00:04:12,710 --> 00:04:14,640
+Now, you don't have to specify a data
+frame.
+
+85
+00:04:14,640 --> 00:04:15,230
+You can
+
+86
+00:04:15,230 --> 00:04:18,700
+if you don't specify a data frame the the
+cue plot function or
+
+87
+00:04:18,700 --> 00:04:22,320
+all the plotting functions will, will look
+for the data in your workspace.
+
+88
+00:04:22,320 --> 00:04:24,610
+But it's generally a good idea to specify
+the data frame.
+
+89
+00:04:24,610 --> 00:04:26,810
+That way when you read the code that
+generated
+
+90
+00:04:26,810 --> 00:04:29,320
+the plot You know exactly where the data
+came from.
+
+91
+00:04:30,840 --> 00:04:32,180
+So then so the data frame is
+
+92
+00:04:32,180 --> 00:04:34,430
+very important to organize before you
+start plotting.
+
+93
+00:04:34,430 --> 00:04:37,080
+Once you start plotting the plots are made
+up of aesthetics
+
+94
+00:04:37,080 --> 00:04:40,490
+and geoms and so aesthetics are things
+like the size, shape,
+
+95
+00:04:40,490 --> 00:04:42,140
+and color of things.
+
+96
+00:04:42,140 --> 00:04:43,870
+Points and the geoms are sort of
+
+97
+00:04:43,870 --> 00:04:45,710
+the objects that you're pointing, plotting
+I'm sorry.
+
+98
+00:04:45,710 --> 00:04:47,550
+So are you plotting points Are you
+plotting
+
+99
+00:04:47,550 --> 00:04:49,540
+lines, are you plotting bars, you know,
+whatnot.
+
+100
+00:04:51,990 --> 00:04:56,120
+One aspect that's important for the qplot
+function, and also is similarly
+
+101
+00:04:56,120 --> 00:04:58,250
+important when you're using lattice
+functions,
+
+102
+00:04:58,250 --> 00:05:00,390
+is the idea of using factor variables.
+
+103
+00:05:00,390 --> 00:05:04,160
+So factors are very important because they
+indicate subsets of your data.
+
+104
+00:05:04,160 --> 00:05:07,370
+So if you imagine you have a data frame or
+you have a y variable and a x
+
+105
+00:05:07,370 --> 00:05:11,080
+variable and then a factor variable the
+factor will
+
+106
+00:05:11,080 --> 00:05:13,250
+indicate subsets of your data in the data
+frame.
+
+107
+00:05:13,250 --> 00:05:16,340
+So for example you might have factor that
+indicates the gender.
+
+108
+00:05:16,340 --> 00:05:17,050
+So you have a bunch of
+
+109
+00:05:17,050 --> 00:05:18,180
+males and a bunch of females.
+
+110
+00:05:18,180 --> 00:05:20,400
+So those are subsets of your data and you
+
+111
+00:05:20,400 --> 00:05:23,660
+might want to plot a certain relationship
+divided by
+
+112
+00:05:23,660 --> 00:05:25,840
+the various subsets or you might want to
+color
+
+113
+00:05:27,010 --> 00:05:30,400
+certain points, depending on whether
+they're male of female.
+
+114
+00:05:30,400 --> 00:05:33,020
+And so the categories that are indicated
+by various
+
+115
+00:05:33,020 --> 00:05:37,610
+factor variables can be useful for
+annotating a plot.
+
+116
+00:05:37,610 --> 00:05:39,640
+And so, one aspect, so one thing that's
+
+117
+00:05:39,640 --> 00:05:42,050
+important about this feature is that, is
+that when
+
+118
+00:05:42,050 --> 00:05:44,680
+you have factor variables in a data set,
+
+119
+00:05:44,680 --> 00:05:46,440
+you want to make sure that they're
+properly labeled.
+
+120
+00:05:46,440 --> 00:05:50,320
+So it's usually not useful to label a
+factor variable
+
+121
+00:05:50,320 --> 00:05:53,810
+as one, two, and three, even if you have
+three categories.
+
+122
+00:05:53,810 --> 00:05:56,890
+One, two, and three is not particularly
+informative.
+
+123
+00:05:56,890 --> 00:06:00,025
+Usually you want to label them with the
+more informative labels
+
+124
+00:06:00,025 --> 00:06:03,120
+so that you know what those factor
+variables are trying to encode.
+
+125
+00:06:04,210 --> 00:06:07,290
+Now the qplot function is a fairly
+straight forward function
+
+126
+00:06:07,290 --> 00:06:09,330
+to use.
+I think it's very easy to pick up.
+
+127
+00:06:09,330 --> 00:06:11,640
+It hides a lot of the details of, of what
+
+128
+00:06:11,640 --> 00:06:15,900
+ggplot is doing underneath which is fine
+for many cases.
+
+129
+00:06:15,900 --> 00:06:20,360
+But the ggplot function is really kind of
+the core function of the system.
+
+130
+00:06:20,360 --> 00:06:22,310
+It's very flexible and you can use it in
+combination
+
+131
+00:06:22,310 --> 00:06:25,190
+with a lot of things that g, that qplot
+can't do.
+

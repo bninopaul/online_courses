@@ -1,0 +1,741 @@
+1
+00:00:01,010 --> 00:00:05,520
+So the cluster dendogram that's produced
+by default in R is relatively nice, but
+
+2
+00:00:05,520 --> 00:00:08,368
+it, it is, there is possible to kind of
+make it a little bit nicer.
+
+3
+00:00:08,368 --> 00:00:11,220
+So this myplclust function which is
+available on the
+
+4
+00:00:11,220 --> 00:00:13,140
+course website, you can download it
+straight from there.
+
+5
+00:00:13,140 --> 00:00:14,850
+And once you source it into R.
+
+6
+00:00:14,850 --> 00:00:16,470
+You can get this function which in
+
+7
+00:00:16,470 --> 00:00:19,930
+turn, produces a cluster dendrogram, but
+then all
+
+8
+00:00:19,930 --> 00:00:22,260
+the, the, the points in the individual
+
+9
+00:00:22,260 --> 00:00:25,260
+clusters are A, labeled by their cluster
+label.
+
+10
+00:00:25,260 --> 00:00:26,140
+And B, they are
+
+11
+00:00:26,140 --> 00:00:29,860
+colored in separately, so you can see
+cluster one is labeled with all ones.
+
+12
+00:00:29,860 --> 00:00:33,790
+And it's and it's they're, they're colored
+black.
+
+13
+00:00:33,790 --> 00:00:37,600
+Cluster two is colored red and cluster
+three is colored green.
+
+14
+00:00:38,790 --> 00:00:43,270
+So of course, in order to do this, you
+have to determine, you have to specify the
+
+15
+00:00:43,270 --> 00:00:45,902
+how many clusters there are before you can
+actually
+
+16
+00:00:45,902 --> 00:00:48,313
+you know, label them one, two, and three,
+etc.
+
+17
+00:00:48,313 --> 00:00:57,164
+[BLANK_AUDIO]
+
+18
+00:00:57,164 --> 00:01:00,140
+Now you can go to the RGraphGallery to see
+some kind of more
+
+19
+00:01:00,140 --> 00:01:02,620
+interesting cluster diagrams and, and to
+look
+
+20
+00:01:02,620 --> 00:01:05,640
+at some software that people have used.
+
+21
+00:01:05,640 --> 00:01:07,580
+To create really nice clustering diagrams.
+
+22
+00:01:07,580 --> 00:01:11,340
+So if you want to look at some, for
+example, this cluster dendrogram which has
+
+23
+00:01:11,340 --> 00:01:15,290
+labels on the, on the leaf nodes, and it's
+colored each of the groups.
+
+24
+00:01:15,290 --> 00:01:17,170
+It's added a little bit of other
+information.
+
+25
+00:01:17,170 --> 00:01:18,410
+You can take a look at this gallery, which
+
+26
+00:01:18,410 --> 00:01:20,150
+a lot of other really nice plots on it
+too.
+
+27
+00:01:22,430 --> 00:01:24,540
+So, the other i, issue when it comes to
+
+28
+00:01:24,540 --> 00:01:27,980
+using hierarchical clustering is how do
+you merge points together?
+
+29
+00:01:27,980 --> 00:01:30,280
+And so the question is, you know, when
+you, when you, when
+
+30
+00:01:30,280 --> 00:01:35,890
+you, when you merge a point together what,
+what represents its new location.
+
+31
+00:01:35,890 --> 00:01:39,380
+And so one is called average, so average
+linkage.
+
+32
+00:01:39,380 --> 00:01:41,730
+And the idea is that if you take two
+points and their new com,
+
+33
+00:01:41,730 --> 00:01:43,657
+coordinate location, it's just the average
+of
+
+34
+00:01:43,657 --> 00:01:45,511
+their x coordinates and their y
+coordinates.
+
+35
+00:01:45,511 --> 00:01:47,743
+So it's kind of like the roughly the
+center
+
+36
+00:01:47,743 --> 00:01:52,393
+of gravity or the middle of tat group of
+points, now that seems logical and it can,
+
+37
+00:01:52,393 --> 00:01:56,722
+and it can, it will, it will lead to a
+kind of certain type of clustering result.
+
+38
+00:01:56,722 --> 00:02:04,050
+[NOISE] The other type of, of approach is
+called complete linkage and there the
+
+39
+00:02:04,050 --> 00:02:08,070
+idea is that if you want to measure the
+distance between two clusters of points.
+
+40
+00:02:08,070 --> 00:02:10,740
+Then you take the farthest two points from
+
+41
+00:02:10,740 --> 00:02:13,630
+each, from the two clusters, as the
+distance.
+
+42
+00:02:13,630 --> 00:02:15,770
+So for example, in this picture, if you
+look
+
+43
+00:02:15,770 --> 00:02:17,840
+at the upper cluster, and the kind of
+lower
+
+44
+00:02:17,840 --> 00:02:20,790
+left cluster, the distance between those
+two clusters is
+
+45
+00:02:20,790 --> 00:02:24,240
+the equal to the distance between the two
+farthest points.
+
+46
+00:02:24,240 --> 00:02:28,920
+And so that gives you the kind of complete
+linkage approach.
+
+47
+00:02:28,920 --> 00:02:30,500
+The average linkage, of course, gives you
+
+48
+00:02:30,500 --> 00:02:33,850
+the distance between the two centers of
+gravity.
+
+49
+00:02:33,850 --> 00:02:36,000
+So that's the difference between the two
+pluses here.
+
+50
+00:02:36,000 --> 00:02:39,500
+So you can see that in the complete
+linkage example
+
+51
+00:02:39,500 --> 00:02:41,300
+that distance is relatively far.
+
+52
+00:02:41,300 --> 00:02:45,380
+Where as in the average linkage example
+the distance is somewhat shorter.
+
+53
+00:02:45,380 --> 00:02:48,650
+And so, it's not like there is one right
+or one wrong way to do it.
+
+54
+00:02:48,650 --> 00:02:50,419
+But the point is to show that each of
+
+55
+00:02:50,419 --> 00:02:53,530
+the, the two different merging approaches
+can get to,
+
+56
+00:02:53,530 --> 00:02:55,909
+give you very different results and so
+it's is
+
+57
+00:02:55,909 --> 00:02:59,230
+useful to try, it's often useful to try
+both approaches.
+
+58
+00:02:59,230 --> 00:03:01,668
+To see what kind of clustering results you
+get, in
+
+59
+00:03:01,668 --> 00:03:04,290
+the end and whether one set makes more
+sense than another.
+
+60
+00:03:06,370 --> 00:03:08,640
+The last function I want to highlight here
+is the heatmap
+
+61
+00:03:08,640 --> 00:03:12,320
+function which is a really nice function
+for visualizing matrix data.
+
+62
+00:03:12,320 --> 00:03:14,725
+So if you have an extremely large table or
+a,
+
+63
+00:03:14,725 --> 00:03:18,300
+a large matrix of numbers that are kind of
+similarly scaled,
+
+64
+00:03:18,300 --> 00:03:20,835
+and you want to, just take a look at them
+really
+
+65
+00:03:20,835 --> 00:03:24,750
+quickly in an organized way, you can call
+the heatmap function.
+
+66
+00:03:24,750 --> 00:03:28,349
+And what the heat map function does is
+essentially runs a hierarchical
+
+67
+00:03:28,349 --> 00:03:31,460
+cluster analysis on the rows of the table
+and on the columns of
+
+68
+00:03:31,460 --> 00:03:32,920
+the table.
+So think, on the.
+
+69
+00:03:32,920 --> 00:03:38,930
+So if you can imagine the, the you know,
+rows of the table are like observations.
+
+70
+00:03:38,930 --> 00:03:43,140
+And then it runs a cluster analysis on the
+rows of the table.
+
+71
+00:03:43,140 --> 00:03:47,570
+And then, think of the columns of the, of
+the table as, as sets of observations.
+
+72
+00:03:47,570 --> 00:03:50,990
+Even if they're not actually observations.
+
+73
+00:03:50,990 --> 00:03:53,700
+The columns, for example, might be
+variables or something like that.
+
+74
+00:03:53,700 --> 00:03:55,760
+But think of them as just different
+observations.
+
+75
+00:03:55,760 --> 00:03:56,570
+You can write a cluster
+
+76
+00:03:56,570 --> 00:03:58,480
+analysis on that, too.
+
+77
+00:03:58,480 --> 00:04:00,180
+And the idea with the heatmap function
+
+78
+00:04:00,180 --> 00:04:03,890
+is that it uses the hierarchical
+clustering function
+
+79
+00:04:03,890 --> 00:04:07,570
+to organize the rows and the columns of
+the tables so that you can visualize them.
+
+80
+00:04:07,570 --> 00:04:09,870
+You can visualize kind of groups or blocks
+
+81
+00:04:09,870 --> 00:04:13,330
+of observations within the table using the
+image function.
+
+82
+00:04:13,330 --> 00:04:17,200
+So, what it does is it creates a image
+plot here, and and it
+
+83
+00:04:17,200 --> 00:04:18,970
+reorders the columns and the rows of
+
+84
+00:04:18,970 --> 00:04:23,300
+the table according to the hierarchical
+clustering algorithm.
+
+85
+00:04:23,300 --> 00:04:28,420
+So here you can see that for example,
+along the rows I've got this
+
+86
+00:04:28,420 --> 00:04:30,420
+hierarchical, this cluster dendogram which
+shows that
+
+87
+00:04:30,420 --> 00:04:33,020
+there are probably you know, three
+clusters.
+
+88
+00:04:33,020 --> 00:04:35,880
+And those clusters, rows are all grouped
+together.
+
+89
+00:04:35,880 --> 00:04:37,550
+And then there are only two columns in the
+data frame.
+
+90
+00:04:37,550 --> 00:04:41,935
+So it's not particularly interesting to do
+a hierarchical cluster analysis on that.
+
+91
+00:04:41,935 --> 00:04:44,140
+But if you had many,many columns, you
+know,
+
+92
+00:04:44,140 --> 00:04:45,520
+you would reorganize the columns so that
+we,
+
+93
+00:04:45,520 --> 00:04:46,810
+they would be kind of, the closer ones
+
+94
+00:04:46,810 --> 00:04:48,300
+would be closer together, and the farther
+ones would
+
+95
+00:04:48,300 --> 00:04:49,560
+be farther apart.
+
+96
+00:04:49,560 --> 00:04:51,980
+And so, the heatmap function is really
+useful for kind of, or,
+
+97
+00:04:51,980 --> 00:04:56,010
+as a very quickly visualizing this kind of
+high dimensional table data.
+
+98
+00:04:58,650 --> 00:05:01,360
+So this is summarize what for heirarchical
+clustering.
+
+99
+00:05:01,360 --> 00:05:04,410
+It's a really useful technique for looking
+at high-dimensional data.
+
+100
+00:05:04,410 --> 00:05:06,340
+It organizes the data in a kind of logical
+
+101
+00:05:06,340 --> 00:05:09,930
+and intuitive way and partic, in
+particular, functions like
+
+102
+00:05:09,930 --> 00:05:12,720
+the heatmap function are, are really
+useful for kind
+
+103
+00:05:12,720 --> 00:05:15,210
+of looking, for quickly looking at table
+or matrix data.
+
+104
+00:05:17,010 --> 00:05:19,320
+And so, of course, you need to know, you
+need to define a
+
+105
+00:05:19,320 --> 00:05:22,780
+notion of what it means for two points to
+be close or far apart.
+
+106
+00:05:22,780 --> 00:05:23,670
+And you have to have a
+
+107
+00:05:23,670 --> 00:05:24,750
+merging strategy.
+
+108
+00:05:24,750 --> 00:05:27,300
+So we talked about complete linkage and
+average linkage.
+
+109
+00:05:27,300 --> 00:05:29,470
+So given those two things, you can run,
+the hierarchical
+
+110
+00:05:29,470 --> 00:05:33,150
+clustering algorithm will run, and it will
+produce a cluster dendrogram,
+
+111
+00:05:33,150 --> 00:05:35,510
+which shows you kind of how the merging is
+done, or
+
+112
+00:05:35,510 --> 00:05:38,780
+how the, how the points got merged
+together through the algorithm.
+
+113
+00:05:39,870 --> 00:05:42,890
+So one of, a couple of issues when it
+comes to, hierarchical clustering.
+
+114
+00:05:42,890 --> 00:05:45,960
+And this is often true for many clustering
+algorithms.
+
+115
+00:05:45,960 --> 00:05:49,120
+Is that the, the clustering picture may be
+unstable.
+
+116
+00:05:49,120 --> 00:05:51,070
+And so, for example, if a few points were
+to change.
+
+117
+00:05:51,070 --> 00:05:52,760
+Or, for example, if you have some
+outliers.
+
+118
+00:05:53,870 --> 00:05:57,850
+Then the clustering, if you were to remove
+those points.
+
+119
+00:05:57,850 --> 00:05:58,940
+Or modify them a little bit.
+
+120
+00:05:58,940 --> 00:06:00,810
+Then the clustering dendogram or whatever
+the
+
+121
+00:06:00,810 --> 00:06:02,910
+final products might be, could change a
+lot.
+
+122
+00:06:02,910 --> 00:06:04,750
+And so you have to be sensitive to that
+possibility.
+
+123
+00:06:06,650 --> 00:06:10,260
+So you might, so the, often the use, a
+useful thing is to try different
+
+124
+00:06:10,260 --> 00:06:14,380
+metrics, distance metrics, to make sure
+it's not to see how sensitive it is to
+
+125
+00:06:14,380 --> 00:06:15,840
+the different distance metrics.
+
+126
+00:06:15,840 --> 00:06:17,720
+Maybe change emerging strategy to see what
+kind of
+
+127
+00:06:17,720 --> 00:06:21,280
+picture emer, comes out if you change
+merging strategy.
+
+128
+00:06:21,280 --> 00:06:24,890
+And also clustering algorithms could be
+sensitive to the scalings of
+
+129
+00:06:24,890 --> 00:06:27,180
+a given variable, so you might, if, if one
+variable, for
+
+130
+00:06:27,180 --> 00:06:30,360
+example, is, is measured on with units
+that are much larger
+
+131
+00:06:30,360 --> 00:06:33,310
+than another variable then that can
+sometimes throw off the algorithm.
+
+132
+00:06:33,310 --> 00:06:35,620
+So, it may be useful to scale certain
+
+133
+00:06:35,620 --> 00:06:38,440
+variables so that they're more comparable
+to each other.
+
+134
+00:06:39,550 --> 00:06:41,610
+One nice thing about hierarchical
+clustering, at
+
+135
+00:06:41,610 --> 00:06:42,980
+least the algorithm as discussed here, is
+
+136
+00:06:42,980 --> 00:06:44,440
+that it is deterministic so there's no
+
+137
+00:06:44,440 --> 00:06:46,830
+random starting point, there's no
+randomness in it.
+
+138
+00:06:46,830 --> 00:06:49,050
+If you run it once, it will run, and with
+the same
+
+139
+00:06:49,050 --> 00:06:51,330
+parameters and the same data, it will give
+you the same picture.
+
+140
+00:06:52,712 --> 00:06:55,493
+Of course, a key question in any
+
+141
+00:06:55,493 --> 00:06:59,550
+clustering approach is the, is where to
+cut.
+
+142
+00:06:59,550 --> 00:07:03,600
+And the general idea is, you know,
+determining how many clusters there are.
+
+143
+00:07:03,600 --> 00:07:04,850
+It's not always obvious
+
+144
+00:07:04,850 --> 00:07:06,525
+to figure out how many clusters there are.
+
+145
+00:07:06,525 --> 00:07:11,150
+And, and so, but there are a number of
+algorithms
+
+146
+00:07:11,150 --> 00:07:14,030
+that has been proposed, to try to figure
+that out.
+
+147
+00:07:14,030 --> 00:07:16,280
+But I think the best use of hierarchical
+clustering is
+
+148
+00:07:16,280 --> 00:07:18,930
+probably just for exploratory analysis and
+just for looking at
+
+149
+00:07:18,930 --> 00:07:21,430
+your data, visualizing your data, getting
+a sense of what
+
+150
+00:07:21,430 --> 00:07:24,110
+patterns are there, if there are any
+patterns at all.
+
+151
+00:07:24,110 --> 00:07:25,700
+And then, you can kind of take these ideas
+
+152
+00:07:25,700 --> 00:07:28,470
+and formalize them later in a more
+sophisticated models.
+
+153
+00:07:28,470 --> 00:07:30,250
+So I give you some links, the kind of more
+details
+
+154
+00:07:30,250 --> 00:07:31,740
+about these approaches.
+
+155
+00:07:31,740 --> 00:07:33,860
+And I encourage you to take a look at them
+to explore further.
+

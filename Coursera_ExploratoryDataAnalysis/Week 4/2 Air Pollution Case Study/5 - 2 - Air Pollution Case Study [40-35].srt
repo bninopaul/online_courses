@@ -1,0 +1,3524 @@
+1
+00:00:02,960 --> 00:00:04,010
+In this video I just want to talk
+
+2
+00:00:04,010 --> 00:00:07,030
+about an example of exploratory analysis,
+just to show
+
+3
+00:00:07,030 --> 00:00:08,610
+kind of the tools that you might want to
+
+4
+00:00:08,610 --> 00:00:11,520
+use when you're just starting out looking
+at data.
+
+5
+00:00:11,520 --> 00:00:13,440
+So a lot of these things are basic things
+that we've
+
+6
+00:00:13,440 --> 00:00:15,260
+covered you know like one dimensional
+
+7
+00:00:15,260 --> 00:00:18,140
+plots, two dimensional plots, basic
+summaries.
+
+8
+00:00:18,140 --> 00:00:20,940
+Exploratory plots just to get a sense of
+what the data will
+
+9
+00:00:20,940 --> 00:00:23,170
+look like, and what you might be able to
+do with it.
+
+10
+00:00:25,610 --> 00:00:30,150
+Now the first thing of course, any time
+you look start to look at data is
+
+11
+00:00:30,150 --> 00:00:35,480
+you have to have a kind of a basic idea in
+mind of what you're looking for.
+
+12
+00:00:35,480 --> 00:00:38,520
+This could come in the form of a
+hypothesis or even more generally just in
+
+13
+00:00:38,520 --> 00:00:42,520
+the basic question, you know what are you
+trying to answer with this data set?
+
+14
+00:00:42,520 --> 00:00:45,480
+So the data set I'm going to use right now
+for this example,
+
+15
+00:00:45,480 --> 00:00:47,620
+comes from the U.S. Environmental
+Protection
+
+16
+00:00:47,620 --> 00:00:50,880
+Agency and it involves air pollution
+monitoring
+
+17
+00:00:50,880 --> 00:00:53,210
+data from the United States.
+
+18
+00:00:53,210 --> 00:00:56,360
+In particular we're looking at fine
+particulate
+
+19
+00:00:56,360 --> 00:00:59,360
+matter air pollution that's in the air.
+
+20
+00:00:59,360 --> 00:01:01,870
+So particulate matter is, is just a fancy
+word for dust.
+
+21
+00:01:01,870 --> 00:01:05,750
+So this is just dust that's in the air and
+it's
+
+22
+00:01:05,750 --> 00:01:09,480
+it's a, it's of concern because we inhale
+air all the time.
+
+23
+00:01:09,480 --> 00:01:11,370
+And along with the air we inhale the dust
+
+24
+00:01:11,370 --> 00:01:14,164
+and it may have certain health effects on
+populations.
+
+25
+00:01:14,164 --> 00:01:16,012
+So one of the important pie,
+
+26
+00:01:16,012 --> 00:01:18,982
+pieces of legislation in the last four
+decades in
+
+27
+00:01:18,982 --> 00:01:21,770
+the United States has been the Clean Air
+Act.
+
+28
+00:01:21,770 --> 00:01:24,020
+And the Clean Air Act has been designed to
+
+29
+00:01:24,020 --> 00:01:27,710
+reduce, the levels of air pollution in the
+United States.
+
+30
+00:01:27,710 --> 00:01:31,480
+And so one of the questions that you might
+want to ask uh,when it comes
+
+31
+00:01:31,480 --> 00:01:33,520
+to these kinds of data is, are air
+
+32
+00:01:33,520 --> 00:01:37,480
+pollution levels lower now than they were
+before?
+
+33
+00:01:37,480 --> 00:01:39,880
+Right, so it's a very basic question.
+It's fairly general.
+
+34
+00:01:39,880 --> 00:01:41,470
+We can, we can look at it in a variety
+
+35
+00:01:41,470 --> 00:01:44,430
+of different ways, and so we're going to
+look at it in a very specific way.
+
+36
+00:01:44,430 --> 00:01:48,460
+We're going to look at a fine particle air
+pollution.
+
+37
+00:01:48,460 --> 00:01:53,900
+And so this, fine particle air pollution
+was, started being measured in 1999.
+
+38
+00:01:53,900 --> 00:01:55,510
+And it's currently being measured today.
+
+39
+00:01:55,510 --> 00:01:58,310
+So what we're going to do is we're
+going to look at data from 1999.
+
+40
+00:01:58,310 --> 00:02:02,140
+And, and look at the fairly recent data
+from 2012.
+
+41
+00:02:02,140 --> 00:02:06,130
+And I want to answer the very basic
+question.
+
+42
+00:02:06,130 --> 00:02:06,480
+Are the
+
+43
+00:02:06,480 --> 00:02:12,390
+levels on average lower in 2012 than they
+were in 1999?
+
+44
+00:02:12,390 --> 00:02:13,640
+And so.
+
+45
+00:02:13,640 --> 00:02:18,120
+The nice thing about air pollution data in
+the United States is that the EPA collects
+
+46
+00:02:18,120 --> 00:02:21,620
+all this data and makes it essentially all
+
+47
+00:02:21,620 --> 00:02:24,020
+available on their website so it's freely
+available.
+
+48
+00:02:24,020 --> 00:02:28,170
+I'll put the URL up on the website and you
+can download as much or
+
+49
+00:02:28,170 --> 00:02:31,560
+as little as you want, so what I've done
+is I got the EPA website and
+
+50
+00:02:31,560 --> 00:02:33,710
+I've just literally downloaded the zip
+files.
+
+51
+00:02:33,710 --> 00:02:37,170
+For 1999 and 2012 for fine
+
+52
+00:02:37,170 --> 00:02:40,410
+particulate matter is, sometimes called
+PM2.5, alright?
+
+53
+00:02:40,410 --> 00:02:43,470
+So let's take a look at the, just the, the
+basic data files that you get.
+
+54
+00:02:47,610 --> 00:02:53,760
+So in this directory here, I've got.
+The the, the two files for 1999 and 2012.
+
+55
+00:02:53,760 --> 00:02:58,580
+Now, I should say that the, the original
+files are zip files.
+
+56
+00:02:58,580 --> 00:03:00,360
+And each of the zip files come with two
+things.
+
+57
+00:03:00,360 --> 00:03:04,110
+One is a text file, which is .txt
+extension
+
+58
+00:03:04,110 --> 00:03:07,320
+and another is a PDF file which contains
+some documentation.
+
+59
+00:03:07,320 --> 00:03:11,690
+So this is just the raw file that I
+downloaded from the EPA website.
+
+60
+00:03:11,690 --> 00:03:12,760
+I haven't done anything to it.
+
+61
+00:03:12,760 --> 00:03:15,290
+So we're, let's just take a look at a
+couple lines of let's say the 1999 file.
+
+62
+00:03:15,290 --> 00:03:17,310
+Right, so I'm going to take a look at
+this.
+
+63
+00:03:19,240 --> 00:03:21,190
+And so one thing you can see is that
+there's,
+
+64
+00:03:21,190 --> 00:03:23,750
+it's a little bit messy here, but one
+thing that's you
+
+65
+00:03:23,750 --> 00:03:27,050
+can see if I just pull this out a little
+bit,
+
+66
+00:03:27,050 --> 00:03:31,100
+is that there's basically one record per
+line in this file.
+
+67
+00:03:31,100 --> 00:03:33,620
+The first record here is kind of the
+header.
+
+68
+00:03:33,620 --> 00:03:35,150
+And it tells you the names.
+
+69
+00:03:35,150 --> 00:03:36,890
+Basically gives you the names of the
+different columns.
+
+70
+00:03:36,890 --> 00:03:37,810
+You can see each column
+
+71
+00:03:37,810 --> 00:03:40,820
+is separated by a kind of vertical line
+here.
+
+72
+00:03:40,820 --> 00:03:41,720
+So that's nice to see.
+
+73
+00:03:43,220 --> 00:03:45,060
+You see that every record here begins with
+RD.
+
+74
+00:03:45,060 --> 00:03:47,020
+All right, so these are called RDs.
+
+75
+00:03:47,020 --> 00:03:49,310
+That indicates kind of the type of record.
+
+76
+00:03:49,310 --> 00:03:54,260
+And that corresponds to the heading in the
+RD here, a heading over here.
+
+77
+00:03:54,260 --> 00:03:56,120
+There's another type of heading here that
+corresponds to
+
+78
+00:03:56,120 --> 00:03:59,230
+RC records, which are, which are these
+guys over here.
+
+79
+00:03:59,230 --> 00:04:00,970
+And if there were any RC records in
+
+80
+00:04:00,970 --> 00:04:02,980
+this file, then they would have those
+type, that
+
+81
+00:04:02,980 --> 00:04:03,750
+heading.
+
+82
+00:04:03,750 --> 00:04:06,840
+I don't believe that there are any RC file
+records in this
+
+83
+00:04:06,840 --> 00:04:09,250
+file, but we can just double check that by
+using a quick grep.
+
+84
+00:04:09,250 --> 00:04:11,750
+So let's take a look at if any records
+start with RC.
+
+85
+00:04:13,120 --> 00:04:16,030
+And nope, not for that one.
+Let's take a look at 2012.
+
+86
+00:04:16,030 --> 00:04:16,530
+And
+
+87
+00:04:20,090 --> 00:04:20,660
+none for that.
+
+88
+00:04:20,660 --> 00:04:23,310
+So these are all RD records and so we can
+take, we
+
+89
+00:04:23,310 --> 00:04:27,380
+can use the RD headers to indicate one of
+the various columns okay.
+
+90
+00:04:27,380 --> 00:04:29,270
+And so some of these columns are not
+
+91
+00:04:29,270 --> 00:04:31,630
+going to be particularly important to us,
+but some
+
+92
+00:04:31,630 --> 00:04:32,920
+of the things we're going to want to know
+are
+
+93
+00:04:32,920 --> 00:04:37,170
+for example, what state, the, the record
+comes from.
+
+94
+00:04:37,170 --> 00:04:38,240
+The county.
+
+95
+00:04:38,240 --> 00:04:40,650
+The site ID indicates the kind of monitor
+within
+
+96
+00:04:40,650 --> 00:04:45,660
+that county, and then most importantly is
+the sample value.
+
+97
+00:04:45,660 --> 00:04:49,290
+So that tells us what, that's the actual
+kind of mass
+
+98
+00:04:49,290 --> 00:04:52,880
+of PM2.5 being micrograms per meter cubed,
+so that is going
+
+99
+00:04:52,880 --> 00:04:55,504
+to be very important and because we want
+to see the
+
+100
+00:04:55,504 --> 00:04:58,490
+le, if those levels have gone down between
+199 and 2012.
+
+101
+00:04:58,490 --> 00:05:01,960
+And the date of collection might also be
+
+102
+00:05:01,960 --> 00:05:05,700
+important too Now there are a number of
+other
+
+103
+00:05:05,700 --> 00:05:08,000
+things that are indicate you of certain
+records may
+
+104
+00:05:08,000 --> 00:05:10,680
+have problems but we're not going to worry
+about
+
+105
+00:05:10,680 --> 00:05:12,350
+those at the moment.
+
+106
+00:05:12,350 --> 00:05:13,860
+Those kinds of things may come in, and
+maybe
+
+107
+00:05:13,860 --> 00:05:17,280
+important later on in a, in a more
+in-depth analysis.
+
+108
+00:05:18,530 --> 00:05:23,750
+So let's start at R here, so okay.
+
+109
+00:05:23,750 --> 00:05:25,870
+And the first thing I'm going to do is I'm
+going to read in
+
+110
+00:05:25,870 --> 00:05:30,170
+the data for 1999 and so we're just
+going to call it pm0.
+
+111
+00:05:30,170 --> 00:05:35,820
+Zero meaning kind of like the first one
+and then, I'll name the second
+
+112
+00:05:35,820 --> 00:05:36,430
+one pm1 or something.
+
+113
+00:05:36,430 --> 00:05:38,620
+So I'm just used a straight read table
+here.
+
+114
+00:05:40,650 --> 00:05:42,198
+I'm going to give it the 1999 file.
+
+115
+00:05:42,198 --> 00:05:47,970
+And what, first thing I'm going to, do is
+I'm going to ignore the lines
+
+116
+00:05:47,970 --> 00:05:51,800
+that start with the hash symbol and I'll
+figure, I'll pick those up later.
+
+117
+00:05:51,800 --> 00:05:57,560
+I'll say header equals false and then sep
+equals remember it's solid line here and
+
+118
+00:05:57,560 --> 00:06:00,510
+then the missing values are indicated in
+this
+
+119
+00:06:00,510 --> 00:06:03,020
+file which is the blank string all right.
+
+120
+00:06:03,020 --> 00:06:05,790
+Now read those in you can see That happens
+
+121
+00:06:05,790 --> 00:06:07,450
+relatively quickly.
+Let's take a look.
+
+122
+00:06:07,450 --> 00:06:08,660
+It's always good to, you know, to check
+
+123
+00:06:08,660 --> 00:06:10,620
+to see, you know, how many dimensions you
+got.
+
+124
+00:06:10,620 --> 00:06:15,280
+It's got about 117,000 rows 28 columns.
+
+125
+00:06:15,280 --> 00:06:17,250
+Let's take a look at the first few rows
+here.
+
+126
+00:06:18,260 --> 00:06:21,310
+And you can see that I don't have the
+headers for the columns.
+
+127
+00:06:21,310 --> 00:06:22,320
+So, I'll get those in a second.
+
+128
+00:06:22,320 --> 00:06:23,960
+But you can see that they're all using
+different columns.
+
+129
+00:06:25,000 --> 00:06:28,830
+And remember the first column was this RD
+record indicator.
+
+130
+00:06:28,830 --> 00:06:31,170
+And there are a lot of missing values here
+which
+
+131
+00:06:31,170 --> 00:06:32,670
+are not that important right now.
+
+132
+00:06:32,670 --> 00:06:35,200
+So one thing of what I want to do is kind
+of get the column names, for each
+
+133
+00:06:35,200 --> 00:06:39,210
+of these columns so that we don't have to
+refer to them by, you know, V1 V2.
+
+134
+00:06:39,210 --> 00:06:43,280
+So if you recall the column names come
+from the very first line in the file.
+
+135
+00:06:43,280 --> 00:06:45,180
+So I'm just going to read one line.
+
+136
+00:06:46,470 --> 00:06:48,780
+The first line, so, you can use read lines
+for that.
+
+137
+00:06:50,480 --> 00:06:54,890
+And I'm going to give it the file name and
+it's going to tell us to read one line.
+
+138
+00:06:54,890 --> 00:06:56,190
+Okay, so I've print out c
+
+139
+00:06:56,190 --> 00:07:00,720
+names here, you can see first of all, its
+just a string and it hasn't been split,
+
+140
+00:07:00,720 --> 00:07:02,280
+you know, using the separator cause I
+didn't use
+
+141
+00:07:02,280 --> 00:07:04,460
+read dot table I just read the line
+directly.
+
+142
+00:07:04,460 --> 00:07:08,364
+So the first thing I'm going to have to do
+is split all the, all the names out.
+
+143
+00:07:09,670 --> 00:07:11,140
+So I can use strsplit for that.
+I
+
+144
+00:07:13,250 --> 00:07:17,260
+split on the cell line, and it's a fixed
+pattern, not a regular expression.
+
+145
+00:07:17,260 --> 00:07:19,510
+So now if I print out cnames, you can see,
+I get
+
+146
+00:07:19,510 --> 00:07:23,190
+a character vector containing, for each
+element, it has the column name.
+
+147
+00:07:23,190 --> 00:07:26,030
+Now, strsplit actually returns a list
+back, and so
+
+148
+00:07:26,030 --> 00:07:27,850
+you're just going to want the first
+element of this list.
+
+149
+00:07:28,890 --> 00:07:31,300
+So now I'm going to assign the column
+names to this
+
+150
+00:07:31,300 --> 00:07:36,050
+table to be the first value of this list
+here.
+
+151
+00:07:36,050 --> 00:07:38,960
+So now if I take a look at this data frame
+you can see that
+
+152
+00:07:38,960 --> 00:07:41,360
+that all the column names are basically
+there.
+
+153
+00:07:41,360 --> 00:07:45,870
+Now, one of the things that you'll notice
+is that these company
+
+154
+00:07:45,870 --> 00:07:50,120
+column names are not valid because they
+have spaces in them for example.
+
+155
+00:07:50,120 --> 00:07:54,730
+And so one thing you can do to fix that is
+to use the make dot names function.
+
+156
+00:07:56,250 --> 00:07:59,780
+And the make dot names basically takes an
+arbitrary string and makes,
+
+157
+00:07:59,780 --> 00:08:03,490
+turn it into a valid name, column name for
+a data frame.
+
+158
+00:08:03,490 --> 00:08:04,060
+So now if I take
+
+159
+00:08:04,060 --> 00:08:06,470
+a look at the first few lines here.
+
+160
+00:08:06,470 --> 00:08:09,720
+You can see that it's replaced the spaces
+with dots.
+
+161
+00:08:09,720 --> 00:08:13,620
+So now all of these are kind of valid
+column names for a data frame.
+
+162
+00:08:13,620 --> 00:08:15,340
+So they'll be easier to reference in
+
+163
+00:08:15,340 --> 00:08:17,360
+future kind of modeling or analysis
+functions.
+
+164
+00:08:18,660 --> 00:08:20,170
+So the first thing I'm going to want to do
+is take out
+
+165
+00:08:20,170 --> 00:08:24,130
+the PM2.5 variables that's, remember
+that's the sample value column right here.
+
+166
+00:08:24,130 --> 00:08:25,950
+And you'll see the first, the first three
+
+167
+00:08:25,950 --> 00:08:28,625
+values here are missing, but then we've
+got 8.841.
+
+168
+00:08:28,625 --> 00:08:29,410
+14.9,
+
+169
+00:08:29,410 --> 00:08:30,650
+etcetera.
+
+170
+00:08:30,650 --> 00:08:33,700
+And those are in units of micrograms per
+meter, cubed.
+
+171
+00:08:33,700 --> 00:08:36,689
+So let's take a look at that columns, pull
+it out, we'll
+
+172
+00:08:36,689 --> 00:08:40,190
+call it X zero here and I'll just plot the
+sample value column.
+
+173
+00:08:42,210 --> 00:08:43,570
+Let's see what it is first.
+
+174
+00:08:43,570 --> 00:08:46,380
+It's a numeric column, that's good, it
+should be numeric.
+
+175
+00:08:46,380 --> 00:08:48,100
+Let's run a str on it.
+
+176
+00:08:48,100 --> 00:08:52,602
+okay, so we got 117,421 values in the
+numeric vector.
+
+177
+00:08:52,602 --> 00:08:53,620
+Still a little summary.
+
+178
+00:08:53,620 --> 00:08:56,390
+So you get a five number summary of this
+data.
+
+179
+00:08:56,390 --> 00:09:00,010
+So you can see the median is 11.5
+micrograms per meter cubed.
+
+180
+00:09:01,200 --> 00:09:06,230
+The maximum goes up to 157, which is quite
+a high level for a daily value.
+
+181
+00:09:07,310 --> 00:09:08,650
+And there also some missing values here.
+
+182
+00:09:08,650 --> 00:09:11,210
+So let's see, and so 13,000 missing
+values.
+
+183
+00:09:11,210 --> 00:09:15,875
+Let's see, kind of roughly what that means
+in terms of the proportion, so we see
+
+184
+00:09:15,875 --> 00:09:22,736
+is.na on this and you can see that about
+11% are missing.
+
+185
+00:09:22,736 --> 00:09:25,990
+So we come across and one interesting
+feature about this data
+
+186
+00:09:25,990 --> 00:09:28,790
+set which is that there are a number of
+missing values.
+
+187
+00:09:28,790 --> 00:09:30,190
+And so, one thing you have to ask yourself
+
+188
+00:09:30,190 --> 00:09:32,360
+is, okay, are missing values something
+that, that I need
+
+189
+00:09:32,360 --> 00:09:35,818
+to worry about, for the question that I'm
+interested in answering.
+
+190
+00:09:35,818 --> 00:09:37,420
+Remember, we want to, we want to get a
+sense of,
+
+191
+00:09:37,420 --> 00:09:40,170
+you know, is, are, in general, is the
+whole
+
+192
+00:09:40,170 --> 00:09:43,580
+country, does the whole country have lower
+air pollution
+
+193
+00:09:43,580 --> 00:09:46,090
+levels in, in 2012 than it did in 1999?
+
+194
+00:09:46,090 --> 00:09:49,920
+See, so the question is, you know, does an
+occasional missing value on a
+
+195
+00:09:49,920 --> 00:09:55,280
+given day in a given county or monitor, is
+that going to make a big difference?
+
+196
+00:09:55,280 --> 00:09:57,710
+In particular, is having 11%
+
+197
+00:09:57,710 --> 00:10:01,420
+of your values missing going to make a big
+difference in your analysis?
+
+198
+00:10:01,420 --> 00:10:02,910
+So, that's something to think about.
+
+199
+00:10:02,910 --> 00:10:05,190
+Missing values can play a very different
+role, depending
+
+200
+00:10:05,190 --> 00:10:07,430
+on what kind of question you're trying to
+answer.
+
+201
+00:10:07,430 --> 00:10:09,830
+And so you have to, you don't always,
+although missing values
+
+202
+00:10:09,830 --> 00:10:12,550
+can be very inconvenient, a lot of the
+times, they don't
+
+203
+00:10:12,550 --> 00:10:14,860
+always cause a problem in the, what kind
+of question you're
+
+204
+00:10:14,860 --> 00:10:18,330
+trying to, depending on what type of
+question you're trying to answer.
+
+205
+00:10:18,330 --> 00:10:20,970
+All right.
+So now we've got the 1999 data.
+
+206
+00:10:20,970 --> 00:10:23,940
+Let's read in the 2012 data here.
+
+207
+00:10:23,940 --> 00:10:28,595
+So I'll take, I'll call it pm1, I'll
+read.table it.
+
+208
+00:10:28,595 --> 00:10:29,095
+And
+
+209
+00:10:31,080 --> 00:10:34,383
+And we'll do the same kind of [UNKNOWN]
+approach.
+
+210
+00:10:34,383 --> 00:10:37,650
+I'll comment out [UNKNOWN] these rows.
+
+211
+00:10:37,650 --> 00:10:38,466
+Header equals false.
+
+212
+00:10:38,466 --> 00:10:46,660
+Sep equals the [UNKNOWN].
+And then any strings like that, okay.
+
+213
+00:10:47,800 --> 00:10:48,300
+So,
+
+214
+00:10:52,010 --> 00:10:53,480
+one thing you'll notice is that this is
+taking
+
+215
+00:10:53,480 --> 00:10:56,470
+quite a bit longer than reading in the
+1999 file.
+
+216
+00:10:56,470 --> 00:11:02,510
+One of the one of the issues is that PM
+2.5 monitoring only just began in 1999.
+
+217
+00:11:02,510 --> 00:11:04,920
+So there were very few monitors at that
+time.
+
+218
+00:11:04,920 --> 00:11:10,900
+Of course, over the years The monitoring
+has increased, and so now in 2012 there's
+
+219
+00:11:10,900 --> 00:11:13,980
+a much bigger monitoring network available
+and
+
+220
+00:11:13,980 --> 00:11:15,620
+so there are more, going to be more
+observations.
+
+221
+00:11:15,620 --> 00:11:17,390
+So let's take a look at how many
+observations
+
+222
+00:11:17,390 --> 00:11:18,410
+exactly we have here.
+
+223
+00:11:20,830 --> 00:11:23,560
+You can see, it's quite a bit more,
+there's, there's one, about 1.3 million
+
+224
+00:11:23,560 --> 00:11:28,280
+records here as opposed to the, you know,
+the 117,000 records that we had before.
+
+225
+00:11:28,280 --> 00:11:29,800
+So that may be a bit of a problem in and
+of
+
+226
+00:11:29,800 --> 00:11:33,250
+itself, but we, I'll kind of put that to
+the side for now.
+
+227
+00:11:33,250 --> 00:11:36,500
+So one thing I know is that the two files
+have the same column name, so you can
+
+228
+00:11:36,500 --> 00:11:38,520
+see they both have 28 columns and I know
+
+229
+00:11:38,520 --> 00:11:40,370
+that the, the column names are going to be
+the same.
+
+230
+00:11:40,370 --> 00:11:41,940
+They're both Rd records.
+
+231
+00:11:41,940 --> 00:11:46,000
+So I can just give the names for this data
+frame to be the same as the other one.
+
+232
+00:11:46,000 --> 00:11:47,290
+So we make that names here
+
+233
+00:11:49,690 --> 00:11:50,190
+again.
+
+234
+00:11:51,880 --> 00:11:54,760
+And you can see if I take a look at the
+first few rows.
+
+235
+00:11:56,370 --> 00:11:58,860
+Oops all the columns here.
+
+236
+00:11:58,860 --> 00:12:01,850
+So you can see the there, the data are now
+
+237
+00:12:01,850 --> 00:12:04,560
+2012, and the sample values here are the
+pm 2.5 values.
+
+238
+00:12:04,560 --> 00:12:08,890
+So I'm going to grab the pm 2.5 values
+from here.
+
+239
+00:12:12,130 --> 00:12:15,700
+And let's take a quick check on what we
+have here.
+
+240
+00:12:17,260 --> 00:12:21,190
+That's a numer vector, a numeric vector,
+4.3 million elements.
+
+241
+00:12:21,190 --> 00:12:22,810
+So that looks good.
+
+242
+00:12:22,810 --> 00:12:27,790
+So now let's do a quick comparison of the
+2012 and the 1999 data.
+
+243
+00:12:27,790 --> 00:12:29,890
+So I'll do a summary on x1.
+
+244
+00:12:31,970 --> 00:12:33,850
+I'll do a summary on x0.
+
+245
+00:12:36,750 --> 00:12:38,050
+So that's interesting.
+
+246
+00:12:38,050 --> 00:12:42,850
+So you can see that in the 2012 data, the
+median is about 7.3.
+
+247
+00:12:42,850 --> 00:12:45,400
+In the 1999 data, the median's about 11.5.
+
+248
+00:12:45,400 --> 00:12:47,900
+So there does appear on average to be a
+decrease
+
+249
+00:12:49,100 --> 00:12:52,720
+in the levels for the whole country in, in
+pm 2.5.
+
+250
+00:12:52,720 --> 00:12:57,560
+And notice that there are quite a few
+missing values in the 2, 2012 data set.
+
+251
+00:12:57,560 --> 00:12:59,800
+We can take a look at what proportion that
+is.
+
+252
+00:13:03,390 --> 00:13:03,690
+and.
+Oh.
+
+253
+00:13:03,690 --> 00:13:03,970
+It's only.
+
+254
+00:13:03,970 --> 00:13:04,660
+See.
+It's only about 5%.
+
+255
+00:13:04,660 --> 00:13:07,100
+So that actually, as a percentage of the
+total, there's
+
+256
+00:13:07,100 --> 00:13:10,120
+actually fewer missing values in 2012 than
+there were in 1999.
+
+257
+00:13:10,120 --> 00:13:12,065
+So that's interesting to know.
+
+258
+00:13:12,065 --> 00:13:13,700
+5% missing is probably not that big of a
+deal.
+
+259
+00:13:15,600 --> 00:13:18,340
+And so, let's take a look at.
+
+260
+00:13:18,340 --> 00:13:22,915
+So it's.
+So on first glance, it appears that, The
+
+261
+00:13:22,915 --> 00:13:29,080
+the, the [UNKNOWN] five levels have gone
+down over the years.
+
+262
+00:13:29,080 --> 00:13:32,140
+And so, that's good, that's good news for
+public health.
+
+263
+00:13:32,140 --> 00:13:33,280
+Let's take a look, let's see if we can
+take
+
+264
+00:13:33,280 --> 00:13:36,240
+a look at a plot, a visual representation
+of this data.
+
+265
+00:13:36,240 --> 00:13:37,550
+So, let's take a look at a box plot.
+
+266
+00:13:37,550 --> 00:13:41,020
+Let's see, boxplot(x0,x1).
+And let me bring this up.
+
+267
+00:13:45,430 --> 00:13:47,650
+So it's a little hard to look at.
+
+268
+00:13:47,650 --> 00:13:50,890
+There's a lot of skew in the pm2.5_ data
+and
+
+269
+00:13:50,890 --> 00:13:53,390
+so there, these are data are both, they're
+right skewed
+
+270
+00:13:53,390 --> 00:13:55,860
+and so you can see that it's kind of all
+
+271
+00:13:55,860 --> 00:13:59,150
+smooshed down near zero but then there's
+some very large values.
+
+272
+00:13:59,150 --> 00:14:01,220
+One thing you'll notice is that the
+maximum value
+
+273
+00:14:01,220 --> 00:14:03,770
+here is 909 which is an extremely high
+level.
+
+274
+00:14:03,770 --> 00:14:05,720
+In fact it's so high.
+
+275
+00:14:05,720 --> 00:14:10,540
+For the United States we might think that
+it's perhaps an error, or something wrong
+
+276
+00:14:10,540 --> 00:14:10,770
+with it.
+
+277
+00:14:10,770 --> 00:14:14,110
+909 micrograms for me queued, although not
+impossible,
+
+278
+00:14:14,110 --> 00:14:16,980
+we observe it in other parts of the world.
+
+279
+00:14:16,980 --> 00:14:19,580
+We generally don't observe it in the
+United States, unless, for
+
+280
+00:14:19,580 --> 00:14:23,960
+example, in some special or strange
+occurrence So maybe we'll think, we'll
+
+281
+00:14:23,960 --> 00:14:27,540
+think about that value a little bit later
+eh since we're
+
+282
+00:14:27,540 --> 00:14:31,570
+not really focused on extremes right now,
+we're looking at the medians.
+
+283
+00:14:31,570 --> 00:14:35,680
+So one way to kind of fix this box plot is
+to take a log of these guys
+
+284
+00:14:35,680 --> 00:14:39,320
+so let's take the log of X,0 base ten log
+[NOISE] and
+
+285
+00:14:43,570 --> 00:14:47,740
+that will hopefully kind of even out the
+box plot a little bit.
+
+286
+00:14:47,740 --> 00:14:52,890
+So here you can see the the 1999 data is
+right here.
+
+287
+00:14:52,890 --> 00:14:57,840
+S you can see the mean is about a log
+equal to 1 which is roughly 10.
+
+288
+00:14:57,840 --> 00:14:58,970
+Micrograms per meter cubed.
+
+289
+00:14:58,970 --> 00:15:00,890
+And then, you can see that the black line,
+which was
+
+290
+00:15:00,890 --> 00:15:03,500
+the median of this box, that does go down
+quite a bit.
+
+291
+00:15:03,500 --> 00:15:05,350
+Remember, this is on a log scale, so even
+a
+
+292
+00:15:05,350 --> 00:15:08,320
+small change can be a big change in the
+absolute scale.
+
+293
+00:15:08,320 --> 00:15:09,030
+But one
+
+294
+00:15:09,030 --> 00:15:12,840
+thing that you'll notice is that the
+spread of the data has also increased too.
+
+295
+00:15:12,840 --> 00:15:15,150
+So even though the average levels have
+gone down, there
+
+296
+00:15:15,150 --> 00:15:17,580
+are more kind of extreme values in the
+later data.
+
+297
+00:15:18,750 --> 00:15:22,150
+And so that's interesting not exactly sure
+what to make of it.
+
+298
+00:15:23,470 --> 00:15:25,440
+So the next thing you'll want to take a
+look at we noticed in
+
+299
+00:15:25,440 --> 00:15:28,780
+the summary of 2012 data there's negative
+
+300
+00:15:28,780 --> 00:15:30,640
+values here, so that's a little bit
+strange.
+
+301
+00:15:30,640 --> 00:15:31,140
+So,
+
+302
+00:15:33,620 --> 00:15:38,690
+one of the things about measuring TMP.5,
+is that we measure the mass of it.
+
+303
+00:15:38,690 --> 00:15:40,270
+Kind of per unit of airflow.
+
+304
+00:15:40,270 --> 00:15:42,290
+So basically the idea is that there's a
+filter and
+
+305
+00:15:42,290 --> 00:15:45,010
+there's air being sucked through the
+filter, and then the particles
+
+306
+00:15:45,010 --> 00:15:47,130
+collect on the filter and we weigh those
+filters to
+
+307
+00:15:47,130 --> 00:15:50,940
+see how much, how many particles have
+landed on the filter.
+
+308
+00:15:50,940 --> 00:15:51,990
+And so because of the way that it's
+
+309
+00:15:51,990 --> 00:15:53,860
+measured, you really can't have a negative
+measurement.
+
+310
+00:15:53,860 --> 00:15:57,868
+You can't have negative mass.
+And so if there's a negative value for.
+
+311
+00:15:57,868 --> 00:15:59,420
+The PM 2.5 variable.
+
+312
+00:15:59,420 --> 00:16:01,730
+That's a little strange, that's a little
+unusual.
+
+313
+00:16:01,730 --> 00:16:03,700
+So let's take a look, we can take a look
+at that.
+
+314
+00:16:05,460 --> 00:16:07,540
+And see kind of, maybe get a sense of
+what's going on.
+
+315
+00:16:07,540 --> 00:16:09,260
+So, let's, let's pluck out the values.
+
+316
+00:16:09,260 --> 00:16:11,710
+So, let's take a look one more time at the
+summary.
+
+317
+00:16:11,710 --> 00:16:14,510
+Let's take, let's pluck out the values
+that happen to be negative.
+
+318
+00:16:14,510 --> 00:16:16,700
+So, I'll, I'll create a logical vector.
+
+319
+00:16:16,700 --> 00:16:19,670
+That is true or false depending on, you
+know,
+
+320
+00:16:19,670 --> 00:16:23,390
+whether the, the 2012 PM 2.5 value is
+below 0.
+
+321
+00:16:23,390 --> 00:16:24,690
+So, you take the stir on this.
+
+322
+00:16:25,700 --> 00:16:30,980
+You'll see that this is true false vector.
+So if I take the sum of this.
+
+323
+00:16:32,760 --> 00:16:34,340
+NA RM equals true.
+
+324
+00:16:36,580 --> 00:16:39,000
+You'll see that there are about 26,000
+values.
+
+325
+00:16:40,260 --> 00:16:42,510
+That are below zero or negatives, so
+that's a
+
+326
+00:16:42,510 --> 00:16:45,620
+little bit strange, we see what's the
+proportion this is.
+
+327
+00:16:45,620 --> 00:16:49,680
+So about 2% of the values, this is not
+really large number of values.
+
+328
+00:16:49,680 --> 00:16:51,100
+So maybe something that we don't even care
+
+329
+00:16:51,100 --> 00:16:53,930
+about but but maybe worth taking a look
+at.
+
+330
+00:16:53,930 --> 00:16:56,120
+So, in particular maybe interesting to see
+whether there
+
+331
+00:16:56,120 --> 00:16:58,940
+are negative values at certain times of
+the year.
+
+332
+00:16:58,940 --> 00:17:01,860
+Or maybe the only negative values occur at
+certain
+
+333
+00:17:01,860 --> 00:17:03,890
+locations or times.
+
+334
+00:17:03,890 --> 00:17:06,040
+So let's take a look at the dates of the
+measurements.
+
+335
+00:17:06,040 --> 00:17:10,100
+So we'll pull up the dates column.
+
+336
+00:17:10,100 --> 00:17:11,340
+And you can take a look at this.
+
+337
+00:17:11,340 --> 00:17:13,660
+First of all you'll notice that it is an
+integer vector.
+
+338
+00:17:13,660 --> 00:17:13,830
+Right?
+
+339
+00:17:13,830 --> 00:17:15,850
+So they're, these are coded as integers by
+default.
+
+340
+00:17:17,650 --> 00:17:19,860
+Which is not going to be as useful for us,
+
+341
+00:17:19,860 --> 00:17:22,420
+so we want to be able to convert them into
+dates.
+
+342
+00:17:22,420 --> 00:17:23,770
+And so one thing you'll notice is that
+they're in
+
+343
+00:17:23,770 --> 00:17:26,570
+the year, so the first four digits of the
+year,
+
+344
+00:17:26,570 --> 00:17:28,930
+second is the month and the second is the
+day, right?
+
+345
+00:17:28,930 --> 00:17:33,540
+So here we've got 2012 and then January
+and then 28th, right.
+
+346
+00:17:33,540 --> 00:17:40,392
+And so let's take a look, let's convert
+those guys to date Variable as
+
+347
+00:17:40,392 --> 00:17:46,950
+a date and it's going to be in the year,
+month, day format.
+
+348
+00:17:48,150 --> 00:17:48,650
+Okay.
+
+349
+00:17:52,720 --> 00:17:55,500
+Now's it's a reasonably long vector so
+it's probably
+
+350
+00:17:55,500 --> 00:17:58,410
+going to take a few seconds on a
+reasonable computer
+
+351
+00:18:02,530 --> 00:18:03,960
+Now, take a look at the dates vector.
+
+352
+00:18:03,960 --> 00:18:06,310
+So you can see now it's in the date
+format.
+
+353
+00:18:07,710 --> 00:18:10,190
+So let's take a look at just the histogram
+of
+
+354
+00:18:10,190 --> 00:18:13,040
+the dates to see kind of where the
+collection occurs.
+
+355
+00:18:13,040 --> 00:18:15,870
+And we can do it by month.
+And you can see that
+
+356
+00:18:17,910 --> 00:18:22,630
+The most of the, most of the, the hi, the
+measurements are occurring in kind of the
+
+357
+00:18:25,030 --> 00:18:27,390
+in the winter months here.
+So winter and spring months here.
+
+358
+00:18:28,420 --> 00:18:31,340
+So let's see where the negative values
+tend to be.
+
+359
+00:18:31,340 --> 00:18:33,500
+So we'll do hist on dates and negative.
+
+360
+00:18:35,040 --> 00:18:38,880
+So this only makes a histogram of the
+dates where the negative values occur.
+
+361
+00:18:38,880 --> 00:18:39,760
+Oops.
+
+362
+00:18:39,760 --> 00:18:44,130
+And I say month.
+And you could see that the the negative
+
+363
+00:18:44,130 --> 00:18:50,390
+values tend to occur, seem to occur more
+often in the in the
+
+364
+00:18:50,390 --> 00:18:55,510
+late, in the in the December, January,
+February types of months.
+
+365
+00:18:55,510 --> 00:19:00,140
+There's a little bit of a spike here, in
+April, May, June type period.
+
+366
+00:19:00,140 --> 00:19:02,220
+So, it's interesting to see that there
+aren't many
+
+367
+00:19:02,220 --> 00:19:06,460
+negative values here in the summer months
+here, and
+
+368
+00:19:06,460 --> 00:19:09,000
+so it's not entirely clear why, you know,
+what
+
+369
+00:19:09,000 --> 00:19:11,710
+this tells us but it may be worth
+investigating.
+
+370
+00:19:11,710 --> 00:19:15,300
+One issue with PM2.5 is that many areas of
+the country.
+
+371
+00:19:15,300 --> 00:19:15,590
+It tends
+
+372
+00:19:15,590 --> 00:19:19,460
+to be very low in the winter.
+And high in the summer.
+
+373
+00:19:19,460 --> 00:19:21,730
+And so typically when, when when pollution
+
+374
+00:19:21,730 --> 00:19:23,700
+values are high, they're easier to
+measure.
+
+375
+00:19:23,700 --> 00:19:25,230
+And when they're low, they're harder to
+measure.
+
+376
+00:19:25,230 --> 00:19:27,160
+So maybe some of the negative values are
+just kind of
+
+377
+00:19:27,160 --> 00:19:30,810
+a measurement error when the values tend
+to be very low.
+
+378
+00:19:30,810 --> 00:19:33,320
+So but given that it's only 2% of the
+data, I'm
+
+379
+00:19:33,320 --> 00:19:35,649
+not going to spend too much time worrying
+about it at the moment.
+
+380
+00:19:36,770 --> 00:19:38,780
+It may be something that we worry about
+later.
+
+381
+00:19:44,230 --> 00:19:47,360
+So one of the things that I think would be
+interesting to do is, you
+
+382
+00:19:47,360 --> 00:19:49,360
+know, rather than look at the, the air
+
+383
+00:19:49,360 --> 00:19:51,340
+pollution levels for the entire country
+and say.
+
+384
+00:19:51,340 --> 00:19:53,810
+Okay, well the median for the entire
+country has gone down
+
+385
+00:19:53,810 --> 00:19:57,970
+between 1999 and 2012, why don't we pick
+out one monitor.
+
+386
+00:19:57,970 --> 00:20:00,610
+See whether or not we can see a change or
+
+387
+00:20:00,610 --> 00:20:03,520
+a decrease in the level just at that one
+location, and
+
+388
+00:20:03,520 --> 00:20:06,790
+so and that way we can kind of control for
+
+389
+00:20:06,790 --> 00:20:09,540
+the fact that you know there's different
+monitors at different times.
+
+390
+00:20:09,540 --> 00:20:10,960
+Now one thing that we have to do, is we
+
+391
+00:20:10,960 --> 00:20:13,180
+have to find the monitor that was kind of
+out there
+
+392
+00:20:13,180 --> 00:20:16,790
+in 1999, and was also out there in 2012
+it's
+
+393
+00:20:16,790 --> 00:20:18,940
+because then you have the Net, which
+changed quite a bit.
+
+394
+00:20:18,940 --> 00:20:20,620
+And so, we're going to pick a state and
+then
+
+395
+00:20:20,620 --> 00:20:21,730
+try to find a monitor in that state to
+
+396
+00:20:21,730 --> 00:20:23,210
+see whether or not, you know, to see
+whether
+
+397
+00:20:23,210 --> 00:20:24,850
+or not, you know, the pollution levels
+have gone down.
+
+398
+00:20:24,850 --> 00:20:27,750
+So I'm just going to pick New York state
+because that's where I'm from.
+
+399
+00:20:27,750 --> 00:20:29,870
+And let't try to take a little, let's try
+to find a monitor
+
+400
+00:20:29,870 --> 00:20:32,960
+there that we can, where we can look at
+the change in the levels.
+
+401
+00:20:32,960 --> 00:20:34,610
+So, the first thing I'm going to
+
+402
+00:20:34,610 --> 00:20:40,300
+do, is I'm going to subset the PM data to
+look at the
+
+403
+00:20:40,300 --> 00:20:43,160
+all of the kind of monitors in, in, in New
+York state.
+
+404
+00:20:43,160 --> 00:20:44,460
+So I'm going to take So I'm
+
+405
+00:20:47,430 --> 00:20:48,830
+going to take the pm0,
+
+406
+00:20:50,910 --> 00:20:53,880
+data frame, and I'm going to subset on
+state code equals 36, which I
+
+407
+00:20:53,880 --> 00:20:57,880
+just happen to know is New York state,
+because I do this a lot.
+
+408
+00:20:57,880 --> 00:20:59,980
+And I'm going to pluck out the county
+code.
+
+409
+00:20:59,980 --> 00:21:01,860
+And the site ID columns.
+
+410
+00:21:04,460 --> 00:21:07,220
+And then, I'm going to do the same thing
+for the 2012 data set here.
+
+411
+00:21:07,220 --> 00:21:07,910
+Okay, so
+
+412
+00:21:13,210 --> 00:21:14,560
+and then, what I'm going to do is I'm
+going to.
+
+413
+00:21:14,560 --> 00:21:19,310
+So, if you take a look at site zero, you
+can see it's a two column data frame.
+
+414
+00:21:19,310 --> 00:21:22,630
+And it just had the, the county code and
+the site ID.
+
+415
+00:21:22,630 --> 00:21:25,140
+What I'm going to do is create a special,
+kind of variable that's
+
+416
+00:21:25,140 --> 00:21:28,530
+base, that's just the county code and the
+site id pasted together, right?
+
+417
+00:21:28,530 --> 00:21:31,670
+And so we can literally use the paste
+function to do that.
+
+418
+00:21:31,670 --> 00:21:34,020
+So I'm going to kind of replace this guy
+
+419
+00:21:34,020 --> 00:21:38,540
+with paste, and I'll take the first column
+and
+
+420
+00:21:38,540 --> 00:21:42,190
+the second column And separate it with a
+period.
+
+421
+00:21:42,190 --> 00:21:46,120
+And then I'm going to do the same thing
+for the 2012 data, alright?
+
+422
+00:21:50,100 --> 00:21:52,230
+So now if you take a look at site zero its
+
+423
+00:21:52,230 --> 00:21:55,660
+character vector, you can see that the,
+it's the kind of county.
+
+424
+00:21:55,660 --> 00:21:56,140
+and the site ID.
+
+425
+00:21:56,140 --> 00:22:00,750
+If you look at this it's kind of the same
+thing, right.
+
+426
+00:22:00,750 --> 00:22:04,080
+So one thing that you'll notice is that
+the
+
+427
+00:22:04,080 --> 00:22:06,500
+2012 vector, it only has 18 elements and
+so
+
+428
+00:22:06,500 --> 00:22:10,290
+there are only 18 counties and site id
+combinations
+
+429
+00:22:10,290 --> 00:22:12,810
+whereas the 1999 data had 33 of those
+combinations.
+
+430
+00:22:12,810 --> 00:22:15,270
+So the only thing, so basically what we
+want to do
+
+431
+00:22:15,270 --> 00:22:17,850
+is we want to see is well where.
+
+432
+00:22:17,850 --> 00:22:19,880
+What is the intersection between these two
+guys?
+
+433
+00:22:19,880 --> 00:22:25,410
+So where you know which which county slash
+monitor ID numbers exist in both sets?
+
+434
+00:22:25,410 --> 00:22:27,460
+So we could just use the intersect
+functions for that,
+
+435
+00:22:32,300 --> 00:22:33,900
+and I'll assign it to an object called
+both.
+
+436
+00:22:33,900 --> 00:22:37,240
+So these are the monitors that are in both
+the 1999 and 2012 data sets.
+
+437
+00:22:37,240 --> 00:22:39,500
+So we can print this out.
+
+438
+00:22:39,500 --> 00:22:41,940
+You can see that there are There are ten
+
+439
+00:22:41,940 --> 00:22:45,810
+monitors, ten county/monitors that are in
+both data sets.
+
+440
+00:22:45,810 --> 00:22:47,280
+So, that's good at least that there are a
+
+441
+00:22:47,280 --> 00:22:49,340
+few that we can look at across the time
+period.
+
+442
+00:22:51,460 --> 00:22:54,350
+now, one of the, one of the things that
+would
+
+443
+00:22:54,350 --> 00:22:56,640
+be useful, is if we chose the monitor that
+is
+
+444
+00:22:56,640 --> 00:22:59,000
+that first of all, in both time periods,
+but also
+
+445
+00:22:59,000 --> 00:23:00,970
+had a lot of observation that we could
+look at.
+
+446
+00:23:00,970 --> 00:23:03,090
+So lets take a look at how many
+observations are
+
+447
+00:23:03,090 --> 00:23:05,130
+in each of these monitors, at each of
+these time periods.
+
+448
+00:23:05,130 --> 00:23:06,000
+Okay.
+
+449
+00:23:06,000 --> 00:23:08,030
+So so the first thing you want to do is
+you want to count,
+
+450
+00:23:08,030 --> 00:23:08,850
+you want to figure out how
+
+451
+00:23:08,850 --> 00:23:10,750
+many observations are available at each
+monitor.
+
+452
+00:23:10,750 --> 00:23:14,195
+So I am going to create a new variable
+called county.site.
+
+453
+00:23:15,640 --> 00:23:18,120
+Which is just the,
+
+454
+00:23:18,120 --> 00:23:20,800
+what we just created so its, its the
+county code.
+
+455
+00:23:23,580 --> 00:23:25,120
+Pasted with the site ID.
+
+456
+00:23:27,470 --> 00:23:29,420
+I'm putting this in the original data
+frame here.
+
+457
+00:23:29,420 --> 00:23:32,040
+I'm going to do it for the 2012 also.
+
+458
+00:23:32,040 --> 00:23:32,540
+And
+
+459
+00:23:37,080 --> 00:23:43,480
+what I want to do is I want to subset this
+data frame to be just New York state.
+
+460
+00:23:43,480 --> 00:23:49,090
+So I'm going to subset pm0 to be state
+code 36.
+
+461
+00:23:49,090 --> 00:23:52,040
+And county site is also, is one of these
+
+462
+00:23:52,040 --> 00:23:56,670
+special monitors which is in both in both
+data sets.
+
+463
+00:23:56,670 --> 00:23:58,480
+Alright, do that for this guy here.
+
+464
+00:24:01,850 --> 00:24:05,450
+And now what I'm going to, so if you take
+a look at this, it's
+
+465
+00:24:05,450 --> 00:24:08,410
+the same data frame, but it's only the
+rows that are in New York City.
+
+466
+00:24:08,410 --> 00:24:10,800
+So, you can see that the state code here
+now is 36.
+
+467
+00:24:10,800 --> 00:24:11,480
+Right?
+
+468
+00:24:11,480 --> 00:24:14,100
+So, So what I want to do is I want to
+
+469
+00:24:14,100 --> 00:24:18,270
+split this data frame by the kind of
+monitor.
+
+470
+00:24:18,270 --> 00:24:21,690
+So, I want to split it into separate data
+frames by each monitor
+
+471
+00:24:21,690 --> 00:24:24,320
+and then count how many observations there
+are in each of them.
+
+472
+00:24:24,320 --> 00:24:27,260
+So I'm just going to do a split this
+
+473
+00:24:27,260 --> 00:24:31,155
+data frame by the, this county site
+variable.
+
+474
+00:24:31,155 --> 00:24:33,350
+[SOUND]
+
+475
+00:24:33,350 --> 00:24:34,320
+Right?
+
+476
+00:24:34,320 --> 00:24:37,520
+And now actually that was not particularly
+useful because it just spit out
+
+477
+00:24:37,520 --> 00:24:40,410
+a whole list of data frames, and I don't
+really know what happened there.
+
+478
+00:24:40,410 --> 00:24:42,090
+So what I want to do is I want a S supply
+over
+
+479
+00:24:42,090 --> 00:24:44,950
+all these data frames and count the number
+of rows that there are.
+
+480
+00:24:44,950 --> 00:24:47,770
+Okay, so that gives me the number of
+observations.
+
+481
+00:24:47,770 --> 00:24:50,400
+That are in each of these data frames.
+
+482
+00:24:50,400 --> 00:24:52,670
+So you can see that, for example, county
+one,
+
+483
+00:24:52,670 --> 00:24:55,820
+site 12, had 61 observations, and county
+one, site five had 122.
+
+484
+00:24:55,820 --> 00:25:00,520
+So then I'm going to want to do the same
+thing for the later period.
+
+485
+00:25:02,120 --> 00:25:02,610
+Excuse me.
+
+486
+00:25:02,610 --> 00:25:04,918
+Had to change this, too.
+
+487
+00:25:04,918 --> 00:25:07,290
+And you could see now for there are for
+
+488
+00:25:07,290 --> 00:25:10,330
+there county one websites hub only had 31
+observations.
+
+489
+00:25:10,330 --> 00:25:16,730
+In 2012 rather than 61 in the 1991 data
+site
+
+490
+00:25:18,800 --> 00:25:20,750
+so I think that the county that I'm going
+to.
+
+491
+00:25:20,750 --> 00:25:25,320
+The county slash monitor that I'm going to
+pick here is going to be county 63.
+
+492
+00:25:25,320 --> 00:25:26,450
+And the monitor 2008.
+
+493
+00:25:26,450 --> 00:25:33,860
+So let's take a look at those guys and see
+what we can look at in terms of pm trends.
+
+494
+00:25:33,860 --> 00:25:39,610
+So I'm going to call a new data-frame
+called pm1sub, so I'll subset it, pm1.
+
+495
+00:25:39,610 --> 00:25:46,380
+[SOUND]
+County code is 63.
+
+496
+00:25:46,380 --> 00:25:47,080
+And the site ID is 2008.
+
+497
+00:25:47,080 --> 00:25:50,320
+Alright.
+And then I'm going to do
+
+498
+00:25:52,810 --> 00:25:58,500
+the same thing for the 1999 data.
+I know that they're both there.
+
+499
+00:25:58,500 --> 00:26:00,220
+And I look at pm 1.
+
+500
+00:26:00,220 --> 00:26:05,610
+I know there's 30 observations, and for pm
+0, so there should be 122.
+
+501
+00:26:05,610 --> 00:26:07,250
+So there you go.
+
+502
+00:26:07,250 --> 00:26:10,570
+So, so the thing we're going to do now is
+we're going to take each of these data
+
+503
+00:26:10,570 --> 00:26:12,750
+frames, and we're just going to plot the
+data,
+
+504
+00:26:12,750 --> 00:26:15,390
+the pm 2.5 data, as a function of time.
+
+505
+00:26:15,390 --> 00:26:17,620
+So it's going to be like a little time
+series here.
+
+506
+00:26:17,620 --> 00:26:17,920
+And on
+
+507
+00:26:17,920 --> 00:26:19,950
+the x axis is going to be the date and on
+
+508
+00:26:19,950 --> 00:26:22,380
+the y axis is, is going to be the level PM
+2.5.
+
+509
+00:26:22,380 --> 00:26:27,680
+And we just want to get a, to visualize
+whether or not we can see if the levels of
+
+510
+00:26:27,680 --> 00:26:34,870
+PM 2.5 have gone down over this kind of 13
+year period at this particular modern.
+
+511
+00:26:34,870 --> 00:26:37,310
+Okay so we're going to make some plots to
+do that.
+
+512
+00:26:37,310 --> 00:26:43,360
+So, the first thing we need to do is to
+get the dates out so we can plot
+
+513
+00:26:43,360 --> 00:26:48,760
+the data as a function of date.
+So dates, I'll create a dates
+
+514
+00:26:48,760 --> 00:26:54,480
+vector here from this pmsub data frame,
+and get the pm2.5
+
+515
+00:26:54,480 --> 00:27:01,230
+data out.
+[SOUND]
+
+516
+00:27:01,230 --> 00:27:04,580
+And so I make a plot of the dates.
+You can see
+
+517
+00:27:07,220 --> 00:27:08,490
+well first thing you'll notice, is that
+the
+
+518
+00:27:08,490 --> 00:27:11,400
+dates are not coded properly, they're
+integers here.
+
+519
+00:27:11,400 --> 00:27:13,250
+And so we need to convert them into dates.
+
+520
+00:27:13,250 --> 00:27:19,400
+So I'm going to do that right now.
+[SOUND]
+
+521
+00:27:19,400 --> 00:27:21,280
+And they're in year, month, day format.
+
+522
+00:27:23,230 --> 00:27:26,840
+So now if I make this plot again well
+first
+
+523
+00:27:26,840 --> 00:27:29,360
+of all you can take a look at the new
+variable.
+
+524
+00:27:30,600 --> 00:27:33,610
+And if I make this plot, so it's in date
+format now.
+
+525
+00:27:33,610 --> 00:27:35,290
+And you can see now the plot makes more
+sense,
+
+526
+00:27:35,290 --> 00:27:38,150
+the X axis is coded appropriately, and you
+can see
+
+527
+00:27:38,150 --> 00:27:40,790
+that the data are kind of bouncing around
+all over
+
+528
+00:27:40,790 --> 00:27:45,050
+the place, somewhere between four and 14
+micrograms per meter, cubed.
+
+529
+00:27:45,050 --> 00:27:47,180
+So this is the 2012 data.
+
+530
+00:27:47,180 --> 00:27:49,539
+So let's do the same thing for 2000, for
+1999.
+
+531
+00:27:53,310 --> 00:27:56,580
+We'll convert these guys to date format,
+since we know we have to do that.
+
+532
+00:28:05,550 --> 00:28:11,985
+And let's make a little plot here.
+Oops I didn't get
+
+533
+00:28:11,985 --> 00:28:18,443
+the PM2.5 data.
+[NOISE]
+
+534
+00:28:18,443 --> 00:28:25,880
+Alright so let's make a plot of the 1999
+data so you can see that again.
+
+535
+00:28:25,880 --> 00:28:27,350
+First of all you'll notice that, the
+
+536
+00:28:27,350 --> 00:28:30,900
+data are only actually recorded starting
+in July,
+
+537
+00:28:30,900 --> 00:28:31,750
+through the end of the year.
+
+538
+00:28:31,750 --> 00:28:37,220
+So only about a half of the year of data
+is collected there, and so, and
+
+539
+00:28:37,220 --> 00:28:39,550
+you can see that they range from roughly,
+
+540
+00:28:39,550 --> 00:28:41,880
+say, five micrograms per meter cubed, to
+about 40.
+
+541
+00:28:41,880 --> 00:28:44,890
+Of course its a little hard to look at
+
+542
+00:28:44,890 --> 00:28:48,030
+the plots separately, so why don't we make
+a plot.
+
+543
+00:28:48,030 --> 00:28:51,500
+That kind of puts both, both 1999 and 2012
+on the same panel.
+
+544
+00:28:54,790 --> 00:28:58,980
+So so we need to use par for that, and
+we'll say mfrow is, is 1, 2.
+
+545
+00:28:58,980 --> 00:29:02,480
+So this says 1 row, 2 columns.
+
+546
+00:29:02,480 --> 00:29:05,330
+And I'm going to adjust the margins a
+little bit to create more space.
+
+547
+00:29:07,770 --> 00:29:12,930
+So I'll first of all plot the 1999 data on
+the right, on the left hand side here.
+
+548
+00:29:14,870 --> 00:29:16,990
+I'll change the plotting character for
+fun.
+
+549
+00:29:18,860 --> 00:29:19,270
+Alright.
+
+550
+00:29:19,270 --> 00:29:21,110
+And then I'll plot the I'm going to put a
+
+551
+00:29:21,110 --> 00:29:25,580
+little line here at the median, for that
+year.
+
+552
+00:29:31,250 --> 00:29:32,520
+Okay.
+So that gives me the median.
+
+553
+00:29:32,520 --> 00:29:36,220
+About maybe 10 points or so micrograms per
+meter cubed.
+
+554
+00:29:36,220 --> 00:29:38,920
+So now lets plot the 2012 data.
+
+555
+00:29:44,330 --> 00:29:45,540
+And we'll plot the median.
+
+556
+00:29:50,390 --> 00:29:51,990
+Alright, so that's well that's a little
+bit
+
+557
+00:29:51,990 --> 00:29:54,520
+unusual, it looks like the values are
+going up.
+
+558
+00:29:54,520 --> 00:29:55,290
+Between the two years.
+
+559
+00:29:55,290 --> 00:29:59,160
+So actually, it's a little bit, because
+you'll notice that the y-axis for
+
+560
+00:29:59,160 --> 00:30:04,320
+the 2012 data, is totally different from
+the y-axis for the 1999 data.
+
+561
+00:30:04,320 --> 00:30:06,190
+And so even though it looks like it's
+going up between
+
+562
+00:30:06,190 --> 00:30:10,000
+the two, periods, it probably actually is
+going down, if you look
+
+563
+00:30:10,000 --> 00:30:12,360
+at the median here it's a little over ten
+And the median
+
+564
+00:30:12,360 --> 00:30:15,070
+here is a little bit, is quite a bit under
+ten actually.
+
+565
+00:30:15,070 --> 00:30:15,590
+And so
+
+566
+00:30:15,590 --> 00:30:18,920
+this picture is by itself is a little bit
+misleading so what we need
+
+567
+00:30:18,920 --> 00:30:22,090
+to do is we need to put the two plots on
+the same range.
+
+568
+00:30:22,090 --> 00:30:25,550
+So let's do that by calcul, calculating
+the range
+
+569
+00:30:25,550 --> 00:30:29,380
+of the dataset with the with the range
+function, alright?
+
+570
+00:30:29,380 --> 00:30:31,290
+So let's take a look at.
+
+571
+00:30:31,290 --> 00:30:38,260
+The range of x0sub and x1sub together.
+And we'll remove the missing values.
+
+572
+00:30:38,260 --> 00:30:40,884
+You can see that it's between
+
+573
+00:30:40,884 --> 00:30:43,130
+three and 40 micrograms per meter cubed.
+
+574
+00:30:43,130 --> 00:30:46,130
+So let's assign that to this, to a
+variable called rng.
+
+575
+00:30:46,130 --> 00:30:53,200
+And now we need to remake the plots to be
+To, to kind of fix the range here.
+
+576
+00:30:53,200 --> 00:30:54,530
+So, I'll set par
+
+577
+00:30:57,110 --> 00:31:00,180
+just in case I, I don't need to do this
+actually.
+
+578
+00:31:00,180 --> 00:31:01,130
+I'm supposed to plot the dates.
+
+579
+00:31:03,700 --> 00:31:05,050
+And pch equals 20.
+
+580
+00:31:05,050 --> 00:31:07,270
+But now I'm going to set y lim to be equal
+to this range.
+
+581
+00:31:07,270 --> 00:31:11,490
+Okay?
+And I'll set the ab line, h equals median.
+
+582
+00:31:15,100 --> 00:31:18,510
+All right, and then I'm going to do the
+same thing but for the 2012 data.
+
+583
+00:31:18,510 --> 00:31:19,010
+And
+
+584
+00:31:20,850 --> 00:31:24,090
+remember, I'm going to, I'm going to keep
+the range here to be the same.
+
+585
+00:31:25,520 --> 00:31:29,620
+And and I'll set the the horizontal line
+here.
+
+586
+00:31:31,560 --> 00:31:33,220
+And now you can see it makes more sense,
+right?
+
+587
+00:31:33,220 --> 00:31:36,160
+So, you can see that the horizontal line,
+the median
+
+588
+00:31:36,160 --> 00:31:39,220
+is going down between the two years at
+this monitor
+
+589
+00:31:39,220 --> 00:31:42,020
+and more interestingly actually for me is
+the fact that
+
+590
+00:31:42,020 --> 00:31:46,110
+you can see there's a huge spread of
+points here in
+
+591
+00:31:46,110 --> 00:31:52,020
+the 1999 data and there's a relatively
+modest spread Of points for the 2012 data.
+
+592
+00:31:52,020 --> 00:31:55,770
+So what this, so what this means actually
+is quite interesting.
+
+593
+00:31:55,770 --> 00:31:58,990
+Is that not only are the average levels
+going down but
+
+594
+00:31:58,990 --> 00:32:02,180
+these extreme values are also coming down
+across the years, too.
+
+595
+00:32:02,180 --> 00:32:06,880
+So now, so we, so on average we're kind of
+breathing in lower levels of pollution.
+
+596
+00:32:06,880 --> 00:32:10,940
+But we don't get these huge spikes on a
+daily basis, like we used to get in 1999.
+
+597
+00:32:10,940 --> 00:32:11,240
+So that,
+
+598
+00:32:11,240 --> 00:32:14,360
+those two kind of facts are quite
+interesting, because
+
+599
+00:32:14,360 --> 00:32:17,160
+they, they kind of address two different
+types of problems.
+
+600
+00:32:17,160 --> 00:32:19,000
+One is more of a chronic problem of
+having,
+
+601
+00:32:19,000 --> 00:32:22,210
+I don't know, just on average very high
+pollution levels.
+
+602
+00:32:22,210 --> 00:32:23,730
+And one is more of an acute problem where
+you get
+
+603
+00:32:23,730 --> 00:32:28,580
+these really big spikes that can cause
+different types of health problems.
+
+604
+00:32:28,580 --> 00:32:30,450
+And so we've reduced the average levels
+and
+
+605
+00:32:30,450 --> 00:32:33,060
+the spikes at this monitor so that's quite
+interesting.
+
+606
+00:32:36,640 --> 00:32:40,370
+So one thing I think so the last thing I
+think I want to look at is to say well
+
+607
+00:32:40,370 --> 00:32:43,340
+lets not look at the whole country but its
+also
+
+608
+00:32:43,340 --> 00:32:46,500
+not that useful to perhaps just look at
+one monitor and.
+
+609
+00:32:46,500 --> 00:32:49,270
+So why don't we look at the individual
+states in the country?
+
+610
+00:32:49,270 --> 00:32:51,010
+So we'll look at the individual states to
+
+611
+00:32:51,010 --> 00:32:55,170
+see how the individual states have
+improved or not.
+
+612
+00:32:55,170 --> 00:32:56,860
+Across the years.
+
+613
+00:32:56,860 --> 00:32:58,820
+And one of the reasons why this is
+important is because
+
+614
+00:32:58,820 --> 00:33:01,660
+the states are actually where a lot of the
+implementation of the
+
+615
+00:33:01,660 --> 00:33:03,130
+regulations occur.
+
+616
+00:33:03,130 --> 00:33:05,470
+So, when the EPA sets the national
+guidelines
+
+617
+00:33:05,470 --> 00:33:07,470
+for air pollution levels, it's up to the
+
+618
+00:33:07,470 --> 00:33:09,580
+state to figure out how it's going to
+
+619
+00:33:09,580 --> 00:33:11,702
+kind of come into compliance with those
+guidelines.
+
+620
+00:33:11,702 --> 00:33:15,562
+And so, be useful to kind of develop a
+summary at the state level.
+
+621
+00:33:15,562 --> 00:33:19,580
+To kind of see what's going on at this
+kind of very important level.
+
+622
+00:33:19,580 --> 00:33:21,550
+Furthermore the State is some, somewhere
+in
+
+623
+00:33:21,550 --> 00:33:24,756
+between the whole country and individual
+monitor.
+
+624
+00:33:24,756 --> 00:33:26,880
+So what I want to do, is create
+
+625
+00:33:26,880 --> 00:33:30,020
+a plot that has kind of the value of state
+averages
+
+626
+00:33:30,020 --> 00:33:33,690
+for 1999 and the state averages for 2012
+and I just want
+
+627
+00:33:33,690 --> 00:33:37,030
+to connect the dots to connect each state
+to see whether
+
+628
+00:33:37,030 --> 00:33:39,630
+it's going up or it's going down or maybe
+staying the same.
+
+629
+00:33:39,630 --> 00:33:40,978
+So that's the kind of plot I want to make.
+
+630
+00:33:40,978 --> 00:33:46,990
+So let's let's figure this out,
+
+631
+00:33:49,170 --> 00:33:51,386
+so change my plot window here.
+Back.
+
+632
+00:33:51,386 --> 00:33:58,970
+So [UNKNOWN] let's take a look remember
+the the the data has a.
+
+633
+00:33:58,970 --> 00:34:02,100
+Has a column here which is the State Code
+and
+
+634
+00:34:02,100 --> 00:34:05,450
+so, there, every, every state will have a
+code there.
+
+635
+00:34:05,450 --> 00:34:08,750
+And so what I want to do is I want to take
+the sample value here.
+
+636
+00:34:08,750 --> 00:34:11,510
+So, this is the PM 2.5 value.
+
+637
+00:34:11,510 --> 00:34:14,578
+And I want basically, I just want to take
+the average value.
+
+638
+00:34:14,578 --> 00:34:17,450
+By state, right?
+
+639
+00:34:17,450 --> 00:34:20,415
+So, this is the kind of thing that's
+going to require the T apply function.
+
+640
+00:34:20,415 --> 00:34:23,600
+Wh-, the T apply, remember, takes the mean
+of a,
+
+641
+00:34:23,600 --> 00:34:27,530
+of a vector within subgroups determined by
+another vector, right?
+
+642
+00:34:27,530 --> 00:34:29,750
+And so this is the perfect job for T
+apply.
+
+643
+00:34:29,750 --> 00:34:30,780
+So, what I'm going to do, is I'm going to
+take and
+
+644
+00:34:30,780 --> 00:34:33,200
+I'm going to create a vector that I'll
+call Mean Zero.
+
+645
+00:34:33,200 --> 00:34:34,840
+So this is the mean of the 1999 data.
+
+646
+00:34:34,840 --> 00:34:37,770
+And I'm going to base it on the pm0
+dataframe.
+
+647
+00:34:37,770 --> 00:34:40,420
+And I'm going to tapply
+
+648
+00:34:40,420 --> 00:34:48,030
+the sample value based on the state,
+within subsets of the state code.
+
+649
+00:34:48,030 --> 00:34:49,400
+And I want to use the mean function.
+
+650
+00:34:50,960 --> 00:34:53,570
+And I'm going to get rid of missing values
+here.
+
+651
+00:34:53,570 --> 00:34:54,070
+Okay.
+
+652
+00:34:55,100 --> 00:34:59,000
+So if I take a look at this guy now you
+see that there are
+
+653
+00:34:59,000 --> 00:35:04,730
+there are 53 elements here and these are
+the means of the individual states, okay?
+
+654
+00:35:07,700 --> 00:35:11,040
+If I take a summary you can see that
+
+655
+00:35:11,040 --> 00:35:15,560
+they range from 4.8 micrograms meter cubed
+to 19.96.
+
+656
+00:35:15,560 --> 00:35:16,490
+OK.
+
+657
+00:35:16,490 --> 00:35:19,360
+So now we need to do the same thing for
+the 2012 data.
+
+658
+00:35:19,360 --> 00:35:21,450
+So I'll just go up here.
+
+659
+00:35:21,450 --> 00:35:26,020
+Just change this to a one.
+Same operation.
+
+660
+00:35:26,020 --> 00:35:31,900
+I take a summary of this data and I can
+see that it ranges from about 4 to 11.
+
+661
+00:35:31,900 --> 00:35:32,700
+So and the
+
+662
+00:35:32,700 --> 00:35:33,720
+median is definitely lower.
+
+663
+00:35:33,720 --> 00:35:37,920
+The median in 1999 was 12 And the, this is
+the state average.
+
+664
+00:35:37,920 --> 00:35:39,870
+This is kind of the median of all the
+states.
+
+665
+00:35:39,870 --> 00:35:42,943
+And the median of all the states in 2012
+is 8.7.
+
+666
+00:35:44,240 --> 00:35:49,490
+So now I want to create a data frame for
+each of these guys that has kind of the
+
+667
+00:35:49,490 --> 00:35:55,490
+name of the state and the or the ID of the
+state and their average pm2.5.
+
+668
+00:35:55,490 --> 00:35:57,150
+So I'm going to create a data frame called
+D0.
+
+669
+00:35:59,630 --> 00:36:04,360
+A variable called state it's going to be
+with the names of this guy and
+
+670
+00:36:04,360 --> 00:36:09,480
+then mean which is the value and do the
+same thing for the later data.
+
+671
+00:36:13,580 --> 00:36:16,230
+So if you look at D zero you can see
+
+672
+00:36:16,230 --> 00:36:18,710
+that there's the state and then the mean,
+d one.
+
+673
+00:36:18,710 --> 00:36:21,060
+It's also the state and the mean now I
+
+674
+00:36:21,060 --> 00:36:22,900
+just want to merge these guys together so
+I can
+
+675
+00:36:22,900 --> 00:36:25,780
+use the merge function on d zero d one,
+
+676
+00:36:25,780 --> 00:36:28,290
+and I'm going to to merge it on the state
+name,
+
+677
+00:36:32,440 --> 00:36:32,960
+typo there.
+
+678
+00:36:32,960 --> 00:36:38,260
+So if you look at the merged values there
+are you can
+
+679
+00:36:38,260 --> 00:36:41,640
+see there are 52 rows and if you look at
+the merge
+
+680
+00:36:41,640 --> 00:36:44,910
+you now you can see that the mean mean x
+so this
+
+681
+00:36:44,910 --> 00:36:49,600
+corresponds to the 1999 value And this
+corresponds to the 2012 value.
+
+682
+00:36:49,600 --> 00:36:55,020
+So, now I've got a data frame which is,
+which has the state code.
+
+683
+00:36:55,020 --> 00:36:57,480
+It has one row for state.
+And then each row,
+
+684
+00:36:57,480 --> 00:37:02,530
+there's the kind of state average for 1999
+and the state average for 2012.
+
+685
+00:37:02,530 --> 00:37:05,280
+So, just basically what I want to do is
+create a plot that
+
+686
+00:37:05,280 --> 00:37:08,940
+plots those state averages and then
+connects, connects them with the line.
+
+687
+00:37:08,940 --> 00:37:11,260
+So, that's the last thing I'm going to do
+here.
+
+688
+00:37:11,260 --> 00:37:15,570
+So I'm going to reset my par to be to just
+one plot here.
+
+689
+00:37:15,570 --> 00:37:17,070
+Instead of a panel plot.
+
+690
+00:37:18,380 --> 00:37:20,300
+And then with this merge data frame, I'm
+
+691
+00:37:20,300 --> 00:37:22,440
+going to plot I know that there are 52
+values.
+
+692
+00:37:22,440 --> 00:37:22,620
+So
+
+693
+00:37:22,620 --> 00:37:26,540
+I'm just going to plot the 1999 values.
+
+694
+00:37:30,390 --> 00:37:31,670
+On, in 1 column,
+
+695
+00:37:33,750 --> 00:37:35,320
+that's the, I, I'm in the
+
+696
+00:37:38,800 --> 00:37:44,040
+alright.
+And I want to set the X [UNKNOWN] here, so
+
+697
+00:37:44,040 --> 00:37:49,800
+I want to make room, because I know I'm
+going to plot the
+
+698
+00:37:49,800 --> 00:37:55,416
+2012 values later So I want to set the
+xlim to
+
+699
+00:37:55,416 --> 00:38:01,000
+say, let's be and then like that.
+
+700
+00:38:05,560 --> 00:38:05,838
+Oops.
+
+701
+00:38:05,838 --> 00:38:11,320
+And alright, so you can see I've got my
+1999 values right here.
+
+702
+00:38:11,320 --> 00:38:13,830
+And then I'm going to do the same thing
+but instead of
+
+703
+00:38:13,830 --> 00:38:18,170
+plotting, I'm going to use points to add
+the points for 2012.
+
+704
+00:38:18,170 --> 00:38:18,830
+And this
+
+705
+00:38:22,920 --> 00:38:24,770
+is the third column of the data frame.
+
+706
+00:38:24,770 --> 00:38:27,850
+And I don't need this xlim in here because
+I'm using points.
+
+707
+00:38:31,610 --> 00:38:33,720
+And if I bring the plot over here, you can
+see that I've got my
+
+708
+00:38:33,720 --> 00:38:37,410
+plot so [UNKNOWN] so you can see that the
+data's kind of gone down quite a bit.
+
+709
+00:38:37,410 --> 00:38:40,030
+We saw this already in the, in the
+individual monitor data.
+
+710
+00:38:40,030 --> 00:38:42,150
+So all we need to do now is kind of
+connect the
+
+711
+00:38:42,150 --> 00:38:45,230
+dots here, and so we can use the Segments
+function for that.
+
+712
+00:38:48,060 --> 00:38:51,760
+So we give the x coordinates the y
+coordinates.
+
+713
+00:38:51,760 --> 00:38:57,990
+And then the, the second set of x
+coordinates which will be 2012.
+
+714
+00:38:57,990 --> 00:39:03,170
+And there, now we can see.
+Okay so
+
+715
+00:39:03,170 --> 00:39:08,180
+this is quite interesting, Now, we can see
+that most of the states have gone down.
+
+716
+00:39:08,180 --> 00:39:11,880
+You can see this line here has gone down.
+These lines here.
+
+717
+00:39:11,880 --> 00:39:13,230
+Some, some states have gone up.
+
+718
+00:39:14,650 --> 00:39:18,210
+And a, but the vast majority of these
+states appear to be going down.
+
+719
+00:39:18,210 --> 00:39:19,400
+One thing you'll notice is that there
+appear
+
+720
+00:39:19,400 --> 00:39:21,670
+to be some lines going off the chart here.
+
+721
+00:39:21,670 --> 00:39:23,340
+That's because I didn't set the y lim to
+
+722
+00:39:23,340 --> 00:39:26,760
+be equal to the full range of the data
+set.
+
+723
+00:39:26,760 --> 00:39:28,860
+So we could have fixed that but I won't
+
+724
+00:39:28,860 --> 00:39:31,160
+bother with it right now, we can fix it
+later.
+
+725
+00:39:31,160 --> 00:39:33,210
+But now we can see that each of the
+states,
+
+726
+00:39:33,210 --> 00:39:36,250
+have, how, how, how they progressed over
+the many years here.
+
+727
+00:39:36,250 --> 00:39:40,150
+So some states kind of have barely, really
+moved at all, so this state right here.
+
+728
+00:39:40,150 --> 00:39:42,040
+Has barely really moved at all.
+
+729
+00:39:42,040 --> 00:39:43,950
+And the lines kind of connecting the dots
+help us
+
+730
+00:39:43,950 --> 00:39:46,840
+see what the trends are at the individual
+state level.
+
+731
+00:39:46,840 --> 00:39:49,720
+Alright so that's basically, that's kind
+of a first exploratory
+
+732
+00:39:49,720 --> 00:39:52,860
+analysis of some air pollution data in the
+United States.
+
+733
+00:39:52,860 --> 00:39:55,740
+As you were just to summarize the, the
+basic question we were trying
+
+734
+00:39:55,740 --> 00:39:57,880
+to answer was, you know, have particular
+
+735
+00:39:57,880 --> 00:40:02,540
+matter levels decreased between 1999 and
+2012.
+
+736
+00:40:02,540 --> 00:40:05,430
+And we looked at it for the whole country
+between
+
+737
+00:40:05,430 --> 00:40:06,050
+1999 and 2012.
+
+738
+00:40:06,050 --> 00:40:08,680
+We looked at it for an individual monitor
+between those
+
+739
+00:40:08,680 --> 00:40:11,710
+two time periods, and we looked at it for
+individual states.
+
+740
+00:40:11,710 --> 00:40:14,590
+And so through a combination of, kind of,
+summaries, five number
+
+741
+00:40:14,590 --> 00:40:18,630
+summaries, box plots, scatter plots,
+things like that we can get
+
+742
+00:40:18,630 --> 00:40:21,070
+a very nice look at the data, right, and
+get a
+
+743
+00:40:21,070 --> 00:40:24,390
+since of what kinds of questions we can,
+can continue to ask.
+
+744
+00:40:24,390 --> 00:40:27,160
+And what kinds of things we should, we
+should follow up on.
+
+745
+00:40:27,160 --> 00:40:30,530
+So that's just a, that's a base kind of a
+simple case study
+
+746
+00:40:30,530 --> 00:40:33,920
+of how, of how to do exploratory analysis
+and I hope you find it helpful.
+

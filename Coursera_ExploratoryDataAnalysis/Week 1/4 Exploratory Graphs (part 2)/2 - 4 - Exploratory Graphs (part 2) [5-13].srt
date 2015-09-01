@@ -1,0 +1,506 @@
+1
+00:00:00,520 --> 00:00:04,620
+So that we've gone through some one
+dimensional summaries and now
+
+2
+00:00:04,620 --> 00:00:06,650
+I want to talk a little bit about some two
+dimensional summaries.
+
+3
+00:00:06,650 --> 00:00:10,350
+Which include things like scatterplots,
+but also you can, you can, you can kind of
+
+4
+00:00:10,350 --> 00:00:12,250
+group together lots of one dimensional
+plots
+
+5
+00:00:12,250 --> 00:00:15,080
+to look at mult, two dimensional data.
+
+6
+00:00:15,080 --> 00:00:17,350
+And in particular Lattice and GGplot are
+good at this.
+
+7
+00:00:19,190 --> 00:00:22,742
+so, we're going to look at scatterplots
+smooth scatterplots and also,
+
+8
+00:00:22,742 --> 00:00:26,430
+and in, looking at two, greater than two
+dimensions then
+
+9
+00:00:26,430 --> 00:00:28,370
+you have to get a little bit more clever
+in terms of how
+
+10
+00:00:28,370 --> 00:00:30,310
+you present the data because one
+
+11
+00:00:30,310 --> 00:00:33,800
+possibility of course is actual
+three-dimensional plots.
+
+12
+00:00:33,800 --> 00:00:36,850
+Where you might need you know, 3D gla-,
+you know, a set of glasses to wear them.
+
+13
+00:00:36,850 --> 00:00:40,900
+These are not usually not that useful.
+But I have seen them.
+
+14
+00:00:40,900 --> 00:00:42,760
+You can have spinning plots, which would
+allow you
+
+15
+00:00:42,760 --> 00:00:44,760
+to kind of move the data around in three
+dimensions.
+
+16
+00:00:44,760 --> 00:00:46,400
+These can be useful sometimes.
+
+17
+00:00:46,400 --> 00:00:48,908
+But often the most useful techniques are
+to take a two
+
+18
+00:00:48,908 --> 00:00:51,872
+dimensional plots and kind of array them
+or, or, or organize
+
+19
+00:00:51,872 --> 00:00:53,525
+them in a special way so that you can
+
+20
+00:00:53,525 --> 00:00:56,053
+look at a third variable or even a fourth
+variable.
+
+21
+00:00:56,053 --> 00:00:59,430
+Uh,and so we'll talk a little bit about
+these methods.
+
+22
+00:00:59,430 --> 00:01:01,970
+You can also use things like color and
+size and
+
+23
+00:01:01,970 --> 00:01:04,990
+shape of, of plotting symbols to add
+dimensions to your data.
+
+24
+00:01:06,690 --> 00:01:09,830
+So here's a way to look at two dimensional
+data.
+
+25
+00:01:09,830 --> 00:01:13,200
+I've got in one dimension the east west
+variable which is categorical.
+
+26
+00:01:13,200 --> 00:01:15,930
+And the other dimension I've got the pm2.5
+variable.
+
+27
+00:01:15,930 --> 00:01:17,274
+And you can see that
+
+28
+00:01:17,274 --> 00:01:20,520
+I've got two box plots, one for east and
+one for west.
+
+29
+00:01:20,520 --> 00:01:23,300
+And you can see that in the east and on
+average the pm2.5
+
+30
+00:01:23,300 --> 00:01:26,260
+tends to be quite a bit higher than it is
+in the west.
+
+31
+00:01:27,340 --> 00:01:31,630
+And and so that's a nice summary of, of
+these two dimensions.
+
+32
+00:01:31,630 --> 00:01:34,930
+Now on the, in the west you see that on
+average it tends to be a little bit lower,
+
+33
+00:01:34,930 --> 00:01:37,660
+but that, all of the extreme values of the
+
+34
+00:01:37,660 --> 00:01:40,590
+distribution so to speak are in the
+western United States.
+
+35
+00:01:40,590 --> 00:01:42,360
+So the west has an average that's
+
+36
+00:01:42,360 --> 00:01:45,040
+lower but it has generally a larger
+spread, so that's kind of interesting.
+
+37
+00:01:47,450 --> 00:01:49,355
+You can do a similar type of plot with,
+
+38
+00:01:49,355 --> 00:01:51,640
+with histograms instead, so now I've made
+a histogram
+
+39
+00:01:51,640 --> 00:01:53,930
+on top which is the eastern counties, in
+the
+
+40
+00:01:53,930 --> 00:01:55,660
+histogram on the bottom, which are the
+western counties.
+
+41
+00:01:55,660 --> 00:01:57,790
+And you see the same basic features.
+
+42
+00:01:57,790 --> 00:01:59,980
+The western counties tend to be lower on
+average,
+
+43
+00:01:59,980 --> 00:02:02,075
+but they have more extreme values that are
+higher.
+
+44
+00:02:02,075 --> 00:02:05,930
+[COUGH] And the eastern counties are
+generally higher on average, but they tend
+
+45
+00:02:05,930 --> 00:02:09,809
+to be but they don't have those kind of
+very high, extreme values.
+
+46
+00:02:12,530 --> 00:02:15,220
+So of course one of the easier things to
+do,
+
+47
+00:02:15,220 --> 00:02:17,420
+the most obvious things to do is a scatter
+plot.
+
+48
+00:02:17,420 --> 00:02:22,080
+And here I'm plotting the latitude of the
+monitor in the county versus
+
+49
+00:02:22,080 --> 00:02:26,080
+the pm2.5 just to see if there are any,
+you know, north-south trends.
+
+50
+00:02:26,080 --> 00:02:28,229
+So as the latitude gets increases you're
+going north.
+
+51
+00:02:29,380 --> 00:02:31,530
+And you can see that there aren't, these
+are
+
+52
+00:02:31,530 --> 00:02:34,968
+there isn't a very strong particularly
+strong north-south trend.
+
+53
+00:02:34,968 --> 00:02:38,770
+it does seem that the, the the pm2.5
+
+54
+00:02:38,770 --> 00:02:41,660
+tends to be higher in the middle
+latitudes, and not
+
+55
+00:02:41,660 --> 00:02:45,270
+quite as high in the, in the upper and
+lower latitudes.
+
+56
+00:02:45,270 --> 00:02:47,990
+I've added a d, a horizontal dashed line
+here at 12, so
+
+57
+00:02:47,990 --> 00:02:51,840
+you can see roughly where the national
+ambient air quality standard is.
+
+58
+00:02:51,840 --> 00:02:53,420
+And you can see that there are a number of
+dots that
+
+59
+00:02:53,420 --> 00:02:56,740
+are above it, which are technically
+speaking would be out of compliance.
+
+60
+00:02:58,060 --> 00:03:01,050
+So you can use color to add another
+dimension.
+
+61
+00:03:01,050 --> 00:03:04,460
+So for example, if you remember there was
+the latitude and the longitude and
+
+62
+00:03:04,460 --> 00:03:06,510
+the east-west variable in this dataset.
+
+63
+00:03:06,510 --> 00:03:11,790
+And so what I've got on the X-axis here is
+the latitude, and the Y-axis, the pm2.5.
+
+64
+00:03:11,790 --> 00:03:13,320
+And then I've added the color.
+
+65
+00:03:13,320 --> 00:03:17,397
+So the, the, the red and black dots
+indicate the east and west variable.
+
+66
+00:03:17,397 --> 00:03:20,365
+And so the the black dots are the east
+counties and
+
+67
+00:03:20,365 --> 00:03:23,277
+the red, sorry the black circles are the
+eastern counties and
+
+68
+00:03:23,277 --> 00:03:25,909
+the red circles are the western counties
+so you can see,
+
+69
+00:03:25,909 --> 00:03:29,160
+now you can see we are looking at three
+different variables here.
+
+70
+00:03:30,200 --> 00:03:34,590
+Another way to look at these variables is
+to, just to make two plots.
+
+71
+00:03:34,590 --> 00:03:36,490
+So now I've got a panel of plots.
+
+72
+00:03:36,490 --> 00:03:38,730
+On the left hand, left hand side I've got
+
+73
+00:03:38,730 --> 00:03:41,610
+all the western counties and on the east,
+on
+
+74
+00:03:41,610 --> 00:03:43,978
+the right hand side I've got all the
+eastern
+
+75
+00:03:43,978 --> 00:03:47,480
+counties and I'm plotting them by latitude
+and pm2.5.
+
+76
+00:03:47,480 --> 00:03:50,000
+So you can see that in the, in both cases
+the
+
+77
+00:03:50,000 --> 00:03:55,510
+kind of higher pollution- counties tend to
+be in the middle latitudes.
+
+78
+00:03:55,510 --> 00:03:55,820
+and,
+
+79
+00:03:55,820 --> 00:03:57,770
+and the north and south, northern and
+
+80
+00:03:57,770 --> 00:04:00,640
+southern latitudes tend to have generally
+lower pollution.
+
+81
+00:04:00,640 --> 00:04:02,130
+This is both the case in the eastern
+
+82
+00:04:02,130 --> 00:04:04,090
+and western United States, so that's kind
+of interesting.
+
+83
+00:04:06,220 --> 00:04:08,220
+So that's a quick summary of the, the,
+kind
+
+84
+00:04:08,220 --> 00:04:11,280
+of plotting one dimensional and two
+dimensional data in R.
+
+85
+00:04:11,280 --> 00:04:14,230
+and, and, even using color and multiple
+panels for
+
+86
+00:04:14,230 --> 00:04:18,010
+looking at three dimensions that are
+greater than two.
+
+87
+00:04:18,010 --> 00:04:20,570
+And in general these exploratory plots are
+meant to be quick and dirty.
+
+88
+00:04:20,570 --> 00:04:22,960
+Notice I didn't spend any time working
+with
+
+89
+00:04:22,960 --> 00:04:25,406
+the axes or you know, or setting the
+labels.
+
+90
+00:04:25,406 --> 00:04:27,290
+and, and so I just kind of use the
+defaults
+
+91
+00:04:27,290 --> 00:04:29,990
+and for the most part use the defaults in
+R.
+
+92
+00:04:29,990 --> 00:04:31,530
+But the nice thing about exploratory plots
+
+93
+00:04:31,530 --> 00:04:34,350
+is they let you summarize the data and
+highlight any you
+
+94
+00:04:34,350 --> 00:04:37,470
+know, broad features in the data which may
+be of interest.
+
+95
+00:04:37,470 --> 00:04:39,730
+You can explore kind of basic questions
+and hypotheses.
+
+96
+00:04:39,730 --> 00:04:42,460
+So remember, the question, the basic
+question that we were looking at was,
+
+97
+00:04:42,460 --> 00:04:45,670
+you know, whe, are there any counties that
+may be out of compliance?
+
+98
+00:04:45,670 --> 00:04:49,940
+And these plots may suggest useful
+modeling strategies for the next step.
+
+99
+00:04:49,940 --> 00:04:53,500
+Which may be ana a more detailed analysis
+or model fitting.
+
+100
+00:04:55,350 --> 00:04:56,840
+Lastly here's just a couple resources.
+
+101
+00:04:56,840 --> 00:04:59,240
+There's a nice website called the R Graph
+Gallery which has
+
+102
+00:04:59,240 --> 00:05:04,180
+lots of examples of, of graphics and plots
+made in R.
+
+103
+00:05:04,180 --> 00:05:07,224
+And of course the R Bloggers website will
+often highlight lots of,
+
+104
+00:05:07,224 --> 00:05:10,310
+you know, plots that people have made and
+have published to their blogs.
+
+105
+00:05:10,310 --> 00:05:12,300
+So take a look at those to get a sense of
+what's possible.
+

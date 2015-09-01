@@ -1,0 +1,729 @@
+1
+00:00:00,940 --> 00:00:03,770
+Hierarchical clustering is kind of a bread
+and butter technique
+
+2
+00:00:03,770 --> 00:00:07,720
+when it comes to visualizing a high
+dimensional or multidimensional data.
+
+3
+00:00:07,720 --> 00:00:09,520
+It's very simple to use.
+
+4
+00:00:09,520 --> 00:00:11,590
+The ideas are fairly intuitive for most
+people,
+
+5
+00:00:11,590 --> 00:00:13,450
+and it kind of, can serve as a really
+
+6
+00:00:13,450 --> 00:00:17,720
+quick way to get a sense of what's going
+on in a very high dimensional data set.
+
+7
+00:00:17,720 --> 00:00:20,910
+So, of course, like, like most clustering
+techniques,
+
+8
+00:00:22,060 --> 00:00:26,350
+for example, like, k-means for example the
+basic issue
+
+9
+00:00:26,350 --> 00:00:29,390
+that you have to deal with, you know, when
+you define the method is,
+
+10
+00:00:29,390 --> 00:00:32,990
+how do we define when things are close
+together and when things are far apart?
+
+11
+00:00:32,990 --> 00:00:35,320
+Because all clustering methods in some
+sense try to tell you
+
+12
+00:00:35,320 --> 00:00:40,050
+when one thing is closer to another thing,
+versus something else.
+
+13
+00:00:40,050 --> 00:00:42,290
+And so, for example, things that are, you
+know, cluster are
+
+14
+00:00:42,290 --> 00:00:46,450
+closer to each other than they are to
+elements of another cluster.
+
+15
+00:00:46,450 --> 00:00:47,930
+And so, we have to define what it means
+
+16
+00:00:47,930 --> 00:00:50,580
+to be close what it means to group things
+together.
+
+17
+00:00:50,580 --> 00:00:52,640
+How do we group things together?
+
+18
+00:00:52,640 --> 00:00:54,630
+And then once we've got, we have a
+distance
+
+19
+00:00:54,630 --> 00:00:56,260
+notion, we have, and we have a way of
+grouping
+
+20
+00:00:56,260 --> 00:00:59,200
+things together, how do we visualize the,
+you know,
+
+21
+00:00:59,200 --> 00:01:01,520
+the processing that we've done, the
+calculation that we've done?
+
+22
+00:01:01,520 --> 00:01:05,890
+And how do we interpret you know, how the
+grouping is put together?
+
+23
+00:01:05,890 --> 00:01:09,950
+Cluster analysis is a really important and
+widely used technique.
+
+24
+00:01:09,950 --> 00:01:11,900
+It's a, if you just type cluster analysis
+into
+
+25
+00:01:11,900 --> 00:01:14,500
+Google, there are literally millions of
+results that come back.
+
+26
+00:01:14,500 --> 00:01:17,900
+And it's a widely applied method in all,
+
+27
+00:01:17,900 --> 00:01:21,270
+in many different areas of science and
+other applications.
+
+28
+00:01:21,270 --> 00:01:23,370
+And so it's useful to know kind of how
+these techniques work.
+
+29
+00:01:25,210 --> 00:01:28,410
+So, hierarchical clustering as, as is
+denoted by the
+
+30
+00:01:28,410 --> 00:01:32,660
+title involves organizing your data into a
+kind of hierarchy.
+
+31
+00:01:32,660 --> 00:01:33,820
+And, and the common approach is
+
+32
+00:01:33,820 --> 00:01:37,130
+what's called an aglomer, and aglomerative
+approach.
+
+33
+00:01:37,130 --> 00:01:39,270
+And the idea, it was just kind of a bottom
+up approach, so you
+
+34
+00:01:39,270 --> 00:01:43,220
+start with the data as kind of individual
+data points, and you start lumping
+
+35
+00:01:43,220 --> 00:01:45,950
+them together into clusters until
+eventually you have, you
+
+36
+00:01:45,950 --> 00:01:48,200
+know, your entire data set is just one big
+cluster.
+
+37
+00:01:48,200 --> 00:01:50,715
+So you can imagine there's all these
+little particles floating around,
+
+38
+00:01:50,715 --> 00:01:53,950
+and eventually you start kind of grouping
+them together into little balls.
+
+39
+00:01:53,950 --> 00:01:56,340
+And then the balls get grouped up into
+bigger balls, and
+
+40
+00:01:56,340 --> 00:01:59,658
+the bigger balls get grouped together into
+one big massive cluster.
+
+41
+00:01:59,658 --> 00:02:01,758
+And so that's the kind of agglomerative
+approach to clut,
+
+42
+00:02:01,758 --> 00:02:05,210
+to hierarchical clustering, and that's
+what we're going to talk about here.
+
+43
+00:02:05,210 --> 00:02:08,250
+And so the basic idea is that you gotta
+find the,
+
+44
+00:02:08,250 --> 00:02:11,870
+the two points in your data set that are
+the closest together.
+
+45
+00:02:11,870 --> 00:02:13,810
+And then, you kind of merge them together
+to
+
+46
+00:02:13,810 --> 00:02:17,970
+create one, you know, super-point, so that
+the merged point
+
+47
+00:02:17,970 --> 00:02:19,770
+is not an actual point in your data set,
+but
+
+48
+00:02:19,770 --> 00:02:21,800
+you can think of it as being a new point.
+
+49
+00:02:21,800 --> 00:02:24,540
+And then, you kind of remove your original
+two data points,
+
+50
+00:02:24,540 --> 00:02:27,960
+and you substitute with that, or that kind
+of, merged point.
+
+51
+00:02:27,960 --> 00:02:29,580
+And you kind of repeat this over and over
+again.
+
+52
+00:02:29,580 --> 00:02:33,110
+So, then, you find the next two closest
+things, and you put them together.
+
+53
+00:02:35,160 --> 00:02:36,690
+And then you, as you kind of, and then
+once
+
+54
+00:02:36,690 --> 00:02:38,360
+you kind of put things together, you get
+like a
+
+55
+00:02:38,360 --> 00:02:41,900
+little tree that you can show that
+kind of, that
+
+56
+00:02:41,900 --> 00:02:44,540
+shows the ordering in which things were
+put together.
+
+57
+00:02:44,540 --> 00:02:47,040
+And so this approach requires two
+important things.
+
+58
+00:02:47,040 --> 00:02:49,360
+One is a distance metric.
+
+59
+00:02:49,360 --> 00:02:51,989
+So what is how do you calculate the
+distance between two points?
+
+60
+00:02:53,170 --> 00:02:56,780
+And, the other thing that is required is
+an approach for merging points.
+
+61
+00:02:56,780 --> 00:03:01,090
+So once you, once you've figured out, okay
+well, these two points are the closest
+
+62
+00:03:01,090 --> 00:03:02,780
+how do you merge them together?
+
+63
+00:03:02,780 --> 00:03:07,530
+And so the nice thing that hierarchical
+clustering produces is a, is a
+
+64
+00:03:07,530 --> 00:03:10,690
+tree which is sometimes called the
+dendrogram
+
+65
+00:03:10,690 --> 00:03:12,950
+that shows how things are merged together.
+
+66
+00:03:12,950 --> 00:03:15,470
+And so the most important, arguably the
+most
+
+67
+00:03:15,470 --> 00:03:17,990
+important question to really, to kind of
+resolve
+
+68
+00:03:17,990 --> 00:03:20,390
+in a, in a hierarchical clustering
+approach is
+
+69
+00:03:20,390 --> 00:03:22,740
+to define what do we mean by close.
+
+70
+00:03:22,740 --> 00:03:24,250
+Because if you have a definition that
+doesn't
+
+71
+00:03:24,250 --> 00:03:26,180
+make sense for your problem then you just
+get
+
+72
+00:03:26,180 --> 00:03:27,510
+garbage in, garbage out, right?
+
+73
+00:03:27,510 --> 00:03:29,770
+So you have a, a distance metric that
+doesn't make
+
+74
+00:03:29,770 --> 00:03:33,450
+sense then the results that you get will
+be relatively meaningless.
+
+75
+00:03:33,450 --> 00:03:37,600
+So there are a few examples of distance
+metrics that are used out there.
+
+76
+00:03:37,600 --> 00:03:42,570
+Probably the most kind of familiar
+distance metric is the Euclidean distance,
+
+77
+00:03:42,570 --> 00:03:45,170
+which is just kind of the straight-line
+distance between any two points.
+
+78
+00:03:46,930 --> 00:03:51,230
+A kind of analogous distance metric is the
+correlation between two points, or the
+
+79
+00:03:51,230 --> 00:03:53,170
+correlation similarity.
+
+80
+00:03:53,170 --> 00:03:56,570
+And then another metric is the binary
+distance or, or the Manhattan distance,
+
+81
+00:03:56,570 --> 00:04:01,030
+and I'll, we'll talk a little bit about
+what that means in a second.
+
+82
+00:04:01,030 --> 00:04:03,510
+So you have to make, you have to pick a
+distance metric that's, makes
+
+83
+00:04:03,510 --> 00:04:07,830
+sense for your problem so that you can
+produce results that also make sense.
+
+84
+00:04:08,870 --> 00:04:11,610
+And so, here's Euclidean distance, a
+simple diagram.
+
+85
+00:04:11,610 --> 00:04:16,368
+So if you take two cities, for example,
+Baltimore and D.C., or Washington D.C.,
+
+86
+00:04:16,368 --> 00:04:19,430
+then if you map, put them on a, on a, on a
+map for example.
+
+87
+00:04:19,430 --> 00:04:21,320
+And there's, there's, so, you can imagine
+that the center
+
+88
+00:04:21,320 --> 00:04:23,230
+of each city has an X and a Y coordinate.
+
+89
+00:04:24,682 --> 00:04:29,160
+And you want to say map the distance
+between the two centers of the two cities.
+
+90
+00:04:29,160 --> 00:04:32,800
+well, you can draw a straight diagonal
+line between the two cities.
+
+91
+00:04:32,800 --> 00:04:36,170
+And then, the you can calculate the
+distance, kind of, in the usual way.
+
+92
+00:04:36,170 --> 00:04:38,310
+And the distance is going to be a function
+of the difference
+
+93
+00:04:38,310 --> 00:04:41,590
+in the x coordinates and the difference in
+the y coordinates.
+
+94
+00:04:41,590 --> 00:04:44,810
+So to calculate the Euclidian distance you
+take the distance you know, in the x
+
+95
+00:04:44,810 --> 00:04:46,220
+coordinates, you square it, you take the
+difference
+
+96
+00:04:46,220 --> 00:04:48,190
+in the y coordinates and you square it.
+
+97
+00:04:48,190 --> 00:04:50,090
+You add the two squares together, you take
+the square root.
+
+98
+00:04:50,090 --> 00:04:53,210
+That's the classical definition of
+Euclidian distance.
+
+99
+00:04:53,210 --> 00:04:55,270
+And so you can imagine, you know, in real
+life, it'd be like
+
+100
+00:04:55,270 --> 00:04:59,740
+if a bird were to fly from DC to
+Baltimore, they would just fly
+
+101
+00:04:59,740 --> 00:05:02,230
+straight from one city to another, they
+could, because they can fly in
+
+102
+00:05:02,230 --> 00:05:06,440
+the air and they're not impeded by things
+like roads or mountains, or whatever.
+
+103
+00:05:06,440 --> 00:05:07,530
+And so
+
+104
+00:05:07,530 --> 00:05:09,790
+that's the straight line distance between
+two cities.
+
+105
+00:05:09,790 --> 00:05:12,020
+Whether that makes sense for you depends
+on
+
+106
+00:05:12,020 --> 00:05:14,460
+you know, whether you're a bird or
+something else.
+
+107
+00:05:14,460 --> 00:05:18,840
+And so you have to think about kind of
+that in the context of your problem.
+
+108
+00:05:18,840 --> 00:05:22,690
+Now Euclidean distance is easily
+generalizable to higher dimensions.
+
+109
+00:05:22,690 --> 00:05:24,350
+But even if you have, you know, instead
+here we
+
+110
+00:05:24,350 --> 00:05:26,450
+just have two dimension, but if you have
+100 dimensions, you
+
+111
+00:05:26,450 --> 00:05:29,270
+can easily take the difference between
+100, each of the dimensions,
+
+112
+00:05:29,270 --> 00:05:31,680
+square it, sum it together and then take
+the square root.
+
+113
+00:05:31,680 --> 00:05:32,600
+So it's a very nice type
+
+114
+00:05:32,600 --> 00:05:35,623
+kind of, it, it extends very naturally to
+very high dimensions problems.
+
+115
+00:05:35,623 --> 00:05:43,036
+[BLANK_AUDIO]
+
+116
+00:05:43,036 --> 00:05:48,052
+The Manhattan distance gets its name from
+the idea that, you know, you can, you
+
+117
+00:05:48,052 --> 00:05:51,730
+can look at points on a kind of a grid or
+a city block grid.
+
+118
+00:05:51,730 --> 00:05:55,120
+Think or imagine you're in the city of
+Manhattan in New York.
+
+119
+00:05:55,120 --> 00:05:56,820
+And you want to get from one point to
+another.
+
+120
+00:05:56,820 --> 00:06:00,120
+So you can look at the two black circles
+on this diagram.
+
+121
+00:06:00,120 --> 00:06:02,290
+And if you want to get from one point to
+another,
+
+122
+00:06:02,290 --> 00:06:03,870
+if you're in a city, you know, in a city
+
+123
+00:06:03,870 --> 00:06:06,180
+block, you can't just go directly from one
+point to
+
+124
+00:06:06,180 --> 00:06:08,320
+another, because there'd be all these
+buildings in the way, or
+
+125
+00:06:08,320 --> 00:06:09,970
+you'd have to follow the streets.
+
+126
+00:06:11,040 --> 00:06:13,320
+And so in the streets, because they're in
+a grid,
+
+127
+00:06:13,320 --> 00:06:16,196
+you can either go up or down, or left or
+right.
+
+128
+00:06:16,196 --> 00:06:17,560
+The green line here in that case would
+
+129
+00:06:17,560 --> 00:06:19,716
+represent the Euclidean distance which
+would be like if,
+
+130
+00:06:19,716 --> 00:06:21,080
+you know, if you were a bird, and you
+
+131
+00:06:21,080 --> 00:06:24,095
+wanted to fly over everything, across the
+two points.
+
+132
+00:06:24,095 --> 00:06:27,310
+But as a person walking on the ground, you
+have to take either the red line,
+
+133
+00:06:27,310 --> 00:06:29,590
+the blue line, or the yellow line, or
+
+134
+00:06:29,590 --> 00:06:31,970
+any other, kind of, kind of pattern in
+between.
+
+135
+00:06:31,970 --> 00:06:33,580
+The point is that you'd have to travel
+along
+
+136
+00:06:33,580 --> 00:06:34,620
+the city blocks.
+
+137
+00:06:34,620 --> 00:06:38,470
+And so, the distance that you would travel
+along the city blocks here, in the
+
+138
+00:06:38,470 --> 00:06:40,510
+gray, kind of, you can imagine the gray
+
+139
+00:06:40,510 --> 00:06:43,640
+lines as the streets, that's the Manhattan
+distance.
+
+140
+00:06:43,640 --> 00:06:45,980
+And it, it can written formulaically as
+the,
+
+141
+00:06:45,980 --> 00:06:48,772
+as the absolute sum of all the different
+coordinates.
+
+142
+00:06:48,772 --> 00:06:51,166
+So if you have two coordinates, you know,
+and you
+
+143
+00:06:51,166 --> 00:06:53,902
+sum the distance that you travel in the X
+dimension,
+
+144
+00:06:53,902 --> 00:06:56,524
+and then you sum, and then the distance,
+the absolute
+
+145
+00:06:56,524 --> 00:06:59,160
+value of the distance you travel in the Y
+direction.
+
+146
+00:06:59,160 --> 00:07:03,207
+And so the Manhattan distance can be
+useful in some contexts, and, and so and,
+
+147
+00:07:03,207 --> 00:07:05,373
+because it more, it may, in some contexts,
+
+148
+00:07:05,373 --> 00:07:09,236
+more accurately represent the distance
+between two points.
+
+149
+00:07:09,236 --> 00:07:12,729
+In particular, in a city like Manhattan,
+two points may be very far apart.
+
+150
+00:07:13,920 --> 00:07:15,900
+Even if they, you know, if they seem
+relatively
+
+151
+00:07:15,900 --> 00:07:19,320
+close, you know, in a, in a Euclidean
+distance sense.
+
