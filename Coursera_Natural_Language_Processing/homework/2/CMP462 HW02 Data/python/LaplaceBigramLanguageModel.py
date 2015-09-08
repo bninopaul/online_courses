@@ -24,22 +24,10 @@ class LaplaceBigramLanguageModel:
             wordi = sentence.data[i].word
             wordinext = sentence.data[i+1].word
             pair = (wordi, wordinext)
-            if pair in self.pair_words:
-                self.pair_words[pair]+=1
-            else:
-                self.pair_words[pair]=1
-            self.record_freq(i, wordi, wordinext, sentence.data)
-
-  def record_freq(self, i, wordi, wordinext, sentence):
-    if i==len(sentence)-2:
-        if wordinext in self.words:
-            self.words[wordinext]+=1
-        else:
-            self.words[wordinext]=1
-    if wordi in self.words:
-        self.words[wordi]+=1
-    else:
-        self.words[wordi]=1
+            self.pair_words[pair]+=1
+            if i == len(sentence.data)-2:
+                self.words[wordinext]+=1
+            self.words[wordi]+=1
 
   def score(self, sentence):
     """ Takes a list of strings as argument and returns the log-probability of the
