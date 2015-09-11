@@ -1,0 +1,49 @@
+Ideas to improve the model:
+
+1. Using Boolean vs. normal Naive Bayes i.e. using counts for words in a
+document or just the occurrences.
+
+PYTHON SCRIPT FILE: BooleanNaiveBayes.py
+OBSERVATIONS:
+Normal Naive Bayes:
+	Average Accuracy for 10-fold cross validation:
+	 - with stopwords: 0.81650
+	 - without stopwords: 0.81100
+Boolean Naive Bayes:
+	Average Accuracy for 10-fold cross validation:
+	 - with stopwords: 0.738500 
+	 - without stopwords:0.79000
+
+2. Using an SVM for classification instead of Naive Bayes. You can use the SVM
+implementation of the package sklearn included with Python(x,y)
+
+PYTHON SCRIPT FILE: sklearnNaiveBayes.py
+		    sklearnSVM.py
+OBSERVATIONS:
+sklearn Naive Bayes:
+	Average Accuracy for 10-fold cross validation:
+	- with stopwords = 0.816500
+	- without stopwords = 0.807000
+sklearn SVM:
+	Average Accuracy for 10-fold cross validation:
+	- with stopwords = 0.677000
+	- without stopwords = 0.553000 
+
+
+3. Implementing simple negation features. For example, detect some negation
+words(use Not, n't, never) and add NOT_ to each word until the next
+punctuation(e.g. period, comma, question mark, ... etc.). You will need to
+write regular expressions to do that.
+
+PYTHON SCRIPT FILE: DetectNegativeNaiveBayes.py
+OBSERVATIONS:
+Average Accuracy for 10-fold cross validation:
+-with stopwords = 0.819000
+-without stopwords = 0.811000
+
+
+4. Use a sentiment lexicon instead of using all words in the documents (e.g.
+the MPQA lexicon). You can try using the lexicon in two ways:
+- Use it as the only vocabulary.
+- Add features for the presence of these words i.e. add it to the existing
+  vocabulary as a Boolean feature.
