@@ -1,0 +1,105 @@
+1. No modification(default score):
+
+Total time spent in optimization: 23.36s
+
+precision = 0.8015075376884422
+recall = 0.5223799126637555
+F1 = 0.6325181758096496
+
+2.Feature: 
+if currentWord[0].isupper():
+   features.append("case=Title")
+
+precision = 0.9533502968617472
+recall = 0.6135371179039302
+F1 = 0.7465958153437396
+
+3. Feature:
+
+        prevWord = words[position-1]
+
+        if currentWord[0].isupper():
+            features.append("case=Title")
+            if prevWord == '.':
+                features.append("begin=True")
+
+precision = 0.958005249343832
+recall = 0.597707423580786
+F1 = 0.7361344537815127
+
+4. Feature:
+        prevWord = words[position-1]
+
+        if currentWord[0].isupper():
+            features.append("case=Title")
+            if prevWord != '.':
+                features.append("begin=False")
+
+precision = 0.9508340649692713
+recall = 0.5911572052401747
+F1 = 0.7290474587680915
+
+5. Feature: 
+
+
+        prevWord = words[position-1]
+
+        if currentWord[0].isupper():
+            features.append("case=Title")
+            if prevWord in punctuation:
+                features.append("punc_bef=TRUE")
+
+precision = 0.9568345323741008
+recall = 0.5807860262008734
+F1 = 0.7228260869565217
+
+6. Feature:
+
+        prevWord = words[position-1]
+        if currentWord[0].isupper():
+            features.append("case=Title")
+        if previousLabel=="PERSON"and prevWord[0].isupper():
+            features.append("prevlabel=True")
+        if previousLabel=="O" and currentWord[0].isupper():
+            features.append("beg=True")
+
+precision = 0.9477977161500816
+recall = 0.6342794759825328
+F1 = 0.7599738391105297
+
+7. Feature:
+        prevWord = words[position-1]
+        if currentWord[0].isupper():
+            features.append("case=Title")
+        if previousLabel=="PERSON"and prevWord[0].isupper():
+            features.append("prevlabel=True")
+        if previousLabel=="O" and currentWord[0].isupper():
+            features.append("beg=True")
+        #titles = ["President", "Minister", "Chairman","Patriarch", "Sir"]
+        #if prevWord[0].isupper() and previousLabel=="O" and  prevWord in
+titles:
+        #    features.append("title=True")
+        if currentWord[-1]=="."and currentWord[0].isupper():
+            features.append("abbr=True")
+        if currentWord[0].isupper() and prevWord[0].isupper() and
+prevWord[-1]==".":
+           features.append("feat=wordsabb")
+
+precision = 0.9474110032362459
+recall = 0.6391921397379913
+F1 = 0.7633637548891786
+
+8. Feature
+        if currentWord in self.names_:
+            features.append("in_the_list=True")
+        prevWord = words[position-1]
+        if currentWord[0].isupper():
+            features.append("case=Title")
+        if previousLabel=="PERSON"and prevWord[0].isupper():
+            features.append("prevlabel=True")
+        if previousLabel=="O" and currentWord[0].isupper():
+            features.append("beg=True")
+
+precision = 0.944620253164557
+recall = 0.6517467248908297
+F1 = 0.7713178294573645
